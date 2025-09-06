@@ -1,0 +1,22 @@
+---
+title: "Monthly Indoor CO2 Summary"
+format: html
+editor: visual
+---
+
+# The monthly indoorCO2map.com summary
+
+## Buildings
+
+```{r}
+
+unmod_df <- autocruller::ac_get_co2("web") |> 
+    dplyr::filter(dplyr::between(
+        lubridate::floor_date(date, unit = "month"),
+        lubridate::today() |> lubridate::floor_date(unit = "month"),
+        lubridate::today() |> lubridate::ceiling_date(unit = "month")
+    ))
+long_df <- autocruller::ac_unnest_longer(unmod_df)
+```
+
+This month there were `r nrow(unmod_df)` measurements of `length(unique(unmod_df$combined_id))` unique buildings. 
