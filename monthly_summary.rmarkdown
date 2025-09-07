@@ -6,7 +6,9 @@ execute:
   echo: false
 ---
 
+
 # The monthly indoorCO2map.com summary
+
 
 ```{r}
 #| include: false
@@ -43,9 +45,11 @@ transit_long_df |>
 # everything_df <- dplyr::bind_rows()
 ```
 
+
 ## Buildings
 
 This month there were `r nrow(buildings_wide_df)` measurements of `r length(unique(buildings_wide_df$combined_id))` unique buildings. 
+
 
 ```{r}
 countries_count <- 
@@ -80,7 +84,9 @@ countries_count |>
     
 ```
 
+
 Make a year to date point graph of co2~date with points coloured by amenity type.
+
 
 ```{r}
 tidyplot(
@@ -100,11 +106,13 @@ tidyplot(
   adjust_caption("Data from indoorCO2map.com")
 ```
 
+
 ## Transit
 
 ## Everything
 
 Combine both long datasets and then make a beeswarm comparing buildings to transit
+
 ```{r}
 buildings_long_df |> 
     dplyr::group_by(obs_number) |> 
