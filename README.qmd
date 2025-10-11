@@ -1,6 +1,6 @@
 ---
 title: "Monthly Indoor CO2 Summary"
-format: html
+format: gfm
 editor: visual
 execute:
   echo: false
@@ -11,7 +11,7 @@ execute:
 ```{r}
 #| warning: false
 #| message: false
-#| include: false
+#| include: false 
 library(ggplot2)
 library(tidyplots)
 library(gt)
@@ -129,7 +129,7 @@ buildings_wide_df_short |>
   dplyr::slice_max(n = 1, order_by = n)
 ```
 
-This month there were `r nrow(buildings_wide_df_short)` measurements of `r length(unique(buildings_wide_df_short$combined_id))` unique buildings. `r describe_most_measured(most_measured)`  
+This month there were `r nrow(buildings_wide_df_short)` measurements of `r length(unique(buildings_wide_df_short$combined_id))` unique buildings. `r describe_most_measured(most_measured)`
 
 ```{r}
 #| warning: false
@@ -196,7 +196,6 @@ countries_count |>
     adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
 
-
 ```{r}
 range01 <- function(x, ...){(x - min(x, ...)) / (max(x, ...) - min(x, ...))}
 
@@ -246,7 +245,8 @@ highest_sentence <- highest_building |>
   ) |> 
     describe_buildings(measure = "highest")
 ```
-`r highest_sentence` `r lowest_sentence` There were some measurements that were even lower than this, but we have removed them from this analysis. Generally outdoor CO^2^ levels don't go below 410 ppm, therefore we have removed any datapoints that are below 400 ppm. If your CO^2^ monitor consistently shows levels below 410 ppm while you are inside or outside, it is likely that your monitor needs recalibrating.  
+
+`r highest_sentence` `r lowest_sentence` There were some measurements that were even lower than this, but we have removed them from this analysis. Generally outdoor CO^2^ levels don't go below 410 ppm, therefore we have removed any datapoints that are below 400 ppm. If your CO^2^ monitor consistently shows levels below 410 ppm while you are inside or outside, it is likely that your monitor needs recalibrating.
 
 ```{r}
 #| warning: false
@@ -272,7 +272,6 @@ ggplot(co2df, aes(x = time, y = co2, color = building)) +
     legend.position="none"
     )
 ```
-
 
 ```{r}
 #| warning: false
@@ -506,12 +505,12 @@ tidyplot(
   adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
 
-
 ## Transit
 
 ## Everything
 
 Combine both long datasets and then make a beeswarm comparing buildings to transit
+
 ```{r}
 #| warning: false
 #| message: false
