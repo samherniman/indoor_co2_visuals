@@ -1,7 +1,6 @@
-# Monthly indoorCO2map.com Summary
 
 
-# Summary for the month of September
+# Monthly indoorCO2map.com Summary for the month of September
 
 ## Buildings
 
@@ -32,20 +31,20 @@ that do in fact have well ventilated spaces.
 
 <div>
 
-<div id="uyavkkdfib" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#uyavkkdfib table {
+<div id="pjxpbaehbq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pjxpbaehbq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-&#10;#uyavkkdfib thead, #uyavkkdfib tbody, #uyavkkdfib tfoot, #uyavkkdfib tr, #uyavkkdfib td, #uyavkkdfib th {
+&#10;#pjxpbaehbq thead, #pjxpbaehbq tbody, #pjxpbaehbq tfoot, #pjxpbaehbq tr, #pjxpbaehbq td, #pjxpbaehbq th {
   border-style: none;
 }
-&#10;#uyavkkdfib p {
+&#10;#pjxpbaehbq p {
   margin: 0;
   padding: 0;
 }
-&#10;#uyavkkdfib .gt_table {
+&#10;#pjxpbaehbq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -70,11 +69,11 @@ that do in fact have well ventilated spaces.
   border-left-width: 2px;
   border-left-color: #D3D3D3;
 }
-&#10;#uyavkkdfib .gt_caption {
+&#10;#pjxpbaehbq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
-&#10;#uyavkkdfib .gt_title {
+&#10;#pjxpbaehbq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -85,7 +84,7 @@ that do in fact have well ventilated spaces.
   border-bottom-color: #FFFFFF;
   border-bottom-width: 0;
 }
-&#10;#uyavkkdfib .gt_subtitle {
+&#10;#pjxpbaehbq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -96,7 +95,7 @@ that do in fact have well ventilated spaces.
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
-&#10;#uyavkkdfib .gt_heading {
+&#10;#pjxpbaehbq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -107,12 +106,12 @@ that do in fact have well ventilated spaces.
   border-right-width: 1px;
   border-right-color: #D3D3D3;
 }
-&#10;#uyavkkdfib .gt_bottom_border {
+&#10;#pjxpbaehbq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
-&#10;#uyavkkdfib .gt_col_headings {
+&#10;#pjxpbaehbq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -126,7 +125,7 @@ that do in fact have well ventilated spaces.
   border-right-width: 1px;
   border-right-color: #D3D3D3;
 }
-&#10;#uyavkkdfib .gt_col_heading {
+&#10;#pjxpbaehbq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -145,7 +144,7 @@ that do in fact have well ventilated spaces.
   padding-right: 5px;
   overflow-x: hidden;
 }
-&#10;#uyavkkdfib .gt_column_spanner_outer {
+&#10;#pjxpbaehbq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -156,13 +155,13 @@ that do in fact have well ventilated spaces.
   padding-left: 4px;
   padding-right: 4px;
 }
-&#10;#uyavkkdfib .gt_column_spanner_outer:first-child {
+&#10;#pjxpbaehbq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
-&#10;#uyavkkdfib .gt_column_spanner_outer:last-child {
+&#10;#pjxpbaehbq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
-&#10;#uyavkkdfib .gt_column_spanner {
+&#10;#pjxpbaehbq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -173,10 +172,10 @@ that do in fact have well ventilated spaces.
   display: inline-block;
   width: 100%;
 }
-&#10;#uyavkkdfib .gt_spanner_row {
+&#10;#pjxpbaehbq .gt_spanner_row {
   border-bottom-style: hidden;
 }
-&#10;#uyavkkdfib .gt_group_heading {
+&#10;#pjxpbaehbq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -201,7 +200,7 @@ that do in fact have well ventilated spaces.
   vertical-align: middle;
   text-align: left;
 }
-&#10;#uyavkkdfib .gt_empty_group_heading {
+&#10;#pjxpbaehbq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -215,13 +214,13 @@ that do in fact have well ventilated spaces.
   border-bottom-color: #D3D3D3;
   vertical-align: middle;
 }
-&#10;#uyavkkdfib .gt_from_md > :first-child {
+&#10;#pjxpbaehbq .gt_from_md > :first-child {
   margin-top: 0;
 }
-&#10;#uyavkkdfib .gt_from_md > :last-child {
+&#10;#pjxpbaehbq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
-&#10;#uyavkkdfib .gt_row {
+&#10;#pjxpbaehbq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -239,7 +238,7 @@ that do in fact have well ventilated spaces.
   vertical-align: middle;
   overflow-x: hidden;
 }
-&#10;#uyavkkdfib .gt_stub {
+&#10;#pjxpbaehbq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -251,7 +250,7 @@ that do in fact have well ventilated spaces.
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#uyavkkdfib .gt_stub_row_group {
+&#10;#pjxpbaehbq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -264,13 +263,13 @@ that do in fact have well ventilated spaces.
   padding-right: 5px;
   vertical-align: top;
 }
-&#10;#uyavkkdfib .gt_row_group_first td {
+&#10;#pjxpbaehbq .gt_row_group_first td {
   border-top-width: 2px;
 }
-&#10;#uyavkkdfib .gt_row_group_first th {
+&#10;#pjxpbaehbq .gt_row_group_first th {
   border-top-width: 2px;
 }
-&#10;#uyavkkdfib .gt_summary_row {
+&#10;#pjxpbaehbq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -279,14 +278,14 @@ that do in fact have well ventilated spaces.
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#uyavkkdfib .gt_first_summary_row {
+&#10;#pjxpbaehbq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
-&#10;#uyavkkdfib .gt_first_summary_row.thick {
+&#10;#pjxpbaehbq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
-&#10;#uyavkkdfib .gt_last_summary_row {
+&#10;#pjxpbaehbq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -295,7 +294,7 @@ that do in fact have well ventilated spaces.
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
-&#10;#uyavkkdfib .gt_grand_summary_row {
+&#10;#pjxpbaehbq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -304,7 +303,7 @@ that do in fact have well ventilated spaces.
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#uyavkkdfib .gt_first_grand_summary_row {
+&#10;#pjxpbaehbq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -313,7 +312,7 @@ that do in fact have well ventilated spaces.
   border-top-width: 6px;
   border-top-color: #D3D3D3;
 }
-&#10;#uyavkkdfib .gt_last_grand_summary_row_top {
+&#10;#pjxpbaehbq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -322,10 +321,10 @@ that do in fact have well ventilated spaces.
   border-bottom-width: 6px;
   border-bottom-color: #D3D3D3;
 }
-&#10;#uyavkkdfib .gt_striped {
+&#10;#pjxpbaehbq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
-&#10;#uyavkkdfib .gt_table_body {
+&#10;#pjxpbaehbq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -333,7 +332,7 @@ that do in fact have well ventilated spaces.
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
-&#10;#uyavkkdfib .gt_footnotes {
+&#10;#pjxpbaehbq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -346,7 +345,7 @@ that do in fact have well ventilated spaces.
   border-right-width: 2px;
   border-right-color: #D3D3D3;
 }
-&#10;#uyavkkdfib .gt_footnote {
+&#10;#pjxpbaehbq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -354,7 +353,7 @@ that do in fact have well ventilated spaces.
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#uyavkkdfib .gt_sourcenotes {
+&#10;#pjxpbaehbq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -367,64 +366,64 @@ that do in fact have well ventilated spaces.
   border-right-width: 2px;
   border-right-color: #D3D3D3;
 }
-&#10;#uyavkkdfib .gt_sourcenote {
+&#10;#pjxpbaehbq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#uyavkkdfib .gt_left {
+&#10;#pjxpbaehbq .gt_left {
   text-align: left;
 }
-&#10;#uyavkkdfib .gt_center {
+&#10;#pjxpbaehbq .gt_center {
   text-align: center;
 }
-&#10;#uyavkkdfib .gt_right {
+&#10;#pjxpbaehbq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
-&#10;#uyavkkdfib .gt_font_normal {
+&#10;#pjxpbaehbq .gt_font_normal {
   font-weight: normal;
 }
-&#10;#uyavkkdfib .gt_font_bold {
+&#10;#pjxpbaehbq .gt_font_bold {
   font-weight: bold;
 }
-&#10;#uyavkkdfib .gt_font_italic {
+&#10;#pjxpbaehbq .gt_font_italic {
   font-style: italic;
 }
-&#10;#uyavkkdfib .gt_super {
+&#10;#pjxpbaehbq .gt_super {
   font-size: 65%;
 }
-&#10;#uyavkkdfib .gt_footnote_marks {
+&#10;#pjxpbaehbq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
-&#10;#uyavkkdfib .gt_asterisk {
+&#10;#pjxpbaehbq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
-&#10;#uyavkkdfib .gt_indent_1 {
+&#10;#pjxpbaehbq .gt_indent_1 {
   text-indent: 5px;
 }
-&#10;#uyavkkdfib .gt_indent_2 {
+&#10;#pjxpbaehbq .gt_indent_2 {
   text-indent: 10px;
 }
-&#10;#uyavkkdfib .gt_indent_3 {
+&#10;#pjxpbaehbq .gt_indent_3 {
   text-indent: 15px;
 }
-&#10;#uyavkkdfib .gt_indent_4 {
+&#10;#pjxpbaehbq .gt_indent_4 {
   text-indent: 20px;
 }
-&#10;#uyavkkdfib .gt_indent_5 {
+&#10;#pjxpbaehbq .gt_indent_5 {
   text-indent: 25px;
 }
-&#10;#uyavkkdfib .katex-display {
+&#10;#pjxpbaehbq .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
-&#10;#uyavkkdfib div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+&#10;#pjxpbaehbq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -491,837 +490,6 @@ that do in fact have well ventilated spaces.
 Here is a graph of all the recordings that happened this month shown by
 the grey curves. I’ve highlighted the highest and lowest ones.
 
-    `geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'
-
-    Warning: Failed to fit group 1.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 2.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 3.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 5.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 7.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 9.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 12.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 18.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 19.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 21.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 23.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 35.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 37.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 38.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 43.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 55.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 58.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 65.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 67.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 69.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 75.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 79.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 81.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 82.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 83.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 84.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 85.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 87.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 88.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 90.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 95.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 98.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 100.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 102.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 104.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 105.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 108.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 109.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 116.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 117.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 118.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 119.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 121.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 127.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 139.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 140.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 143.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 144.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 151.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 154.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 156.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 158.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 161.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 162.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 163.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 167.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 177.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 191.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 194.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 209.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 212.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 215.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 216.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 217.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 220.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 225.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 226.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 236.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 241.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 243.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 246.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 253.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 258.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 259.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 264.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 266.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 269.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 276.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 283.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 284.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 286.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 288.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 291.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 300.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 306.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 308.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 311.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 316.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 326.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 328.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 332.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 336.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 339.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 342.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 343.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 350.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 351.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 352.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 353.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 354.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 355.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 360.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 361.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 368.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 369.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 374.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 375.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 385.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 389.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 401.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 402.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 404.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 405.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 406.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 409.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 415.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 418.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 419.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 420.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 430.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 432.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 435.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 436.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 446.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 451.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 460.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 462.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 464.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 466.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 468.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 472.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 473.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 476.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 480.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 482.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 484.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 492.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 493.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 494.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 508.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 516.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 522.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 531.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 534.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 539.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 541.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 544.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 549.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 556.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 562.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 566.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 572.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 589.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 598.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 603.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 629.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 632.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 635.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 638.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 641.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 648.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 662.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 678.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 680.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 686.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 692.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 702.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 728.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 729.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 739.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 742.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 743.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 750.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 752.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 766.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 770.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 773.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 775.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 783.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 784.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 786.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 787.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 789.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 791.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 807.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 811.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 817.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 820.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 827.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 833.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 837.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 840.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 844.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 857.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    Warning: Failed to fit group 866.
-    Caused by error in `smooth.construct.cr.smooth.spec()`:
-    ! x has insufficient unique values to support 10 knots: reduce k.
-
-    `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
-
-    Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    : span too small.  fewer data values than degrees of freedom.
-
-    Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    : pseudoinverse used at -0.005
-
-    Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    : neighborhood radius 0.505
-
-    Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    : reciprocal condition number 0
-
-    Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    : There are other near singularities as well. 0.25502
-
-    Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    : span too small.  fewer data values than degrees of freedom.
-
-    Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    : pseudoinverse used at -0.005
-
-    Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    : neighborhood radius 0.505
-
-    Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    : reciprocal condition number 0
-
-    Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    : There are other near singularities as well. 0.25502
-
-    `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
-
-    Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    : span too small.  fewer data values than degrees of freedom.
-
-    Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    : pseudoinverse used at -0.005
-
-    Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    : neighborhood radius 0.505
-
-    Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    : reciprocal condition number 0
-
-    Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
-    : There are other near singularities as well. 0.25502
-
 ![](README_files/figure-commonmark/unnamed-chunk-15-1.png)
 
 ## Trends over time
@@ -1338,7 +506,3 @@ the grey curves. I’ve highlighted the highest and lowest ones.
 
 Combine both long datasets and then make a beeswarm comparing buildings
 to transit
-
-![](README_files/figure-commonmark/unnamed-chunk-20-1.png)
-
-![](README_files/figure-commonmark/unnamed-chunk-21-1.png)
