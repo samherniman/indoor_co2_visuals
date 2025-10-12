@@ -1,12 +1,12 @@
 ---
-title: "Monthly Indoor CO2 Summary"
+title: "Monthly indoorCO2map.com Summary"
 format: gfm
 editor: visual
 execute:
   echo: false
 ---
 
-# The monthly indoorCO2map.com summary
+# Summary for the month of `r lubridate::ymd("2025-09-20")  |> lubridate::month(label = TRUE, abbr = FALSE)`
 
 ```{r}
 #| warning: false
@@ -118,7 +118,6 @@ buildings_wide_df_short |>
     nwrname = dplyr::first(nwrname),
     osmtag = dplyr::first(osmtag),
     countryname = dplyr::first(countryname),
-    # day_interval = lubridate::interval(min(date), max(date)),
     location_description = dplyr::first(location_description),
     min_day = min(date),
     max_day = max(date),
@@ -244,9 +243,46 @@ highest_sentence <- highest_building |>
     median_co2 = dplyr::first(median_co2)
   ) |> 
     describe_buildings(measure = "highest")
+
+co2_threshold <- 500
+
+buildings_under_threshold <- 
+  buildings_long_df_med |> 
+  dplyr::filter(median_co2 < co2_threshold) |> 
+  dplyr::group_by(obs_number) |> 
+  dplyr::summarise(
+    name = dplyr::first(nwrname),
+    co2 = dplyr::first(median_co2),
+    osmtag = dplyr::first(osmtag) |> stringr::str_to_sentence(),
+    location_description = dplyr::first(location_description)
+  ) |> 
+  dplyr::select(
+    -obs_number
+  )
 ```
 
 `r highest_sentence` `r lowest_sentence` There were some measurements that were even lower than this, but we have removed them from this analysis. Generally outdoor CO^2^ levels don't go below 410 ppm, therefore we have removed any datapoints that are below 400 ppm. If your CO^2^ monitor consistently shows levels below 410 ppm while you are inside or outside, it is likely that your monitor needs recalibrating.
+
+Here is a chart showing the `r nrow(buildings_under_threshold)` measurements that had a median CO^2^ value under `r co2_threshold`. Keep in mind that some of these are potentially miscalibrated sensors or erroneous recordings where the sensor was outside. However, it is important to celebrate the places that do in fact have well ventilated spaces. 
+
+```{r}
+#| warning: false
+#| message: false
+
+# add a column showing how many times a building has been on this list
+ buildings_under_threshold |> 
+    gt() |> 
+    tab_header(title = "Measurements under 500 ppm") |> 
+    cols_label(
+        name = "Name",
+        co2 = "CO2 ppm",
+        osmtag = "Building type",
+        location_description = "Location"
+    ) |> 
+    tab_options(
+        table_body.hlines.width = 0
+        )
+```
 
 ```{r}
 #| warning: false
@@ -301,8 +337,33 @@ ggplot(co2df, aes(x = time, y = co2, color = building)) +
 Here is a graph of all the recordings that happened this month shown by the grey curves. I've highlighted the highest and lowest ones.
 
 ```{r}
+library(patchwork)
 #| warning: false
 #| message: false
+buildings_box <- 
+buildings_long_df_med |> 
+  dplyr::group_by(obs_number) |> 
+ggplot(aes(x = 1, y = co2readings)) +
+  geom_boxplot(outliers = FALSE) +
+  ylim(400, NA) + 
+  # labs(title = "Highest and lowest recordings this month") +
+  # xlab("Time (from recording start to end)") +
+  ylab(bquote(CO^2)) +
+  theme_void() +
+  theme(
+    # text = element_blank(),
+    plot.title = element_text(size = 12),
+    panel.grid = element_blank(),
+    axis.text.x = element_blank(),
+    # axis.line = element_line(colour = "black", size = 1, linetype = "solid"),
+    legend.position="none"
+    ) 
+```
+
+```{r}
+#| warning: false
+#| message: false
+buildings_lines <- 
 buildings_long_df_med |> 
   dplyr::group_by(obs_number) |> 
 ggplot(aes(x = time_range, y = co2readings, group = obs_number)) +
@@ -356,6 +417,10 @@ ggplot(aes(x = time_range, y = co2readings, group = obs_number)) +
     legend.position="none"
     ) 
 
+```
+
+```{r}
+buildings_lines + buildings_box + plot_layout(widths = c(8, 1))
 ```
 
 ## Trends over time
