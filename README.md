@@ -29,463 +29,59 @@ potentially miscalibrated sensors or erroneous recordings where the
 sensor was outside. However, it is important to celebrate the places
 that do in fact have well ventilated spaces.
 
-<div>
-
-<div id="pjxpbaehbq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pjxpbaehbq table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-&#10;#pjxpbaehbq thead, #pjxpbaehbq tbody, #pjxpbaehbq tfoot, #pjxpbaehbq tr, #pjxpbaehbq td, #pjxpbaehbq th {
-  border-style: none;
-}
-&#10;#pjxpbaehbq p {
-  margin: 0;
-  padding: 0;
-}
-&#10;#pjxpbaehbq .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-&#10;#pjxpbaehbq .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-&#10;#pjxpbaehbq .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-&#10;#pjxpbaehbq .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-&#10;#pjxpbaehbq .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-&#10;#pjxpbaehbq .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-&#10;#pjxpbaehbq .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-&#10;#pjxpbaehbq .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-&#10;#pjxpbaehbq .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-&#10;#pjxpbaehbq .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-&#10;#pjxpbaehbq .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-&#10;#pjxpbaehbq .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-&#10;#pjxpbaehbq .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-&#10;#pjxpbaehbq .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-&#10;#pjxpbaehbq .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-&#10;#pjxpbaehbq .gt_from_md > :first-child {
-  margin-top: 0;
-}
-&#10;#pjxpbaehbq .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-&#10;#pjxpbaehbq .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 0px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-&#10;#pjxpbaehbq .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-&#10;#pjxpbaehbq .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-&#10;#pjxpbaehbq .gt_row_group_first td {
-  border-top-width: 2px;
-}
-&#10;#pjxpbaehbq .gt_row_group_first th {
-  border-top-width: 2px;
-}
-&#10;#pjxpbaehbq .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-&#10;#pjxpbaehbq .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-&#10;#pjxpbaehbq .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-&#10;#pjxpbaehbq .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-&#10;#pjxpbaehbq .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-&#10;#pjxpbaehbq .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-&#10;#pjxpbaehbq .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-&#10;#pjxpbaehbq .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-&#10;#pjxpbaehbq .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-&#10;#pjxpbaehbq .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-&#10;#pjxpbaehbq .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-&#10;#pjxpbaehbq .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-&#10;#pjxpbaehbq .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-&#10;#pjxpbaehbq .gt_left {
-  text-align: left;
-}
-&#10;#pjxpbaehbq .gt_center {
-  text-align: center;
-}
-&#10;#pjxpbaehbq .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-&#10;#pjxpbaehbq .gt_font_normal {
-  font-weight: normal;
-}
-&#10;#pjxpbaehbq .gt_font_bold {
-  font-weight: bold;
-}
-&#10;#pjxpbaehbq .gt_font_italic {
-  font-style: italic;
-}
-&#10;#pjxpbaehbq .gt_super {
-  font-size: 65%;
-}
-&#10;#pjxpbaehbq .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-&#10;#pjxpbaehbq .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-&#10;#pjxpbaehbq .gt_indent_1 {
-  text-indent: 5px;
-}
-&#10;#pjxpbaehbq .gt_indent_2 {
-  text-indent: 10px;
-}
-&#10;#pjxpbaehbq .gt_indent_3 {
-  text-indent: 15px;
-}
-&#10;#pjxpbaehbq .gt_indent_4 {
-  text-indent: 20px;
-}
-&#10;#pjxpbaehbq .gt_indent_5 {
-  text-indent: 25px;
-}
-&#10;#pjxpbaehbq .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-&#10;#pjxpbaehbq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-| Measurements under 500 ppm                     |         |                     |                                         |
-|------------------------------------------------|---------|---------------------|-----------------------------------------|
-| Name                                           | CO2 ppm | Building type       | Location                                |
-| Buddha Kitchen                                 | 490.0   | Restaurant          | Hamburg, Deutschland                    |
-| Decathlon                                      | 475.0   | Sports              | NA                                      |
-| La PAM                                         | 461.0   | Mall                | Brest, France                           |
-| Opera Caféen                                   | 472.5   | Cafe                | København, Danmark                      |
-| Lagerhaus                                      | 483.0   | Doityourself        | Bezirk Korneuburg, Österreich           |
-| Tao Mini Bar                                   | 480.5   | Restaurant          | Wien, Österreich                        |
-| ese O ese                                      | 484.0   | Clothes             | Zaragoza, España                        |
-| Draulic                                        | 450.0   | Restaurant          | Alt Empordà, España                     |
-| O Bún                                          | 439.0   | Fast_food           | Brest, France                           |
-| Pepco                                          | 475.0   | Clothes             | Santiago de Compostela, España          |
-| Matcha Komatchi Lerchenfelder Straße           | 498.0   | Restaurant          | Wien, Österreich                        |
-| Feast At The Mills                             | 464.0   | Restaurant          | England, United Kingdom                 |
-| Merkal                                         | 485.0   | Shoes               | Alt Empordà, España                     |
-| Pizzeria Giangi                                | 453.5   | Restaurant          | NA                                      |
-| Museo del Puerto Fluvial de Caesaraugusta      | 473.0   | Museum              | Zaragoza, España                        |
-| Slagter og Mad                                 | 437.0   | Butcher             | København, Danmark                      |
-| Women'secret                                   | 474.0   | Clothes             | Zaragoza, España                        |
-| Het Zwaailicht                                 | 485.0   | Clothes             | Zeeland, Nederland                      |
-| Müller                                         | 489.0   | Chemist             | Rhein-Erft-Kreis, Deutschland           |
-| Delft                                          | 462.5   | Station             | Delft, Nederland                        |
-|                                                | 480.5   | Kiosk               | Essen, Deutschland                      |
-| Cineplex Germering                             | 459.0   | Cinema              | Landkreis Fürstenfeldbruck, Deutschland |
-| Interio                                        | 471.0   | Interior_decoration | Wien, Österreich                        |
-| Celler Clos Figueras & Restaurant Les Figueres | 446.0   | Restaurant          | Priorat, España                         |
-| Som Kitchen                                    | 454.0   | Fast_food           | Wien, Österreich                        |
-| Biocoop                                        | 451.0   | Supermarket         | NA                                      |
-| Trondheim folkebibliotek, Moholt               | 452.0   | Library             | Trondheim, Norge                        |
-| Alnor                                          | 487.0   | Restaurant          | NA                                      |
-| Big Fernand                                    | 423.0   | Fast_food           | Brest, France                           |
-| Senra                                          | 431.0   | Restaurant          | Bidasoa Beherea / Bajo Bidasoa, España  |
-| Les Gâteuses                                   | 455.5   | Cafe                | Brest, France                           |
-| Döner Point                                    | 448.0   | Fast_food           | Göttingen, Deutschland                  |
-| Hôtel Le Vauban                                | 423.0   | Hotel               | Brest, France                           |
-| OBI                                            | 447.0   | Doityourself        | Landkreis Forchheim, Deutschland        |
-| Carrefour City                                 | 433.0   | Convenience         | Brest, France                           |
-| La Fabrik 1801                                 | 483.0   | Bar                 | Brest, France                           |
-| Dornier Museum Friedrichshafen                 | 485.0   | Museum              | Bodenseekreis, Deutschland              |
-| T2 - International                             | 492.0   | Terminal            | Melbourne, Australia                    |
-| Universitätsklinikum Münster                   | 431.0   | Hospital            | Münster, Deutschland                    |
-| KFC                                            | 485.5   | Fast_food           | Aube, France                            |
-| Hinds Hall                                     | 499.0   |                     | City of Syracuse, United States         |
-| Kunsthalle Tübingen                            | 468.5   | Museum              | Landkreis Tübingen, Deutschland         |
-| Museum für Kunst und Kulturgeschichte          | 491.0   | Museum              | Dortmund, Deutschland                   |
-| Kaufmannshaus                                  | 456.5   | Mall                | Hamburg, Deutschland                    |
-| Globus Baumarkt                                | 480.0   | Doityourself        | Rhein-Erft-Kreis, Deutschland           |
-| Trib's                                         | 425.5   | Convenience         | Brest, France                           |
-| Ibis Hamburg St. Pauli Messe                   | 498.5   | Hotel               | Hamburg, Deutschland                    |
-| Hotel Odeon                                    | 469.0   | Hotel               | Odense, Danmark                         |
-| Acuario de Zaragoza                            | 479.0   | Aquarium            | Zaragoza, España                        |
-| Gare Montparnasse                              | 445.0   |                     | Paris, France                           |
-| Tagungszentrum                                 | 484.5   |                     | Göttingen, Deutschland                  |
-
-</div>
-
-</div>
+| Name                                           | Median CO<sup>2</sup> | Building type       | Location                                |
+|:-----------------------------------------------|----------------------:|:--------------------|:----------------------------------------|
+| Buddha Kitchen                                 |                 490.0 | Restaurant          | Hamburg, Deutschland                    |
+| Decathlon                                      |                 475.0 | Sports              | NA                                      |
+| La PAM                                         |                 461.0 | Mall                | Brest, France                           |
+| Opera Caféen                                   |                 472.5 | Cafe                | København, Danmark                      |
+| Lagerhaus                                      |                 483.0 | Doityourself        | Bezirk Korneuburg, Österreich           |
+| Tao Mini Bar                                   |                 480.5 | Restaurant          | Wien, Österreich                        |
+| ese O ese                                      |                 484.0 | Clothes             | Zaragoza, España                        |
+| Draulic                                        |                 450.0 | Restaurant          | Alt Empordà, España                     |
+| O Bún                                          |                 439.0 | Fast_food           | Brest, France                           |
+| Pepco                                          |                 475.0 | Clothes             | Santiago de Compostela, España          |
+| Matcha Komatchi Lerchenfelder Straße           |                 498.0 | Restaurant          | Wien, Österreich                        |
+| Feast At The Mills                             |                 464.0 | Restaurant          | England, United Kingdom                 |
+| Merkal                                         |                 485.0 | Shoes               | Alt Empordà, España                     |
+| Pizzeria Giangi                                |                 453.5 | Restaurant          | NA                                      |
+| Museo del Puerto Fluvial de Caesaraugusta      |                 473.0 | Museum              | Zaragoza, España                        |
+| Slagter og Mad                                 |                 437.0 | Butcher             | København, Danmark                      |
+| Women’secret                                   |                 474.0 | Clothes             | Zaragoza, España                        |
+| Het Zwaailicht                                 |                 485.0 | Clothes             | Zeeland, Nederland                      |
+| Müller                                         |                 489.0 | Chemist             | Rhein-Erft-Kreis, Deutschland           |
+| Delft                                          |                 462.5 | Station             | Delft, Nederland                        |
+|                                                |                 480.5 | Kiosk               | Essen, Deutschland                      |
+| Cineplex Germering                             |                 459.0 | Cinema              | Landkreis Fürstenfeldbruck, Deutschland |
+| Interio                                        |                 471.0 | Interior_decoration | Wien, Österreich                        |
+| Celler Clos Figueras & Restaurant Les Figueres |                 446.0 | Restaurant          | Priorat, España                         |
+| Som Kitchen                                    |                 454.0 | Fast_food           | Wien, Österreich                        |
+| Biocoop                                        |                 451.0 | Supermarket         | NA                                      |
+| Trondheim folkebibliotek, Moholt               |                 452.0 | Library             | Trondheim, Norge                        |
+| Alnor                                          |                 487.0 | Restaurant          | NA                                      |
+| Big Fernand                                    |                 423.0 | Fast_food           | Brest, France                           |
+| Senra                                          |                 431.0 | Restaurant          | Bidasoa Beherea / Bajo Bidasoa, España  |
+| Les Gâteuses                                   |                 455.5 | Cafe                | Brest, France                           |
+| Döner Point                                    |                 448.0 | Fast_food           | Göttingen, Deutschland                  |
+| Hôtel Le Vauban                                |                 423.0 | Hotel               | Brest, France                           |
+| OBI                                            |                 447.0 | Doityourself        | Landkreis Forchheim, Deutschland        |
+| Carrefour City                                 |                 433.0 | Convenience         | Brest, France                           |
+| La Fabrik 1801                                 |                 483.0 | Bar                 | Brest, France                           |
+| Dornier Museum Friedrichshafen                 |                 485.0 | Museum              | Bodenseekreis, Deutschland              |
+| T2 - International                             |                 492.0 | Terminal            | Melbourne, Australia                    |
+| Universitätsklinikum Münster                   |                 431.0 | Hospital            | Münster, Deutschland                    |
+| KFC                                            |                 485.5 | Fast_food           | Aube, France                            |
+| Hinds Hall                                     |                 499.0 |                     | City of Syracuse, United States         |
+| Kunsthalle Tübingen                            |                 468.5 | Museum              | Landkreis Tübingen, Deutschland         |
+| Museum für Kunst und Kulturgeschichte          |                 491.0 | Museum              | Dortmund, Deutschland                   |
+| Kaufmannshaus                                  |                 456.5 | Mall                | Hamburg, Deutschland                    |
+| Globus Baumarkt                                |                 480.0 | Doityourself        | Rhein-Erft-Kreis, Deutschland           |
+| Trib’s                                         |                 425.5 | Convenience         | Brest, France                           |
+| Ibis Hamburg St. Pauli Messe                   |                 498.5 | Hotel               | Hamburg, Deutschland                    |
+| Hotel Odeon                                    |                 469.0 | Hotel               | Odense, Danmark                         |
+| Acuario de Zaragoza                            |                 479.0 | Aquarium            | Zaragoza, España                        |
+| Gare Montparnasse                              |                 445.0 |                     | Paris, France                           |
+| Tagungszentrum                                 |                 484.5 |                     | Göttingen, Deutschland                  |
 
 Here is a graph of all the recordings that happened this month shown by
 the grey curves. I’ve highlighted the highest and lowest ones.

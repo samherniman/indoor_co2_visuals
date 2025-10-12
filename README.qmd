@@ -271,18 +271,22 @@ Here is a chart showing the `r nrow(buildings_under_threshold)` measurements tha
 #| message: false
 
 # add a column showing how many times a building has been on this list
- buildings_under_threshold |> 
-    gt() |> 
-    tab_header(title = "Measurements under 500 ppm") |> 
-    cols_label(
-        name = "Name",
-        co2 = "CO2 ppm",
-        osmtag = "Building type",
-        location_description = "Location"
-    ) |> 
-    tab_options(
-        table_body.hlines.width = 0
-        )
+buildings_under_threshold |> 
+  knitr::kable(
+    col.names = c("Name", "Median CO<sup>2</sup>", "Building type", "Location")
+  )
+#  buildings_under_threshold |> 
+#     gt() |> 
+#     tab_header(title = "Measurements under 500 ppm") |> 
+#     cols_label(
+#         name = "Name",
+#         co2 = "CO2 ppm",
+#         osmtag = "Building type",
+#         location_description = "Location"
+#     ) |> 
+#     tab_options(
+#         table_body.hlines.width = 0
+#         )
         
 ```
 
