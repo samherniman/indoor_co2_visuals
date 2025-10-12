@@ -4,7 +4,7 @@
 
 ## Buildings
 
-This month there were 1188 measurements of 882 unique buildings. The
+This month there were 1195 measurements of 888 unique buildings. The
 most measured building was Caritas-Krankenhaus Sankt Josef, a hospital
 in Regensburg, Deutschland (min: 505, mean: 778, max: 1086), which was
 measured 15 times.
@@ -22,6 +22,11 @@ CO<sup>2</sup> levels don’t go below 410 ppm, therefore we have removed
 any datapoints that are below 400 ppm. If your CO<sup>2</sup> monitor
 consistently shows levels below 410 ppm while you are inside or outside,
 it is likely that your monitor needs recalibrating.
+
+Here is a graph of all the recordings that happened this month shown by
+the grey curves. I’ve highlighted the highest and lowest ones.
+
+![](README_files/figure-commonmark/unnamed-chunk-14-1.png)
 
 Here is a chart showing the 51 measurements that had a median
 CO<sup>2</sup> value under 500. Keep in mind that some of these are
@@ -83,22 +88,57 @@ that do in fact have well ventilated spaces.
 | Gare Montparnasse                              |                 445.0 |                     | Paris, France                           |
 | Tagungszentrum                                 |                 484.5 |                     | Göttingen, Deutschland                  |
 
-Here is a graph of all the recordings that happened this month shown by
-the grey curves. I’ve highlighted the highest and lowest ones.
-
-![](README_files/figure-commonmark/unnamed-chunk-15-1.png)
-
 ## Trends over time
 
-![](README_files/figure-commonmark/unnamed-chunk-17-1.png)
+The following are charts that are updated every month, but they reflect
+all data collected so far from the indoorco2 monitoring project (since
+April 2024). Over time, we should be able to see yearly trends where
+CO<sup>2</sup> levels are higher in the Winter when shopkeepers close
+their windows to keep things warm and then lower CO<sup>2</sup> levels
+when shopkeepers open their windows in the Summer.  
+We can start to see trends like this in the following graph which graphs
+CO<sup>2</sup> against the week of the year. There are two relevant
+points you should know about the X axis
+`Week of the year (meteorological)`.
+
+1.  Datapoints are aggregated into weeks regardless of the year they are
+    collected in, so some weeks were measured in both 2024 and 2025 but
+    they would both show up in the same week number.
+
+2.  This takes account of the hemisphere in which the recording was
+    collected. Since Winter in the Southern Hemisphere is June through
+    August, while Winter in the Northern Hemisphere is December through
+    February, we have adjusted the week numbers so that they line up
+    meterologically. Essentially, a measurement collected in the
+    Northern Hemisphere on the first of January would show up as week 1,
+    however, a measurement collected in the Southern Hemisphere on the
+    first of January would show up as week 27.
 
 ![](README_files/figure-commonmark/unnamed-chunk-18-1.png)
 
+If we split the graph by the four most popular building types, we can
+start to see some interesting trends. Supermarkets remain relatively
+high throughout the year with little variation while fast food, and
+chemists have quite a strong dip in CO<sup>2</sup> levels during the
+Summer. This may be because most supermarkets keep their doors closed
+throughout the year and they tend to have larger buildings; conversely,
+chemists and fast food restraunts tend to be small to medium sized
+buildings which means that they can be very easily ventilated if they
+leave their front door open in the Summer. Restaurants have a very
+interesting trend here, the strong upward trend of the model at the end
+of the year is probably due to not enough measurements of restaurants
+yet rather that there being any meaningful conclusions. Over time we
+should hopefully see more stable trends show up.
+
 ![](README_files/figure-commonmark/unnamed-chunk-19-1.png)
 
-## Transit
+Here’s a histogram showing how many measurements have been recorded each
+week since the start of the project. Over the last 12 months there have
+been 10140 building measurements this year which is 845 per month or 195
+per week.
 
-## Everything
+![](README_files/figure-commonmark/unnamed-chunk-21-1.png)
 
-Combine both long datasets and then make a beeswarm comparing buildings
-to transit
+<!-- ## Transit -->
+<!-- ## Everything -->
+<!-- Combine both long datasets and then make a beeswarm comparing buildings to transit -->
