@@ -6,7 +6,17 @@ execute:
   echo: false
 ---
 
-# Monthly indoorCO2map.com Summary for the month of `r lubridate::ymd("2025-09-20")  |> lubridate::month(label = TRUE, abbr = FALSE)`
+```{r}
+#| include: false
+# things to add
+# numbers of obs by category
+# averages by category
+# map showing observations over time animation
+# lollipop summer vs winter shops - maybe summarize by category
+# highest velocity based off of different time periods
+```
+
+# Monthly indoorCO2map.com summary for `r lubridate::today()  |> lubridate::month(label = TRUE, abbr = FALSE)` `r lubridate::today()  |> lubridate::year()`
 
 ```{r}
 #| warning: false
@@ -27,24 +37,19 @@ library(patchwork)
 #| message: false
 #| include: false
 buildings_wide_df <- autocruller::ac_get_co2("web") 
-# saveRDS(buildings_wide_df, here::here("buildings_wide_df.rds"))
-# buildings_wide_df <- readRDS(here::here("buildings_wide_df.rds"))
 
 buildings_wide_df_short <- 
 buildings_wide_df |> 
-    # sf::st_drop_geometry() |> 
     dplyr::filter(dplyr::between(
         lubridate::floor_date(date, unit = "month"),
-        lubridate::ymd("2025-09-20") |> lubridate::floor_date(unit = "month"),
-        lubridate::ymd("2025-09-20") |> lubridate::ceiling_date(unit = "month")
-        # lubridate::today() |> lubridate::floor_date(unit = "month"),
-        # lubridate::today() |> lubridate::ceiling_date(unit = "month")
+        # lubridate::ymd("2025-09-20") |> lubridate::floor_date(unit = "month"),
+        # lubridate::ymd("2025-09-20") |> lubridate::ceiling_date(unit = "month")
+        lubridate::today() |> lubridate::floor_date(unit = "month"),
+        lubridate::today() |> lubridate::ceiling_date(unit = "month")
     )) |> 
         dplyr::mutate(type = "building")
 
 transit_long_df <- autocruller::ac_get_co2("transit") 
-# saveRDS(transit_long_df, here::here("transit_long_df.rds"))
-# transit_long_df <- readRDS(here::here("transit_long_df.rds"))
 
 transit_long_df_short <- 
 transit_long_df |> 
@@ -58,6 +63,26 @@ transit_long_df |>
 ```
 
 ```{r}
+common_building_types <- buildings_wide_df |> 
+  dplyr::group_by(osmtag) |> 
+  dplyr::count() |> 
+  dplyr::filter(
+    n > quantile(n, 0.98, na.rm = TRUE) & osmtag != ""
+    )
+```
+```{r}
+#| include: false
+# list new countries
+
+new_countries <- unique(buildings_wide_df_short$countryname)[!(unique(buildings_wide_df_short$countryname) %in% unique(buildings_wide_df$countryname))]
+
+new_countries_sentence <- 
+if (length(new_countries)) {
+  glue::glue("Additionally, the first {ifelse(length(new_countries)==1, 'measurement was added for the country', 'measurements were added for the countries')} of {stringr::str_flatten_comma(new_countries, last = ' and ')} this month. Welcome to the glorious world of CO^2^ monitoring {stringr::str_flatten_comma(new_countries, last = ' and ')}!")
+}
+```
+
+```{r}
 #| eval: false
 #| include: false
 
@@ -65,10 +90,51 @@ buildings_wide_df_short_geo <-
   buildings_wide_df_short |> 
   sf::st_coordinates() |> 
   as.data.frame() |> 
-  # tidygeocoder::reverse_geocode(
+  tidygeocoder::reverse_geocode(
     lat = Y, long = X, 
     method = 'osm',
     address = address_found, 
+    full_results = TRUE
+    )
+buildings_wide_df_short_geo <- 
+  buildings_wide_df_short_geo |> 
+  dplyr::mutate(
+    country = stringr::str_replace_all(country, "Schweiz/Suisse/Svizzera/Svizra", "Switzerland") |> stringr::str_replace_all("België / Belgique / Belgien", "Belgium"))
+saveRDS(buildings_wide_df_short_geo, here::here("data/derivative/buildings_wide_df_short_geo.rds"))
+```
+
+```{r}
+#| eval: false
+#| include: false
+
+# Attempt at using h3 to standardize geocoded locations
+
+# buildings_wide_df_short_geo <- 
+buildings_h3 <- 
+  buildings_wide_df_short |> 
+  sf::st_coordinates()
+  
+buildings_h3 <- 
+  h3::geo_to_h3(buildings_h3[,ncol(buildings_h3):1], 5) 
+
+buildings_wide_df_short_geo <- 
+buildings_wide_df_short |> 
+  dplyr::mutate(
+    h3_geo = sf::st_coordinates(geometry) |> h3::geo_to_h3(4)
+  )
+
+  
+buildings_wide_df_short_geo <- 
+  buildings_wide_df_short_geo$h3_geo |>
+  unique() |> 
+  h3::h3_to_geo_sf() |> 
+  sf::st_coordinates() |> 
+  data.frame() |> 
+  tidygeocoder::reverse_geocode(
+    lat = Y, long = X, 
+    method = 'osm',
+    address = address_found, 
+    # return_input = TRUE,
     full_results = TRUE
     )
 # saveRDS(buildings_wide_df_short_geo, here::here("data/derivative/buildings_wide_df_short_geo.rds"))
@@ -79,7 +145,7 @@ buildings_wide_df_short_geo <-
 describe_most_measured <- function(x) {
   sentence_mm <- 
   x |> 
-    glue::glue_data("{nwrname}, a {osmtag} in {location_description} (min: {ppm_min}, mean: {ppm_avg}, max: {ppm_max})") |> 
+    glue::glue_data("{nwrname}, a {osmtag %||% co2atlaskey} in {location_description} (min: {ppm_min}, mean: {ppm_avg}, max: {ppm_max})") |> 
     stringr::str_flatten_comma(last = " and ")
 
   if (nrow(x) == 1) {
@@ -92,7 +158,9 @@ describe_most_measured <- function(x) {
   
 }
 
-buildings_wide_df_short_geo <- readRDS(here::here("data/derivative/buildings_wide_df_short_geo.rds")) |> 
+buildings_wide_df_short_geo <- 
+  # buildings_wide_df_short_geo |> 
+  readRDS(here::here("data/derivative/buildings_wide_df_short_geo.rds")) |> 
   dplyr::rowwise() |> 
   dplyr::mutate(
     location_description = glue::glue("{city %||% county %||% province %||% state %||% town %||% municipality %||% region %||% borough %||% suburb %||% neighbourhood %||% city_district}, {country}")
@@ -112,6 +180,7 @@ buildings_long_df <- autocruller::ac_unnest_longer(buildings_wide_df_short)
 ## Buildings
   
 ```{r}
+#| echo: false
 most_measured <- 
 buildings_wide_df_short |> 
   dplyr::group_by(combined_id) |> 
@@ -130,7 +199,7 @@ buildings_wide_df_short |>
   dplyr::slice_max(n = 1, order_by = n)
 ```
 
-This month there were `r nrow(buildings_wide_df_short)` measurements of `r length(unique(buildings_wide_df_short$combined_id))` unique buildings. `r describe_most_measured(most_measured)`
+This month there were `r nrow(buildings_wide_df_short)` measurements of `r length(unique(buildings_wide_df_short$combined_id))` unique buildings. `r describe_most_measured(most_measured)` 
 
 ```{r}
 #| warning: false
@@ -174,7 +243,8 @@ countries_count <- countries_count[order(countries_count$n, decreasing = TRUE),]
 countries_count |> 
   tidyplot(
     x = countryname,
-    y = n
+    y = n,
+    color = countryname
     ) |>  
     add_barstack_absolute() |> 
     adjust_x_axis(
@@ -195,6 +265,58 @@ countries_count |>
     adjust_padding(top = 0.3) |> 
     adjust_title("Building measurements per country") |> 
     adjust_caption("Data from indoorCO2map.com", fontsize = 10)
+```
+
+There were measurements in `r length(unique(buildings_wide_df_short$countryname))` seperate countries. `r new_countries_sentence` The following graph shows the distribution of the most common building types in the month of `r lubridate::today()  |> lubridate::month(label = TRUE, abbr = FALSE)`.
+
+```{r}
+#| include: true
+#| eval: true
+#| warning: false
+#| message: false
+
+buildings_long_df |> 
+  dplyr::filter(
+    co2readings >= 410
+  ) |> 
+  dplyr::mutate(
+    newtag = dplyr::if_else(
+      osmtag %in% common_building_types$osmtag,
+      osmtag,
+      "other"
+    ) |> 
+      stringr::str_replace_all("_", " ") |> 
+      stringr::str_to_sentence()
+    ) |> 
+  dplyr::group_by(obs_number) |> 
+  dplyr::summarise(
+    ppmavg = median(ppmavg, na.rm = TRUE),
+    newtag = dplyr::first(newtag)
+    ) |>  
+tidyplot(
+    x = newtag,
+    y = ppmavg,
+    fill = ppmavg
+    ) |>  
+    add_boxplot(linewidth = 1.4, fill = "white", color = "grey30", show_outliers = FALSE) |> 
+    add_data_points_beeswarm(size = 3, alpha = 0.4) |> 
+    # add_curve_fit(linewidth = 2,  alpha = 0.5,  se = FALSE) |> 
+    # add_data_points(size = 2, alpha = 0.4) |> 
+    adjust_x_axis(
+    title = "Distribution by type",
+    rotate_labels = TRUE
+    # breaks = seq(0, 52, by = 4)
+  ) |>
+  adjust_y_axis(
+    transform = "log2",
+    limits = c(420, NA)
+    ) |> 
+  adjust_size(width = NA, height = NA, unit = "cm") |> 
+  adjust_font(fontsize = 16) |> 
+  remove_legend() |> 
+  # adjust_legend_title("Building type") |> 
+  adjust_y_axis_title("CO2 ppm median") |> 
+  adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
 
 ```{r}
@@ -321,7 +443,7 @@ Here is a graph of all the recordings that happened this month shown by the grey
 ```{r}
 #| warning: false
 #| message: false
-ylim_max <- max(buildings_long_df_med$median_co2) + 300
+ylim_max <- max(highest_building$co2readings) + 200
 
 buildings_box <- 
 buildings_long_df_med |> 
@@ -355,26 +477,28 @@ ggplot(aes(x = time_range, y = co2readings, group = obs_number)) +
     se = FALSE,
     color = "grey80"
   ) +
-  geom_point(
-    data = lowest_building,
-    mapping = aes(x = time_range, y = co2readings, color = obs_number),
-    size = 4
-    ) +
   geom_smooth(
     data = lowest_building,
     mapping = aes(x = time_range, y = co2readings, color = obs_number),
     se = FALSE
   ) +
   geom_point(
-    data = highest_building,
+    data = lowest_building,
     mapping = aes(x = time_range, y = co2readings, color = obs_number),
     size = 4
-    ) +
+  ) +
   geom_smooth(
     data = highest_building,
     mapping = aes(x = time_range, y = co2readings, color = obs_number),
     se = FALSE
   ) +
+  geom_point(
+    data = highest_building,
+    mapping = aes(x = time_range, y = co2readings, color = co2readings),
+    size = 4
+    ) +
+  scale_color_viridis_c(option = "magma")+
+  # scico::scale_color_scico("hawaii", direction = -1) +
   annotate(
     "label", 
     x = .7,
@@ -397,10 +521,10 @@ ggplot(aes(x = time_range, y = co2readings, group = obs_number)) +
     plot.title = element_text(size = 12),
     panel.grid = element_blank(),
     axis.text.x = element_text(size = 16),
-    axis.line = element_line(colour = "black", size = 1, linetype = "solid"),
+    axis.line = element_line(colour = "black", linewidth = 1, linetype = "solid"),
     legend.position="none"
     ) 
-
+buildings_lines
 ```
 
 ```{r}
@@ -519,19 +643,13 @@ tidyplot(
   adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
 
-If we split the graph by the four most popular building types, we can start to see some interesting trends. Supermarkets remain relatively high throughout the year with little variation while fast food, and chemists have quite a strong dip in CO^2^ levels during the Summer. This may be because most supermarkets keep their doors closed throughout the year and they tend to have larger buildings; conversely, chemists and fast food restraunts tend to be small to medium sized buildings which means that they can be very easily ventilated if they leave their front door open in the Summer. Restaurants have a very interesting trend here, the strong upward trend of the model at the end of the year is probably due to not enough measurements of restaurants yet rather that there being any meaningful conclusions. Over time we should hopefully see more stable trends show up.
+If we split the graph by the most popular building types, we can start to see some interesting trends. Supermarkets remain relatively high throughout the year with little variation while fast food, and chemists have quite a strong dip in CO^2^ levels during the Summer. This may be because most supermarkets keep their doors closed throughout the year and they tend to have larger buildings; conversely, chemists and fast food restraunts tend to be small to medium sized buildings which means that they can be very easily ventilated if they leave their front door open in the Summer. Restaurants have a very interesting trend here, the strong upward trend of the model at the end of the year is probably due to not enough measurements of restaurants yet rather that there being any meaningful conclusions. Over time we should hopefully see more stable trends show up.
 
 ```{r}
 #| include: true
 #| eval: true
 #| warning: false
 #| message: false
-common_building_types <- buildings_wide_df |> 
-  dplyr::group_by(osmtag) |> 
-  dplyr::count() |> 
-  dplyr::filter(
-    n > quantile(n, 0.98, na.rm = TRUE) & osmtag != ""
-    )
 
 buildings_wide_df |> 
   dplyr::mutate(
@@ -580,7 +698,7 @@ measurements_this_year <-
        nrow() 
 ```
 
-Here's a histogram showing how many measurements have been recorded each week since the start of the project. Over the last 12 months there have been `r measurements_this_year` building measurements this year which is `r measurements_this_year/12` per month or `r measurements_this_year/52` per week. 
+Here's a histogram showing how many measurements have been recorded each week since the start of the project. Over the last 12 months there have been `r measurements_this_year` building measurements which is `r measurements_this_year/12 |> round()` per month or `r measurements_this_year/52 |> round()` per week. 
 
 ```{r}
 #| include: true
