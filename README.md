@@ -11,7 +11,7 @@ measured 14 times.
 
 ![](README_files/figure-commonmark/unnamed-chunk-11-1.png)
 
-There were measurements in 17 seperate countries. The following graph
+There were measurements in 15 seperate countries. The following graph
 shows the distribution of the most common building types in the month of
 October.
 
@@ -31,8 +31,6 @@ your monitor needs recalibrating.
 
 Here is a graph of all the recordings that happened this month shown by
 the grey curves. I’ve highlighted the highest and lowest ones.
-
-![](README_files/figure-commonmark/unnamed-chunk-18-1.png)
 
 ![](README_files/figure-commonmark/unnamed-chunk-19-1.png)
 
@@ -105,8 +103,7 @@ stable trends show up.
 
 Here’s a histogram showing how many measurements have been recorded each
 week since the start of the project. Over the last 12 months there have
-been 10103 building measurements which is 841.9166667 per month or
-194.2884615 per week.
+been 10103 building measurements which is 842 per month or 194 per week.
 
 ![](README_files/figure-commonmark/unnamed-chunk-26-1.png)
 

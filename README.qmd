@@ -267,7 +267,7 @@ countries_count |>
     adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
 
-There were measurements in `r length(unique(buildings_wide_df_short$countryname))` seperate countries. `r new_countries_sentence` The following graph shows the distribution of the most common building types in the month of `r lubridate::today()  |> lubridate::month(label = TRUE, abbr = FALSE)`.
+There were measurements in `r nrow(countries_count)` seperate countries. `r new_countries_sentence` The following graph shows the distribution of the most common building types in the month of `r lubridate::today()  |> lubridate::month(label = TRUE, abbr = FALSE)`.
 
 ```{r}
 #| include: true
@@ -524,7 +524,7 @@ ggplot(aes(x = time_range, y = co2readings, group = obs_number)) +
     axis.line = element_line(colour = "black", linewidth = 1, linetype = "solid"),
     legend.position="none"
     ) 
-buildings_lines
+
 ```
 
 ```{r}
@@ -698,7 +698,7 @@ measurements_this_year <-
        nrow() 
 ```
 
-Here's a histogram showing how many measurements have been recorded each week since the start of the project. Over the last 12 months there have been `r measurements_this_year` building measurements which is `r measurements_this_year/12 |> round()` per month or `r measurements_this_year/52 |> round()` per week. 
+Here's a histogram showing how many measurements have been recorded each week since the start of the project. Over the last 12 months there have been `r measurements_this_year` building measurements which is `r round(measurements_this_year/12)` per month or `r round(measurements_this_year/52)` per week. 
 
 ```{r}
 #| include: true
