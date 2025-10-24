@@ -4,7 +4,7 @@
 
 ## Buildings
 
-This month there were 598 measurements of 476 unique buildings. The most
+This month there were 698 measurements of 550 unique buildings. The most
 measured building was Caritas-Krankenhaus Sankt Josef, a hospital in
 Regensburg, Deutschland (min: 505, mean: 769, max: 1086), which was
 measured 14 times.
@@ -34,7 +34,7 @@ the grey curves. I’ve highlighted the highest and lowest ones.
 
 ![](README_files/figure-commonmark/unnamed-chunk-19-1.png)
 
-Here is a chart showing the 14 measurements that had a median
+Here is a chart showing the 15 measurements that had a median
 CO<sup>2</sup> value under 500. Keep in mind that some of these are
 potentially miscalibrated sensors or erroneous recordings where the
 sensor was outside. However, it is important to celebrate the places
@@ -50,6 +50,7 @@ that do in fact have well ventilated spaces.
 | Som Kitchen                                      |                 464.5 | Fast_food           | Wien, Österreich                       |
 | Biocoop                                          |                 451.0 | Supermarket         | Brest, France                          |
 | Alnor                                            |                 487.0 | Restaurant          | Leipzig, Deutschland                   |
+| Deutzer Asia Imbiss                              |                 484.0 | Fast_food           | Köln, Deutschland                      |
 | Senra                                            |                 431.0 | Restaurant          | Bidasoa Beherea / Bajo Bidasoa, España |
 | Döner Point                                      |                 457.5 | Fast_food           | Göttingen, Deutschland                 |
 | Les bocaux d’Ana                                 |                 467.5 | Convenience         | Brest, France                          |
@@ -103,7 +104,7 @@ stable trends show up.
 
 Here’s a histogram showing how many measurements have been recorded each
 week since the start of the project. Over the last 12 months there have
-been 10103 building measurements which is 842 per month or 194 per week.
+been 10092 building measurements which is 841 per month or 194 per week.
 
 ![](README_files/figure-commonmark/unnamed-chunk-26-1.png)
 
