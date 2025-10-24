@@ -107,6 +107,28 @@ saveRDS(buildings_wide_df_short_geo, here::here("data/derivative/buildings_wide_
 #| eval: false
 #| include: false
 
+transit_long_df_short_geo <- 
+  transit_long_df_short |> 
+  sf::st_coordinates() |> 
+  as.data.frame() |> 
+  tidygeocoder::reverse_geocode(
+    lat = Y, long = X, 
+    method = 'osm',
+    address = address_found, 
+    full_results = TRUE
+    )
+transit_long_df_short_geo <- 
+  transit_long_df_short_geo |> 
+  dplyr::mutate(
+    country = stringr::str_replace_all(country, "Schweiz/Suisse/Svizzera/Svizra", "Switzerland") |> stringr::str_replace_all("België / Belgique / Belgien", "Belgium"))
+saveRDS(transit_long_df_short_geo, here::here("data/derivative/transit_long_df_short_geo.rds"))
+
+```
+
+```{r}
+#| eval: false
+#| include: false
+
 # Attempt at using h3 to standardize geocoded locations
 
 # buildings_wide_df_short_geo <- 
@@ -727,7 +749,64 @@ tidyplot(
   adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
 
-<!-- ## Transit -->
+## Transit
+
+```{r}
+transit_long_df_short_geo <- readRDS(here::here("data/derivative/transit_long_df_short_geo.rds")) |> 
+  dplyr::rowwise() |> 
+  dplyr::mutate(
+    location_description = glue::glue("{city %||% county %||% province %||% state %||% town %||% municipality %||% region %||% borough %||% suburb %||% neighbourhood %||% city_district}, {country}")
+      ) |> 
+    sf::st_as_sf(coords = c("X", "Y"), crs = sf::st_crs(transit_long_df_short))
+
+transit_long_df_short <- sf::st_join(
+  transit_long_df_short,
+  transit_long_df_short_geo,
+  left = TRUE,
+  largest = TRUE
+) |> dplyr::ungroup()
+```
+
+```{r}
+#| echo: false
+most_measured_transit <- 
+transit_long_df_short |> 
+  dplyr::group_by(line) |> 
+  dplyr::summarise(
+    n = length(unique(uid)),
+    lineName = dplyr::first(lineName) |> stringr::str_split_i("(:| → )", 1),
+    # osmtag = dplyr::first(osmtag),
+    countryname = dplyr::first(country),
+    location_description = dplyr::first(location_description),
+    min_day = min(date),
+    max_day = max(date),
+    ppm_min = min(co2Array) |> round(),
+    ppm_avg = mean(co2Array) |> round(),
+    ppm_max = max(co2Array) |> round()
+  ) |> 
+  dplyr::slice_max(n = 1, order_by = n)
+```
+
+```{r}
+#| include: false
+describe_most_measured_transit <- function(x) {
+  sentence_mm <- 
+  x |> 
+    glue::glue_data("the {lineName} in {location_description} (min: {ppm_min}, mean: {ppm_avg}, max: {ppm_max})") |> 
+    stringr::str_flatten_comma(last = " and ")
+
+  if (nrow(x) == 1) {
+    return(glue::glue("The most measured transit line was {sentence_mm}, which was measured {x$n[1]} times."))
+  }
+
+  if (nrow(x) > 1) {
+    glue::glue("The most measured transit lines were {sentence_mm}, which were measured {x$n[1]} times each.")
+  }
+  
+}
+```
+
+This month there were `r length(unique(transit_long_df_short$uid))` measurements of `r length(unique(transit_long_df_short$line))` unique transit lines. `r describe_most_measured_transit(most_measured_transit)` 
 
 <!-- ## Everything -->
 
