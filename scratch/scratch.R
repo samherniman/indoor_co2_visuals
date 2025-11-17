@@ -26,3 +26,39 @@ buildings_wide_df_count <-
   dplyr::slice_max(n, n = 40)
 
 mapview::mapview(buildings_wide_df_count, zcol = "n")
+
+
+# code not used ----------------------------------------------------------
+
+# Attempt at using h3 to standardize geocoded locations
+
+# buildings_wide_df_short_geo <-
+buildings_h3 <-
+  buildings_wide_df_short |>
+  sf::st_coordinates()
+
+buildings_h3 <-
+  h3::geo_to_h3(buildings_h3[, ncol(buildings_h3):1], 5)
+
+buildings_wide_df_short_geo <-
+  buildings_wide_df_short |>
+  dplyr::mutate(
+    h3_geo = sf::st_coordinates(geometry) |> h3::geo_to_h3(4)
+  )
+
+
+buildings_wide_df_short_geo <-
+  buildings_wide_df_short_geo$h3_geo |>
+  unique() |>
+  h3::h3_to_geo_sf() |>
+  sf::st_coordinates() |>
+  data.frame() |>
+  tidygeocoder::reverse_geocode(
+    lat = Y,
+    long = X,
+    method = 'osm',
+    address = address_found,
+    # return_input = TRUE,
+    full_results = TRUE
+  )
+# saveRDS(buildings_wide_df_short_geo, here::here("data/derivative/buildings_wide_df_short_geo.rds"))
