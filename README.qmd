@@ -140,6 +140,7 @@ common_building_types <- buildings_wide_df |>
     n > quantile(n, 0.98, na.rm = TRUE) & osmtag != ""
     )
 ```
+
 ```{r}
 #| include: false
 # list new countries
@@ -164,7 +165,7 @@ if (length(new_countries) > 0) {
 ```
 
 ```{r}
-#| eval: false
+#| eval: true
 #| include: false
 
 buildings_wide_df_short_geo <- 
@@ -211,8 +212,8 @@ transit_long_df_short_geo <-
 #| include: false
 
 buildings_wide_df_short_geo <- 
-  # buildings_wide_df_short_geo |> 
-  readRDS(here::here("data/derivative/buildings_wide_df_short_geo.rds")) |> 
+  buildings_wide_df_short_geo |> 
+  # readRDS(here::here("data/derivative/buildings_wide_df_short_geo.rds")) |> 
   dplyr::rowwise() |> 
   dplyr::mutate(
     location_description = glue::glue("{city %||% county %||% province %||% state %||% town %||% municipality %||% region %||% borough %||% suburb %||% neighbourhood %||% city_district}, {country}")
@@ -246,7 +247,7 @@ buildings_long_df <- autocruller::ac_unnest_longer(buildings_wide_df_short)
 ```
 
 ## Buildings
-  
+
 ```{r}
 #| echo: false
 most_measured <- 
@@ -267,7 +268,7 @@ buildings_wide_df_short |>
   dplyr::slice_max(n = 1, order_by = n)
 ```
 
-This month there were `r nrow(buildings_wide_df_short)` measurements of `r length(unique(buildings_wide_df_short$combined_id))` unique buildings. `r describe_most_measured(most_measured)` 
+This month there were `r nrow(buildings_wide_df_short)` measurements of `r length(unique(buildings_wide_df_short$combined_id))` unique buildings. `r describe_most_measured(most_measured)`
 
 ```{r}
 #| warning: false
@@ -447,7 +448,6 @@ buildings_under_threshold <-
 
 `r highest_sentence` `r lowest_sentence` There were some measurements that were even lower than this, but we have removed them from this analysis. Generally outdoor CO^2^ levels don't go below 410 ppm, therefore we have removed any datapoints that are below 400 ppm. If your CO^2^ monitor consistently shows levels below 410 ppm while you are inside or outside, it is likely that your monitor needs recalibrating.
 
-
 ```{r}
 #| warning: false
 #| eval: false
@@ -589,8 +589,7 @@ ggplot(aes(x = time_range, y = co2readings, group = obs_number)) +
 buildings_lines + buildings_box + plot_layout(widths = c(10, 1))
 ```
 
-Here is a chart showing the `r nrow(buildings_under_threshold)` measurements that had a median CO^2^ value under `r co2_threshold`. Keep in mind that some of these are potentially miscalibrated sensors or erroneous recordings where the sensor was outside. However, it is important to celebrate the places that do in fact have well ventilated spaces.  
-
+Here is a chart showing the `r nrow(buildings_under_threshold)` measurements that had a median CO^2^ value under `r co2_threshold`. Keep in mind that some of these are potentially miscalibrated sensors or erroneous recordings where the sensor was outside. However, it is important to celebrate the places that do in fact have well ventilated spaces.
 
 ```{r}
 #| warning: false
@@ -616,15 +615,14 @@ buildings_under_threshold |>
         
 ```
 
-
 ## Trends over time
 
-The following are charts that are updated every month, but they reflect all data collected so far from the indoorco2 monitoring project (since April 2024). Over time, we should be able to see yearly trends where CO^2^ levels are higher in the Winter when shopkeepers close their windows to keep things warm and then lower CO^2^ levels when shopkeepers open their windows in the Summer.  
-We can start to see trends like this in the following graph which graphs CO^2^ against the week of the year. There are two relevant points you should know about the X axis `Week of the year (meteorological)`. 
+The following are charts that are updated every month, but they reflect all data collected so far from the indoorco2 monitoring project (since April 2024). Over time, we should be able to see yearly trends where CO^2^ levels are higher in the Winter when shopkeepers close their windows to keep things warm and then lower CO^2^ levels when shopkeepers open their windows in the Summer.\
+We can start to see trends like this in the following graph which graphs CO^2^ against the week of the year. There are two relevant points you should know about the X axis `Week of the year (meteorological)`.
 
-1. Datapoints are aggregated into weeks regardless of the year they are collected in, so some weeks were measured in both 2024 and 2025 but they would both show up in the same week number. 
+1.  Datapoints are aggregated into weeks regardless of the year they are collected in, so some weeks were measured in both 2024 and 2025 but they would both show up in the same week number.
 
-1. This takes account of the hemisphere in which the recording was collected. Since Winter in the Southern Hemisphere is June through August, while Winter in the Northern Hemisphere is December through February, we have adjusted the week numbers so that they line up meterologically. Essentially, a measurement collected in the Northern Hemisphere on the first of January would show up as week 1, however, a measurement collected in the Southern Hemisphere on the first of January would show up as week 27.  
+2.  This takes account of the hemisphere in which the recording was collected. Since Winter in the Southern Hemisphere is June through August, while Winter in the Northern Hemisphere is December through February, we have adjusted the week numbers so that they line up meterologically. Essentially, a measurement collected in the Northern Hemisphere on the first of January would show up as week 1, however, a measurement collected in the Southern Hemisphere on the first of January would show up as week 27.
 
 ```{r}
 buildings_wide_df <- 
@@ -746,7 +744,7 @@ measurements_this_year <-
        nrow() 
 ```
 
-Here's a histogram showing how many measurements have been recorded each week since the start of the project. Over the last 12 months there have been `r measurements_this_year` building measurements which is `r round(measurements_this_year/12)` per month or `r round(measurements_this_year/52)` per week. 
+Here's a histogram showing how many measurements have been recorded each week since the start of the project. Over the last 12 months there have been `r measurements_this_year` building measurements which is `r round(measurements_this_year/12)` per month or `r round(measurements_this_year/52)` per week.
 
 ```{r}
 #| include: true
