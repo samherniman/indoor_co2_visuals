@@ -1,12 +1,26 @@
 ---
-title: "Monthly indoorCO2map.com summary"
+title: ""
+bibliography: grateful-refs.bib
 format: 
-  html: 
-    theme: flatly
-    fontsize: 1.4em
-    margin-left: 0.5em
-    margin-right: 0.5em
-    max-width: 1800px
+  closeread-html:
+    backgroundcolor: white
+    mainfont: serif
+    fontsize: "1.8rem"
+    cr-style:
+      section-background-color: white  
+      narrative-font-family: serif
+      narrative-text-color-sidebar: "#3E3E40"  
+      narrative-background-color-sidebar: white 
+      narrative-background-color-overlay: "#7393B3"  
+      narrative-text-color-overlay: "#FFFDD0"  
+      narrative-border-radius: "2px"  
+      narrative-overlay-max-width: "60%"  
+      narrative-outer-margin: "5px"  
+      narrative-font-size: "1.2rem" 
+      narrative-sidebar-width: "2fr"
+    cr-section:
+      layout: "sidebar-left"
+    theme: custom.scss
 execute:
   echo: false
   cache: true
@@ -23,7 +37,21 @@ execute:
 start_date <- (lubridate::ymd("2025-10-30"))
 ```
 
-# `r start_date |> lubridate::month(label = TRUE, abbr = FALSE)` `r lubridate::today()  |> lubridate::year()`
+# Monthly indoorCO2map.com summary `r start_date |> lubridate::month(label = TRUE, abbr = FALSE)` `r lubridate::today()  |> lubridate::year()`
+
+There is a well documented relationship between indoor levels of CO^2^ and the amount of ventilation in indoor environments. Buildings with high indoor levels of CO2 have poor ventilation and are therefore more likely to be vectors of airborne diseases (like COVID-19, Measles, and Flu) and to trap indoor pollutants.
+
+Measuring CO^2^ inside is a really cheap way of measuring the air quality in indoor environments. When we breathe, we exhale  CO^2^ and it gets trapped inside the room we are in. If the building has good ventilation it will leave quickly. If it has bad ventilation, it stays in the room and builds up.
+
+If there is bad ventilation, then smoke from cooking can build up and that's bad for you. Same thing for VOCs from perfumes, as well as gas leaks, radon, and mold spores. At high concentrations in artificial environments, they contribute to all sorts of things: cancer, Alzheimer's, Parkinson's, childhood asthma, childhood lung problems, and heart conditions.
+Bad ventilation also contributes to a much higher risk of respiratory infections. If someone who is sick breathes in a badly ventilated room, the infectious aerosols will float around in the room until someone breathes them in. In a well ventilated space, they are dispersed very quickly and the risk of infection is much lower. Having an open widow in a classroom (or having an air filter), for instance, reduces school absences significantly.
+
+CO^2^ levels outside are typically around 420 parts per million (ppm), so if we measure the CO^2^ in a room and it is higher than that, you know its not ventilating much.
+Anywhere from 400 - 600 ppm are considered well ventilated. Every indoor environment is going to trap some CO^2^ and that's okay. Levels between 600 ppm and 1000 ppm may need some improvement. Anything above 1000 ppm is generally considered bad and should certainly be improved in some manner.
+
+[Indoor CO2-Map](https://indoorco2map.com) is a community science project to monitor indoor CO^2^ levels in non-residential buildings and transit systems around the world. Since April 2024 volunteers have brought CO^2^ monitors into cafes, shops, schools, trains, and all sorts of other places to monitor CO^2^ levels in them and upload them to a public database. 
+
+The following is a monthly summary of how this project is going.
 
 ```{r libraries}
 #| warning: false
@@ -245,6 +273,8 @@ buildings_wide_df_short <- sf::st_join(
 buildings_long_df <- autocruller::ac_unnest_longer(buildings_wide_df_short)
 ```
 
+:::{.cr-section}
+
 ## Buildings
 
 ```{r mostmeasured}
@@ -267,7 +297,9 @@ buildings_wide_df_short |>
   dplyr::slice_max(n = 1, order_by = n)
 ```
 
-This month there were `r nrow(buildings_wide_df_short)` measurements of `r length(unique(buildings_wide_df_short$combined_id))` unique buildings. `r describe_most_measured(most_measured)`
+This month there were `r nrow(buildings_wide_df_short)` measurements of `r length(unique(buildings_wide_df_short$combined_id))` unique buildings. @cr-ccplot 
+
+`r describe_most_measured(most_measured)` 
 
 ```{r countriescount}
 #| warning: false
@@ -305,6 +337,8 @@ countries_count <- countries_count[order(countries_count$n, decreasing = TRUE),]
     
 ```
 
+:::{#cr-ccplot}
+
 ```{r ccplot}
 #| warning: false
 #| message: false
@@ -335,9 +369,21 @@ countries_count |>
     adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
 
-There were measurements in `r nrow(countries_count)` seperate countries. `r new_countries_sentence` The following graph shows the distribution of the most common building types in the month of `r start_date  |> lubridate::month(label = TRUE, abbr = FALSE)`.
+:::
 
-```{r}
+There were measurements in `r nrow(countries_count)` seperate countries. `r new_countries_sentence`  
+
+  @cr-buildingtypes 
+
+The graph on the right shows the distribution of the most common building types in the month of `r start_date  |> lubridate::month(label = TRUE, abbr = FALSE)`. The dark bar in the middle of each box and whisker plot shows the median value for each category. The rest of the lines show the range of the distribution. Most of the values fall within each box. If you want more information about how to interpret this graph, watch [this video](https://youtu.be/b2C9I8HuCe4?si=73FKu7wSJr1rWwWt).
+
+As is common, supermarkets tend to have higher CO^2^ values than other types of buildings.
+
+
+
+:::{#cr-buildingtypes}
+
+```{r buildingtypes}
 #| include: true
 #| eval: true
 #| warning: false
@@ -387,6 +433,8 @@ tidyplot(
   adjust_y_axis_title("CO2 ppm median") |> 
   adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
+
+:::
 
 ```{r highlowbuildings}
 #| include: false
@@ -445,6 +493,8 @@ buildings_under_threshold <-
   )
 ```
 
+Here is a graph of all the recordings that happened this month shown by the grey curves. I've highlighted the highest and lowest ones. @cr-allcurves 
+
 `r highest_sentence` `r lowest_sentence` There were some measurements that were even lower than this, but we have removed them from this analysis. Generally outdoor CO^2^ levels don't go below 410 ppm, therefore we have removed any datapoints that are below 400 ppm. If your CO^2^ monitor consistently shows levels below 410 ppm while you are inside or outside, it is likely that your monitor needs recalibrating.
 
 ```{r}
@@ -497,7 +547,7 @@ ggplot(co2df, aes(x = time, y = co2, color = building)) +
     )
 ```
 
-Here is a graph of all the recordings that happened this month shown by the grey curves. I've highlighted the highest and lowest ones.
+:::{#cr-allcurves}
 
 ```{r allcurves1}
 #| warning: false
@@ -588,6 +638,9 @@ ggplot(aes(x = time_range, y = co2readings, group = obs_number)) +
 buildings_lines + buildings_box + plot_layout(widths = c(10, 1))
 ```
 
+:::
+:::
+
 Here is a chart showing the `r nrow(buildings_under_threshold)` measurements that had a median CO^2^ value under `r co2_threshold`. Keep in mind that some of these are potentially miscalibrated sensors or erroneous recordings where the sensor was outside. However, it is important to celebrate the places that do in fact have well ventilated spaces.
 
 ```{r thresholdtable}
@@ -595,33 +648,43 @@ Here is a chart showing the `r nrow(buildings_under_threshold)` measurements tha
 #| message: false
 
 # add a column showing how many times a building has been on this list
-buildings_under_threshold |> 
-  knitr::kable(
-    col.names = c("Name", "Median CO<sup>2</sup>", "Building type", "Location")
-  )
-#  buildings_under_threshold |> 
-#     gt() |> 
-#     tab_header(title = "Measurements under 500 ppm") |> 
-#     cols_label(
-#         name = "Name",
-#         co2 = "CO2 ppm",
-#         osmtag = "Building type",
-#         location_description = "Location"
-#     ) |> 
-#     tab_options(
-#         table_body.hlines.width = 0
-#         )
+# buildings_under_threshold |> 
+#   knitr::kable(
+#     col.names = c("Name", "Median CO<sup>2</sup>", "Building type", "Location")
+#   )
+ buildings_under_threshold |> 
+  dplyr::mutate(
+    osmtag = stringr::str_replace_all(osmtag, "_", " ")
+  ) |> 
+    gt() |> 
+    tab_header(title = "Measurements under 500 ppm") |> 
+    cols_label(
+        name = "Name",
+        co2 = "CO2 ppm",
+        osmtag = "Building type",
+        location_description = "Location"
+    ) |> 
+    tab_options(
+        table_body.hlines.width = 0
+        )
         
 ```
 
 ## Trends over time
 
-The following are charts that are updated every month, but they reflect all data collected so far from the indoorco2 monitoring project (since April 2024). Over time, we should be able to see yearly trends where CO^2^ levels are higher in the Winter when shopkeepers close their windows to keep things warm and then lower CO^2^ levels when shopkeepers open their windows in the Summer.\
-We can start to see trends like this in the following graph which graphs CO^2^ against the week of the year. There are two relevant points you should know about the X axis `Week of the year (meteorological)`.
+The following are charts that are updated every month, but they reflect all data collected so far from the indoorco2 monitoring project (since April 2024). Over time, we should be able to see yearly trends where CO^2^ levels are higher in the Winter when shopkeepers close their windows to keep things warm and then lower CO^2^ levels when shopkeepers open their windows in the Summer.
+
+:::{.cr-section}
+
+@cr-metweekall 
+
+We can start to see trends like in this graph which shows CO^2^ against the week of the year. There are two relevant points you should know about the X axis `Week of the year (meteorological)` before moving on.
 
 1.  Datapoints are aggregated into weeks regardless of the year they are collected in, so some weeks were measured in both 2024 and 2025 but they would both show up in the same week number.
 
 2.  This takes account of the hemisphere in which the recording was collected. Since Winter in the Southern Hemisphere is June through August, while Winter in the Northern Hemisphere is December through February, we have adjusted the week numbers so that they line up meterologically. Essentially, a measurement collected in the Northern Hemisphere on the first of January would show up as week 1, however, a measurement collected in the Southern Hemisphere on the first of January would show up as week 27.
+
+:::{#cr-metweekall}
 
 ```{r converthemisphere}
 buildings_wide_df <- 
@@ -687,7 +750,13 @@ tidyplot(
   adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
 
+:::
+
+@cr-metweektype
+
 If we split the graph by the most popular building types, we can start to see some interesting trends. Supermarkets remain relatively high throughout the year with little variation while fast food, and chemists have quite a strong dip in CO^2^ levels during the Summer. This may be because most supermarkets keep their doors closed throughout the year and they tend to have larger buildings; conversely, chemists and fast food restraunts tend to be small to medium sized buildings which means that they can be very easily ventilated if they leave their front door open in the Summer. Restaurants have a very interesting trend here, the strong upward trend of the model at the end of the year is probably due to not enough measurements of restaurants yet rather that there being any meaningful conclusions. Over time we should hopefully see more stable trends show up.
+
+:::{#cr-metweektype}
 
 ```{r metweektype}
 #| include: true
@@ -731,6 +800,8 @@ tidyplot(
   adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
 
+:::
+
 ```{r measurethisyear}
 #| include: false
 measurements_this_year <- 
@@ -743,7 +814,9 @@ measurements_this_year <-
        nrow() 
 ```
 
-Here's a histogram showing how many measurements have been recorded each week since the start of the project. Over the last 12 months there have been `r measurements_this_year` building measurements which is `r round(measurements_this_year/12)` per month or `r round(measurements_this_year/52)` per week.
+Here's a histogram showing how many measurements have been recorded each week since the start of the project. Over the last 12 months there have been `r measurements_this_year` building measurements which is `r round(measurements_this_year/12)` per month or `r round(measurements_this_year/52)` per week. @cr-allhist
+
+:::{#cr-allhist}
 
 ```{r allhist}
 #| include: true
@@ -771,6 +844,9 @@ tidyplot(
 #   adjust_title("CO2 Averages at music venues") |> 
   adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
+
+:::
+:::
 
 ## Transit
 
@@ -828,8 +904,11 @@ transit_long_df_short |>
   dplyr::slice_max(n = 1, order_by = n)
 ```
 
+:::{.cr-section}
 
-This month there were `r length(unique(transit_long_df_short$uid))` measurements of `r length(unique(transit_long_df_short$line))` unique transit lines. `r describe_most_measured_transit(most_measured_transit)` The below graph shows the number of transit recordings in each transit network during the last month. Keep in mind that this graph only shows networks with more than 2 transit recordings this month (there were quite a few with one or two). Transit recordings seem very popular in Vienna and Munich at the moment.
+This month there were `r length(unique(transit_long_df_short$uid))` measurements of `r length(unique(transit_long_df_short$line))` unique transit lines. `r describe_most_measured_transit(most_measured_transit)` This graph shows the number of transit recordings in each transit network during the last month. Keep in mind that this graph only shows networks with more than 2 transit recordings this month (there were quite a few with one or two). Transit recordings seem very popular in Vienna and Munich at the moment. @cr-transitcount
+
+:::{#cr-transitcount}
 
 ```{r transitcount}
 #| warning: false
@@ -887,7 +966,11 @@ transit_count |>
     adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
 
-When we look at the distribution of CO^2^ measurements by the transit type this month we can see some paterns. Trains often have higher CO^2^ values than buses, subways and trams because they usually travel for longer distances between stations. This causes trains to rely more heavily on mechanical ventilation than buses, subways, and trams which open their doors at stations more frequently. This pattern can be seen in the below graph.
+:::
+
+When we look at the distribution of CO^2^ measurements by the transit type this month we can see some paterns. Trains often have higher CO^2^ values than buses, subways and trams because they usually travel for longer distances between stations. This causes trains to rely more heavily on mechanical ventilation than buses, subways, and trams which open their doors at stations more frequently. @cr-transitmonthbox
+
+:::{#cr-transitmonthbox}
 
 ```{r transitmonthbox}
 #| include: true
@@ -931,7 +1014,11 @@ tidyplot(
   adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
 
-This trend can also be seen when we look at the distribution of each transit type on all the data from 2024 and 2025. You can see this in the next graph.
+:::
+
+This trend can also be seen when we look at the distribution of each transit type on all the data from 2024 and 2025. @cr-transitallbox
+
+:::{#cr-transitallbox}
 
 ```{r transitallbox}
 #| include: true
@@ -980,6 +1067,8 @@ tidyplot(
   adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
 
+:::
+
 
 ```{r transitmetweek}
 transit_long_df <- 
@@ -1027,7 +1116,21 @@ tidyplot(
   adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
 
+:::
+
 That's all for this month! Check back soon for more updates.
+
+
+### Some thanks
+
+This work would not be possible without the hard work of all the contributors to [OpenStreetMap](https://www.openstreetmap.org/) and [indoorco2map](https://indoorco2map.com). If you would like to contribute to either of these projects, please visit their websites.
+You can contribute to the indoorco2map by downloading the [Android app](https://play.google.com/store/apps/details?id=com.aurelwu.indoorairqualitycollector&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1) or [iOS app](https://apps.apple.com/us/app/indoorco2map-data-collector/id6504560820?itscg=30200&itsct=apps_box_badge&mttnsubad=6504560820) and connecting it to any one of the following CO^2^ sensors: Aranet4, Airvalent, AirSpot and Inkbird IAM-T1. 
+I would also like to thank [Aurel Wünsch](https://github.com/AurelWu) who tirelessly works on the project as well as the other contributors to the project [ahunt](https://github.com/ahunt), [da5nsy](https://github.com/da5nsy), [paul-hammant](https://github.com/paul-hammant), and [samherniman](https://github.com/samherniman). 
+
+Finally, many thanks go to the teams who work on the following software, which I used heavily. 
+```{r}
+grateful::cite_packages(output = "paragraph", out.dir = ".")
+```
 
 <!-- ## Everything -->
 
@@ -1036,6 +1139,7 @@ That's all for this month! Check back soon for more updates.
 ```{r}
 #| warning: false
 #| message: false
+#| eval: false
 #| include: false
 buildings_long_df |> 
     dplyr::group_by(obs_number) |> 
@@ -1062,6 +1166,7 @@ tidyplot(
 
 ```{r}
 #| include: false
+#| eval: false
 
 buildings_long_df |> 
     dplyr::group_by(obs_number) |> 
@@ -1069,6 +1174,7 @@ buildings_long_df |>
         co2_median = median(co2readings, na.rm = TRUE),
         openwindows = dplyr::first(openwindows)
         ) |> 
+    sf::st_drop_geometry() |> 
 tidyplot(
          x = openwindows, 
          y = co2_median,
