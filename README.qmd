@@ -1,19 +1,18 @@
 ---
-title: ""
-format: gfm
-  # html: 
-  #   theme: flatly
-  #   fontsize: 1.4em
-  #   margin-left: 0.5em
-  #   margin-right: 0.5em
-  #   max-width: 1800px
-  #   mainfont: Fira Sans
+title: "Monthly indoorCO2map.com summary"
+format: 
+  html: 
+    theme: flatly
+    fontsize: 1.4em
+    margin-left: 0.5em
+    margin-right: 0.5em
+    max-width: 1800px
 execute:
   echo: false
   cache: true
 ---
 
-```{r}
+```{r notes}
 #| include: false
 # things to add
 # numbers of obs by category
@@ -24,9 +23,9 @@ execute:
 start_date <- (lubridate::ymd("2025-10-30"))
 ```
 
-# Monthly indoorCO2map.com summary for `r start_date |> lubridate::month(label = TRUE, abbr = FALSE)` `r lubridate::today()  |> lubridate::year()`
+# `r start_date |> lubridate::month(label = TRUE, abbr = FALSE)` `r lubridate::today()  |> lubridate::year()`
 
-```{r}
+```{r libraries}
 #| warning: false
 #| message: false
 #| include: false 
@@ -39,7 +38,7 @@ source(here::here("functions/functions.R"))
 
 ```
 
-```{r}
+```{r inputs}
 #| warning: false
 #| message: false
 #| include: false
@@ -164,8 +163,8 @@ if (length(new_countries) > 0) {
 }
 ```
 
-```{r}
-#| eval: true
+```{r geocodebuildings}
+#| eval: false
 #| include: false
 
 buildings_wide_df_short_geo <- 
@@ -185,7 +184,7 @@ buildings_wide_df_short_geo <-
 # saveRDS(buildings_wide_df_short_geo, here::here("data/derivative/buildings_wide_df_short_geo.rds"))
 ```
 
-```{r}
+```{r geocodetransit}
 #| eval: false
 #| include: false
 
@@ -212,8 +211,8 @@ transit_long_df_short_geo <-
 #| include: false
 
 buildings_wide_df_short_geo <- 
-  buildings_wide_df_short_geo |> 
-  # readRDS(here::here("data/derivative/buildings_wide_df_short_geo.rds")) |> 
+  # buildings_wide_df_short_geo |> 
+  readRDS(here::here("data/derivative/buildings_wide_df_short_geo.rds")) |> 
   dplyr::rowwise() |> 
   dplyr::mutate(
     location_description = glue::glue("{city %||% county %||% province %||% state %||% town %||% municipality %||% region %||% borough %||% suburb %||% neighbourhood %||% city_district}, {country}")
@@ -248,7 +247,7 @@ buildings_long_df <- autocruller::ac_unnest_longer(buildings_wide_df_short)
 
 ## Buildings
 
-```{r}
+```{r mostmeasured}
 #| echo: false
 most_measured <- 
 buildings_wide_df_short |> 
@@ -270,7 +269,7 @@ buildings_wide_df_short |>
 
 This month there were `r nrow(buildings_wide_df_short)` measurements of `r length(unique(buildings_wide_df_short$combined_id))` unique buildings. `r describe_most_measured(most_measured)`
 
-```{r}
+```{r countriescount}
 #| warning: false
 #| message: false
 countries_count <- 
@@ -306,7 +305,7 @@ countries_count <- countries_count[order(countries_count$n, decreasing = TRUE),]
     
 ```
 
-```{r}
+```{r ccplot}
 #| warning: false
 #| message: false
 countries_count |> 
@@ -389,7 +388,7 @@ tidyplot(
   adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
 
-```{r}
+```{r highlowbuildings}
 #| include: false
 buildings_long_df_med <- buildings_long_df |> 
   dplyr::filter(
@@ -410,7 +409,7 @@ lowest_building <- buildings_long_df_med |>
   dplyr::slice_min(order_by = median_co2)
 ```
 
-```{r}
+```{r highlowsentence}
 #| include: false
 
 lowest_sentence <- lowest_building |> 
@@ -500,7 +499,7 @@ ggplot(co2df, aes(x = time, y = co2, color = building)) +
 
 Here is a graph of all the recordings that happened this month shown by the grey curves. I've highlighted the highest and lowest ones.
 
-```{r}
+```{r allcurves1}
 #| warning: false
 #| message: false
 ylim_max <- max(highest_building$co2readings) + 200
@@ -521,7 +520,7 @@ ggplot(aes(x = 1, y = co2readings)) +
     ) 
 ```
 
-```{r}
+```{r allcurves2}
 #| warning: false
 #| message: false
 
@@ -583,7 +582,7 @@ ggplot(aes(x = time_range, y = co2readings, group = obs_number)) +
 
 ```
 
-```{r}
+```{r allcurves3}
 #| warning: false
 #| message: false
 buildings_lines + buildings_box + plot_layout(widths = c(10, 1))
@@ -591,7 +590,7 @@ buildings_lines + buildings_box + plot_layout(widths = c(10, 1))
 
 Here is a chart showing the `r nrow(buildings_under_threshold)` measurements that had a median CO^2^ value under `r co2_threshold`. Keep in mind that some of these are potentially miscalibrated sensors or erroneous recordings where the sensor was outside. However, it is important to celebrate the places that do in fact have well ventilated spaces.
 
-```{r}
+```{r thresholdtable}
 #| warning: false
 #| message: false
 
@@ -624,7 +623,7 @@ We can start to see trends like this in the following graph which graphs CO^2^ a
 
 2.  This takes account of the hemisphere in which the recording was collected. Since Winter in the Southern Hemisphere is June through August, while Winter in the Northern Hemisphere is December through February, we have adjusted the week numbers so that they line up meterologically. Essentially, a measurement collected in the Northern Hemisphere on the first of January would show up as week 1, however, a measurement collected in the Southern Hemisphere on the first of January would show up as week 27.
 
-```{r}
+```{r converthemisphere}
 buildings_wide_df <- 
   buildings_wide_df |> 
   dplyr::mutate(
@@ -659,7 +658,7 @@ tidyplot(
   adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
 
-```{r}
+```{r metweekall}
 #| include: true
 #| eval: true
 #| warning: false
@@ -690,7 +689,7 @@ tidyplot(
 
 If we split the graph by the most popular building types, we can start to see some interesting trends. Supermarkets remain relatively high throughout the year with little variation while fast food, and chemists have quite a strong dip in CO^2^ levels during the Summer. This may be because most supermarkets keep their doors closed throughout the year and they tend to have larger buildings; conversely, chemists and fast food restraunts tend to be small to medium sized buildings which means that they can be very easily ventilated if they leave their front door open in the Summer. Restaurants have a very interesting trend here, the strong upward trend of the model at the end of the year is probably due to not enough measurements of restaurants yet rather that there being any meaningful conclusions. Over time we should hopefully see more stable trends show up.
 
-```{r}
+```{r metweektype}
 #| include: true
 #| eval: true
 #| warning: false
@@ -732,7 +731,7 @@ tidyplot(
   adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
 
-```{r}
+```{r measurethisyear}
 #| include: false
 measurements_this_year <- 
   buildings_wide_df |> 
@@ -746,7 +745,7 @@ measurements_this_year <-
 
 Here's a histogram showing how many measurements have been recorded each week since the start of the project. Over the last 12 months there have been `r measurements_this_year` building measurements which is `r round(measurements_this_year/12)` per month or `r round(measurements_this_year/52)` per week.
 
-```{r}
+```{r allhist}
 #| include: true
 #| eval: true
 #| warning: false
@@ -775,7 +774,7 @@ tidyplot(
 
 ## Transit
 
-```{r}
+```{r transitgeo}
 #| eval: true
 #| include: false
 transit_long_df_short_geo <- 
@@ -807,7 +806,7 @@ transit_long_df_short <- sf::st_join(
 
 
 
-```{r}
+```{r mmtransit}
 #| echo: false
 most_measured_transit <- 
 transit_long_df_short |> 
@@ -832,7 +831,7 @@ transit_long_df_short |>
 
 This month there were `r length(unique(transit_long_df_short$uid))` measurements of `r length(unique(transit_long_df_short$line))` unique transit lines. `r describe_most_measured_transit(most_measured_transit)` The below graph shows the number of transit recordings in each transit network during the last month. Keep in mind that this graph only shows networks with more than 2 transit recordings this month (there were quite a few with one or two). Transit recordings seem very popular in Vienna and Munich at the moment.
 
-```{r}
+```{r transitcount}
 #| warning: false
 #| message: false
 transit_count <- 
@@ -857,7 +856,7 @@ transit_long_df_short |>
     dplyr::filter(n > 2)
 ```
 
-```{r}
+```{r transitcountbar}
 #| warning: false
 #| message: false
 transit_count |> 
@@ -890,7 +889,7 @@ transit_count |>
 
 When we look at the distribution of CO^2^ measurements by the transit type this month we can see some paterns. Trains often have higher CO^2^ values than buses, subways and trams because they usually travel for longer distances between stations. This causes trains to rely more heavily on mechanical ventilation than buses, subways, and trams which open their doors at stations more frequently. This pattern can be seen in the below graph.
 
-```{r}
+```{r transitmonthbox}
 #| include: true
 #| eval: true
 #| warning: false
@@ -934,7 +933,7 @@ tidyplot(
 
 This trend can also be seen when we look at the distribution of each transit type on all the data from 2024 and 2025. You can see this in the next graph.
 
-```{r}
+```{r transitallbox}
 #| include: true
 #| eval: true
 #| warning: false
@@ -982,7 +981,7 @@ tidyplot(
 ```
 
 
-```{r}
+```{r transitmetweek}
 transit_long_df <- 
   transit_long_df |> 
   dplyr::mutate(
@@ -994,7 +993,7 @@ transit_long_df <-
   )
 ```
 
-```{r}
+```{r transitmetplot}
 #| include: false
 #| eval: false
 #| warning: false
