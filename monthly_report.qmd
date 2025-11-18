@@ -13,11 +13,11 @@ format:
       narrative-background-color-sidebar: white 
       narrative-background-color-overlay: white
       narrative-text-color-overlay: "#3E3E40" 
-      narrative-border-radius: "2px"  
+      narrative-border-radius: "10px"  
       narrative-overlay-max-width: "60%"  
-      narrative-outer-margin: "5px"  
+      narrative-outer-margin: "10px"  
       narrative-font-size: "1.2rem" 
-      narrative-sidebar-width: "2fr"
+      narrative-sidebar-width: "1fr"
     cr-section:
       layout: "sidebar-left"
     theme: custom.scss
