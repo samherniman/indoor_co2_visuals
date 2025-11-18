@@ -11,8 +11,8 @@ format:
       narrative-font-family: serif
       narrative-text-color-sidebar: "#3E3E40"  
       narrative-background-color-sidebar: white 
-      narrative-background-color-overlay: "#7393B3"  
-      narrative-text-color-overlay: "#FFFDD0"  
+      narrative-background-color-overlay: white
+      narrative-text-color-overlay: "#3E3E40" 
       narrative-border-radius: "2px"  
       narrative-overlay-max-width: "60%"  
       narrative-outer-margin: "5px"  
