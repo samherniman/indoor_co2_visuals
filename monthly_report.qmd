@@ -14,10 +14,10 @@ format:
       narrative-background-color-overlay: white
       narrative-text-color-overlay: "#3E3E40" 
       narrative-border-radius: "10px"  
+      narrative-sidebar-width: "1fr"
       narrative-overlay-max-width: "60%"  
       narrative-outer-margin: "10px"  
       narrative-font-size: "1.2rem" 
-      narrative-sidebar-width: "1fr"
     cr-section:
       layout: "sidebar-left"
     theme: custom.scss
