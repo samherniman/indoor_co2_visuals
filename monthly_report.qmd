@@ -39,17 +39,17 @@ start_date <- (lubridate::ymd("2025-10-30"))
 
 # Monthly indoorCO2map.com summary `r start_date |> lubridate::month(label = TRUE, abbr = FALSE)` `r lubridate::today()  |> lubridate::year()`
 
-There is a well documented relationship between indoor levels of CO^2^ and the amount of ventilation in indoor environments. Buildings with high indoor levels of CO2 have poor ventilation and are therefore more likely to be vectors of airborne diseases (like COVID-19, Measles, and Flu) and to trap indoor pollutants.
+There is a well documented relationship between indoor levels of CO~2~ and the amount of ventilation in indoor environments. Buildings with high indoor levels of CO2 have poor ventilation and are therefore more likely to be vectors of airborne diseases (like COVID-19, Measles, and Flu) and to trap indoor pollutants.
 
-Measuring CO^2^ inside is a really cheap way of measuring the air quality in indoor environments. When we breathe, we exhale  CO^2^ and it gets trapped inside the room we are in. If the building has good ventilation it will leave quickly. If it has bad ventilation, it stays in the room and builds up.
+Measuring CO~2~ inside is a really cheap way of measuring the air quality in indoor environments. When we breathe, we exhale  CO~2~ and it gets trapped inside the room we are in. If the building has good ventilation it will leave quickly. If it has bad ventilation, it stays in the room and builds up.
 
 If there is bad ventilation, then smoke from cooking can build up and that's bad for you. Same thing for VOCs from perfumes, as well as gas leaks, radon, and mold spores. At high concentrations in artificial environments, they contribute to all sorts of things: cancer, Alzheimer's, Parkinson's, childhood asthma, childhood lung problems, and heart conditions.
-Bad ventilation also contributes to a much higher risk of respiratory infections. If someone who is sick breathes in a badly ventilated room, the infectious aerosols will float around in the room until someone breathes them in. In a well ventilated space, they are dispersed very quickly and the risk of infection is much lower. Having an open widow in a classroom (or having an air filter), for instance, reduces school absences significantly.
+Bad ventilation also contributes to a much higher risk of respiratory infections. If someone who is sick breathes in a badly ventilated room, the infectious aerosols will float around in the room until someone breathes them in. In a well ventilated space, they are dispersed very quickly and the risk of infection is much lower. Having an open window in a classroom (or having an air filter), for instance, reduces school absences significantly.
 
-CO^2^ levels outside are typically around 420 parts per million (ppm), so if we measure the CO^2^ in a room and it is higher than that, you know its not ventilating much.
-Anywhere from 400 - 600 ppm are considered well ventilated. Every indoor environment is going to trap some CO^2^ and that's okay. Levels between 600 ppm and 1000 ppm may need some improvement. Anything above 1000 ppm is generally considered bad and should certainly be improved in some manner.
+CO~2~ levels outside are typically around 420 parts per million (ppm), so if we measure the CO~2~ in a room and it is higher than that, you know its not ventilating much.
+Anywhere from 400 - 600 ppm are considered well ventilated. Every indoor environment is going to trap some CO~2~ and that's okay. Levels between 600 ppm and 1000 ppm may need some improvement. Anything above 1000 ppm is generally considered bad and should certainly be improved in some manner.
 
-[Indoor CO2-Map](https://indoorco2map.com) is a community science project to monitor indoor CO^2^ levels in non-residential buildings and transit systems around the world. Since April 2024 volunteers have brought CO^2^ monitors into cafes, shops, schools, trains, and all sorts of other places to monitor CO^2^ levels in them and upload them to a public database. 
+[Indoor CO2-Map](https://indoorco2map.com) is a community science project to monitor indoor CO~2~ levels in non-residential buildings and transit systems around the world. Since April 2024 volunteers have brought CO~2~ monitors into cafes, shops, schools, trains, and all sorts of other places to monitor CO~2~ levels in them and upload them to a public database. 
 
 The following is a monthly summary of how this project is going.
 
@@ -187,7 +187,7 @@ new_countries <- unique(buildings_wide_df_short$countryname)[!(unique(buildings_
 
 new_countries_sentence <- 
 if (length(new_countries) > 0) {
-  glue::glue("Additionally, the first {ifelse(length(new_countries)==1, 'measurement was added in', 'measurements were added in')} {stringr::str_flatten_comma(new_countries, last = ' and ')} this month. Welcome to the glorious world of CO^2^ monitoring {stringr::str_flatten_comma(new_countries, last = ' and ')}!")
+  glue::glue("Additionally, the first {ifelse(length(new_countries)==1, 'measurement was added in', 'measurements were added in')} {stringr::str_flatten_comma(new_countries, last = ' and ')} this month. Welcome to the glorious world of CO~2~ monitoring {stringr::str_flatten_comma(new_countries, last = ' and ')}!")
 }
 ```
 
@@ -375,9 +375,9 @@ There were measurements in `r nrow(countries_count)` seperate countries. `r new_
 
   @cr-buildingtypes 
 
-The graph on the right shows the distribution of the most common building types in the month of `r start_date  |> lubridate::month(label = TRUE, abbr = FALSE)`. The dark bar in the middle of each box and whisker plot shows the median value for each category. The rest of the lines show the range of the distribution. Most of the values fall within each box. If you want more information about how to interpret this graph, watch [this video](https://youtu.be/b2C9I8HuCe4?si=73FKu7wSJr1rWwWt).
+This graph shows the distribution of the most common building types in the month of `r start_date  |> lubridate::month(label = TRUE, abbr = FALSE)`. The dark bar in the middle of each box and whisker plot shows the median value for each category. The rest of the lines show the range of the distribution. Most of the values fall within each box. If you want more information about how to interpret this graph, watch [this video](https://youtu.be/b2C9I8HuCe4?si=73FKu7wSJr1rWwWt).
 
-As is common, supermarkets tend to have higher CO^2^ values than other types of buildings.
+As is common, supermarkets tend to have higher CO~2~ values than other types of buildings.
 
 
 
@@ -407,10 +407,13 @@ buildings_long_df |>
     ppmavg = median(ppmavg, na.rm = TRUE),
     newtag = dplyr::first(newtag)
     ) |>  
+  dplyr::mutate(
+    percent_rebreathed = ((ppmavg - 420)/38000) * 100
+  ) |> 
   sf::st_drop_geometry() |> 
 tidyplot(
     x = newtag,
-    y = ppmavg,
+    y = percent_rebreathed,
     fill = ppmavg
     ) |>  
     add_data_points_beeswarm(size = 3, alpha = 0.4) |> 
@@ -418,19 +421,19 @@ tidyplot(
     # add_curve_fit(linewidth = 2,  alpha = 0.5,  se = FALSE) |> 
     # add_data_points(size = 2, alpha = 0.4) |> 
     adjust_x_axis(
-    title = "Distribution by type",
+    title = "Building type",
     rotate_labels = TRUE
     # breaks = seq(0, 52, by = 4)
   ) |>
-  adjust_y_axis(
-    transform = "log2",
-    limits = c(420, NA)
-    ) |> 
-  adjust_size(width = NA, height = NA, unit = "cm") |> 
+  # adjust_y_axis(
+  #   transform = "log2",
+  #   # limits = c(420, NA)
+  #   ) |> 
+  adjust_size(width = 6, height = 14, unit = "cm") |> 
   adjust_font(fontsize = 16) |> 
   remove_legend() |> 
   # adjust_legend_title("Building type") |> 
-  adjust_y_axis_title("CO2 ppm median") |> 
+  adjust_y_axis_title("Percent rebreathed CO2") |> 
   adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 ```
 
@@ -495,7 +498,7 @@ buildings_under_threshold <-
 
 Here is a graph of all the recordings that happened this month shown by the grey curves. I've highlighted the highest and lowest ones. @cr-allcurves 
 
-`r highest_sentence` `r lowest_sentence` There were some measurements that were even lower than this, but we have removed them from this analysis. Generally outdoor CO^2^ levels don't go below 410 ppm, therefore we have removed any datapoints that are below 400 ppm. If your CO^2^ monitor consistently shows levels below 410 ppm while you are inside or outside, it is likely that your monitor needs recalibrating.
+`r highest_sentence` `r lowest_sentence` There were some measurements that were even lower than this, but we have removed them from this analysis. Generally outdoor CO~2~ levels don't go below 410 ppm, therefore we have removed any datapoints that are below 400 ppm. If your CO~2~ monitor consistently shows levels below 410 ppm while you are inside or outside, it is likely that your monitor needs recalibrating.
 
 ```{r}
 #| warning: false
@@ -577,10 +580,12 @@ ggplot(aes(x = 1, y = co2readings)) +
 buildings_lines <- 
 buildings_long_df_med |> 
   dplyr::group_by(obs_number) |> 
+  sf::st_drop_geometry() |> 
 ggplot(aes(x = time_range, y = co2readings, group = obs_number)) +
   geom_smooth(
     se = FALSE,
-    color = "grey80"
+    color = "grey80",
+    linewidth = 0.5
   ) +
   geom_smooth(
     data = lowest_building,
@@ -630,18 +635,21 @@ ggplot(aes(x = time_range, y = co2readings, group = obs_number)) +
     legend.position="none"
     ) 
 
+    # buildings_lines
+
 ```
 
 ```{r allcurves3}
 #| warning: false
 #| message: false
+#| fig.asp: 1.4
 buildings_lines + buildings_box + plot_layout(widths = c(10, 1))
 ```
 
 :::
 :::
 
-Here is a chart showing the `r nrow(buildings_under_threshold)` measurements that had a median CO^2^ value under `r co2_threshold`. Keep in mind that some of these are potentially miscalibrated sensors or erroneous recordings where the sensor was outside. However, it is important to celebrate the places that do in fact have well ventilated spaces.
+Here is a chart showing the `r nrow(buildings_under_threshold)` measurements that had a median CO~2~ value under `r co2_threshold`. Keep in mind that some of these are potentially miscalibrated sensors or erroneous recordings where the sensor was outside. However, it is important to celebrate the places that do in fact have well ventilated spaces.
 
 ```{r thresholdtable}
 #| warning: false
@@ -672,13 +680,13 @@ Here is a chart showing the `r nrow(buildings_under_threshold)` measurements tha
 
 ## Trends over time
 
-The following are charts that are updated every month, but they reflect all data collected so far from the indoorco2 monitoring project (since April 2024). Over time, we should be able to see yearly trends where CO^2^ levels are higher in the Winter when shopkeepers close their windows to keep things warm and then lower CO^2^ levels when shopkeepers open their windows in the Summer.
+The following are charts that are updated every month, but they reflect all data collected so far from the indoorco2 monitoring project (since April 2024). Over time, we should be able to see yearly trends where CO~2~ levels are higher in the Winter when shopkeepers close their windows to keep things warm and then lower CO~2~ levels when shopkeepers open their windows in the Summer.
 
 :::{.cr-section}
 
 @cr-metweekall 
 
-We can start to see trends like in this graph which shows CO^2^ against the week of the year. There are two relevant points you should know about the X axis `Week of the year (meteorological)` before moving on.
+We can start to see trends like in this graph which shows CO~2~ against the week of the year. There are two relevant points you should know about the X axis `Week of the year (meteorological)` before moving on.
 
 1.  Datapoints are aggregated into weeks regardless of the year they are collected in, so some weeks were measured in both 2024 and 2025 but they would both show up in the same week number.
 
@@ -754,7 +762,7 @@ tidyplot(
 
 @cr-metweektype
 
-If we split the graph by the most popular building types, we can start to see some interesting trends. Supermarkets remain relatively high throughout the year with little variation while fast food, and chemists have quite a strong dip in CO^2^ levels during the Summer. This may be because most supermarkets keep their doors closed throughout the year and they tend to have larger buildings; conversely, chemists and fast food restraunts tend to be small to medium sized buildings which means that they can be very easily ventilated if they leave their front door open in the Summer. Restaurants have a very interesting trend here, the strong upward trend of the model at the end of the year is probably due to not enough measurements of restaurants yet rather that there being any meaningful conclusions. Over time we should hopefully see more stable trends show up.
+If we split the graph by the most popular building types, we can start to see some interesting trends. Supermarkets remain relatively high throughout the year with little variation while fast food, and chemists have quite a strong dip in CO~2~ levels during the Summer. This may be because most supermarkets keep their doors closed throughout the year and they tend to have larger buildings; conversely, chemists and fast food restraunts tend to be small to medium sized buildings which means that they can be very easily ventilated if they leave their front door open in the Summer. Restaurants have a very interesting trend here, the strong upward trend of the model at the end of the year is probably due to not enough measurements of restaurants yet rather that there being any meaningful conclusions. Over time we should hopefully see more stable trends show up.
 
 :::{#cr-metweektype}
 
@@ -968,7 +976,7 @@ transit_count |>
 
 :::
 
-When we look at the distribution of CO^2^ measurements by the transit type this month we can see some paterns. Trains often have higher CO^2^ values than buses, subways and trams because they usually travel for longer distances between stations. This causes trains to rely more heavily on mechanical ventilation than buses, subways, and trams which open their doors at stations more frequently. @cr-transitmonthbox
+When we look at the distribution of CO~2~ measurements by the transit type this month we can see some patterns. Trains often have higher CO~2~ values than buses, subways and trams because they usually travel for longer distances between stations. This causes trains to rely more heavily on mechanical ventilation than buses, subways, and trams which open their doors at stations more frequently. @cr-transitmonthbox
 
 :::{#cr-transitmonthbox}
 
@@ -1124,7 +1132,7 @@ That's all for this month! Check back soon for more updates.
 ### Some thanks
 
 This work would not be possible without the hard work of all the contributors to [OpenStreetMap](https://www.openstreetmap.org/) and [indoorco2map](https://indoorco2map.com). If you would like to contribute to either of these projects, please visit their websites.
-You can contribute to the indoorco2map by downloading the [Android app](https://play.google.com/store/apps/details?id=com.aurelwu.indoorairqualitycollector&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1) or [iOS app](https://apps.apple.com/us/app/indoorco2map-data-collector/id6504560820?itscg=30200&itsct=apps_box_badge&mttnsubad=6504560820) and connecting it to any one of the following CO^2^ sensors: Aranet4, Airvalent, AirSpot and Inkbird IAM-T1. 
+You can contribute to the indoorco2map by downloading the [Android app](https://play.google.com/store/apps/details?id=com.aurelwu.indoorairqualitycollector&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1) or [iOS app](https://apps.apple.com/us/app/indoorco2map-data-collector/id6504560820?itscg=30200&itsct=apps_box_badge&mttnsubad=6504560820) and connecting it to any one of the following CO~2~ sensors: Aranet4, Airvalent, AirSpot and Inkbird IAM-T1. 
 I would also like to thank [Aurel Wünsch](https://github.com/AurelWu) who tirelessly works on the project as well as the other contributors to the project [ahunt](https://github.com/ahunt), [da5nsy](https://github.com/da5nsy), [paul-hammant](https://github.com/paul-hammant), and [samherniman](https://github.com/samherniman). 
 
 Finally, many thanks go to the teams who work on the following software, which I used heavily. 
