@@ -379,7 +379,48 @@ This graph shows the distribution of the most common building types in the month
 
 As is common, supermarkets tend to have higher CO~2~ values than other types of buildings.
 
-
+```{r buildingtypes}
+#| include: true
+#| eval: true
+#| warning: false
+#| message: false
+#| fig.asp: 1.2
+buildings_wide_df |> 
+# buildings_long_df |>  
+  dplyr::filter(
+    dplyr::between(
+        date,
+        (lubridate::ceiling_date(start_date, unit = "month") - lubridate::years(1)),
+        start_date |> lubridate::ceiling_date(unit = "month")
+    ),
+    ppmavg >= 410
+    ) |> 
+  # sf::st_drop_geometry() |> 
+  dplyr::mutate(
+    newtag = dplyr::if_else(
+      osmtag %in% common_building_types$osmtag,
+      osmtag,
+      "other"
+    ) |> 
+      stringr::str_replace_all("_", " ") |> 
+      stringr::str_to_sentence(),
+    # month =  paste0(lubridate::month(date, label = TRUE), " ", lubridate::year(date)) |> factor()
+    month =  lubridate::floor_date(date, unit = "month") |> lubridate::date()
+    ) |> 
+  dplyr::group_by(month, newtag) |> 
+  dplyr::tally() |> 
+  tidyr::drop_na() |> 
+  tidyplot(x = month, y = n, color = newtag) |> 
+  add_barstack_absolute(width = 31) |> 
+  adjust_x_axis(rotate_labels = TRUE) |> 
+  adjust_y_axis_title("Number of observations") |> 
+  adjust_x_axis_title("Date (month)") |> 
+  adjust_size(width = NA, height = NA, unit = "cm") |> 
+  adjust_colors(colors_discrete_seaside) |> 
+  # adjust_font(family = "Atkinson Hyperlegible") |> 
+  remove_legend_title() #|> 
+  # add(ggplot2::guide_axis(minor.ticks = TRUE))
+```
 
 :::{#cr-buildingtypes}
 
@@ -388,7 +429,7 @@ As is common, supermarkets tend to have higher CO~2~ values than other types of 
 #| eval: true
 #| warning: false
 #| message: false
-
+#| fig.asp: 1.2
 buildings_long_df |> 
   dplyr::filter(
     co2readings >= 410
@@ -429,7 +470,7 @@ tidyplot(
   #   transform = "log2",
   #   # limits = c(420, NA)
   #   ) |> 
-  adjust_size(width = 6, height = 14, unit = "cm") |> 
+  adjust_size(width = NA, height = NA, unit = "cm") |> 
   adjust_font(fontsize = 16) |> 
   remove_legend() |> 
   # adjust_legend_title("Building type") |> 
