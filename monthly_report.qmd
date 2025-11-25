@@ -57,11 +57,6 @@ The following is a monthly summary of how this project is going.
 #| warning: false
 #| message: false
 #| include: false 
-library(ggplot2)
-library(tidyplots)
-library(gt)
-library(patchwork)
-
 source(here::here("functions/functions.R"))
 
 ```
@@ -70,7 +65,10 @@ source(here::here("functions/functions.R"))
 #| warning: false
 #| message: false
 #| include: false
-buildings_wide_df <- autocruller::ac_get_co2("web") 
+
+
+get_data_from_autocruller <- function() {
+  buildings_wide_df <- autocruller::ac_get_co2("web") 
 
 # saveRDS(buildings_wide_df, here::here("buildings_wide_df.rds"))
 
@@ -91,6 +89,8 @@ transit_long_df <- autocruller::ac_get_co2("transit")
 # saveRDS(transit_long_df, here::here("transit_long_df.rds"))
 
 # transit_long_df <- readRDS(here::here("transit_long_df.rds"))
+}
+
 
 ```
 
@@ -301,6 +301,40 @@ This month there were `r nrow(buildings_wide_df_short)` measurements of `r lengt
 
 `r describe_most_measured(most_measured)` 
 
+```{r}
+buildings_wide_df_short |> 
+  dplyr::filter(
+    ppmavg >= 410,
+    ppmavg < 3000
+  ) |> 
+  dplyr::mutate(
+    percent_rebreathed = ((ppmavg - 420)/38000) * 100
+  ) |> 
+  sf::st_drop_geometry() |> 
+  ggplot(aes(ppmavg)) +
+  geom_histogram(binwidth = 30) +
+  geom_rect(
+    xmin = median(buildings_wide_df_short$ppmavg), 
+    xmax = median(buildings_wide_df_short$ppmavg),
+    ymin = 1,
+    ymax = 600,
+    fill = "red") +
+  ylab("Number of observations") +
+  xlab("Mean CO2") + 
+  ggplot2::theme(
+      plot.margin = ggplot2::unit(c(0.5, 0.5, 0.5, 0.5), "mm"),
+      plot.background = ggplot2::element_rect(fill = NA, colour = NA),
+      legend.background = ggplot2::element_rect(fill = NA, colour = NA),
+      legend.key = ggplot2::element_rect(fill = NA, colour = NA),
+      strip.background = ggplot2::element_rect(fill = NA, colour = NA),
+      panel.background = ggplot2::element_rect(fill = NA, colour = NA),
+      panel.border = ggplot2::element_rect(fill = NA, colour = "black", linewidth = 0.5),
+      panel.grid.major = ggplot2::element_blank(),
+      panel.grid.minor = ggplot2::element_blank(),
+      axis.ticks = ggplot2::element_line(colour = "black", linewidth = 0.25)
+    )
+```
+
 ```{r countriescount}
 #| warning: false
 #| message: false
@@ -418,8 +452,7 @@ buildings_wide_df |>
   adjust_size(width = NA, height = NA, unit = "cm") |> 
   adjust_colors(colors_discrete_seaside) |> 
   # adjust_font(family = "Atkinson Hyperlegible") |> 
-  remove_legend_title() #|> 
-  # add(ggplot2::guide_axis(minor.ticks = TRUE))
+  remove_legend_title() 
 ```
 
 :::{#cr-buildingtypes}
