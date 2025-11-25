@@ -307,3 +307,32 @@ plot_histogram_co2 <- function(x) {
     xlab("Mean CO2") +
     tidyplots_theme()
 }
+
+
+plot_countries_count <- function(x) {
+  x |>
+    tidyplot(
+      x = countryname,
+      y = n,
+      color = countryname
+    ) |>
+    add_barstack_absolute() |>
+    adjust_x_axis(
+      rotate_labels = TRUE
+    ) |>
+    sort_x_axis_labels() |>
+    add_data_labels(
+      label = n,
+      color = "black",
+      label_position = "above",
+      fontsize = 14
+    ) |>
+    adjust_size(width = NA, height = NA, unit = "cm") |>
+    adjust_font(fontsize = 14) |>
+    adjust_y_axis_title("Number of measurements") |>
+    adjust_x_axis_title("Country") |>
+    remove_legend() |>
+    adjust_padding(top = 0.3) |>
+    adjust_title("Building measurements per country") |>
+    adjust_caption("Data from indoorCO2map.com", fontsize = 10)
+}
