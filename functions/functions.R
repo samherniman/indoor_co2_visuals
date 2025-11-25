@@ -248,7 +248,7 @@ geocode_buildings_or_transit <- function(x) {
 }
 
 
-summarise_most_measured <- function(x) {
+summarise_most_measured_buildings <- function(x) {
   x |>
     dplyr::group_by(combined_id) |>
     dplyr::summarise(
@@ -262,6 +262,26 @@ summarise_most_measured <- function(x) {
       ppm_min = min(ppmavg) |> round(),
       ppm_avg = mean(ppmavg) |> round(),
       ppm_max = max(ppmavg) |> round()
+    ) |>
+    dplyr::slice_max(n = 1, order_by = n)
+}
+
+summarise_most_measured_transit <- function(x) {
+  x |>
+    dplyr::group_by(line) |>
+    dplyr::summarise(
+      n = length(unique(uid)),
+      lineName = dplyr::first(ref),
+      route = dplyr::first(route),
+      network = dplyr::first(network_best),
+      operator = dplyr::first(operator_best),
+      countryname = dplyr::first(country),
+      location_description = dplyr::first(location_description),
+      min_day = min(date),
+      max_day = max(date),
+      ppm_min = min(co2Array) |> round(),
+      ppm_avg = mean(co2Array) |> round(),
+      ppm_max = max(co2Array) |> round()
     ) |>
     dplyr::slice_max(n = 1, order_by = n)
 }
@@ -334,5 +354,544 @@ plot_countries_count <- function(x) {
     remove_legend() |>
     adjust_padding(top = 0.3) |>
     adjust_title("Building measurements per country") |>
+    adjust_caption("Data from indoorCO2map.com", fontsize = 10)
+}
+
+
+plot_building_types_1 <- function(buildings_wide_df) {
+  buildings_wide_df |>
+    # buildings_long_df |>
+    dplyr::filter(
+      dplyr::between(
+        date,
+        (lubridate::ceiling_date(start_date, unit = "month") -
+          lubridate::years(1)),
+        start_date |> lubridate::ceiling_date(unit = "month")
+      ),
+      ppmavg >= 410
+    ) |>
+    # sf::st_drop_geometry() |>
+    dplyr::mutate(
+      newtag = dplyr::if_else(
+        osmtag %in% common_building_types$osmtag,
+        osmtag,
+        "other"
+      ) |>
+        stringr::str_replace_all("_", " ") |>
+        stringr::str_to_sentence(),
+      # month =  paste0(lubridate::month(date, label = TRUE), " ", lubridate::year(date)) |> factor()
+      month = lubridate::floor_date(date, unit = "month") |> lubridate::date()
+    ) |>
+    dplyr::group_by(month, newtag) |>
+    dplyr::tally() |>
+    tidyr::drop_na() |>
+    tidyplot(x = month, y = n, color = newtag) |>
+    add_barstack_absolute(width = 31) |>
+    adjust_x_axis(rotate_labels = TRUE) |>
+    adjust_y_axis_title("Number of observations") |>
+    adjust_x_axis_title("Date (month)") |>
+    adjust_size(width = NA, height = NA, unit = "cm") |>
+    adjust_colors(colors_discrete_seaside) |>
+    # adjust_font(family = "Atkinson Hyperlegible") |>
+    remove_legend_title()
+}
+
+
+plot_building_types_2 <- function(buildings_long_df) {
+  buildings_long_df |>
+    dplyr::filter(
+      co2readings >= 410
+    ) |>
+    dplyr::mutate(
+      newtag = dplyr::if_else(
+        osmtag %in% common_building_types$osmtag,
+        osmtag,
+        "other"
+      ) |>
+        stringr::str_replace_all("_", " ") |>
+        stringr::str_to_sentence()
+    ) |>
+    dplyr::group_by(obs_number) |>
+    dplyr::summarise(
+      ppmavg = median(ppmavg, na.rm = TRUE),
+      newtag = dplyr::first(newtag)
+    ) |>
+    dplyr::mutate(
+      percent_rebreathed = ((ppmavg - 420) / 38000) * 100
+    ) |>
+    sf::st_drop_geometry() |>
+    tidyplot(
+      x = newtag,
+      y = percent_rebreathed,
+      fill = ppmavg
+    ) |>
+    add_data_points_beeswarm(size = 3, alpha = 0.4) |>
+    add_boxplot(
+      linewidth = 1.4,
+      fill = "white",
+      color = "grey30",
+      show_outliers = FALSE
+    ) |>
+    # add_curve_fit(linewidth = 2,  alpha = 0.5,  se = FALSE) |>
+    # add_data_points(size = 2, alpha = 0.4) |>
+    adjust_x_axis(
+      title = "Building type",
+      rotate_labels = TRUE
+      # breaks = seq(0, 52, by = 4)
+    ) |>
+    # adjust_y_axis(
+    #   transform = "log2",
+    #   # limits = c(420, NA)
+    #   ) |>
+    adjust_size(width = NA, height = NA, unit = "cm") |>
+    adjust_font(fontsize = 16) |>
+    remove_legend() |>
+    # adjust_legend_title("Building type") |>
+    adjust_y_axis_title("Percent rebreathed CO2") |>
+    adjust_caption("Data from indoorCO2map.com", fontsize = 10)
+}
+
+list_buildings_under_threshold <- function(
+  buildings_long_df_med,
+  co2_threshold = 500
+) {
+  buildings_long_df_med |>
+    dplyr::filter(median_co2 < co2_threshold) |>
+    dplyr::group_by(obs_number) |>
+    dplyr::summarise(
+      name = dplyr::first(nwrname),
+      co2 = dplyr::first(median_co2),
+      osmtag = dplyr::first(osmtag) |> stringr::str_to_sentence(),
+      location_description = dplyr::first(location_description)
+    ) |>
+    dplyr::select(
+      -obs_number
+    )
+}
+
+create_co2_tibble <- function(x) {
+  tibble::tibble(
+    time = 1:length(x$obs_number),
+    co2 = x$co2readings,
+    building = x$nwrname
+  )
+}
+
+
+plot_building_co2_vs_time <- function(co2df) {
+  ggplot(co2df, aes(x = time, y = co2, color = building)) +
+    geom_smooth(color = "grey80") +
+    geom_point(size = 4) +
+    ylim(400, NA) +
+    xlab("Time (minutes)") +
+    ylab(bquote(CO^2)) +
+    theme_minimal() +
+    theme(
+      text = element_text(size = 16),
+      panel.grid = element_blank(),
+      axis.text.x = element_text(size = 16),
+      axis.line = element_line(colour = "black", size = 1, linetype = "solid"),
+      legend.position = "none"
+    )
+}
+
+plot_all_curves <- function(buildings_long_df_med, ylim_max) {
+  # box plot
+  buildings_box <-
+    buildings_long_df_med |>
+    dplyr::group_by(obs_number) |>
+    ggplot(aes(x = 1, y = co2readings)) +
+    geom_boxplot(outliers = FALSE) +
+    ylim(400, ylim_max) +
+    ylab(bquote(CO^2)) +
+    theme_void() +
+    theme(
+      plot.title = element_text(size = 12),
+      panel.grid = element_blank(),
+      axis.text.x = element_blank(),
+      legend.position = "none"
+    )
+
+  # graph with the curves
+
+  buildings_lines <-
+    buildings_long_df_med |>
+    dplyr::group_by(obs_number) |>
+    sf::st_drop_geometry() |>
+    ggplot(aes(x = time_range, y = co2readings, group = obs_number)) +
+    geom_smooth(
+      se = FALSE,
+      color = "grey80",
+      linewidth = 0.5
+    ) +
+    geom_smooth(
+      data = lowest_building,
+      mapping = aes(x = time_range, y = co2readings, color = obs_number),
+      se = FALSE
+    ) +
+    geom_point(
+      data = lowest_building,
+      mapping = aes(x = time_range, y = co2readings, color = obs_number),
+      size = 4
+    ) +
+    geom_smooth(
+      data = highest_building,
+      mapping = aes(x = time_range, y = co2readings, color = obs_number),
+      se = FALSE
+    ) +
+    geom_point(
+      data = highest_building,
+      mapping = aes(x = time_range, y = co2readings, color = co2readings),
+      size = 4
+    ) +
+    # scale_color_viridis_c()+
+    scico::scale_color_scico("hawaii", direction = -1) +
+    annotate(
+      "label",
+      x = .7,
+      y = mean(lowest_building$ppmavg, na.rm = TRUE) + 140,
+      label = unique(lowest_building$nwrname) |>
+        stringr::str_flatten_comma(last = ' and ')
+    ) +
+    annotate(
+      "label",
+      x = .2,
+      y = mean(highest_building$ppmavg, na.rm = TRUE) - 140,
+      label = unique(highest_building$nwrname) |>
+        stringr::str_flatten_comma(last = ' and ')
+    ) +
+    ylim(400, ylim_max) +
+    labs(title = "Highest and lowest recordings this month") +
+    xlab("Time (from recording start to end)") +
+    ylab(bquote(CO^2)) +
+    theme_minimal() +
+    theme(
+      text = element_text(size = 16),
+      plot.title = element_text(size = 12),
+      panel.grid = element_blank(),
+      axis.text.x = element_text(size = 16),
+      axis.line = element_line(
+        colour = "black",
+        linewidth = 1,
+        linetype = "solid"
+      ),
+      legend.position = "none"
+    )
+
+  # put them together
+  buildings_lines + buildings_box + plot_layout(widths = c(10, 1))
+}
+
+
+gt_buildings_under_threshold <- function(buildings_under_threshold) {
+  buildings_under_threshold |>
+    dplyr::mutate(
+      osmtag = stringr::str_replace_all(osmtag, "_", " ")
+    ) |>
+    gt() |>
+    tab_header(title = "Measurements under 500 ppm") |>
+    cols_label(
+      name = "Name",
+      co2 = "CO2 ppm",
+      osmtag = "Building type",
+      location_description = "Location"
+    ) |>
+    tab_options(
+      table_body.hlines.width = 0
+    )
+}
+
+add_meteorological_week <- function(x) {
+  x |>
+    dplyr::mutate(
+      meteorological_week = dplyr::if_else(
+        sf::st_coordinates(geometry)[, 2] < 0,
+        lubridate::week(date) |> convert_hemisphere() |> factor(),
+        lubridate::week(date) |> factor()
+      )
+    )
+}
+
+plot_buildings_boxplot_date_vs_co2 <- function(buildings_wide_df) {
+  buildings_wide_df |>
+    dplyr::mutate(
+      year_month = paste0(lubridate::year(date), "-", lubridate::month(date))
+    ) |>
+    tidyplot(
+      x = year_month,
+      y = ppmavg
+    ) |>
+    add_boxplot() |>
+    adjust_x_axis(
+      title = "Date",
+      rotate_labels = TRUE
+    ) |>
+    adjust_size(width = NA, height = NA, unit = "cm") |>
+    adjust_font(fontsize = 16) |>
+    adjust_y_axis_title("CO2 ppm average") |>
+    remove_legend() |>
+    adjust_caption("Data from indoorCO2map.com", fontsize = 10)
+}
+
+plot_buildings_week_co2 <- function(buildings_wide_df) {
+  buildings_wide_df |>
+    dplyr::group_by(meteorological_week) |>
+    dplyr::summarise(
+      ppmavg = median(ppmavg, na.rm = TRUE)
+    ) |>
+    tidyplot(
+      x = meteorological_week,
+      y = ppmavg
+    ) |>
+    add_curve_fit(linewidth = 2, alpha = 0.5, se = FALSE) |>
+    add_data_points(size = 2, alpha = 0.4) |>
+    adjust_x_axis(
+      title = "Week of the year (meteorological)",
+      # rotate_labels = TRUE,
+      breaks = seq(0, 52, by = 4)
+    ) |>
+    adjust_size(width = NA, height = NA, unit = "cm") |>
+    adjust_font(fontsize = 16) |>
+    adjust_legend_position("top") |>
+    adjust_y_axis_title("CO2 ppm median") |>
+    adjust_caption("Data from indoorCO2map.com", fontsize = 10)
+}
+
+plot_metweek_type <- function(buildings_wide_df) {
+  buildings_wide_df |>
+    dplyr::mutate(
+      newtag = dplyr::if_else(
+        osmtag %in% common_building_types$osmtag,
+        osmtag,
+        "other"
+      ) |>
+        stringr::str_replace_all("_", " ") |>
+        stringr::str_to_sentence()
+    ) |>
+    dplyr::group_by(meteorological_week, newtag) |>
+    dplyr::summarise(
+      ppmavg = median(ppmavg, na.rm = TRUE)
+    ) |>
+    tidyplot(
+      x = meteorological_week,
+      y = ppmavg,
+      color = newtag
+    ) |>
+    add_curve_fit(linewidth = 2, alpha = 0.5, se = FALSE) |>
+    add_data_points(size = 2, alpha = 0.4) |>
+    adjust_x_axis(
+      title = "Week of the year (meteorological)",
+      # rotate_labels = TRUE,
+      breaks = seq(0, 52, by = 4)
+    ) |>
+    adjust_y_axis(
+      limits = c(NA, 1200)
+    ) |>
+    adjust_size(width = NA, height = NA, unit = "cm") |>
+    adjust_font(fontsize = 16) |>
+    adjust_legend_title("Building type") |>
+    adjust_y_axis_title("CO2 ppm median") |>
+    adjust_caption("Data from indoorCO2map.com", fontsize = 10)
+}
+
+plot_all_histogram <- function(buildings_wide_df) {
+  buildings_wide_df |>
+    tidyplot(
+      x = date
+    ) |>
+    add_histogram(
+      bins = ceiling(
+        (lubridate::interval(
+          buildings_wide_df$date |> min(),
+          buildings_wide_df$date |> max()
+        )) /
+          lubridate::dweeks(1)
+      )
+    ) |>
+    adjust_x_axis(
+      title = "Date",
+      breaks = scales::breaks_width("2 months"),
+      labels = scales::label_date("%Y-%m"),
+      rotate_labels = TRUE
+    ) |>
+    adjust_size(width = NA, height = NA, unit = "cm") |>
+    adjust_font(fontsize = 16) |>
+    adjust_y_axis_title("Observations per week") |>
+    remove_legend() |>
+    adjust_caption("Data from indoorCO2map.com", fontsize = 10)
+}
+
+
+# Transit ----------------------------------------------------------------
+
+count_transit <- function(x) {
+  x |>
+    dplyr::rowwise() |>
+    dplyr::mutate(
+      location_description = stringr::str_replace_all(
+        location_description,
+        "United States of America",
+        "USA"
+      )
+      #   city_country = city %||% country,
+      #   line_loc = glue::glue("{network_best} ({city_country})")
+    ) |>
+    dplyr::group_by(location_description) |>
+    dplyr::summarise(
+      n = dplyr::n_distinct(uid)
+    ) |>
+    tidyr::drop_na() |>
+    sf::st_drop_geometry() |>
+    dplyr::ungroup() |>
+    dplyr::filter(n > 2)
+}
+
+plot_transit_count_bar <- function(x) {
+  x |>
+    dplyr::filter(n > 2) |>
+    tidyplot(
+      x = location_description,
+      y = n,
+      color = location_description
+    ) |>
+    add_barstack_absolute() |>
+    adjust_x_axis(
+      rotate_labels = 65
+    ) |>
+    sort_x_axis_labels() |>
+    add_data_labels(
+      label = n,
+      color = "black",
+      label_position = "above",
+      fontsize = 14
+    ) |>
+    adjust_size(width = NA, height = NA, unit = "cm") |>
+    adjust_font(fontsize = 12) |>
+    adjust_y_axis_title("Number of measurements") |>
+    adjust_x_axis_title("Community") |>
+    remove_legend() |>
+    adjust_padding(top = 0.3) |>
+    adjust_title("Transit measurements per community") |>
+    adjust_caption("Data from indoorCO2map.com", fontsize = 10)
+}
+
+
+plot_transit_month_box <- function(x, co2_filter = 410) {
+  x |>
+    tidyr::drop_na(route) |>
+    dplyr::filter(
+      co2Array >= co2_filter
+      # location_description %in% transit_count$location_description
+    ) |>
+    dplyr::mutate(
+      route = stringr::str_to_sentence(route) |>
+        stringr::str_replace_all("_", " ")
+    ) |>
+    tidyplot(
+      x = route,
+      y = co2Array,
+      fill = co2Array
+    ) |>
+    add_data_points_beeswarm(size = 1, alpha = 0.15) |>
+    add_boxplot(
+      linewidth = 1.4,
+      fill = "white",
+      color = "grey30",
+      show_outliers = FALSE
+    ) |>
+    # add_curve_fit(linewidth = 2,  alpha = 0.5,  se = FALSE) |>
+    # add_data_points(size = 2, alpha = 0.4) |>
+    adjust_x_axis(
+      title = "Transit type",
+      rotate_labels = TRUE
+    ) |>
+    # sort_x_axis_labels() |>
+    adjust_y_axis(
+      transform = "log10",
+      limits = c(420, NA)
+    ) |>
+    adjust_size(width = NA, height = NA, unit = "cm") |>
+    adjust_font(fontsize = 16) |>
+    remove_legend() |>
+    # adjust_legend_title("Building type") |>
+    adjust_y_axis_title("CO2 ppm") |>
+    add_title("CO2 Distribution (this month)") |>
+    adjust_caption("Data from indoorCO2map.com", fontsize = 10)
+}
+
+plot_transit_all_box <- function(x, co2_filter = 410) {
+  x |>
+    tidyr::drop_na(route) |>
+    dplyr::filter(
+      co2Array >= co2_filter
+      # location_description %in% transit_count$location_description
+    ) |>
+    dplyr::mutate(
+      route = stringr::str_to_sentence(route) |>
+        stringr::str_replace_all("_", " ")
+    ) |>
+    # dplyr::group_by(route) |>
+    # dplyr::summarise(
+    #   ppmavg = median(co2Array, na.rm = TRUE),
+    #   location_description = dplyr::first(location_description)
+    #   ) |>
+    tidyplot(
+      x = route,
+      y = co2Array,
+      fill = co2Array
+    ) |>
+    # add_data_points_beeswarm(size = 1, alpha = 0.1) |>
+    add_boxplot(
+      linewidth = 1.4,
+      fill = "white",
+      color = "grey30",
+      show_outliers = FALSE
+    ) |>
+    # add_curve_fit(linewidth = 2,  alpha = 0.5,  se = FALSE) |>
+    # add_data_points(size = 2, alpha = 0.4) |>
+    adjust_x_axis(
+      title = "Transit type",
+      rotate_labels = TRUE
+    ) |>
+    # sort_x_axis_labels() |>
+    # adjust_y_axis(
+    #   transform = "log2",
+    #   limits = c(420, NA)
+    #   ) |>
+    adjust_size(width = NA, height = NA, unit = "cm") |>
+    adjust_font(fontsize = 16) |>
+    remove_legend() |>
+    # adjust_legend_title("Building type") |>
+    adjust_y_axis_title("CO2 ppm") |>
+    add_title("CO2 Distribution (all data)") |>
+    adjust_caption("Data from indoorCO2map.com", fontsize = 10)
+}
+
+plot_transit_met_week <- function(x) {
+  x |>
+    dplyr::group_by(meteorological_week) |>
+    dplyr::summarise(
+      ppmavg = median(co2Array, na.rm = TRUE)
+    ) |>
+    tidyplot(
+      x = meteorological_week,
+      y = ppmavg
+      # color = route
+    ) |>
+    add_curve_fit(linewidth = 2, alpha = 0.5, se = FALSE) |>
+    add_data_points(size = 2, alpha = 0.4) |>
+    adjust_x_axis(
+      title = "Week of the year (meteorological)",
+      rotate_labels = TRUE,
+      breaks = seq(0, 52, by = 4)
+    ) |>
+    adjust_y_axis(
+      limits = c(NA, 1200)
+    ) |>
+    adjust_size(width = NA, height = NA, unit = "cm") |>
+    adjust_font(fontsize = 16) |>
+    adjust_legend_title("Transit type") |>
+    adjust_y_axis_title("CO2 ppm median") |>
+    # reorder_x_axis_labels(seq(0, 52, by = 1)) |>
     adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 }
