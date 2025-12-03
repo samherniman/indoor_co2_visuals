@@ -23,7 +23,7 @@ format:
     theme: custom.scss
 execute:
   echo: false
-  cache: refresh
+  cache: true
 ---
 
 ```{r notes}
@@ -39,7 +39,7 @@ start_date <- (lubridate::ymd("2025-11-30"))
 
 # Monthly indoorCO2map.com summary `r start_date |> lubridate::month(label = TRUE, abbr = FALSE)` `r lubridate::today()  |> lubridate::year()`
 
-There is a well documented relationship between indoor levels of CO~2~ and the amount of ventilation in indoor environments. Buildings with high indoor levels of CO2 have poor ventilation and are therefore more likely to be vectors of airborne diseases (like COVID-19, Measles, and Flu) and to trap indoor pollutants.
+There is a well documented relationship between indoor levels of CO~2~ and the amount of ventilation in indoor environments. Buildings with high indoor levels of CO~2~ have poor ventilation and are therefore more likely to be vectors of airborne diseases (like COVID-19, Measles, and Flu) and to trap indoor pollutants.
 
 Measuring CO~2~ inside is a really cheap way of measuring the air quality in indoor environments. When we breathe, we exhale  CO~2~ and it gets trapped inside the room we are in. If the building has good ventilation it will leave quickly. If it has bad ventilation, it stays in the room and builds up.
 
@@ -218,7 +218,7 @@ There were measurements in `r nrow(countries_count)` separate countries. `r new_
 
  @cr-histco2plot 
 
-Here is a graph that shows the distribution of all the CO~2~ measurements this month. The dashed red line shows the median which was `r median(mean_vals$ppmavg, na.rm = TRUE) |> round()` ppm. There are many measurements in the range that we would consider good CO~2~ levels, however, you'll notice that there are also a good number of measurements that are over 2000 ppm, which really should be addressed.
+Here is a graph that shows the distribution of all the CO~2~ measurements this month. The dashed red line shows the median which was `r median(mean_vals$ppmavg, na.rm = TRUE) |> round()` ppm. There are many measurements in the range that we would consider good CO~2~ levels, however, you'll notice that there are also a good number of measurements that are over 1000 ppm, which really should be addressed.
 
 :::{#cr-histco2plot}
 
@@ -320,7 +320,7 @@ buildings_under_threshold <-
 
 Here is a graph of all the recordings that happened this month shown by the grey curves. I've highlighted the highest one. @cr-allcurves 
 
-`r highest_sentence`  While this is incredibly high, its important to realize that this is an outlier. The majority of measurements are much lower than this. There is a boxplot to the right of the graph which shows where the majority of measurements fall.  
+`r highest_sentence`  While this is incredibly high, it is important to realize that this is an outlier. The majority of measurements are much lower than this. There is a boxplot to the right of the graph which shows where the majority of measurements fall.  
 
 `r lowest_sentence`
 There were some measurements that were even lower than this, but we have removed them from this analysis. Generally outdoor CO~2~ levels don't go below 410 ppm, therefore we have removed any datapoints that are below 400 ppm. If your CO~2~ monitor consistently shows levels below 410 ppm while you are inside or outside, it is likely that your monitor needs recalibrating.
@@ -411,7 +411,7 @@ plot_buildings_week_co2(buildings_wide_df)
 
 @cr-metweektype
 
-If we split the graph by the most popular building types, we can start to see some interesting trends. Supermarkets remain relatively high throughout the year with little variation while fast food, and chemists have quite a strong dip in CO~2~ levels during the Summer. This may be because most supermarkets keep their doors closed throughout the year and they tend to have larger buildings; conversely, chemists and fast food restraunts tend to be small to medium sized buildings which means that they can be very easily ventilated if they leave their front door open in the Summer. Restaurants have a very interesting trend here, the strong upward trend of the model at the end of the year is probably due to not enough measurements of restaurants yet rather that there being any meaningful conclusions. Over time we should hopefully see more stable trends show up.
+If we split the graph by the most popular building types, we can start to see some interesting trends. Supermarkets remain relatively high throughout the year with little variation while fast food, and chemists have quite a strong dip in CO~2~ levels during the Summer. This may be because most supermarkets keep their doors closed throughout the year and they tend to have larger buildings; conversely, chemists and fast food restaurants tend to be small to medium sized buildings which means that they can be very easily ventilated if they leave their front door open in the Summer. Restaurants have a very interesting trend here, the strong upward trend of the model at the end of the year is probably due to not enough measurements of restaurants yet rather that there being any meaningful conclusions. Over time we should hopefully see more stable trends show up.
 
 :::{#cr-metweektype}
 

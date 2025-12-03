@@ -570,7 +570,7 @@ plot_all_curves <- function(buildings_long_df_med, ylim_max) {
       size = 4
     ) +
     # scale_color_viridis_c()+
-    scico::scale_color_scico("roma", direction = -1) +
+    scico::scale_color_scico(palette = "managua", direction = -1) +
     # annotate(
     #   "label",
     #   x = .7,
