@@ -17,13 +17,10 @@ format:
       narrative-sidebar-width: "1fr"
       narrative-overlay-max-width: "60%"  
       narrative-outer-margin: "10px"  
-      narrative-font-size: "1.2rem" 
+      narrative-font-size: "1rem" 
     cr-section:
       layout: "sidebar-left"
     theme: custom.scss
-  gfm: 
-    output-file: README.md
-format-links: false
 execute:
   echo: false
   cache: true
@@ -42,7 +39,7 @@ start_date <- (lubridate::ymd("2025-11-30"))
 
 # Monthly indoorCO2map.com summary `r start_date |> lubridate::month(label = TRUE, abbr = FALSE)` `r lubridate::today()  |> lubridate::year()`
 
-There is a well documented relationship between indoor levels of CO~2~ and the amount of ventilation in indoor environments. Buildings with high indoor levels of CO~2~ have poor ventilation and are therefore more likely to be vectors of airborne diseases (like COVID-19, Measles, and Flu) and to trap indoor pollutants.
+There is a well documented relationship between indoor levels of CO~2~ and the amount of ventilation in indoor environments. Buildings with high indoor levels of CO2 have poor ventilation and are therefore more likely to be vectors of airborne diseases (like COVID-19, Measles, and Flu) and to trap indoor pollutants.
 
 Measuring CO~2~ inside is a really cheap way of measuring the air quality in indoor environments. When we breathe, we exhale  CO~2~ and it gets trapped inside the room we are in. If the building has good ventilation it will leave quickly. If it has bad ventilation, it stays in the room and builds up.
 
@@ -168,14 +165,23 @@ buildings_long_df <- autocruller::ac_unnest_longer(buildings_wide_df_short)
 most_measured <- 
 buildings_wide_df_short |> 
   summarise_most_measured_buildings()
+  
 
-mean_vals <- buildings_wide_df_short |>
-  sf::st_drop_geometry() |> 
+ mean_vals <- buildings_wide_df_short |>
     dplyr::filter(
       ppmavg >= 410
     ) 
-  
 ```
+
+This month there were `r nrow(buildings_wide_df_short)` measurements of `r length(unique(buildings_wide_df_short$combined_id))` unique buildings around the world. The median CO~2~ measurement was `r median(mean_vals$ppmavg, na.rm = TRUE) |> round()` ppm. This graph shows you the distribution of all the CO~2~ measurements this month. The dashed red line shows the median. @cr-histco2plot 
+
+:::{#cr-histco2plot}
+
+```{r}
+buildings_wide_df_short |> plot_histogram_co2()
+```
+
+:::
 
 ```{r countriescount}
 #| warning: false
@@ -213,46 +219,19 @@ countries_count <- countries_count[order(countries_count$n, decreasing = TRUE),]
     
 ```
 
-This month there were `r nrow(buildings_wide_df_short)` measurements of `r length(unique(buildings_wide_df_short$combined_id))` unique buildings. @cr-ccplot 
 
-`r describe_most_measured(most_measured)` 
 
 There were measurements in `r nrow(countries_count)` separate countries. `r new_countries_sentence`  
-
- @cr-histco2plot 
-
-Here is a graph that shows the distribution of all the CO~2~ measurements this month. The dashed red line shows the median which was `r median(mean_vals$ppmavg, na.rm = TRUE) |> round()` ppm. There are many measurements in the range that we would consider good CO~2~ levels, however, you'll notice that there are also a good number of measurements that are over 1000 ppm, which really should be addressed.
-
-:::{#cr-histco2plot}
-
-```{r}
-buildings_wide_df_short |> plot_histogram_co2()
-```
-
-:::
-
-
-:::{#cr-ccplot}
-
-```{r ccplot}
-#| warning: false
-#| message: false
-
-countries_count |> plot_countries_count()
-  
-```
-
-:::
 
   @cr-buildingtypes 
 
 This graph shows the distribution of the most common building types in the month of `r start_date  |> lubridate::month(label = TRUE, abbr = FALSE)`. The dark bar in the middle of each box and whisker plot shows the median value for each category. The rest of the lines show the range of the distribution. Most of the values fall within each box. If you want more information about how to interpret this graph, watch [this video](https://youtu.be/b2C9I8HuCe4?si=73FKu7wSJr1rWwWt).
 
-As is common, supermarkets tend to have higher CO~2~ values than other types of buildings. I've converted those CO~2~ values to the percentage of rebreathed air, which specifies how much of each breath you take has already been exhaled by someone else.
+As is common, supermarkets tend to have higher CO~2~ values than other types of buildings.
 
 ```{r buildingtypes1}
 #| include: true
-#| eval: false
+#| eval: true
 #| warning: false
 #| message: false
 #| fig.asp: 1.2
@@ -321,12 +300,9 @@ buildings_under_threshold <-
   list_buildings_under_threshold(co2_threshold)
 ```
 
-Here is a graph of all the recordings that happened this month shown by the grey curves. I've highlighted the highest one. @cr-allcurves 
+Here is a graph of all the recordings that happened this month shown by the grey curves. I've highlighted the highest and lowest ones. @cr-allcurves 
 
-`r highest_sentence`  While this is incredibly high, it is important to realize that this is an outlier. The majority of measurements are much lower than this. There is a boxplot to the right of the graph which shows where the majority of measurements fall.  
-
-`r lowest_sentence`
-There were some measurements that were even lower than this, but we have removed them from this analysis. Generally outdoor CO~2~ levels don't go below 410 ppm, therefore we have removed any datapoints that are below 400 ppm. If your CO~2~ monitor consistently shows levels below 410 ppm while you are inside or outside, it is likely that your monitor needs recalibrating.
+`r highest_sentence` `r lowest_sentence` There were some measurements that were even lower than this, but we have removed them from this analysis. Generally outdoor CO~2~ levels don't go below 410 ppm, therefore we have removed any datapoints that are below 400 ppm. If your CO~2~ monitor consistently shows levels below 410 ppm while you are inside or outside, it is likely that your monitor needs recalibrating.
 
 ```{r}
 #| warning: false
@@ -381,9 +357,9 @@ The following are charts that are updated every month, but they reflect all data
 
 @cr-metweekall 
 
-We can start to see trends like in this graph which shows CO~2~ against the week of the year. There are two relevant points you should know about the X axis, `Week of the year (meteorological)`, before moving on.  
+We can start to see trends like in this graph which shows CO~2~ against the week of the year. There are two relevant points you should know about the X axis `Week of the year (meteorological)` before moving on.
 
-1.  Datapoints are aggregated into weeks regardless of the year they are collected in, so some weeks were measured in both 2024 and 2025 but they would both show up in the same week number.  
+1.  Datapoints are aggregated into weeks regardless of the year they are collected in, so some weeks were measured in both 2024 and 2025 but they would both show up in the same week number.
 
 2.  This takes account of the hemisphere in which the recording was collected. Since Winter in the Southern Hemisphere is June through August, while Winter in the Northern Hemisphere is December through February, we have adjusted the week numbers so that they line up meterologically. Essentially, a measurement collected in the Northern Hemisphere on the first of January would show up as week 1, however, a measurement collected in the Southern Hemisphere on the first of January would show up as week 27.
 
@@ -414,7 +390,7 @@ plot_buildings_week_co2(buildings_wide_df)
 
 @cr-metweektype
 
-If we split the graph by the most popular building types, we can start to see some interesting trends. Supermarkets remain relatively high throughout the year with little variation while fast food, and chemists have quite a strong dip in CO~2~ levels during the Summer. This may be because most supermarkets keep their doors closed throughout the year and they tend to have larger buildings; conversely, chemists and fast food restaurants tend to be small to medium sized buildings which means that they can be very easily ventilated if they leave their front door open in the Summer. Restaurants have a very interesting trend here, the strong upward trend of the model at the end of the year is probably due to not enough measurements of restaurants yet rather that there being any meaningful conclusions. Over time we should hopefully see more stable trends show up.
+If we split the graph by the most popular building types, we can start to see some interesting trends. Supermarkets remain relatively high throughout the year with little variation while fast food, and chemists have quite a strong dip in CO~2~ levels during the Summer. This may be because most supermarkets keep their doors closed throughout the year and they tend to have larger buildings; conversely, chemists and fast food restraunts tend to be small to medium sized buildings which means that they can be very easily ventilated if they leave their front door open in the Summer. Restaurants have a very interesting trend here, the strong upward trend of the model at the end of the year is probably due to not enough measurements of restaurants yet rather that there being any meaningful conclusions. Over time we should hopefully see more stable trends show up.
 
 :::{#cr-metweektype}
 
@@ -500,7 +476,7 @@ summarise_most_measured_transit()
 
 :::{.cr-section}
 
-This month there were `r length(unique(transit_long_df_short$uid))` measurements of `r length(unique(transit_long_df_short$line))` unique transit lines. `r describe_most_measured_transit(most_measured_transit)` This graph shows the number of transit recordings in each transit network during the last month. Keep in mind that this graph only shows networks with more than 2 transit recordings this month (there were quite a few with one or two). Transit recordings seem very popular in Vienna at the moment. @cr-transitcount
+This month there were `r length(unique(transit_long_df_short$uid))` measurements of `r length(unique(transit_long_df_short$line))` unique transit lines. `r describe_most_measured_transit(most_measured_transit)` This graph shows the number of transit recordings in each transit network during the last month. Keep in mind that this graph only shows networks with more than 2 transit recordings this month (there were quite a few with one or two). Transit recordings seem very popular in Vienna and Munich at the moment. @cr-transitcount
 
 :::{#cr-transitcount}
 
