@@ -21,6 +21,9 @@ format:
     cr-section:
       layout: "sidebar-left"
     theme: custom.scss
+  gfm: 
+    output-file: README.md
+format-links: false
 execute:
   echo: false
   cache: true
