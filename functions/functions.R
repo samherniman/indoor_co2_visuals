@@ -9,8 +9,15 @@ library(patchwork)
 describe_most_measured <- function(x) {
   sentence_mm <-
     x |>
+    dplyr::mutate(
+      osmtag = stringr::str_replace_all(
+        osmtag,
+        "government",
+        "government building"
+      )
+    ) |>
     glue::glue_data(
-      "{nwrname}, a {osmtag %||% co2atlaskey} in {location_description} (min: {ppm_min}, mean: {ppm_avg}, max: {ppm_max})"
+      "{nwrname}, a {osmtag} in {location_description} (min: {ppm_min}, mean: {ppm_avg}, max: {ppm_max})"
     ) |>
     stringr::str_flatten_comma(last = " and ")
 
@@ -55,14 +62,14 @@ convert_hemisphere <- function(x) {
 describe_buildings <- function(x, measure = "highest") {
   if (nrow(x) == 1) {
     return(glue::glue(
-      "The building with the {measure} measured CO^2^ levels was {x$description_str} with a median CO^2^ value of {x$median_co2} ppm."
+      "The building with the {measure} measured CO~2~ levels was {x$description_str} with a median CO~2~ value of {x$median_co2} ppm."
     ))
   }
 
   if (nrow(x) > 1) {
     return(
       glue::glue(
-        "The buildings with the {measure} measured CO^2^ levels were {stringr::str_flatten_comma(x$description_str, last = ' and ')} with median CO^2^ values of {x$median_co2} ppm."
+        "The buildings with the {measure} measured CO~2~ levels were {stringr::str_flatten_comma(x$description_str, last = ' and ')} with median CO~2~ values of {x$median_co2} ppm."
       ) |>
         dplyr::first()
     )
@@ -250,6 +257,7 @@ geocode_buildings_or_transit <- function(x) {
 
 summarise_most_measured_buildings <- function(x) {
   x |>
+    sf::st_drop_geometry() |>
     dplyr::group_by(combined_id) |>
     dplyr::summarise(
       n = dplyr::n(),
@@ -301,11 +309,21 @@ tidyplots_theme <- function() {
     ),
     panel.grid.major = ggplot2::element_blank(),
     panel.grid.minor = ggplot2::element_blank(),
-    axis.ticks = ggplot2::element_line(colour = "black", linewidth = 0.25)
+    axis.ticks = ggplot2::element_line(colour = "black", linewidth = 0.25),
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 14)
   )
 }
 
 plot_histogram_co2 <- function(x) {
+  median_val <- x |>
+    sf::st_drop_geometry() |>
+    dplyr::filter(
+      ppmavg >= 410
+    )
+
+  median_val <- median(median_val$ppmavg, na.rm = TRUE)
+
   x |>
     dplyr::filter(
       ppmavg >= 410,
@@ -317,14 +335,20 @@ plot_histogram_co2 <- function(x) {
     sf::st_drop_geometry() |>
     ggplot(aes(ppmavg)) +
     geom_histogram(binwidth = 30) +
-    # geom_rect(
-    #   xmin = median(buildings_wide_df_short$ppmavg),
-    #   xmax = median(buildings_wide_df_short$ppmavg),
-    #   ymin = 1,
-    #   ymax = 600,
-    #   fill = "red") +
+    geom_vline(
+      aes(xintercept = median_val),
+      color = "red",
+      linetype = "dashed",
+      linewidth = 1
+    ) +
+    annotate(
+      "label",
+      x = median_val + 400,
+      y = 40,
+      label = paste0("Median = ", round(median_val))
+    ) +
     ylab("Number of observations") +
-    xlab("Mean CO2") +
+    xlab("Mean CO2 per observation") +
     tidyplots_theme()
 }
 
@@ -425,7 +449,7 @@ plot_building_types_2 <- function(buildings_long_df) {
       y = percent_rebreathed,
       fill = ppmavg
     ) |>
-    add_data_points_beeswarm(size = 3, alpha = 0.4) |>
+    # add_data_points_beeswarm(size = 3, alpha = 0.4) |>
     add_boxplot(
       linewidth = 1.4,
       fill = "white",
@@ -524,16 +548,17 @@ plot_all_curves <- function(buildings_long_df_med, ylim_max) {
       color = "grey80",
       linewidth = 0.5
     ) +
-    geom_smooth(
-      data = lowest_building,
-      mapping = aes(x = time_range, y = co2readings, color = obs_number),
-      se = FALSE
-    ) +
-    geom_point(
-      data = lowest_building,
-      mapping = aes(x = time_range, y = co2readings, color = obs_number),
-      size = 4
-    ) +
+    # geom_smooth(
+    #   data = lowest_building,
+    #   mapping = aes(x = time_range, y = co2readings, color = obs_number),
+    #   se = FALSE
+    # ) +
+    # geom_point(
+    #   data = lowest_building,
+    #   mapping = aes(x = time_range, y = co2readings),
+    #   color = "blue",
+    #   size = 4
+    # ) +
     geom_smooth(
       data = highest_building,
       mapping = aes(x = time_range, y = co2readings, color = obs_number),
@@ -545,14 +570,14 @@ plot_all_curves <- function(buildings_long_df_med, ylim_max) {
       size = 4
     ) +
     # scale_color_viridis_c()+
-    scico::scale_color_scico("hawaii", direction = -1) +
-    annotate(
-      "label",
-      x = .7,
-      y = mean(lowest_building$ppmavg, na.rm = TRUE) + 140,
-      label = unique(lowest_building$nwrname) |>
-        stringr::str_flatten_comma(last = ' and ')
-    ) +
+    scico::scale_color_scico(palette = "managua", direction = -1) +
+    # annotate(
+    #   "label",
+    #   x = .7,
+    #   y = mean(lowest_building$ppmavg, na.rm = TRUE) + 140,
+    #   label = unique(lowest_building$nwrname) |>
+    #     stringr::str_flatten_comma(last = ' and ')
+    # ) +
     annotate(
       "label",
       x = .2,
@@ -561,9 +586,9 @@ plot_all_curves <- function(buildings_long_df_med, ylim_max) {
         stringr::str_flatten_comma(last = ' and ')
     ) +
     ylim(400, ylim_max) +
-    labs(title = "Highest and lowest recordings this month") +
+    labs(title = "Highest recording this month") +
     xlab("Time (from recording start to end)") +
-    ylab(bquote(CO^2)) +
+    ylab(bquote(CO ~ 2)) +
     theme_minimal() +
     theme(
       text = element_text(size = 16),
