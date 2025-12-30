@@ -1,6 +1,6 @@
 
 
-# Monthly indoorCO2map.com summary November 2025
+# Monthly indoorCO2map.com summary December 2025
 
 There is a well documented relationship between indoor levels of
 CO<sub>2</sub> and the amount of ventilation in indoor environments.
@@ -49,44 +49,44 @@ The following is a monthly summary of how this project is going.
 
 ## Buildings
 
-This month there were 966 measurements of 739 unique buildings.
+This month there were 1116 measurements of 911 unique buildings.
+
 (**cr-ccplot?**)
 
-The most measured buildings were Bundesministerium für Klimaschutz,
-Umwelt, Energie, Mobilität, Innovation und Technologie, a government
-building in Wien, Österreich (min: 590, mean: 758, max: 986) and Rewe, a
-supermarket in Kassel, Deutschland (min: 640, mean: 803, max: 950),
-which were measured 8 times each.
+The most measured buildings were Natur & Wellnesshotel Höflehner, a
+hotel in Bezirk Liezen, Österreich (min: 873, mean: 1128, max: 1373) and
+REWE, a supermarket in Leipzig, Deutschland (min: 1359, mean: 1454, max:
+1599), which were measured 9 times each.
 
-There were measurements in 15 separate countries. Additionally, the
-first measurement was added in Puerto Rico this month. Welcome to the
-glorious world of CO<sub>2</sub> monitoring Puerto Rico!
+There were measurements in 26 separate countries. Additionally, the
+first measurement was added in Mexico this month. Welcome to the
+glorious world of CO<sub>2</sub> monitoring Mexico!
 
 (**cr-histco2plot?**)
 
 Here is a graph that shows the distribution of all the CO<sub>2</sub>
 measurements this month. The dashed red line shows the median which was
-816 ppm. There are many measurements in the range that we would consider
+814 ppm. There are many measurements in the range that we would consider
 good CO<sub>2</sub> levels, however, you’ll notice that there are also a
 good number of measurements that are over 1000 ppm, which really should
 be addressed.
 
 <div id="cr-histco2plot">
 
-![](monthly_report_files/figure-commonmark/unnamed-chunk-6-1.png)
+![](monthly_report_files/figure-commonmark/unnamed-chunk-7-1.png)
 
 </div>
 
 <div id="cr-ccplot">
 
-![](monthly_report_files/figure-commonmark/ccplot-1.png)
+![](monthly_report_files/figure-commonmark/unnamed-chunk-9-1.png)
 
 </div>
 
 (**cr-buildingtypes?**)
 
 This graph shows the distribution of the most common building types in
-the month of November. The dark bar in the middle of each box and
+the month of December. The dark bar in the middle of each box and
 whisker plot shows the median value for each category. The rest of the
 lines show the range of the distribution. Most of the values fall within
 each box. If you want more information about how to interpret this
@@ -107,22 +107,21 @@ each breath you take has already been exhaled by someone else.
 Here is a graph of all the recordings that happened this month shown by
 the grey curves. I’ve highlighted the highest one. (**cr-allcurves?**)
 
-The building with the highest measured CO<sub>2</sub> levels was 100
-Club in City of Westminster, United Kingdom with a median CO<sub>2</sub>
-value of 7563 ppm. While this is incredibly high, it is important to
-realize that this is an outlier. The majority of measurements are much
-lower than this. There is a boxplot to the right of the graph which
-shows where the majority of measurements fall.
+The building with the highest measured CO<sub>2</sub> levels was
+Cineplex Germering in Landkreis Fürstenfeldbruck, Deutschland with a
+median CO<sub>2</sub> value of 9670 ppm. While this is incredibly high,
+it is important to realize that this is an outlier. The majority of
+measurements are much lower than this. There is a boxplot to the right
+of the graph which shows where the majority of measurements fall.
 
-The building with the lowest measured CO<sub>2</sub> levels was
-Gärtnerei Aeschlimann in Kreis Herzogtum Lauenburg, Deutschland with a
-median CO<sub>2</sub> value of 477 ppm. There were some measurements
-that were even lower than this, but we have removed them from this
-analysis. Generally outdoor CO<sub>2</sub> levels don’t go below 410
-ppm, therefore we have removed any datapoints that are below 400 ppm. If
-your CO<sub>2</sub> monitor consistently shows levels below 410 ppm
-while you are inside or outside, it is likely that your monitor needs
-recalibrating.
+The building with the lowest measured CO<sub>2</sub> levels was Tilley &
+Grace in East Suffolk, United Kingdom with a median CO<sub>2</sub> value
+of 490 ppm. There were some measurements that were even lower than this,
+but we have removed them from this analysis. Generally outdoor
+CO<sub>2</sub> levels don’t go below 410 ppm, therefore we have removed
+any datapoints that are below 400 ppm. If your CO<sub>2</sub> monitor
+consistently shows levels below 410 ppm while you are inside or outside,
+it is likely that your monitor needs recalibrating.
 
 <div id="cr-allcurves">
 
@@ -132,27 +131,23 @@ recalibrating.
 
 </div>
 
-Here is a chart showing the 11 measurements that had a median
+Here is a chart showing the 4 measurements that had a median
 CO<sub>2</sub> value under 500. Keep in mind that some of these are
 potentially miscalibrated sensors or erroneous recordings where the
 sensor was outside. However, it is important to celebrate the places
 that do in fact have well ventilated spaces.
 
+<div>
 
-| Measurements under 500 ppm                     |         |               |                                        |
-|------------------------------------------------|---------|---------------|----------------------------------------|
-| Name                                           | CO2 ppm | Building type | Location                               |
-| La PAM                                         | 497.0   | Mall          | Brest, France                          |
-| Jacafé - Coffee, Craft Beer & Yummy Snacks     | 483.0   | Cafe          | Funchal, Portugal                      |
-| Neue Apotheke mit Neuem Sanitätshaus St. Josef | 499.0   | Pharmacy      | Regensburg, Deutschland                |
-| Mühlviertler Landbäckerei                      | 484.0   | Bakery        | Bezirk Rohrbach, Österreich            |
-| Rise & Dine                                    | 499.0   | Cafe          | Funchal, Portugal                      |
-| Gärtnerei Aeschlimann                          | 477.0   | Garden centre | Kreis Herzogtum Lauenburg, Deutschland |
-| Loft Brunch & Cocktails \[na.praça\]           | 488.0   | Restaurant    | Funchal, Portugal                      |
-| Between Cafe & Healthy Food                    | 479.0   | Cafe          | Funchal, Portugal                      |
-| Stadt- und Landesbibliothek                    | 484.5   | Library       | Dortmund, Deutschland                  |
-| Stadtbibliothek Erlangen                       | 487.0   | Library       | Erlangen, Deutschland                  |
-| ETH Hauptgebäude (HG)                          | 490.0   |               | Zürich, Switzerland                    |
+<div id="ejycqcgvjr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+
+| Measurements under 500 ppm |         |               |                              |
+|----------------------------|---------|---------------|------------------------------|
+| Name                       | CO2 ppm | Building type | Location                     |
+| Fat Face                   | 499     | Clothes       | East Suffolk, United Kingdom |
+| Seasalt                    | 492     | Clothes       | East Suffolk, United Kingdom |
+| Tilley & Grace             | 490     | Clothes       | East Suffolk, United Kingdom |
+| Treats                     | 499     | Ice cream     | Nevada County, United States |
 
 </div>
 
@@ -219,7 +214,7 @@ stable trends show up.
 
 Here’s a histogram showing how many measurements have been recorded each
 week since the start of the project. Over the last 12 months there have
-been 10272 building measurements which is 856 per month or 198 per week.
+been 10387 building measurements which is 866 per month or 200 per week.
 (**cr-allhist?**)
 
 <div id="cr-allhist">
@@ -234,18 +229,16 @@ been 10272 building measurements which is 856 per month or 198 per week.
 
 <div class="cr-section">
 
-This month there were 183 measurements of 122 unique transit lines. The
+This month there were 272 measurements of 118 unique transit lines. The
 most measured transit line was subway U6 in the U-Bahn Wien transit
-network in Wien, Österreich (min: 486, mean: 845, max: 1663), which was
-measured 14 times. This graph shows the number of transit recordings in
+network in Wien, Österreich (min: 501, mean: 685, max: 998), which was
+measured 30 times. This graph shows the number of transit recordings in
 each transit network during the last month. Keep in mind that this graph
 only shows networks with more than 2 transit recordings this month
 (there were quite a few with one or two). Transit recordings seem very
 popular in Vienna at the moment. (**cr-transitcount?**)
 
 <div id="cr-transitcount">
-
-![](monthly_report_files/figure-commonmark/transitcountbar-1.png)
 
 </div>
 
@@ -298,17 +291,18 @@ Finally, many thanks go to the teams who work on the following software,
 which I used heavily.
 
 We used R v. 4.4.3 (R Core Team 2025) and the following R packages:
-autocruller v. 0.0.0.9000 (Herniman 2025), dbscan v. 1.2.3 (Hahsler,
-Piekenbrock, and Doran 2019; Hahsler and Piekenbrock 2025), glue v.
-1.8.0 (Hester and Bryan 2024), gt v. 1.0.0 (Iannone et al. 2025), h3 v.
-3.7.2 (Kuethe 2022), here v. 1.0.1 (Müller 2020), mapview v. 2.11.2
-(Appelhans et al. 2023), osmdata v. 0.2.5 (Mark Padgham et al. 2017),
-patchwork v. 1.3.1 (Pedersen 2025), rmarkdown v. 2.30 (Xie, Allaire, and
-Grolemund 2018; Xie, Dervieux, and Riederer 2020; Allaire et al. 2025),
-scales v. 1.4.0 (Wickham, Pedersen, and Seidel 2025), scico v. 1.5.0
-(Pedersen and Crameri 2023), sf v. 1.0.22 (Pebesma 2018; Pebesma and
-Bivand 2023), tidygeocoder v. 1.0.6 (Cambon et al. 2021), tidyplots v.
-0.2.2.9000 (Engler 2025), tidyverse v. 2.0.0 (Wickham et al. 2019).
+autocruller v. 0.0.0.9000 (Herniman, n.d.), dbscan v. 1.2.3 (Hahsler,
+Piekenbrock, and Doran 2019; Hahsler and Piekenbrock 2025), duckplyr v.
+1.1.3.9005 (Mühleisen and Müller 2025), glue v. 1.8.0 (Hester and Bryan
+2024), gt v. 1.0.0 (Iannone et al. 2025), h3 v. 3.7.2 (Kuethe 2022),
+here v. 1.0.1 (Müller 2020), mapview v. 2.11.2 (Appelhans et al. 2023),
+osmdata v. 0.2.5 (Mark Padgham et al. 2017), patchwork v. 1.3.1
+(Pedersen 2025), rmarkdown v. 2.30 (Xie, Allaire, and Grolemund 2018;
+Xie, Dervieux, and Riederer 2020; Allaire et al. 2025), scales v. 1.4.0
+(Wickham, Pedersen, and Seidel 2025), scico v. 1.5.0 (Pedersen and
+Crameri 2023), sf v. 1.0.22 (Pebesma 2018; Pebesma and Bivand 2023),
+tidygeocoder v. 1.0.6 (Cambon et al. 2021), tidyplots v. 0.2.2.9000
+(Engler 2025), tidyverse v. 2.0.0 (Wickham et al. 2019).
 
 <!-- ## Everything -->
 <!-- Combine both long datasets and then make a beeswarm comparing buildings to transit -->
@@ -371,9 +365,9 @@ R.” *Journal of Statistical Software* 91 (1): 1–30.
 
 <div id="ref-autocruller" class="csl-entry">
 
-Herniman, Sam. 2025. *<span class="nocase">autocruller</span>: Tools to
+Herniman, Sam. n.d. *<span class="nocase">autocruller</span>: Tools to
 Download and Analyze indoorCO2map Data*.
-<https://github.com/samherniman/autocruller>.
+<https://samherniman.github.io/autocruller/>.
 
 </div>
 
@@ -406,6 +400,15 @@ Kuethe, Stefan. 2022. *H3: R Bindings for H3*.
 Mark Padgham, Bob Rudis, Robin Lovelace, and Maëlle Salmon. 2017.
 “Osmdata.” *Journal of Open Source Software* 2 (14): 305.
 <https://doi.org/10.21105/joss.00305>.
+
+</div>
+
+<div id="ref-duckplyr" class="csl-entry">
+
+Mühleisen, Hannes, and Kirill Müller. 2025.
+*<span class="nocase">duckplyr</span>: A “DuckDB”-Backed Version of
+“<span class="nocase">dplyr</span>”*.
+<https://github.com/tidyverse/duckplyr>.
 
 </div>
 

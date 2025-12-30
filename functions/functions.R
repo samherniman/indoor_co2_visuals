@@ -356,15 +356,16 @@ plot_histogram_co2 <- function(x) {
 plot_countries_count <- function(x) {
   x |>
     tidyplot(
-      x = countryname,
+      x = iso_name,
       y = n,
-      color = countryname
+      color = type.x
     ) |>
     add_barstack_absolute() |>
     adjust_x_axis(
       rotate_labels = TRUE
     ) |>
     sort_x_axis_labels() |>
+    sort_color_labels(.reverse = TRUE) |>
     add_data_labels(
       label = n,
       color = "black",
@@ -375,7 +376,9 @@ plot_countries_count <- function(x) {
     adjust_font(fontsize = 14) |>
     adjust_y_axis_title("Number of measurements") |>
     adjust_x_axis_title("Country") |>
-    remove_legend() |>
+    adjust_legend_title("Type") |>
+    adjust_colors(new_colors = colors_discrete_metro) |>
+    # remove_legend() |>
     adjust_padding(top = 0.3) |>
     adjust_title("Building measurements per country") |>
     adjust_caption("Data from indoorCO2map.com", fontsize = 10)
@@ -631,8 +634,10 @@ add_meteorological_week <- function(x) {
     dplyr::mutate(
       meteorological_week = dplyr::if_else(
         sf::st_coordinates(geometry)[, 2] < 0,
-        lubridate::week(date) |> convert_hemisphere() |> factor(),
-        lubridate::week(date) |> factor()
+        lubridate::week(date) |>
+          convert_hemisphere() |>
+          factor(levels = seq(0, 52, by = 1)),
+        lubridate::week(date) |> factor(levels = seq(0, 52, by = 1))
       )
     )
 }
@@ -920,3 +925,24 @@ plot_transit_met_week <- function(x) {
     # reorder_x_axis_labels(seq(0, 52, by = 1)) |>
     adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 }
+
+
+iso_3166_a2 <- rvest::read_html(
+  "https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2"
+) |>
+  rvest::html_table(na.strings = "") |> # take care not to interpret Namibia as NA!
+  purrr::pluck(4) |>
+  dplyr::select(
+    code = Code,
+    iso_name = `Country name (using title case)`
+  ) |>
+  dplyr::mutate(
+    code = stringr::str_to_lower(code),
+    iso_name = stringr::str_replace_all(
+      iso_name,
+      c(
+        "Netherlands, Kingdom of the" = "Netherlands",
+        "United Kingdom of Great Britain and Northern Ireland" = "United Kingdom"
+      )
+    )
+  )
