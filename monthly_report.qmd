@@ -37,7 +37,7 @@ execute:
 # map showing observations over time animation
 # lollipop summer vs winter shops - maybe summarize by category
 # highest velocity based off of different time periods
-start_date <- (lubridate::ymd("2025-11-30"))
+start_date <- (lubridate::ymd("2025-12-30"))
 ```
 
 # Monthly indoorCO2map.com summary `r start_date |> lubridate::month(label = TRUE, abbr = FALSE)` `r lubridate::today()  |> lubridate::year()`
@@ -154,8 +154,42 @@ buildings_wide_df_short <- sf::st_join(
   largest = TRUE
 ) |> dplyr::ungroup()
 
+```
+
+```{r}
+#| include: false
 
 buildings_long_df <- autocruller::ac_unnest_longer(buildings_wide_df_short)
+```
+
+```{r transitgeo}
+#| eval: true
+#| include: false
+transit_long_df_short_geo <- 
+  # transit_long_df_short_geo |> 
+  readRDS(here::here("data/derivative/transit_long_df_short_geo.rds")) |> 
+  dplyr::rowwise() |> 
+  dplyr::mutate(
+    location_description = glue::glue("{city %||% county %||%  state %||% town %||% municipality %||% region %||% borough %||% suburb %||% neighbourhood %||% city_district}, {country}")
+      ) |> 
+     sf::st_as_sf(coords = c("X", "Y"), crs = sf::st_crs(transit_long_df_short))
+
+transit_long_df_short <- transit_long_df_short |> 
+  dplyr::mutate(osm_id_line = as.integer(osm_id_line))
+
+# this doesn't work
+# transit_long_df_short <- dplyr::left_join(
+#   transit_long_df_short,
+#   transit_long_df_short_geo,
+#   by = dplyr::join_by(osm_id_line == place_id)
+# )
+
+transit_long_df_short <- sf::st_join(
+  transit_long_df_short,
+  transit_long_df_short_geo,
+  left = TRUE,
+  largest = TRUE
+) |> dplyr::ungroup()
 ```
 
 :::{.cr-section}
@@ -182,38 +216,72 @@ mean_vals <- buildings_wide_df_short |>
 #| message: false
 countries_count <- 
 buildings_wide_df_short |> 
-    dplyr::group_by(countryname) |> 
-    dplyr::count() |> 
-    tidyr::drop_na() |> 
-    sf::st_drop_geometry() |> 
-    dplyr::ungroup()
+    dplyr::select(uid = obs_number, country_code, type.x) |> 
+    sf::st_drop_geometry() 
 
 # not yet done. need to give transit data a country col
-# countries_count_transit <- 
-#     transit_long_df |> 
-#     dplyr::group_by(countryname) |> 
-#     dplyr::summarise(dplyr::n_distinct(uid)) |> 
-#     tidyr::drop_na() |> 
-#     sf::st_drop_geometry()
-# then join with countries_count
-countries_count <- countries_count[order(countries_count$n, decreasing = TRUE),] |> 
-  tidyr::drop_na() |> 
-  dplyr::filter(countryname != "")
-# countries_count <- dplyr::left_join(countries_count, countries_count_transit, by = dplyr::join_by(countryname))
-# countries_count |> 
-#     gt() |> 
-#     tab_header(title = "Top countries") |> 
-#     cols_label(
-#         countryname = "Country",
-#         n = "Number of buildings"
-#     ) |> 
-#     tab_options(
-#         table_body.hlines.width = 0
+countries_count_transit <- 
+    transit_long_df_short |> 
+    dplyr::group_by(uid, country_code, type.x) |> 
+    dplyr::count() |> 
+    dplyr::select(-n) |> 
+    # dplyr::summarise(n = dplyr::n_distinct(uid)) |> 
+    # tidyr::drop_na() |> 
+    sf::st_drop_geometry()
+
+countries_count <- 
+  dplyr::bind_rows(countries_count, countries_count_transit) |> 
+  dplyr::left_join(iso_3166_a2, by = dplyr::join_by(country_code == code))  
+  
+
+# countries_count <- countries_count[order(countries_count$n, decreasing = TRUE),] |> 
+#   tidyr::drop_na()
+# levels(countries_count$type.x)
+countries_count <- 
+    countries_count |>
+      dplyr::mutate(
+        type.x = forcats::fct_relevel(type.x, "building", "transit"), #|> forcats::fct_rev()
+        iso_name = forcats::fct_infreq(iso_name) |> forcats::fct_rev()
+        
+        ) |> 
+      dplyr::group_by(iso_name, type.x) |> 
+      dplyr::count() 
+# levels(countries_count$type.x)
+
+countries_labels <- 
+  countries_count |> 
+  tidyr::pivot_wider(names_from = type.x, values_from = n) |>
+  dplyr::mutate(
+    building = tidyr::replace_na(building, 0),
+    transit = sum(transit, building, na.rm = FALSE)) |> 
+    dplyr::mutate(
+    building = dplyr::na_if(building, 0)
+    ) |> 
+  tidyr::pivot_longer(!iso_name, names_to = "type.x", values_to = "label_n") |> 
+  tidyr::drop_na()
+
+countries_count <- 
+  dplyr::left_join(
+    countries_count,
+    countries_labels,
+    by = dplyr::join_by(iso_name, type.x)
+  ) 
+# countries_count <- 
+#   countries_count |> 
+#     dplyr::mutate(
+#         # iso_name = forcats::fct_infreq(iso_name) |> forcats::fct_rev(),
+#         type.x = forcats::fct_relevel(
+#           type.x, 
+#           "transit", 
+#           "building"
+#           )
 #         )
-    
+
 ```
 
-This month there were `r nrow(buildings_wide_df_short)` measurements of `r length(unique(buildings_wide_df_short$combined_id))` unique buildings. @cr-ccplot 
+This month there were `r nrow(buildings_wide_df_short)` measurements of `r length(unique(buildings_wide_df_short$combined_id))` unique buildings.  
+
+  @cr-ccplot  
 
 `r describe_most_measured(most_measured)` 
 
@@ -234,12 +302,76 @@ buildings_wide_df_short |> plot_histogram_co2()
 
 :::{#cr-ccplot}
 
+```{r}
+#| eval: false
+#| include: false
+countries_count <- 
+buildings_wide_df_short |> 
+    dplyr::group_by(country_code, type.x) |> 
+    dplyr::count() |> 
+    tidyr::drop_na() |> 
+    sf::st_drop_geometry() |> 
+    dplyr::ungroup()
+
+# not yet done. need to give transit data a country col
+countries_count_transit <- 
+    transit_long_df_short |> 
+    dplyr::group_by(country_code, type.x) |> 
+    dplyr::summarise(n = dplyr::n_distinct(uid)) |> 
+    tidyr::drop_na() |> 
+    sf::st_drop_geometry()
+
+countries_count <- 
+  dplyr::bind_rows(countries_count, countries_count_transit) |> 
+  dplyr::left_join(iso_3166_a2, by = dplyr::join_by(country_code == code)) |> 
+  dplyr::mutate(
+    type.x = factor(type.x, levels = c("building", "transit"))
+    )
+
+countries_count <- countries_count[order(countries_count$n, decreasing = TRUE),] |> 
+  tidyr::drop_na()
+```
+
 ```{r ccplot}
+#| eval: false
+#| include: false
 #| warning: false
 #| message: false
 
 countries_count |> plot_countries_count()
   
+```
+
+```{r}
+#| warning: false
+#| error: false
+#| fig.asp: 1.05
+countries_count |> 
+  tidyr::drop_na() |> 
+  dplyr::filter(n > 1) |> 
+    ggplot2::ggplot(aes(x = iso_name, y = n, fill = forcats::fct_rev(type.x))) +
+    geom_col() +
+    # ggrepel::geom_text_repel(
+    geom_text(
+      aes(y = label_n, label = n), 
+      vjust = -0.5, 
+      colour = "black",
+      # min.segment.length = 1000,
+      # direction = "y"
+      # box.padding = 0.1
+      # point.padding = 0.1
+      ) +
+    # scico::scale_fill_scico_d() +
+    scale_fill_manual(values = c("#FFBB34", "#295059")) +
+    labs(x = "Country", y = "Number of measurements") +
+    tidyplots_theme() +
+    theme(
+      legend.title = element_blank(),
+      axis.text.x = element_text(
+      angle = 45, 
+      # vjust = 0.5, 
+      hjust=1)
+      )
 ```
 
 :::
@@ -458,35 +590,7 @@ plot_all_histogram(buildings_wide_df)
 
 ## Transit
 
-```{r transitgeo}
-#| eval: true
-#| include: false
-transit_long_df_short_geo <- 
-  # transit_long_df_short_geo |> 
-  readRDS(here::here("data/derivative/transit_long_df_short_geo.rds")) |> 
-  dplyr::rowwise() |> 
-  dplyr::mutate(
-    location_description = glue::glue("{city %||% county %||%  state %||% town %||% municipality %||% region %||% borough %||% suburb %||% neighbourhood %||% city_district}, {country}")
-      ) |> 
-     sf::st_as_sf(coords = c("X", "Y"), crs = sf::st_crs(transit_long_df_short))
 
-transit_long_df_short <- transit_long_df_short |> 
-  dplyr::mutate(osm_id_line = as.integer(osm_id_line))
-
-# this doesn't work
-# transit_long_df_short <- dplyr::left_join(
-#   transit_long_df_short,
-#   transit_long_df_short_geo,
-#   by = dplyr::join_by(osm_id_line == place_id)
-# )
-
-transit_long_df_short <- sf::st_join(
-  transit_long_df_short,
-  transit_long_df_short_geo,
-  left = TRUE,
-  largest = TRUE
-) |> dplyr::ungroup()
-```
 
 
 
@@ -515,8 +619,8 @@ transit_long_df_short |>
 ```{r transitcountbar}
 #| warning: false
 #| message: false
-transit_count |> 
-  plot_transit_count_bar()
+# transit_count |> 
+#   plot_transit_count_bar()
 ```
 
 :::
@@ -582,6 +686,7 @@ I would also like to thank [Aurel Wünsch](https://github.com/AurelWu) who tirel
 
 Finally, many thanks go to the teams who work on the following software, which I used heavily. 
 ```{r}
+#| warning: false
 grateful::cite_packages(output = "paragraph", out.dir = ".")
 ```
 
