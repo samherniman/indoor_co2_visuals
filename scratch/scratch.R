@@ -170,3 +170,8 @@ iso_3166_a2 <- rvest::read_html(
     code = Code,
     name = `Country name (using title case)`
   )
+
+pak::pkg_install("ropensci/rnaturalearthdata")
+pak::pkg_install("ropensci/rnaturalearthhires")
+install.packages("rnaturalearth")
+world_sf <- rnaturalearth::ne_countries()

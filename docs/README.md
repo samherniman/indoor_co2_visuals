@@ -1,6 +1,6 @@
 
 
-# Monthly indoorCO2map.com summary December 2025
+# Monthly indoorCO2map.com summary December 2026
 
 There is a well documented relationship between indoor levels of
 CO<sub>2</sub> and the amount of ventilation in indoor environments.
@@ -49,7 +49,7 @@ The following is a monthly summary of how this project is going.
 
 ## Buildings
 
-This month there were 1116 measurements of 911 unique buildings.
+This month there were 1186 measurements of 966 unique buildings.
 
 (**cr-ccplot?**)
 
@@ -58,7 +58,7 @@ hotel in Bezirk Liezen, Österreich (min: 873, mean: 1128, max: 1373) and
 REWE, a supermarket in Leipzig, Deutschland (min: 1359, mean: 1454, max:
 1599), which were measured 9 times each.
 
-There were measurements in 26 separate countries. Additionally, the
+There were measurements in 24 separate countries. Additionally, the
 first measurement was added in Mexico this month. Welcome to the
 glorious world of CO<sub>2</sub> monitoring Mexico!
 
@@ -66,7 +66,7 @@ glorious world of CO<sub>2</sub> monitoring Mexico!
 
 Here is a graph that shows the distribution of all the CO<sub>2</sub>
 measurements this month. The dashed red line shows the median which was
-814 ppm. There are many measurements in the range that we would consider
+813 ppm. There are many measurements in the range that we would consider
 good CO<sub>2</sub> levels, however, you’ll notice that there are also a
 good number of measurements that are over 1000 ppm, which really should
 be addressed.
@@ -107,12 +107,12 @@ each breath you take has already been exhaled by someone else.
 Here is a graph of all the recordings that happened this month shown by
 the grey curves. I’ve highlighted the highest one. (**cr-allcurves?**)
 
-The building with the highest measured CO<sub>2</sub> levels was
-Cineplex Germering in Landkreis Fürstenfeldbruck, Deutschland with a
-median CO<sub>2</sub> value of 9670 ppm. While this is incredibly high,
-it is important to realize that this is an outlier. The majority of
-measurements are much lower than this. There is a boxplot to the right
-of the graph which shows where the majority of measurements fall.
+The building with the highest measured CO<sub>2</sub> levels was Turf
+Club in Saint Paul, United States with a median CO<sub>2</sub> value of
+6029 ppm. While this is incredibly high, it is important to realize that
+this is an outlier. The majority of measurements are much lower than
+this. There is a boxplot to the right of the graph which shows where the
+majority of measurements fall.
 
 The building with the lowest measured CO<sub>2</sub> levels was Tilley &
 Grace in East Suffolk, United Kingdom with a median CO<sub>2</sub> value
@@ -139,7 +139,402 @@ that do in fact have well ventilated spaces.
 
 <div>
 
-<div id="ejycqcgvjr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="uqgnmqzqbk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#uqgnmqzqbk table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+&#10;#uqgnmqzqbk thead, #uqgnmqzqbk tbody, #uqgnmqzqbk tfoot, #uqgnmqzqbk tr, #uqgnmqzqbk td, #uqgnmqzqbk th {
+  border-style: none;
+}
+&#10;#uqgnmqzqbk p {
+  margin: 0;
+  padding: 0;
+}
+&#10;#uqgnmqzqbk .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+&#10;#uqgnmqzqbk .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+&#10;#uqgnmqzqbk .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+&#10;#uqgnmqzqbk .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+&#10;#uqgnmqzqbk .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+&#10;#uqgnmqzqbk .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+&#10;#uqgnmqzqbk .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+&#10;#uqgnmqzqbk .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+&#10;#uqgnmqzqbk .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+&#10;#uqgnmqzqbk .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+&#10;#uqgnmqzqbk .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+&#10;#uqgnmqzqbk .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+&#10;#uqgnmqzqbk .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+&#10;#uqgnmqzqbk .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+&#10;#uqgnmqzqbk .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+&#10;#uqgnmqzqbk .gt_from_md > :first-child {
+  margin-top: 0;
+}
+&#10;#uqgnmqzqbk .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+&#10;#uqgnmqzqbk .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+&#10;#uqgnmqzqbk .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+&#10;#uqgnmqzqbk .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+&#10;#uqgnmqzqbk .gt_row_group_first td {
+  border-top-width: 2px;
+}
+&#10;#uqgnmqzqbk .gt_row_group_first th {
+  border-top-width: 2px;
+}
+&#10;#uqgnmqzqbk .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+&#10;#uqgnmqzqbk .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+&#10;#uqgnmqzqbk .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+&#10;#uqgnmqzqbk .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+&#10;#uqgnmqzqbk .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+&#10;#uqgnmqzqbk .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+&#10;#uqgnmqzqbk .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+&#10;#uqgnmqzqbk .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+&#10;#uqgnmqzqbk .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+&#10;#uqgnmqzqbk .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+&#10;#uqgnmqzqbk .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+&#10;#uqgnmqzqbk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+&#10;#uqgnmqzqbk .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+&#10;#uqgnmqzqbk .gt_left {
+  text-align: left;
+}
+&#10;#uqgnmqzqbk .gt_center {
+  text-align: center;
+}
+&#10;#uqgnmqzqbk .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+&#10;#uqgnmqzqbk .gt_font_normal {
+  font-weight: normal;
+}
+&#10;#uqgnmqzqbk .gt_font_bold {
+  font-weight: bold;
+}
+&#10;#uqgnmqzqbk .gt_font_italic {
+  font-style: italic;
+}
+&#10;#uqgnmqzqbk .gt_super {
+  font-size: 65%;
+}
+&#10;#uqgnmqzqbk .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+&#10;#uqgnmqzqbk .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+&#10;#uqgnmqzqbk .gt_indent_1 {
+  text-indent: 5px;
+}
+&#10;#uqgnmqzqbk .gt_indent_2 {
+  text-indent: 10px;
+}
+&#10;#uqgnmqzqbk .gt_indent_3 {
+  text-indent: 15px;
+}
+&#10;#uqgnmqzqbk .gt_indent_4 {
+  text-indent: 20px;
+}
+&#10;#uqgnmqzqbk .gt_indent_5 {
+  text-indent: 25px;
+}
+&#10;#uqgnmqzqbk .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+&#10;#uqgnmqzqbk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
 
 | Measurements under 500 ppm |         |               |                              |
 |----------------------------|---------|---------------|------------------------------|
@@ -214,7 +609,7 @@ stable trends show up.
 
 Here’s a histogram showing how many measurements have been recorded each
 week since the start of the project. Over the last 12 months there have
-been 10387 building measurements which is 866 per month or 200 per week.
+been 10449 building measurements which is 871 per month or 201 per week.
 (**cr-allhist?**)
 
 <div id="cr-allhist">
@@ -229,10 +624,10 @@ been 10387 building measurements which is 866 per month or 200 per week.
 
 <div class="cr-section">
 
-This month there were 272 measurements of 118 unique transit lines. The
+This month there were 290 measurements of 125 unique transit lines. The
 most measured transit line was subway U6 in the U-Bahn Wien transit
-network in Wien, Österreich (min: 501, mean: 685, max: 998), which was
-measured 30 times. This graph shows the number of transit recordings in
+network in Wien, Österreich (min: 448, mean: 682, max: 998), which was
+measured 31 times. This graph shows the number of transit recordings in
 each transit network during the last month. Keep in mind that this graph
 only shows networks with more than 2 transit recordings this month
 (there were quite a few with one or two). Transit recordings seem very
@@ -280,10 +675,13 @@ app](https://play.google.com/store/apps/details?id=com.aurelwu.indoorairqualityc
 or [iOS
 app](https://apps.apple.com/us/app/indoorco2map-data-collector/id6504560820?itscg=30200&itsct=apps_box_badge&mttnsubad=6504560820)
 and connecting it to any one of the following CO<sub>2</sub> sensors:
-Aranet4, Airvalent, AirSpot and Inkbird IAM-T1. I would also like to
-thank [Aurel Wünsch](https://github.com/AurelWu) who tirelessly works on
-the project as well as the other contributors to the project
-[ahunt](https://github.com/ahunt), [da5nsy](https://github.com/da5nsy),
+Aranet4, Airvalent, AirSpot and Inkbird IAM-T1. You can also donate by
+contributing to the [indoorCO2map
+gofundme](https://www.gofundme.com/f/indoorco2mapcom-collectively-measuring-indoor-air-quality).  
+I would also like to thank [Aurel Wünsch](https://github.com/AurelWu)
+who tirelessly works on the project as well as the other contributors to
+the project [ahunt](https://github.com/ahunt),
+[da5nsy](https://github.com/da5nsy),
 [paul-hammant](https://github.com/paul-hammant), and
 [samherniman](https://github.com/samherniman).
 
@@ -293,19 +691,32 @@ which I used heavily.
 We used R v. 4.4.3 (R Core Team 2025) and the following R packages:
 autocruller v. 0.0.0.9000 (Herniman, n.d.), dbscan v. 1.2.3 (Hahsler,
 Piekenbrock, and Doran 2019; Hahsler and Piekenbrock 2025), duckplyr v.
-1.1.3.9005 (Mühleisen and Müller 2025), glue v. 1.8.0 (Hester and Bryan
-2024), gt v. 1.0.0 (Iannone et al. 2025), h3 v. 3.7.2 (Kuethe 2022),
-here v. 1.0.1 (Müller 2020), mapview v. 2.11.2 (Appelhans et al. 2023),
-osmdata v. 0.2.5 (Mark Padgham et al. 2017), patchwork v. 1.3.1
-(Pedersen 2025), rmarkdown v. 2.30 (Xie, Allaire, and Grolemund 2018;
-Xie, Dervieux, and Riederer 2020; Allaire et al. 2025), scales v. 1.4.0
+1.1.3.9005 (Mühleisen and Müller 2025), ggrepel v. 0.9.6 (Slowikowski
+2024), glue v. 1.8.0 (Hester and Bryan 2024), gt v. 1.0.0 (Iannone et
+al. 2025), h3 v. 3.7.2 (Kuethe 2022), here v. 1.0.1 (Müller 2020),
+mapview v. 2.11.2 (Appelhans et al. 2023), osmdata v. 0.2.5 (Mark
+Padgham et al. 2017), pak v. 0.9.0 (Csárdi and Hester 2025), patchwork
+v. 1.3.1 (Pedersen 2025), rmarkdown v. 2.30 (Xie, Allaire, and Grolemund
+2018; Xie, Dervieux, and Riederer 2020; Allaire et al. 2025),
+rnaturalearth v. 1.1.0 (Massicotte and South 2025), scales v. 1.4.0
 (Wickham, Pedersen, and Seidel 2025), scico v. 1.5.0 (Pedersen and
 Crameri 2023), sf v. 1.0.22 (Pebesma 2018; Pebesma and Bivand 2023),
 tidygeocoder v. 1.0.6 (Cambon et al. 2021), tidyplots v. 0.2.2.9000
 (Engler 2025), tidyverse v. 2.0.0 (Wickham et al. 2019).
 
-<!-- ## Everything -->
-<!-- Combine both long datasets and then make a beeswarm comparing buildings to transit -->
+All figures in this report are licensed under
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA
+4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">.
+Please feel free to use and remix them and let me know if you do. I love
+to see my work being used elsewhere!
+
+If this was useful to you, please consider [supporting
+me](https://liberapay.com/samherniman/) so I can make more things like
+this. I would be incredibly grateful.
+<script src="https://liberapay.com/samherniman/widgets/button.js"></script>
+<noscript>
+<a href="https://liberapay.com/samherniman/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
+</noscript>
 
 <div id="refs" class="references csl-bib-body hanging-indent"
 entry-spacing="0">
@@ -334,6 +745,14 @@ Cambon, Jesse, Diego Hernangómez, Christopher Belanger, and Daniel
 Possenriede. 2021. “<span class="nocase">tidygeocoder</span>: An r
 Package for Geocoding.” *Journal of Open Source Software* 6 (65): 3544.
 <https://doi.org/10.21105/joss.03544>.
+
+</div>
+
+<div id="ref-pak" class="csl-entry">
+
+Csárdi, Gábor, and Jim Hester. 2025. *<span class="nocase">pak</span>:
+Another Approach to Package Installation*.
+<https://CRAN.R-project.org/package=pak>.
 
 </div>
 
@@ -403,6 +822,14 @@ Mark Padgham, Bob Rudis, Robin Lovelace, and Maëlle Salmon. 2017.
 
 </div>
 
+<div id="ref-rnaturalearth" class="csl-entry">
+
+Massicotte, Philippe, and Andy South. 2025.
+*<span class="nocase">rnaturalearth</span>: World Map Data from Natural
+Earth*. <https://CRAN.R-project.org/package=rnaturalearth>.
+
+</div>
+
 <div id="ref-duckplyr" class="csl-entry">
 
 Mühleisen, Hannes, and Kirill Müller. 2025.
@@ -455,6 +882,15 @@ Scientific Colour-Maps*. <https://CRAN.R-project.org/package=scico>.
 R Core Team. 2025. *R: A Language and Environment for Statistical
 Computing*. Vienna, Austria: R Foundation for Statistical Computing.
 <https://www.R-project.org/>.
+
+</div>
+
+<div id="ref-ggrepel" class="csl-entry">
+
+Slowikowski, Kamil. 2024. *<span class="nocase">ggrepel</span>:
+Automatically Position Non-Overlapping Text Labels with
+“<span class="nocase">ggplot2</span>”*.
+<https://CRAN.R-project.org/package=ggrepel>.
 
 </div>
 
