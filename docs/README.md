@@ -1,6 +1,6 @@
 
 
-# Monthly indoorCO2map.com summary December 2026
+# Monthly indoorCO2map.com summary December 2025
 
 There is a well documented relationship between indoor levels of
 CO<sub>2</sub> and the amount of ventilation in indoor environments.
