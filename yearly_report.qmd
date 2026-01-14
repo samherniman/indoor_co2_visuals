@@ -76,6 +76,11 @@ buildings_wide_df <- autocruller::ac_get_co2("web")
 buildings_wide_df_short <-
   buildings_wide_df |>
     # sf::st_drop_geometry() |>
+    dplyr::filter(dplyr::between(
+      date,
+      lubridate::ymd("2023-01-01"),
+      lubridate::ymd("2025-12-31")
+    )) |> 
     # filter_to_month(start_date) |>
     dplyr::mutate(type = "building")
 
@@ -95,8 +100,12 @@ transit_long_df <- join_transit_osm(transit_long_df)
 ```{r}
 transit_long_df_short <- 
 transit_long_df |> 
-    # filter_to_month(start_date) |> 
-        dplyr::mutate(type = "transit")
+dplyr::filter(dplyr::between(
+      date,
+      lubridate::ymd("2023-01-01"),
+      lubridate::ymd("2025-12-31")
+    )) |> 
+    dplyr::mutate(type = "transit")
 ```
 
 
@@ -117,7 +126,7 @@ common_building_types <- buildings_wide_df |>
 ```
 
 ```{r}
-world_sf <- rnaturalearth::ne_countries() |> sf::st_make_valid()
+world_sf <- rnaturalearth::ne_countries(scale = 10L) |> sf::st_make_valid()
 sf::sf_use_s2(FALSE)
 
 buildings_snapped <- sf::st_join(buildings_wide_df_short, world_sf)
@@ -128,21 +137,21 @@ transit_snapped <- sf::st_join(transit_long_df_short, world_sf)
 ```{r}
 #| include: false
 
-buildings_wide_df_short_geo <- 
-  # buildings_wide_df_short_geo |> 
-  readRDS(here::here("data/derivative/buildings_wide_df_short_geo_yr.rds")) |> 
-  dplyr::rowwise() |> 
-  dplyr::mutate(
-    location_description = glue::glue("{city %||% county %||% province %||% state %||% town %||% municipality %||% region %||% borough %||% suburb %||% neighbourhood %||% city_district}, {country}")
-      ) |> 
-    sf::st_as_sf(coords = c("X", "Y"), crs = sf::st_crs(buildings_wide_df_short))
+# buildings_wide_df_short_geo <- 
+#   # buildings_wide_df_short_geo |> 
+#   readRDS(here::here("data/derivative/buildings_wide_df_short_geo_yr.rds")) |> 
+#   dplyr::rowwise() |> 
+#   dplyr::mutate(
+#     location_description = glue::glue("{city %||% county %||% province %||% state %||% town %||% municipality %||% region %||% borough %||% suburb %||% neighbourhood %||% city_district}, {country}")
+#       ) |> 
+#     sf::st_as_sf(coords = c("X", "Y"), crs = sf::st_crs(buildings_wide_df_short))
 
-buildings_wide_df_short <- sf::st_join(
-  buildings_wide_df_short,
-  buildings_wide_df_short_geo,
-  left = TRUE,
-  largest = TRUE
-) |> dplyr::ungroup()
+# buildings_wide_df_short <- sf::st_join(
+#   buildings_wide_df_short,
+#   buildings_wide_df_short_geo,
+#   left = TRUE,
+#   largest = TRUE
+# ) |> dplyr::ungroup()
 
 ```
 
@@ -155,24 +164,24 @@ buildings_long_df <- autocruller::ac_unnest_longer(buildings_wide_df_short)
 ```{r transitgeo}
 #| eval: true
 #| include: false
-transit_long_df_short_geo <- 
-  # transit_long_df_short_geo |> 
-  readRDS(here::here("data/derivative/transit_long_df_short_geo_yr.rds")) |> 
-  dplyr::rowwise() |> 
-  dplyr::mutate(
-    location_description = glue::glue("{city %||% county %||%  state %||% town %||% municipality %||% region %||% borough %||% suburb %||% neighbourhood %||% city_district}, {country}")
-      ) |> 
-     sf::st_as_sf(coords = c("X", "Y"), crs = sf::st_crs(transit_long_df_short))
+# transit_long_df_short_geo <- 
+#   # transit_long_df_short_geo |> 
+#   readRDS(here::here("data/derivative/transit_long_df_short_geo_yr.rds")) |> 
+#   dplyr::rowwise() |> 
+#   dplyr::mutate(
+#     location_description = glue::glue("{city %||% county %||%  state %||% town %||% municipality %||% region %||% borough %||% suburb %||% neighbourhood %||% city_district}, {country}")
+#       ) |> 
+#      sf::st_as_sf(coords = c("X", "Y"), crs = sf::st_crs(transit_long_df_short))
 
-transit_long_df_short <- transit_long_df_short |> 
-  dplyr::mutate(osm_id_line = as.integer(osm_id_line))
+# transit_long_df_short <- transit_long_df_short |> 
+#   dplyr::mutate(osm_id_line = as.integer(osm_id_line))
 
-transit_long_df_short <- sf::st_join(
-  transit_long_df_short,
-  transit_long_df_short_geo,
-  left = TRUE,
-  largest = TRUE
-) |> dplyr::ungroup()
+# transit_long_df_short <- sf::st_join(
+#   transit_long_df_short,
+#   transit_long_df_short_geo,
+#   left = TRUE,
+#   largest = TRUE
+# ) |> dplyr::ungroup()
 ```
 
 :::{.cr-section}
@@ -182,15 +191,15 @@ transit_long_df_short <- sf::st_join(
 ```{r mostmeasured}
 #| echo: false
 
-most_measured <- 
-buildings_wide_df_short |> 
-  summarise_most_measured_buildings()
+# most_measured <- 
+# buildings_wide_df_short |> 
+#   summarise_most_measured_buildings()
 
-mean_vals <- buildings_wide_df_short |>
-  sf::st_drop_geometry() |> 
-    dplyr::filter(
-      ppmavg >= 410
-    ) 
+# mean_vals <- buildings_wide_df_short |>
+#   sf::st_drop_geometry() |> 
+#     dplyr::filter(
+#       ppmavg >= 410
+#     ) 
   
 ```
 
@@ -324,8 +333,8 @@ countries_count <- countries_count[order(countries_count$n, decreasing = TRUE),]
 
 countries_count |> 
   tidyr::drop_na() |> 
-  dplyr::filter(n >= 100) |> 
-    ggplot2::ggplot(aes(x = forcats::fct_reorder(name_en, n), y = n, fill = forcats::fct_rev(type.x))) +
+  dplyr::filter(label_n >= 100) |> 
+    ggplot2::ggplot(aes(x = forcats::fct_reorder(name_en, label_n), y = n, fill = forcats::fct_rev(type.x))) +
     geom_col() +
     ggrepel::geom_text_repel(
     # geom_text(
@@ -518,7 +527,7 @@ create_co2_tibble(lowest_building) |>
 ```{r allcurves3}
 #| warning: false
 #| message: false
-#| fig.asp: 1.4
+#| fig.asp: 1.3
 ylim_max <- max(highest_building$co2readings) + 200
 plot_all_curves(buildings_long_df_med, ylim_max)
 ```
