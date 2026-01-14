@@ -530,7 +530,7 @@ plot_all_curves <- function(buildings_long_df_med, ylim_max) {
     ggplot(aes(x = 1, y = co2readings)) +
     geom_boxplot(outliers = FALSE) +
     ylim(400, ylim_max) +
-    ylab(bquote(CO^2)) +
+    ylab("CO2") +
     theme_void() +
     theme(
       plot.title = element_text(size = 12),

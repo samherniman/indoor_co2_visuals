@@ -482,9 +482,9 @@ create_co2_tibble(lowest_building) |>
 ```{r allcurves3}
 #| warning: false
 #| message: false
-#| fig.asp: 1.4
+#| fig.asp: 1.2
 ylim_max <- max(highest_building$co2readings) + 200
-plot_all_curves(buildings_long_df_med, ylim_max)
+plot_all_curves(sf::st_drop_geometry(buildings_long_df_med), ylim_max)
 ```
 
 :::
