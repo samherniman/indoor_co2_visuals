@@ -37,7 +37,7 @@ execute:
 # map showing observations over time animation
 # lollipop summer vs winter shops - maybe summarize by category
 # highest velocity based off of different time periods
-start_date <- (lubridate::ymd("2025-12-31"))
+start_date <- (lubridate::ymd("2026-01-31"))
 ```
 
 # Monthly indoorCO2map.com summary `r start_date |> lubridate::month(label = TRUE, abbr = FALSE)` `r start_date |> lubridate::year()`
@@ -68,10 +68,24 @@ source(here::here("functions/functions.R"))
 #| warning: false
 #| message: false
 #| include: false
-
+library(duckplyr)
 buildings_wide_df <- autocruller::ac_get_co2("web") 
 # saveRDS(buildings_wide_df, here::here("buildings_wide_df.rds"))
 # buildings_wide_df <- readRDS(here::here("buildings_wide_df.rds"))
+
+buildings_wide_df <- sf::st_join(buildings_wide_df, world_sf)
+
+buildings_wide_df <- 
+  buildings_wide_df |> 
+  dplyr::rowwise() |>
+    dplyr::mutate(
+      best_country_name = name_ciawf %||% 
+        brk_name %||%
+        name_en %||%
+        admin %||%
+        name %||%
+        countryname
+    ) 
 
 buildings_wide_df_short <-
   buildings_wide_df |>
@@ -90,6 +104,22 @@ transit_long_df <- autocruller::ac_get_co2("transit")
 
 transit_long_df <- join_transit_osm(transit_long_df)
 
+```
+
+```{r}
+transit_long_df <- sf::st_join(transit_long_df, world_sf)
+
+transit_long_df <- 
+  transit_long_df |> 
+  dplyr::rowwise() |>
+    dplyr::mutate(
+      best_country_name = name_ciawf %||% 
+        brk_name %||%
+        name_en %||%
+        admin %||%
+        sovereignt %||%
+        name.y
+    ) 
 ```
 
 ```{r}
@@ -134,9 +164,9 @@ transit_long_df_short_geo <- geocode_buildings_or_transit(transit_long_df_short)
 
 ```
 
-
 ```{r}
 #| include: false
+#| eval: false
 
 buildings_wide_df_short_geo <- 
   # buildings_wide_df_short_geo |> 
@@ -163,7 +193,7 @@ buildings_long_df <- autocruller::ac_unnest_longer(buildings_wide_df_short)
 ```
 
 ```{r transitgeo}
-#| eval: true
+#| eval: false
 #| include: false
 transit_long_df_short_geo <- 
   # transit_long_df_short_geo |> 
@@ -192,6 +222,11 @@ transit_long_df_short <- sf::st_join(
 ) |> dplyr::ungroup()
 ```
 
+```{r}
+transit_long_df_short <- transit_long_df_short |> 
+  dplyr::mutate(osm_id_line = as.integer(osm_id_line))
+```
+
 :::{.cr-section}
 
 ## Buildings
@@ -216,13 +251,13 @@ mean_vals <- buildings_wide_df_short |>
 #| message: false
 countries_count <- 
 buildings_wide_df_short |> 
-    dplyr::select(uid = obs_number, country_code, type.x) |> 
+    dplyr::select(uid = obs_number, best_country_name, type) |> 
     sf::st_drop_geometry() 
 
 # not yet done. need to give transit data a country col
 countries_count_transit <- 
     transit_long_df_short |> 
-    dplyr::group_by(uid, country_code, type.x) |> 
+    dplyr::group_by(uid, best_country_name, type) |> 
     dplyr::count() |> 
     dplyr::select(-n) |> 
     # dplyr::summarise(n = dplyr::n_distinct(uid)) |> 
@@ -230,53 +265,65 @@ countries_count_transit <-
     sf::st_drop_geometry()
 
 countries_count <- 
-  dplyr::bind_rows(countries_count, countries_count_transit) |> 
-  dplyr::left_join(iso_3166_a2, by = dplyr::join_by(country_code == code))  
+  dplyr::bind_rows(countries_count, countries_count_transit) 
+  # dplyr::left_join(iso_3166_a2, by = dplyr::join_by(country_code == code))  
   
 
 # countries_count <- countries_count[order(countries_count$n, decreasing = TRUE),] |> 
 #   tidyr::drop_na()
-# levels(countries_count$type.x)
 countries_count <- 
     countries_count |>
-      dplyr::mutate(
-        type.x = forcats::fct_relevel(type.x, "building", "transit"), #|> forcats::fct_rev()
-        iso_name = forcats::fct_infreq(iso_name) |> forcats::fct_rev()
+      # dplyr::mutate(
+      #   type = forcats::fct_relevel(type, "building", "transit"), #|> forcats::fct_rev()
+      #   # best_country_name = forcats::fct_infreq(best_country_name) |> forcats::fct_rev()
         
-        ) |> 
-      dplyr::group_by(iso_name, type.x) |> 
+      #   ) |> 
+      dplyr::group_by(best_country_name, type) |> 
       dplyr::count() 
-# levels(countries_count$type.x)
+
+
 
 countries_labels <- 
   countries_count |> 
-  tidyr::pivot_wider(names_from = type.x, values_from = n) |>
+  tidyr::pivot_wider(names_from = type, values_from = n) |>
   dplyr::mutate(
     building = tidyr::replace_na(building, 0),
     transit = sum(transit, building, na.rm = FALSE)) |> 
     dplyr::mutate(
     building = dplyr::na_if(building, 0)
     ) |> 
-  tidyr::pivot_longer(!iso_name, names_to = "type.x", values_to = "label_n") |> 
+  tidyr::pivot_longer(!best_country_name, names_to = "type", values_to = "label_n") |> 
   tidyr::drop_na()
 
 countries_count <- 
   dplyr::left_join(
     countries_count,
     countries_labels,
-    by = dplyr::join_by(iso_name, type.x)
-  ) 
-# countries_count <- 
-#   countries_count |> 
-#     dplyr::mutate(
-#         # iso_name = forcats::fct_infreq(iso_name) |> forcats::fct_rev(),
-#         type.x = forcats::fct_relevel(
-#           type.x, 
-#           "transit", 
-#           "building"
-#           )
-#         )
+    by = dplyr::join_by(best_country_name, type)
+  ) |> 
+    dplyr::arrange(dplyr::desc(label_n))
 
+countries_count$best_country_name <- factor(
+  countries_count$best_country_name, 
+  levels = unique(countries_count$best_country_name) |> rev()
+  )
+
+countries_count <- 
+  countries_count |> 
+  dplyr::ungroup() |> 
+  dplyr::filter(best_country_name != "") |> 
+    dplyr::mutate(
+        # best_country_name = forcats::fct_relevel(best_country_name, country_order)
+        # best_country_name = forcats::fct_infreq(best_country_name) |> forcats::fct_rev()
+
+        type = forcats::fct_relevel(
+          type, 
+          "transit", 
+          "building"
+          ) |> forcats::fct_rev()
+        )
+levels(countries_count$type)
+levels(countries_count$best_country_name)
 ```
 
 This month there were `r nrow(buildings_wide_df_short)` measurements of `r length(unique(buildings_wide_df_short$combined_id))` unique buildings.  
@@ -349,7 +396,7 @@ countries_count |> plot_countries_count()
 countries_count |> 
   tidyr::drop_na() |> 
   dplyr::filter(n > 1) |> 
-    ggplot2::ggplot(aes(x = iso_name, y = n, fill = forcats::fct_rev(type.x))) +
+    ggplot2::ggplot(aes(x = best_country_name, y = n, fill = forcats::fct_rev(type))) +
     geom_col() +
     # ggrepel::geom_text_repel(
     geom_text(
@@ -589,9 +636,6 @@ plot_all_histogram(buildings_wide_df)
 :::
 
 ## Transit
-
-
-
 
 
 ```{r mmtransit}
