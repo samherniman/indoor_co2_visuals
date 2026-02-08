@@ -37,7 +37,7 @@ execute:
 # map showing observations over time animation
 # lollipop summer vs winter shops - maybe summarize by category
 # highest velocity based off of different time periods
-start_date <- (lubridate::ymd("2025-12-30"))
+start_date <- (lubridate::ymd("2026-01-31"))
 ```
 
 # Monthly indoorCO2map.com summary `r start_date |> lubridate::month(label = TRUE, abbr = FALSE)` `r lubridate::today()  |> lubridate::year()`
@@ -79,7 +79,7 @@ buildings_wide_df_short <-
     dplyr::filter(dplyr::between(
       date,
       lubridate::ymd("2023-01-01"),
-      lubridate::ymd("2025-12-31")
+      lubridate::today()
     )) |> 
     # filter_to_month(start_date) |>
     dplyr::mutate(type = "building")
@@ -103,7 +103,7 @@ transit_long_df |>
 dplyr::filter(dplyr::between(
       date,
       lubridate::ymd("2023-01-01"),
-      lubridate::ymd("2025-12-31")
+      lubridate::today()
     )) |> 
     dplyr::mutate(type = "transit")
 ```
@@ -325,6 +325,46 @@ countries_count <- countries_count[order(countries_count$n, decreasing = TRUE),]
   tidyr::drop_na()
 ```
 
+```{r}
+#| warning: false
+#| error: false
+#| fig.asp: 1.05
+
+countries_count |> 
+  tidyr::drop_na() |> 
+  dplyr::filter(
+    # label_n >= 100
+    type.x == "building"
+    ) |> 
+    ggplot2::ggplot(aes(x = forcats::fct_reorder(name_en, label_n), y = n, fill = forcats::fct_rev(type.x))) +
+    geom_col() +
+    # ggrepel::geom_text_repel(
+    # # geom_text(
+    #   aes(y = label_n, label = n), 
+    #   vjust = -0.5, 
+    #   colour = "black",
+    #   min.segment.length = 1000,
+    #   direction = "y",
+    #   box.padding = 0.1
+    #   # point.padding = 0.1
+    #   ) +
+    # scico::scale_fill_scico_d() +
+    scale_fill_manual(values = c(
+      # "#FFBB34", 
+      # "#A3AB78"
+      "#295059"
+      )) +
+    labs(x = "Country", y = "Number of measurements") +
+    tidyplots_theme() +
+    theme(
+      legend.title = element_blank(),
+      legend.position = "none",
+      axis.text.x = element_text(
+      angle = 45, 
+      # vjust = 0.5, 
+      hjust=1)
+      )
+```
 
 ```{r}
 #| warning: false

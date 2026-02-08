@@ -3,6 +3,9 @@ library(tidyplots)
 library(gt)
 library(patchwork)
 
+world_sf <- rnaturalearth::ne_countries(scale = 10L) |> sf::st_make_valid()
+sf::sf_use_s2(FALSE)
+
 `%||%` <- function(x, y) {
   if (is.na(x) || is.null(x)) y else x
 }
@@ -202,7 +205,8 @@ join_transit_osm <- function(
 
 form_new_countries_sentence <- function(
   buildings_wide_df,
-  buildings_wide_df_short
+  buildings_wide_df_short,
+  extra_country
 ) {
   old_countries <-
     buildings_wide_df |>
@@ -218,7 +222,7 @@ form_new_countries_sentence <- function(
   new_countries <- unique(buildings_wide_df_short$countryname)[
     !(unique(buildings_wide_df_short$countryname) %in% old_countries)
   ]
-
+  new_countries <- append(new_countries, extra_country)
   new_countries_sentence <-
     if (length(new_countries) > 0) {
       glue::glue(
@@ -228,6 +232,37 @@ form_new_countries_sentence <- function(
 
   return(new_countries_sentence)
 }
+
+describe_location <- function(x) {
+  x |>
+    # dplyr::rowwise() |>
+    dplyr::mutate(
+      location_description = glue::glue(
+        "{city %||% town %||% county %||% province %||% state %||% town %||% municipality %||% region %||% borough %||% suburb %||% neighbourhood %||% city_district}, {best_country_name}"
+      )
+    )
+}
+
+geocode_and_join <- function(x) {
+  x_geo <-
+    geocode_buildings_or_transit(x) |>
+    dplyr::rowwise() |>
+    sf::st_as_sf(
+      coords = c("X", "Y"),
+      crs = sf::st_crs(buildings_wide_df_short)
+    )
+
+  x <- sf::st_join(
+    x,
+    x_geo,
+    left = TRUE,
+    largest = TRUE
+  ) |>
+    dplyr::ungroup()
+
+  return(x)
+}
+
 
 geocode_buildings_or_transit <- function(x) {
   x_geo <-
@@ -257,21 +292,24 @@ geocode_buildings_or_transit <- function(x) {
 
 summarise_most_measured_buildings <- function(x) {
   x |>
-    sf::st_drop_geometry() |>
     dplyr::group_by(combined_id) |>
     dplyr::summarise(
       n = dplyr::n(),
       nwrname = dplyr::first(nwrname),
       osmtag = dplyr::first(osmtag),
-      countryname = dplyr::first(countryname),
-      location_description = dplyr::first(location_description),
+      best_country_name = dplyr::first(
+        best_country_name
+      ),
       min_day = min(date),
       max_day = max(date),
       ppm_min = min(ppmavg) |> round(),
       ppm_avg = mean(ppmavg) |> round(),
       ppm_max = max(ppmavg) |> round()
     ) |>
-    dplyr::slice_max(n = 1, order_by = n)
+    dplyr::slice_max(n = 1, order_by = n) |>
+    geocode_and_join() |>
+    sf::st_drop_geometry() |>
+    describe_location()
 }
 
 summarise_most_measured_transit <- function(x) {
@@ -283,15 +321,18 @@ summarise_most_measured_transit <- function(x) {
       route = dplyr::first(route),
       network = dplyr::first(network_best),
       operator = dplyr::first(operator_best),
-      countryname = dplyr::first(country),
-      location_description = dplyr::first(location_description),
+      best_country_name = dplyr::first(best_country_name),
+      # location_description = dplyr::first(location_description),
       min_day = min(date),
       max_day = max(date),
       ppm_min = min(co2Array) |> round(),
       ppm_avg = mean(co2Array) |> round(),
       ppm_max = max(co2Array) |> round()
     ) |>
-    dplyr::slice_max(n = 1, order_by = n)
+    dplyr::slice_max(n = 1, order_by = n) |>
+    geocode_and_join() |>
+    sf::st_drop_geometry() |>
+    describe_location()
 }
 
 tidyplots_theme <- function() {
@@ -759,7 +800,7 @@ count_transit <- function(x) {
     dplyr::rowwise() |>
     dplyr::mutate(
       location_description = stringr::str_replace_all(
-        location_description,
+        best_country_name,
         "United States of America",
         "USA"
       )
@@ -845,7 +886,7 @@ plot_transit_month_box <- function(x, co2_filter = 410) {
     remove_legend() |>
     # adjust_legend_title("Building type") |>
     adjust_y_axis_title("CO2 ppm") |>
-    add_title("CO2 Distribution (this month)") |>
+    add_title("CO2 Distribution") |>
     adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 }
 
@@ -946,3 +987,21 @@ iso_3166_a2 <- rvest::read_html(
       )
     )
   )
+
+cols <- c(
+  city = NA_real_,
+  town = NA_real_,
+  county = NA_real_,
+  province = NA_real_,
+  state = NA_real_,
+  town = NA_real_,
+  municipality = NA_real_,
+  region = NA_real_,
+  borough = NA_real_,
+  suburb = NA_real_,
+  neighbourhood = NA_real_,
+  city_district = NA_real_
+)
+add_all_town_cols <- function(x, cols) {
+  tibble::add_column(x, !!!cols[setdiff(names(cols), names(x))])
+}

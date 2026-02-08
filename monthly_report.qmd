@@ -37,7 +37,7 @@ execute:
 # map showing observations over time animation
 # lollipop summer vs winter shops - maybe summarize by category
 # highest velocity based off of different time periods
-start_date <- (lubridate::ymd("2026-01-31"))
+start_date <- lubridate::ymd("2026-01-31")
 ```
 
 # Monthly indoorCO2map.com summary `r start_date |> lubridate::month(label = TRUE, abbr = FALSE)` `r start_date |> lubridate::year()`
@@ -101,12 +101,16 @@ transit_long_df <- autocruller::ac_get_co2("transit")
 
 ```{r}
 #| include: false
-
+#| warning: false
+#| message: false
 transit_long_df <- join_transit_osm(transit_long_df)
 
 ```
 
 ```{r}
+#| warning: false
+#| message: false
+#| include: false
 transit_long_df <- sf::st_join(transit_long_df, world_sf)
 
 transit_long_df <- 
@@ -123,6 +127,9 @@ transit_long_df <-
 ```
 
 ```{r}
+#| warning: false
+#| message: false
+#| include: false
 transit_long_df_short <- 
 transit_long_df |> 
     filter_to_month(start_date) |> 
@@ -131,6 +138,9 @@ transit_long_df |>
 
 
 ```{r}
+#| warning: false
+#| message: false
+#| include: false
 common_building_types <- buildings_wide_df |> 
   dplyr::group_by(osmtag) |> 
   dplyr::count() |> 
@@ -140,9 +150,11 @@ common_building_types <- buildings_wide_df |>
 ```
 
 ```{r}
-#| include: false
+#| warning: false
+#| message: false
+#| include: false 
 # list new countries
-new_countries_sentence <- form_new_countries_sentence(buildings_wide_df, buildings_wide_df_short)
+new_countries_sentence <- form_new_countries_sentence(buildings_wide_df, buildings_wide_df_short, extra_country = "Taiwan")
 
 ```
 
@@ -187,7 +199,9 @@ buildings_wide_df_short <- sf::st_join(
 ```
 
 ```{r}
-#| include: false
+#| warning: false
+#| message: false
+#| include: false 
 
 buildings_long_df <- autocruller::ac_unnest_longer(buildings_wide_df_short)
 ```
@@ -223,17 +237,85 @@ transit_long_df_short <- sf::st_join(
 ```
 
 ```{r}
+#| warning: false
+#| message: false
+#| include: false 
 transit_long_df_short <- transit_long_df_short |> 
   dplyr::mutate(osm_id_line = as.integer(osm_id_line))
 ```
 
-:::{.cr-section}
 
 ## Buildings
 
+```{r animbuildings}
+#| warning: false
+#| message: false
+#| out.width: "100%"
+library(gganimate)
+library(rnaturalearth)
+library(rnaturalearthhires)
+countries_sf <- rnaturalearth::ne_countries(scale = 50L)
+bbox_buildings <- sf::st_bbox(buildings_wide_df_short)
+anim <-
+  buildings_wide_df_short |>
+  dplyr::mutate(day = as.Date(date)) |>
+  ggplot2::ggplot() +
+  ggplot2::geom_sf(data = countries_sf, fill = "white") +
+  ggplot2::geom_sf(aes(colour = ppmavg), size = 2) +
+  gganimate::transition_time(day) +
+  gganimate::enter_grow() +
+  gganimate::shadow_mark(past = TRUE, future = FALSE, alpha = 0.6 
+  # color = "grey"
+  ) +
+  xlim(bbox_buildings[1] - 1, bbox_buildings[3] + 1) +
+  ylim(bbox_buildings[2] - 1, bbox_buildings[4] + 1) +
+  scale_color_viridis_c(
+    name = "Mean CO2 ppm",
+    breaks = c(420, 600, 800, 1200, 2000, 4000),
+    transform = "log2",
+    option = "turbo"
+  ) +
+  theme(
+    plot.background = ggplot2::element_rect(fill = NA, colour = NA),
+    plot.title = ggplot2::element_text(size = ggplot2::rel(1.5)),
+    legend.background = ggplot2::element_rect(fill = NA, colour = NA),
+    legend.key = ggplot2::element_rect(fill = NA, colour = NA),
+    legend.key.width = unit(0.6, "lines"),
+    legend.key.height = unit(1, "lines"),
+    strip.background = ggplot2::element_rect(fill = "#cbd6dfff", colour = NA),
+    panel.background = ggplot2::element_rect(fill = "#cbd6dfff", colour = NA),
+    panel.border = ggplot2::element_rect(
+      fill = NA,
+      colour = "black",
+      linewidth = 0.5
+    ),
+    panel.grid.major = ggplot2::element_blank(),
+    panel.grid.minor = ggplot2::element_blank(),
+    axis.ticks = ggplot2::element_line(colour = "black", linewidth = 0.25),
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 14)
+  ) +
+  ggtitle("{frame_time}")
+
+animate(
+  anim,
+  nframes = 32,
+  driver = 'png',
+  # quality = 40,
+  # nframes = 260,
+  fps = 5
+) |> magick::image_trim()
+# anim_save(here::here("data/derivative/animation.gif"), anim2)
+
+```
+
+:::{.cr-section}
+
 ```{r mostmeasured}
 #| echo: false
-
+#| warning: false
+#| message: false
+#| include: false 
 most_measured <- 
 buildings_wide_df_short |> 
   summarise_most_measured_buildings()
@@ -249,6 +331,7 @@ mean_vals <- buildings_wide_df_short |>
 ```{r countriescount}
 #| warning: false
 #| message: false
+#| include: false 
 countries_count <- 
 buildings_wide_df_short |> 
     dplyr::select(uid = obs_number, best_country_name, type) |> 
@@ -322,8 +405,7 @@ countries_count <-
           "building"
           ) |> forcats::fct_rev()
         )
-levels(countries_count$type)
-levels(countries_count$best_country_name)
+
 ```
 
 This month there were `r nrow(buildings_wide_df_short)` measurements of `r length(unique(buildings_wide_df_short$combined_id))` unique buildings.  
@@ -336,7 +418,7 @@ There were measurements in `r nrow(countries_count)` separate countries. `r new_
 
  @cr-histco2plot 
 
-Here is a graph that shows the distribution of all the CO~2~ measurements this month. The dashed red line shows the median which was `r median(mean_vals$ppmavg, na.rm = TRUE) |> round()` ppm. There are many measurements in the range that we would consider good CO~2~ levels, however, you'll notice that there are also a good number of measurements that are over 1000 ppm, which really should be addressed.
+Here is a graph that shows the distribution of all the CO~2~ measurements this month. The dashed red line shows the median which was `r median(mean_vals$ppmavg, na.rm = TRUE) |> round()` ppm. There are many measurements that we would consider good CO~2~ levels, however, you'll notice that about `r round((buildings_wide_df_short |> dplyr::filter(ppmavg > 1000) |> nrow()) / nrow(buildings_wide_df_short) * 100)` percent are over 1000 ppm, which really should be addressed.
 
 :::{#cr-histco2plot}
 
@@ -392,10 +474,19 @@ countries_count |> plot_countries_count()
 ```{r}
 #| warning: false
 #| error: false
+#| message: false
 #| fig.asp: 1.05
 countries_count |> 
   tidyr::drop_na() |> 
-  dplyr::filter(n > 1) |> 
+  dplyr::rowwise() |> 
+  dplyr::mutate(
+    label_n = dplyr::if_else(
+      type == "transit" && n < 5, 
+      label_n + 16,
+      label_n
+      )
+      ) |> 
+  # dplyr::filter(n > 1) |> 
     ggplot2::ggplot(aes(x = best_country_name, y = n, fill = forcats::fct_rev(type))) +
     geom_col() +
     # ggrepel::geom_text_repel(
@@ -454,28 +545,46 @@ plot_building_types_2(buildings_long_df)
 :::
 
 ```{r highlowbuildings}
-#| include: false
+#| warning: false
+#| message: false
+#| include: false 
+
 buildings_long_df_med <- buildings_long_df |> 
   dplyr::filter(
-    co2readings >= 400
+    co2readings >= 410
   ) |> 
     dplyr::group_by(obs_number) |> 
     dplyr::mutate(
       median_co2 = median(co2readings),
       time_n = dplyr::row_number(),
-      time_range = range01(time_n),
-      description_str = glue::glue("{nwrname} in {location_description}")
+      time_range = range01(time_n)
+      # description_str = glue::glue("{nwrname} in {location_description}")
     ) |> 
       dplyr::ungroup()
 
 highest_building <- buildings_long_df_med |> 
-  dplyr::slice_max(order_by = median_co2)
+  dplyr::slice_max(order_by = median_co2) |> 
+  sf::st_as_sf() |> 
+  geocode_and_join() |> 
+  add_all_town_cols(cols = cols) |> 
+  dplyr::rowwise() |> 
+  describe_location() |> 
+  dplyr::mutate(description_str = glue::glue("{nwrname} in {location_description}"))
+
 lowest_building <- buildings_long_df_med |> 
-  dplyr::slice_min(order_by = median_co2)
+  dplyr::slice_min(order_by = median_co2) |> 
+  sf::st_as_sf() |> 
+  geocode_and_join() |> 
+    add_all_town_cols(cols = cols) |> 
+  dplyr::rowwise() |> 
+  describe_location() |> 
+  dplyr::mutate(description_str = glue::glue("{nwrname} in {location_description}"))
 ```
 
 ```{r highlowsentence}
-#| include: false
+#| warning: false
+#| message: false
+#| include: false 
 
 lowest_sentence <- lowest_building |> 
   dplyr::group_by(obs_number) |> 
@@ -496,8 +605,24 @@ highest_sentence <- highest_building |>
 co2_threshold <- 500
 
 buildings_under_threshold <- 
-  buildings_long_df_med |> 
-  list_buildings_under_threshold(co2_threshold)
+  buildings_long_df_med |>
+  dplyr::filter(median_co2 < co2_threshold) |>
+  sf::st_as_sf() |> 
+  geocode_and_join() |> 
+  add_all_town_cols(cols = cols) |> 
+  dplyr::rowwise() |> 
+  describe_location() |>
+  dplyr::group_by(obs_number) |>
+    dplyr::summarise(
+      name = dplyr::first(nwrname),
+      co2 = dplyr::first(median_co2),
+      osmtag = dplyr::first(osmtag) |> stringr::str_to_sentence(),
+      location_description = dplyr::first(location_description)
+    ) |>
+    dplyr::select(
+      -obs_number
+    ) 
+  # list_buildings_under_threshold(co2_threshold)
 ```
 
 Here is a graph of all the recordings that happened this month shown by the grey curves. I've highlighted the highest one. @cr-allcurves 
@@ -529,6 +654,7 @@ create_co2_tibble(lowest_building) |>
 ```{r allcurves3}
 #| warning: false
 #| message: false
+#| include: true 
 #| fig.asp: 1.2
 ylim_max <- max(highest_building$co2readings) + 200
 plot_all_curves(sf::st_drop_geometry(buildings_long_df_med), ylim_max)
@@ -542,19 +668,82 @@ Here is a chart showing the `r nrow(buildings_under_threshold)` measurements tha
 ```{r thresholdtable}
 #| warning: false
 #| message: false
+#| include: true 
 
 # add a column showing how many times a building has been on this list
 # buildings_under_threshold |> 
 #   knitr::kable(
 #     col.names = c("Name", "Median CO<sup>2</sup>", "Building type", "Location")
 #   )
-
-gt_buildings_under_threshold(buildings_under_threshold)
+buildings_under_threshold |> 
+  sf::st_drop_geometry() |> 
+gt_buildings_under_threshold()
 ```
 
 ## Trends over time
 
-The following are charts that are updated every month, but they reflect all data collected so far from the indoorco2 monitoring project (since April 2024). Over time, we should be able to see yearly trends where CO~2~ levels are higher in the Winter when shopkeepers close their windows to keep things warm and then lower CO~2~ levels when shopkeepers open their windows in the Summer.
+```{r animtrends}
+#| warning: false
+#| message: false
+#| out.width: "100%"
+bbox_buildings <- sf::st_bbox(buildings_wide_df)
+anim <-
+  buildings_wide_df |>
+  dplyr::mutate(day = as.Date(date)) |>
+  ggplot2::ggplot() +
+  ggplot2::geom_sf(data = countries_sf, fill = "white") +
+  ggplot2::geom_sf(aes(colour = ppmavg), size = 2) +
+  gganimate::transition_time(day) +
+  gganimate::enter_grow() +
+  # gganimate::exit_shrink() +
+  shadow_mark(past = TRUE, future = FALSE, alpha = 0.6 
+  # color = "grey"
+  ) +
+  # xlim(0, 17) +
+  # ylim(44.340868, 55.22535) +
+  xlim(bbox_buildings[1] - 1, bbox_buildings[3] + 1) +
+  ylim(bbox_buildings[2] - 1, bbox_buildings[4] + 1) +
+  scale_color_viridis_c(
+    name = "Mean CO2 ppm",
+    breaks = c(420, 600, 800, 1200, 2000, 4000),
+    transform = "log2",
+    option = "turbo"
+  ) +
+  theme(
+    plot.background = ggplot2::element_rect(fill = NA, colour = NA),
+    plot.title = ggplot2::element_text(size = ggplot2::rel(1.5)),
+    legend.background = ggplot2::element_rect(fill = NA, colour = NA),
+    legend.key = ggplot2::element_rect(fill = NA, colour = NA),
+    legend.key.width = unit(0.6, "lines"),
+    legend.key.height = unit(1, "lines"),
+    strip.background = ggplot2::element_rect(fill = "#cbd6dfff", colour = NA),
+    panel.background = ggplot2::element_rect(fill = "#cbd6dfff", colour = NA),
+    panel.border = ggplot2::element_rect(
+      fill = NA,
+      colour = "black",
+      linewidth = 0.5
+    ),
+    panel.grid.major = ggplot2::element_blank(),
+    panel.grid.minor = ggplot2::element_blank(),
+    axis.ticks = ggplot2::element_line(colour = "black", linewidth = 0.25),
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 14)
+  ) +
+  ggtitle("{frame_time}")
+frames_vec <- (length(unique(lubridate::date(buildings_wide_df$date)))/2) |> round(digits = 0)
+animate(
+  anim,
+  nframes = frames_vec,
+  driver = 'png',
+  # quality = 40,
+  # nframes = 260,
+  fps = 25
+) |> magick::image_trim()
+# anim_save(here::here("data/derivative/animation.gif"), anim2)
+
+```
+
+The following are charts that are updated every month, but they reflect all data collected so far from the indoorco2 monitoring project (since April 2024). Over time, we should be able to see yearly trends where CO~2~ levels are higher in the Winter when shopkeepers close their windows to keep things warm and then lower CO~2~ levels when shopkeepers open their windows in the Summer.  
 
 :::{.cr-section}
 
@@ -562,9 +751,9 @@ The following are charts that are updated every month, but they reflect all data
 
 We can start to see trends like in this graph which shows CO~2~ against the week of the year. There are two relevant points you should know about the X axis, `Week of the year (meteorological)`, before moving on.  
 
-1.  Datapoints are aggregated into weeks regardless of the year they are collected in, so some weeks were measured in both 2024 and 2025 but they would both show up in the same week number.  
+1.  Datapoints are aggregated into weeks regardless of the year they are collected in, so some weeks were measured in `r lubridate::year(buildings_wide_df$date) |> unique() |> stringr::str_flatten_comma(last = ' and ')` but they would all show up in the same week number.  
 
-2.  This takes account of the hemisphere in which the recording was collected. Since Winter in the Southern Hemisphere is June through August, while Winter in the Northern Hemisphere is December through February, we have adjusted the week numbers so that they line up meterologically. Essentially, a measurement collected in the Northern Hemisphere on the first of January would show up as week 1, however, a measurement collected in the Southern Hemisphere on the first of January would show up as week 27.
+2.  This accounts for the hemisphere in which the recording was collected. Since Winter in the Southern Hemisphere is June through August, while Winter in the Northern Hemisphere is December through February, we have adjusted the week numbers so that they line up meterologically. Essentially, a measurement collected in the Northern Hemisphere on the first of January would show up as week 1, however, a measurement collected in the Southern Hemisphere on the first of January would show up as week 27.
 
 :::{#cr-metweekall}
 
@@ -609,7 +798,9 @@ plot_metweek_type(buildings_wide_df)
 :::
 
 ```{r measurethisyear}
-#| include: false
+#| warning: false
+#| message: false
+#| include: false 
 measurements_this_year <- 
   buildings_wide_df |> 
   dplyr::filter(dplyr::between(
@@ -637,9 +828,72 @@ plot_all_histogram(buildings_wide_df)
 
 ## Transit
 
+```{r animtransit}
+#| warning: false
+#| message: false
+#| out.width: "100%"
+bbox_transit <- sf::st_bbox(transit_long_df_short)
+anim <-
+  transit_long_df_short |>
+  dplyr::mutate(day = as.Date(date)) |>
+  ggplot2::ggplot() +
+  ggplot2::geom_sf(data = countries_sf, fill = "white") +
+  ggplot2::geom_sf(aes(colour = co2Array), size = 2) +
+  gganimate::transition_time(day) +
+  gganimate::enter_grow() +
+  # gganimate::exit_shrink() +
+  shadow_mark(past = TRUE, future = FALSE, alpha = 0.6 
+  # color = "grey"
+  ) +
+  # xlim(0, 17) +
+  # ylim(44.340868, 55.22535) +
+  xlim(bbox_transit[1] - 1, bbox_transit[3] + 1) +
+  ylim(bbox_transit[2] - 1, bbox_transit[4] + 1) +
+  scale_color_viridis_c(
+    name = "Mean CO2 ppm",
+    breaks = c(420, 600, 800, 1200, 2000, 4000),
+    transform = "log2",
+    option = "turbo"
+  ) +
+  theme(
+    plot.background = ggplot2::element_rect(fill = NA, colour = NA),
+    plot.title = ggplot2::element_text(size = ggplot2::rel(1.5)),
+    legend.background = ggplot2::element_rect(fill = NA, colour = NA),
+    legend.key = ggplot2::element_rect(fill = NA, colour = NA),
+    legend.key.width = unit(0.6, "lines"),
+    legend.key.height = unit(1, "lines"),
+    strip.background = ggplot2::element_rect(fill = "#cbd6dfff", colour = NA),
+    panel.background = ggplot2::element_rect(fill = "#cbd6dfff", colour = NA),
+    panel.border = ggplot2::element_rect(
+      fill = NA,
+      colour = "black",
+      linewidth = 0.5
+    ),
+    panel.grid.major = ggplot2::element_blank(),
+    panel.grid.minor = ggplot2::element_blank(),
+    axis.ticks = ggplot2::element_line(colour = "black", linewidth = 0.25),
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 14)
+  ) +
+  ggtitle("{frame_time}")
+# frames_vec <- (length(unique(lubridate::date(transit_long_df_short$date)))/2) |> round(digits = 0)
+animate(
+  anim,
+  nframes = 31,
+  driver = 'png',
+  # quality = 40,
+  # nframes = 260,
+  fps = 5
+) |> magick::image_trim()
+# anim_save(here::here("data/derivative/animation.gif"), anim2)
+
+```
 
 ```{r mmtransit}
 #| echo: false
+#| warning: false
+#| message: false
+#| include: false 
 most_measured_transit <- 
 transit_long_df_short |> 
 summarise_most_measured_transit()
@@ -655,6 +909,7 @@ This month there were `r length(unique(transit_long_df_short$uid))` measurements
 ```{r transitcount}
 #| warning: false
 #| message: false
+#| include: false 
 transit_count <- 
 transit_long_df_short |> 
   count_transit()
@@ -663,6 +918,7 @@ transit_long_df_short |>
 ```{r transitcountbar}
 #| warning: false
 #| message: false
+#| include: false 
 # transit_count |> 
 #   plot_transit_count_bar()
 ```
@@ -684,7 +940,7 @@ transit_long_df_short |>
 
 :::
 
-This trend can also be seen when we look at the distribution of each transit type on all the data from 2024 and 2025. @cr-transitallbox
+This trend can also be seen when we look at the distribution of each transit type on all the data from `r lubridate::year(buildings_wide_df$date) |> unique() |> stringr::str_flatten_comma(last = ' and ')`. @cr-transitallbox
 
 :::{#cr-transitallbox}
 
@@ -702,6 +958,9 @@ transit_long_df |>
 
 
 ```{r transitmetweek}
+#| warning: false
+#| message: false
+#| include: false 
 transit_long_df <- 
   transit_long_df |> 
   add_meteorological_week()
@@ -722,20 +981,35 @@ transit_long_df |>
 That's all for this month! Check back soon for more updates.
 
 
+If this was useful to you, please consider [supporting me](https://liberapay.com/samherniman/) so I can make more things like this. I would be incredibly grateful.  
+
+<script src="https://liberapay.com/samherniman/widgets/button.js"></script>
+<noscript><a href="https://liberapay.com/samherniman/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a></noscript>
+
+
+### Some news
+
+Recently Aurel Wünsch and I gave a talk about this project at Fluconf 2026. Check out the [recording here](https://www.youtube.com/live/60YwSH9g3Bg?si=RAdTgYvftXXevaIa), and the [companion website here](https://samherniman.github.io/Fluconf2026-indoorco2map/abstract.html).  
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/60YwSH9g3Bg?si=WsgFugFTD8ozkfF6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  
+
+
+I was also interviewed for a podcast. You can listen to the [recording here](https://soundcloud.com/modulator-69529428/the-indoor-co2-map-community-science-in-the-pandemicene?si=c21857205e794f34998da835bf581d61&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing).
+
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2258686259&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/modulator-69529428" title="modulator" target="_blank" style="color: #cccccc; text-decoration: none;">modulator</a> · <a href="https://soundcloud.com/modulator-69529428/the-indoor-co2-map-community-science-in-the-pandemicene" title="The Indoor CO2 Map: Community Science in the Pandemicene" target="_blank" style="color: #cccccc; text-decoration: none;">The Indoor CO2 Map: Community Science in the Pandemicene</a></div>
+
+
 ### Some thanks
 
 This work would not be possible without the hard work of all the contributors to [OpenStreetMap](https://www.openstreetmap.org/) and [indoorco2map](https://indoorco2map.com). If you would like to contribute to either of these projects, please visit their websites.
-You can contribute to the indoorco2map by downloading the [Android app](https://play.google.com/store/apps/details?id=com.aurelwu.indoorairqualitycollector&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1) or [iOS app](https://apps.apple.com/us/app/indoorco2map-data-collector/id6504560820?itscg=30200&itsct=apps_box_badge&mttnsubad=6504560820) and connecting it to any one of the following CO~2~ sensors: Aranet4, Airvalent, AirSpot and Inkbird IAM-T1. You can also donate by contributing to the [indoorCO2map gofundme](https://www.gofundme.com/f/indoorco2mapcom-collectively-measuring-indoor-air-quality).  
+You can contribute to the indoorco2map by downloading the [Android app](https://play.google.com/store/apps/details?id=com.aurelwu.indoorairqualitycollector&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1) or [iOS app](https://apps.apple.com/us/app/indoorco2map-data-collector/id6504560820?itscg=30200&itsct=apps_box_badge&mttnsubad=6504560820) and connecting it to any one of the following CO~2~ sensors: [Aranet4](https://www.aranet.com/en/home/products/aranet4-home), [Airvalent](https://airvalent.com/), [AirSpot](https://airspothealth.com/products/airspot-copy) and [Inkbird IAM-T1](https://www.inkbird.com/products/smart-indoor-air-quality-monitor-iam-t1). You can also donate by contributing to the [indoorCO2map gofundme](https://www.gofundme.com/f/indoorco2mapcom-collectively-measuring-indoor-air-quality).  
 I would also like to thank [Aurel Wünsch](https://github.com/AurelWu) who tirelessly works on the project as well as the other contributors to the project [ahunt](https://github.com/ahunt), [da5nsy](https://github.com/da5nsy), [paul-hammant](https://github.com/paul-hammant), and [samherniman](https://github.com/samherniman). 
 
 Finally, many thanks go to the teams who work on the following software, which I used heavily. 
+
 ```{r}
 #| warning: false
 grateful::cite_packages(output = "paragraph", out.dir = ".")
 ```
 
 All figures in this report are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">. Please feel free to use and remix them and let me know if you do. I love to see my work being used elsewhere!  
-
-If this was useful to you, please consider [supporting me](https://liberapay.com/samherniman/) so I can make more things like this. I would be incredibly grateful. 
-<script src="https://liberapay.com/samherniman/widgets/button.js"></script>
-<noscript><a href="https://liberapay.com/samherniman/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a></noscript>
