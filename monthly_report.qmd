@@ -1,6 +1,9 @@
 ---
 title: ""
-bibliography: grateful-refs.bib
+bibliography: 
+  - grateful-refs.bib
+  - bibs.bib
+csl: nature.csl
 format: 
   closeread-html:
     backgroundcolor: white
@@ -44,9 +47,9 @@ start_date <- lubridate::ymd("2026-01-31")
 
 There is a well documented relationship between indoor levels of CO~2~ and the amount of ventilation in indoor environments. Buildings with high indoor levels of CO~2~ have poor ventilation and are therefore more likely to be vectors of airborne diseases (like COVID-19, Measles, and Flu) and to trap indoor pollutants.
 
-Measuring CO~2~ inside is a really cheap way of measuring the air quality in indoor environments. When we breathe, we exhale  CO~2~ and it gets trapped inside the room we are in. If the building has good ventilation it will leave quickly. If it has bad ventilation, it stays in the room and builds up.
+Measuring CO~2~ inside is a cheap way of measuring the air quality in indoor environments. When we breathe, we exhale  CO~2~ and it gets trapped inside the room we are in. If the building has good ventilation it will leave quickly. If it has bad ventilation, it stays in the room and builds up.
 
-If there is bad ventilation, then smoke from cooking can build up and that's bad for you. Same thing for VOCs from perfumes, as well as gas leaks, radon, and mold spores. At high concentrations in artificial environments, they contribute to all sorts of things: cancer, Alzheimer's, Parkinson's, childhood asthma, childhood lung problems, and heart conditions.
+If there is bad ventilation, then smoke from cooking can build up and that's bad for you. Same thing for VOCs from perfumes, as well as gas leaks, radon, and mold spores. At high concentrations in artificial environments, they contribute to all sorts of things: cancer [@guzman_air_2025], Alzheimer's [@fu_air_2020; @shi_long-term_2020; @olloquequi_inhalation_2024], Parkinson's [@shi_long-term_2020], childhood asthma [@akar-ghibril_indoor_2020; @rosser_air_2022; @pan_interactions_2020; @breysse_indoor_2010; @hulin_indoor_2010], childhood lung problems [@maung_indoor_2022; @kurmi_indoor_2012], and heart conditions [@uzoigwe_emerging_2013].
 Bad ventilation also contributes to a much higher risk of respiratory infections. If someone who is sick breathes in a badly ventilated room, the infectious aerosols will float around in the room until someone breathes them in. In a well ventilated space, they are dispersed very quickly and the risk of infection is much lower. Having an open window in a classroom (or having an air filter), for instance, reduces school absences significantly.
 
 CO~2~ levels outside are typically around 420 parts per million (ppm), so if we measure the CO~2~ in a room and it is higher than that, you know its not ventilating much.

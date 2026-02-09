@@ -9,8 +9,8 @@ ventilation and are therefore more likely to be vectors of airborne
 diseases (like COVID-19, Measles, and Flu) and to trap indoor
 pollutants.
 
-Measuring CO<sub>2</sub> inside is a really cheap way of measuring the
-air quality in indoor environments. When we breathe, we exhale
+Measuring CO<sub>2</sub> inside is a cheap way of measuring the air
+quality in indoor environments. When we breathe, we exhale
 CO<sub>2</sub> and it gets trapped inside the room we are in. If the
 building has good ventilation it will leave quickly. If it has bad
 ventilation, it stays in the room and builds up.
@@ -18,15 +18,16 @@ ventilation, it stays in the room and builds up.
 If there is bad ventilation, then smoke from cooking can build up and
 that’s bad for you. Same thing for VOCs from perfumes, as well as gas
 leaks, radon, and mold spores. At high concentrations in artificial
-environments, they contribute to all sorts of things: cancer,
-Alzheimer’s, Parkinson’s, childhood asthma, childhood lung problems, and
-heart conditions. Bad ventilation also contributes to a much higher risk
-of respiratory infections. If someone who is sick breathes in a badly
-ventilated room, the infectious aerosols will float around in the room
-until someone breathes them in. In a well ventilated space, they are
-dispersed very quickly and the risk of infection is much lower. Having
-an open window in a classroom (or having an air filter), for instance,
-reduces school absences significantly.
+environments, they contribute to all sorts of things:
+cancer<sup>1</sup>, Alzheimer’s<sup>2–4</sup>, Parkinson’s<sup>3</sup>,
+childhood asthma<sup>5–9</sup>, childhood lung problems<sup>10,11</sup>,
+and heart conditions<sup>12</sup>. Bad ventilation also contributes to a
+much higher risk of respiratory infections. If someone who is sick
+breathes in a badly ventilated room, the infectious aerosols will float
+around in the room until someone breathes them in. In a well ventilated
+space, they are dispersed very quickly and the risk of infection is much
+lower. Having an open window in a classroom (or having an air filter),
+for instance, reduces school absences significantly.
 
 CO<sub>2</sub> levels outside are typically around 420 parts per million
 (ppm), so if we measure the CO<sub>2</sub> in a room and it is higher
@@ -54,7 +55,7 @@ style="width:100.0%" />
 
 This month there were 963 measurements of 739 unique buildings.
 
-(**cr-ccplot?**)
+<sup>**cr-ccplot?**</sup>
 
 The most measured building was Rewe, a supermarket in Kassel, Germany
 (min: 682, mean: 773, max: 844), which was measured 13 times.
@@ -63,7 +64,7 @@ There were measurements in 24 separate countries. Additionally, the
 first measurement was added in Taiwan this month. Welcome to the
 glorious world of CO<sub>2</sub> monitoring Taiwan!
 
-(**cr-histco2plot?**)
+<sup>**cr-histco2plot?**</sup>
 
 Here is a graph that shows the distribution of all the CO<sub>2</sub>
 measurements this month. The dashed red line shows the median which was
@@ -83,7 +84,7 @@ over 1000 ppm, which really should be addressed.
 
 </div>
 
-(**cr-buildingtypes?**)
+<sup>**cr-buildingtypes?**</sup>
 
 This graph shows the distribution of the most common building types in
 the month of January. The dark bar in the middle of each box and whisker
@@ -104,7 +105,8 @@ each breath you take has already been exhaled by someone else.
 </div>
 
 Here is a graph of all the recordings that happened this month shown by
-the grey curves. I’ve highlighted the highest one. (**cr-allcurves?**)
+the grey curves. I’ve highlighted the highest
+one.<sup>**cr-allcurves?**</sup>
 
 The building with the highest measured CO<sub>2</sub> levels was
 CineStar in Saarbrücken, Germany with a median CO<sub>2</sub> value of
@@ -564,7 +566,7 @@ when shopkeepers open their windows in the Summer.
 
 <div class="cr-section">
 
-(**cr-metweekall?**)
+<sup>**cr-metweekall?**</sup>
 
 We can start to see trends like in this graph which shows CO<sub>2</sub>
 against the week of the year. There are two relevant points you should
@@ -590,7 +592,7 @@ moving on.
 
 </div>
 
-(**cr-metweektype?**)
+<sup>**cr-metweektype?**</sup>
 
 If we split the graph by the most popular building types, we can start
 to see some interesting trends. Supermarkets remain relatively high
@@ -614,8 +616,8 @@ stable trends show up.
 
 Here’s a histogram showing how many measurements have been recorded each
 week since the start of the project. Over the last 12 months there have
-been 10707 building measurements which is 892 per month or 206 per week.
-(**cr-allhist?**)
+been 10707 building measurements which is 892 per month or 206 per
+week.<sup>**cr-allhist?**</sup>
 
 <div id="cr-allhist">
 
@@ -639,7 +641,7 @@ measured 20 times. This graph shows the number of transit recordings in
 each transit network during the last month. Keep in mind that this graph
 only shows networks with more than 2 transit recordings this month
 (there were quite a few with one or two). Transit recordings seem very
-popular in Vienna at the moment. (**cr-transitcount?**)
+popular in Vienna at the moment.<sup>**cr-transitcount?**</sup>
 
 <div id="cr-transitcount">
 
@@ -650,8 +652,8 @@ transit type this month we can see some patterns. Trains often have
 higher CO<sub>2</sub> values than buses, subways and trams because they
 usually travel for longer distances between stations. This causes trains
 to rely more heavily on mechanical ventilation than buses, subways, and
-trams which open their doors at stations more frequently.
-(**cr-transitmonthbox?**)
+trams which open their doors at stations more
+frequently.<sup>**cr-transitmonthbox?**</sup>
 
 <div id="cr-transitmonthbox">
 
@@ -660,8 +662,8 @@ trams which open their doors at stations more frequently.
 </div>
 
 This trend can also be seen when we look at the distribution of each
-transit type on all the data from 2024, 2025 and 2026.
-(**cr-transitallbox?**)
+transit type on all the data from 2024, 2025 and
+2026.<sup>**cr-transitallbox?**</sup>
 
 <div id="cr-transitallbox">
 
@@ -735,22 +737,18 @@ the project [ahunt](https://github.com/ahunt),
 Finally, many thanks go to the teams who work on the following software,
 which I used heavily.
 
-We used R v. 4.4.3 (R Core Team 2025) and the following R packages:
-autocruller v. 0.0.0.9000 (Herniman, n.d.), dbscan v. 1.2.4 (Hahsler,
-Piekenbrock, and Doran 2019; Hahsler and Piekenbrock 2025), duckplyr v.
-1.1.3.9007 (Mühleisen and Müller, n.d.), gganimate v. 1.0.11 (Pedersen
-and Robinson 2025), ggrepel v. 0.9.6 (Slowikowski 2024), glue v. 1.8.0
-(Hester and Bryan 2024), gt v. 1.2.0 (Iannone et al. 2025), h3 v. 3.7.2
-(Kuethe 2022), here v. 1.0.2 (Müller 2025), mapview v. 2.11.4 (Appelhans
-et al. 2025), osmdata v. 0.3.0 (Mark Padgham et al. 2017), pak v. 0.9.2
-(Csárdi and Hester 2025), patchwork v. 1.3.2 (Pedersen 2025), rmarkdown
-v. 2.30 (Xie, Allaire, and Grolemund 2018; Xie, Dervieux, and Riederer
-2020; Allaire et al. 2025), rnaturalearth v. 1.2.0 (Massicotte and South
-2026), rnaturalearthhires v. 1.0.0.9000 (South, Michael, and Massicotte
-2025), scales v. 1.4.0 (Wickham, Pedersen, and Seidel 2025), scico v.
-1.5.0 (Pedersen and Crameri 2023), sf v. 1.0.24 (Pebesma 2018; Pebesma
-and Bivand 2023), tidygeocoder v. 1.0.6 (Cambon et al. 2021), tidyplots
-v. 0.4.0 (Engler 2025), tidyverse v. 2.0.0 (Wickham et al. 2019).
+We used R v. 4.4.3<sup>13</sup> and the following R packages:
+autocruller v. 0.0.0.9000<sup>14</sup>, dbscan v. 1.2.4<sup>15,16</sup>,
+duckplyr v. 1.1.3.9007<sup>17</sup>, gganimate v. 1.0.11<sup>18</sup>,
+ggrepel v. 0.9.6<sup>19</sup>, glue v. 1.8.0<sup>20</sup>, gt v.
+1.2.0<sup>21</sup>, h3 v. 3.7.2<sup>22</sup>, here v.
+1.0.2<sup>23</sup>, mapview v. 2.11.4<sup>24</sup>, osmdata v.
+0.3.0<sup>25</sup>, pak v. 0.9.2<sup>26</sup>, patchwork v.
+1.3.2<sup>27</sup>, rmarkdown v. 2.30<sup>28–30</sup>, rnaturalearth v.
+1.2.0<sup>31</sup>, rnaturalearthhires v. 1.0.0.9000<sup>32</sup>,
+scales v. 1.4.0<sup>33</sup>, scico v. 1.5.0<sup>34</sup>, sf v.
+1.0.24<sup>35,36</sup>, tidygeocoder v. 1.0.6<sup>37</sup>, tidyplots v.
+0.4.0<sup>38</sup>, tidyverse v. 2.0.0<sup>39</sup>.
 
 All figures in this report are licensed under
 <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA
@@ -758,230 +756,395 @@ All figures in this report are licensed under
 Please feel free to use and remix them and let me know if you do. I love
 to see my work being used elsewhere!
 
-<div id="refs" class="references csl-bib-body hanging-indent"
-entry-spacing="0">
+<div id="refs" class="references csl-bib-body" entry-spacing="0"
+line-spacing="2">
 
-<div id="ref-rmarkdown2025" class="csl-entry">
+<div id="ref-guzman_air_2025" class="csl-entry">
 
-Allaire, JJ, Yihui Xie, Christophe Dervieux, Jonathan McPherson, Javier
-Luraschi, Kevin Ushey, Aron Atkins, et al. 2025.
-*<span class="nocase">rmarkdown</span>: Dynamic Documents for r*.
-<https://github.com/rstudio/rmarkdown>.
-
-</div>
-
-<div id="ref-mapview" class="csl-entry">
-
-Appelhans, Tim, Florian Detsch, Christoph Reudenbach, and Stefan
-Woellauer. 2025. *<span class="nocase">mapview</span>: Interactive
-Viewing of Spatial Data in r*.
-<https://CRAN.R-project.org/package=mapview>.
+<span class="csl-left-margin">1.
+</span><span class="csl-right-inline">Guzman, R. D. & Schiller, J. [Air
+pollution and its impact on cancer incidence, cancer care and cancer
+outcomes](https://doi.org/10.1136/bmjonc-2024-000535). *bmjonc* **4**,
+(2025).</span>
 
 </div>
 
-<div id="ref-tidygeocoder" class="csl-entry">
+<div id="ref-fu_air_2020" class="csl-entry">
 
-Cambon, Jesse, Diego Hernangómez, Christopher Belanger, and Daniel
-Possenriede. 2021. “<span class="nocase">tidygeocoder</span>: An r
-Package for Geocoding.” *Journal of Open Source Software* 6 (65): 3544.
-<https://doi.org/10.21105/joss.03544>.
-
-</div>
-
-<div id="ref-pak" class="csl-entry">
-
-Csárdi, Gábor, and Jim Hester. 2025. *<span class="nocase">pak</span>:
-Another Approach to Package Installation*.
-<https://CRAN.R-project.org/package=pak>.
+<span class="csl-left-margin">2.
+</span><span class="csl-right-inline">Fu, P. & Yung, K. K. L. [Air
+pollution and alzheimer’s disease: A systematic review and
+meta-analysis](https://doi.org/10.3233/JAD-200483). *Journal of
+Alzheimer’s Disease* **77**, 701–714 (2020).</span>
 
 </div>
 
-<div id="ref-tidyplots" class="csl-entry">
+<div id="ref-shi_long-term_2020" class="csl-entry">
 
-Engler, Jan Broder. 2025. “Tidyplots Empowers Life Scientists with Easy
-Code-Based Data Visualization.” *iMeta*, e70018.
-<https://doi.org/10.1002/imt2.70018>.
-
-</div>
-
-<div id="ref-dbscan2025" class="csl-entry">
-
-Hahsler, Michael, and Matthew Piekenbrock. 2025.
-*<span class="nocase">dbscan</span>: Density-Based Spatial Clustering of
-Applications with Noise (DBSCAN) and Related Algorithms*.
-<https://CRAN.R-project.org/package=dbscan>.
+<span class="csl-left-margin">3.
+</span><span class="csl-right-inline">Shi, L. *et al.* [Long-term
+effects of PM2·5 on neurological disorders in the american medicare
+population: A longitudinal cohort
+study](https://doi.org/10.1016/S2542-5196(20)30227-8). *Lancet Planet
+Health* **4**, e557–e565 (2020).</span>
 
 </div>
 
-<div id="ref-dbscan2019" class="csl-entry">
+<div id="ref-olloquequi_inhalation_2024" class="csl-entry">
 
-Hahsler, Michael, Matthew Piekenbrock, and Derek Doran. 2019.
-“<span class="nocase">dbscan</span>: Fast Density-Based Clustering with
-R.” *Journal of Statistical Software* 91 (1): 1–30.
-<https://doi.org/10.18637/jss.v091.i01>.
-
-</div>
-
-<div id="ref-autocruller" class="csl-entry">
-
-Herniman, Sam. n.d. *<span class="nocase">autocruller</span>: Tools to
-Download and Analyze indoorCO2map Data*.
-<https://samherniman.github.io/autocruller/>.
+<span class="csl-left-margin">4.
+</span><span class="csl-right-inline">Olloquequi, J. *et al.* [From
+inhalation to neurodegeneration: Air pollution as a modifiable risk
+factor for alzheimer’s disease](https://doi.org/10.3390/ijms25136928).
+*International Journal of Molecular Sciences* **25**, 6928
+(2024).</span>
 
 </div>
 
-<div id="ref-glue" class="csl-entry">
+<div id="ref-akar-ghibril_indoor_2020" class="csl-entry">
 
-Hester, Jim, and Jennifer Bryan. 2024.
-*<span class="nocase">glue</span>: Interpreted String Literals*.
-<https://CRAN.R-project.org/package=glue>.
-
-</div>
-
-<div id="ref-gt" class="csl-entry">
-
-Iannone, Richard, Joe Cheng, Barret Schloerke, Shannon Haughton, Ellis
-Hughes, Alexandra Lauer, Romain François, JooYoung Seo, Ken Brevoort,
-and Olivier Roy. 2025. *<span class="nocase">gt</span>: Easily Create
-Presentation-Ready Display Tables*.
-<https://CRAN.R-project.org/package=gt>.
+<span class="csl-left-margin">5.
+</span><span class="csl-right-inline">Akar-Ghibril, N. & Phipatanakul,
+W. [The indoor environment and childhood
+asthma](https://doi.org/10.1007/s11882-020-00941-5). *Curr Allergy
+Asthma Rep* **20**, 43 (2020).</span>
 
 </div>
 
-<div id="ref-h3" class="csl-entry">
+<div id="ref-rosser_air_2022" class="csl-entry">
 
-Kuethe, Stefan. 2022. *H3: R Bindings for H3*.
-<https://github.com/crazycapivara/h3-r>.
-
-</div>
-
-<div id="ref-osmdata" class="csl-entry">
-
-Mark Padgham, Bob Rudis, Robin Lovelace, and Maëlle Salmon. 2017.
-“Osmdata.” *Journal of Open Source Software* 2 (14): 305.
-<https://doi.org/10.21105/joss.00305>.
+<span class="csl-left-margin">6.
+</span><span class="csl-right-inline">Rosser, F. *et al.* [Air quality
+index and emergency department visits and hospitalizations for childhood
+asthma](https://doi.org/10.1513/AnnalsATS.202105-539OC). *Annals ATS*
+**19**, 1139–1148 (2022).</span>
 
 </div>
 
-<div id="ref-rnaturalearth" class="csl-entry">
+<div id="ref-pan_interactions_2020" class="csl-entry">
 
-Massicotte, Philippe, and Andy South. 2026.
-*<span class="nocase">rnaturalearth</span>: World Map Data from Natural
-Earth*. <https://CRAN.R-project.org/package=rnaturalearth>.
-
-</div>
-
-<div id="ref-duckplyr" class="csl-entry">
-
-Mühleisen, Hannes, and Kirill Müller. n.d.
-*<span class="nocase">duckplyr</span>: A “DuckDB”-Backed Version of
-“<span class="nocase">dplyr</span>”*.
-<https://github.com/tidyverse/duckplyr>.
+<span class="csl-left-margin">7.
+</span><span class="csl-right-inline">Pan, R. *et al.* [Interactions
+between climate factors and air quality index for improved childhood
+asthma
+self-management](https://doi.org/10.1016/j.scitotenv.2020.137804).
+*Science of The Total Environment* **723**, 137804 (2020).</span>
 
 </div>
 
-<div id="ref-here" class="csl-entry">
+<div id="ref-breysse_indoor_2010" class="csl-entry">
 
-Müller, Kirill. 2025. *<span class="nocase">here</span>: A Simpler Way
-to Find Your Files*. <https://CRAN.R-project.org/package=here>.
-
-</div>
-
-<div id="ref-sf2018" class="csl-entry">
-
-Pebesma, Edzer. 2018. “<span class="nocase">Simple Features for R:
-Standardized Support for Spatial Vector Data</span>.” *The R Journal* 10
-(1): 439–46. <https://doi.org/10.32614/RJ-2018-009>.
+<span class="csl-left-margin">8.
+</span><span class="csl-right-inline">Breysse, P. N. *et al.* [Indoor
+air pollution and asthma in
+children](https://doi.org/10.1513/pats.200908-083RM). *Proc Am Thorac
+Soc* **7**, 102–106 (2010).</span>
 
 </div>
 
-<div id="ref-sf2023" class="csl-entry">
+<div id="ref-hulin_indoor_2010" class="csl-entry">
 
-Pebesma, Edzer, and Roger Bivand. 2023. *<span class="nocase">Spatial
-Data Science: With applications in R</span>*. Chapman and Hall/CRC.
-<https://doi.org/10.1201/9780429459016>.
-
-</div>
-
-<div id="ref-patchwork" class="csl-entry">
-
-Pedersen, Thomas Lin. 2025. *<span class="nocase">patchwork</span>: The
-Composer of Plots*. <https://CRAN.R-project.org/package=patchwork>.
+<span class="csl-left-margin">9.
+</span><span class="csl-right-inline">Hulin, M., Caillaud, D. &
+Annesi-Maesano, I. [Indoor air pollution and childhood asthma:
+Variations between urban and rural
+areas](https://doi.org/10.1111/j.1600-0668.2010.00673.x). *Indoor Air*
+**20**, 502–514 (2010).</span>
 
 </div>
 
-<div id="ref-scico" class="csl-entry">
+<div id="ref-maung_indoor_2022" class="csl-entry">
 
-Pedersen, Thomas Lin, and Fabio Crameri. 2023.
-*<span class="nocase">scico</span>: Colour Palettes Based on the
-Scientific Colour-Maps*. <https://CRAN.R-project.org/package=scico>.
+<span class="csl-left-margin">10.
+</span><span class="csl-right-inline">Maung, T. Z., Bishop, J. E., Holt,
+E., Turner, A. M. & Pfrang, C. [Indoor air pollution and the health of
+vulnerable groups: A systematic review focused on particulate matter
+(PM), volatile organic compounds (VOCs) and their effects on children
+and people with pre-existing lung
+disease](https://doi.org/10.3390/ijerph19148752). *International Journal
+of Environmental Research and Public Health* **19**, 8752 (2022).</span>
 
 </div>
 
-<div id="ref-gganimate" class="csl-entry">
+<div id="ref-kurmi_indoor_2012" class="csl-entry">
 
-Pedersen, Thomas Lin, and David Robinson. 2025.
-*<span class="nocase">gganimate</span>: A Grammar of Animated Graphics*.
-<https://CRAN.R-project.org/package=gganimate>.
+<span class="csl-left-margin">11.
+</span><span class="csl-right-inline">Kurmi, O. P., Lam, K. B. H. &
+Ayres, J. G. [Indoor air pollution and the lung in low- and
+medium-income countries](https://doi.org/10.1183/09031936.00190211).
+*European Respiratory Journal* **40**, 239–254 (2012).</span>
+
+</div>
+
+<div id="ref-uzoigwe_emerging_2013" class="csl-entry">
+
+<span class="csl-left-margin">12.
+</span><span class="csl-right-inline">Uzoigwe, J. C., Prum, T.,
+Bresnahan, E. & Garelnabi, M. [The emerging role of outdoor and indoor
+air pollution in cardiovascular
+disease](https://doi.org/10.4103/1947-2714.117290). *N Am J Med Sci*
+**5**, 445–453 (2013).</span>
 
 </div>
 
 <div id="ref-base" class="csl-entry">
 
-R Core Team. 2025. *R: A Language and Environment for Statistical
-Computing*. Vienna, Austria: R Foundation for Statistical Computing.
-<https://www.R-project.org/>.
+<span class="csl-left-margin">13.
+</span><span class="csl-right-inline">R Core Team. *[R: A Language and
+Environment for Statistical Computing](https://www.R-project.org/)*. (R
+Foundation for Statistical Computing, Vienna, Austria, 2025).</span>
+
+</div>
+
+<div id="ref-autocruller" class="csl-entry">
+
+<span class="csl-left-margin">14.
+</span><span class="csl-right-inline">Herniman, S.
+*[<span class="nocase">autocruller</span>: Tools to Download and Analyze
+indoorCO2map Data](https://samherniman.github.io/autocruller/)*.</span>
+
+</div>
+
+<div id="ref-dbscan2019" class="csl-entry">
+
+<span class="csl-left-margin">15.
+</span><span class="csl-right-inline">Hahsler, M., Piekenbrock, M. &
+Doran, D. [<span class="nocase">dbscan</span>: Fast density-based
+clustering with R](https://doi.org/10.18637/jss.v091.i01). *Journal of
+Statistical Software* **91**, 1–30 (2019).</span>
+
+</div>
+
+<div id="ref-dbscan2025" class="csl-entry">
+
+<span class="csl-left-margin">16.
+</span><span class="csl-right-inline">Hahsler, M. & Piekenbrock, M.
+*[<span class="nocase">dbscan</span>: Density-Based Spatial Clustering
+of Applications with Noise (DBSCAN) and Related
+Algorithms](https://CRAN.R-project.org/package=dbscan)*. (2025).</span>
+
+</div>
+
+<div id="ref-duckplyr" class="csl-entry">
+
+<span class="csl-left-margin">17.
+</span><span class="csl-right-inline">Mühleisen, H. & Müller, K.
+*[<span class="nocase">duckplyr</span>: A ‘DuckDB’-Backed Version of
+‘<span class="nocase">dplyr</span>’](https://github.com/tidyverse/duckplyr)*.</span>
+
+</div>
+
+<div id="ref-gganimate" class="csl-entry">
+
+<span class="csl-left-margin">18.
+</span><span class="csl-right-inline">Pedersen, T. L. & Robinson, D.
+*[<span class="nocase">gganimate</span>: A Grammar of Animated
+Graphics](https://CRAN.R-project.org/package=gganimate)*. (2025).</span>
 
 </div>
 
 <div id="ref-ggrepel" class="csl-entry">
 
-Slowikowski, Kamil. 2024. *<span class="nocase">ggrepel</span>:
-Automatically Position Non-Overlapping Text Labels with
-“<span class="nocase">ggplot2</span>”*.
-<https://CRAN.R-project.org/package=ggrepel>.
+<span class="csl-left-margin">19.
+</span><span class="csl-right-inline">Slowikowski, K.
+*[<span class="nocase">ggrepel</span>: Automatically Position
+Non-Overlapping Text Labels with
+‘<span class="nocase">ggplot2</span>’](https://CRAN.R-project.org/package=ggrepel)*.
+(2024).</span>
 
 </div>
 
-<div id="ref-rnaturalearthhires" class="csl-entry">
+<div id="ref-glue" class="csl-entry">
 
-South, Andy, Schramm Michael, and Philippe Massicotte. 2025.
-*<span class="nocase">rnaturalearthhires</span>: High Resolution World
-Vector Map Data from Natural Earth Used in Rnaturalearth*.
-<https://github.com/ropensci/rnaturalearthhires>.
-
-</div>
-
-<div id="ref-tidyverse" class="csl-entry">
-
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
-D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
-“Welcome to the <span class="nocase">tidyverse</span>.” *Journal of Open
-Source Software* 4 (43): 1686. <https://doi.org/10.21105/joss.01686>.
+<span class="csl-left-margin">20.
+</span><span class="csl-right-inline">Hester, J. & Bryan, J.
+*[<span class="nocase">glue</span>: Interpreted String
+Literals](https://CRAN.R-project.org/package=glue)*. (2024).</span>
 
 </div>
 
-<div id="ref-scales" class="csl-entry">
+<div id="ref-gt" class="csl-entry">
 
-Wickham, Hadley, Thomas Lin Pedersen, and Dana Seidel. 2025.
-*<span class="nocase">scales</span>: Scale Functions for Visualization*.
-<https://CRAN.R-project.org/package=scales>.
+<span class="csl-left-margin">21.
+</span><span class="csl-right-inline">Iannone, R. *et al.*
+*[<span class="nocase">gt</span>: Easily Create Presentation-Ready
+Display Tables](https://CRAN.R-project.org/package=gt)*. (2025).</span>
+
+</div>
+
+<div id="ref-h3" class="csl-entry">
+
+<span class="csl-left-margin">22.
+</span><span class="csl-right-inline">Kuethe, S. *[H3: R Bindings for
+H3](https://github.com/crazycapivara/h3-r)*. (2022).</span>
+
+</div>
+
+<div id="ref-here" class="csl-entry">
+
+<span class="csl-left-margin">23.
+</span><span class="csl-right-inline">Müller, K.
+*[<span class="nocase">here</span>: A Simpler Way to Find Your
+Files](https://CRAN.R-project.org/package=here)*. (2025).</span>
+
+</div>
+
+<div id="ref-mapview" class="csl-entry">
+
+<span class="csl-left-margin">24.
+</span><span class="csl-right-inline">Appelhans, T., Detsch, F.,
+Reudenbach, C. & Woellauer, S. *[<span class="nocase">mapview</span>:
+Interactive Viewing of Spatial Data in
+r](https://CRAN.R-project.org/package=mapview)*. (2025).</span>
+
+</div>
+
+<div id="ref-osmdata" class="csl-entry">
+
+<span class="csl-left-margin">25.
+</span><span class="csl-right-inline">Mark Padgham, Bob Rudis, Robin
+Lovelace & Maëlle Salmon.
+[Osmdata](https://doi.org/10.21105/joss.00305). *Journal of Open Source
+Software* **2**, 305 (2017).</span>
+
+</div>
+
+<div id="ref-pak" class="csl-entry">
+
+<span class="csl-left-margin">26.
+</span><span class="csl-right-inline">Csárdi, G. & Hester, J.
+*[<span class="nocase">pak</span>: Another Approach to Package
+Installation](https://CRAN.R-project.org/package=pak)*. (2025).</span>
+
+</div>
+
+<div id="ref-patchwork" class="csl-entry">
+
+<span class="csl-left-margin">27.
+</span><span class="csl-right-inline">Pedersen, T. L.
+*[<span class="nocase">patchwork</span>: The Composer of
+Plots](https://CRAN.R-project.org/package=patchwork)*. (2025).</span>
 
 </div>
 
 <div id="ref-rmarkdown2018" class="csl-entry">
 
-Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. *R Markdown: The
-Definitive Guide*. Boca Raton, Florida: Chapman; Hall/CRC.
-<https://bookdown.org/yihui/rmarkdown>.
+<span class="csl-left-margin">28.
+</span><span class="csl-right-inline">Xie, Y., Allaire, J. J. &
+Grolemund, G. *[R Markdown: The Definitive
+Guide](https://bookdown.org/yihui/rmarkdown)*. (Chapman; Hall/CRC, Boca
+Raton, Florida, 2018).</span>
 
 </div>
 
 <div id="ref-rmarkdown2020" class="csl-entry">
 
-Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. *R Markdown
-Cookbook*. Boca Raton, Florida: Chapman; Hall/CRC.
-<https://bookdown.org/yihui/rmarkdown-cookbook>.
+<span class="csl-left-margin">29.
+</span><span class="csl-right-inline">Xie, Y., Dervieux, C. & Riederer,
+E. *[R Markdown
+Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook)*. (Chapman;
+Hall/CRC, Boca Raton, Florida, 2020).</span>
+
+</div>
+
+<div id="ref-rmarkdown2025" class="csl-entry">
+
+<span class="csl-left-margin">30.
+</span><span class="csl-right-inline">Allaire, J. *et al.*
+*[<span class="nocase">rmarkdown</span>: Dynamic Documents for
+r](https://github.com/rstudio/rmarkdown)*. (2025).</span>
+
+</div>
+
+<div id="ref-rnaturalearth" class="csl-entry">
+
+<span class="csl-left-margin">31.
+</span><span class="csl-right-inline">Massicotte, P. & South, A.
+*[<span class="nocase">rnaturalearth</span>: World Map Data from Natural
+Earth](https://CRAN.R-project.org/package=rnaturalearth)*.
+(2026).</span>
+
+</div>
+
+<div id="ref-rnaturalearthhires" class="csl-entry">
+
+<span class="csl-left-margin">32.
+</span><span class="csl-right-inline">South, A., Michael, S. &
+Massicotte, P. *[<span class="nocase">rnaturalearthhires</span>: High
+Resolution World Vector Map Data from Natural Earth Used in
+Rnaturalearth](https://github.com/ropensci/rnaturalearthhires)*.
+(2025).</span>
+
+</div>
+
+<div id="ref-scales" class="csl-entry">
+
+<span class="csl-left-margin">33.
+</span><span class="csl-right-inline">Wickham, H., Pedersen, T. L. &
+Seidel, D. *[<span class="nocase">scales</span>: Scale Functions for
+Visualization](https://CRAN.R-project.org/package=scales)*.
+(2025).</span>
+
+</div>
+
+<div id="ref-scico" class="csl-entry">
+
+<span class="csl-left-margin">34.
+</span><span class="csl-right-inline">Pedersen, T. L. & Crameri, F.
+*[<span class="nocase">scico</span>: Colour Palettes Based on the
+Scientific Colour-Maps](https://CRAN.R-project.org/package=scico)*.
+(2023).</span>
+
+</div>
+
+<div id="ref-sf2018" class="csl-entry">
+
+<span class="csl-left-margin">35.
+</span><span class="csl-right-inline">Pebesma, E.
+[<span class="nocase">Simple Features for R: Standardized Support for
+Spatial Vector Data</span>](https://doi.org/10.32614/RJ-2018-009). *The
+R Journal* **10**, 439–446 (2018).</span>
+
+</div>
+
+<div id="ref-sf2023" class="csl-entry">
+
+<span class="csl-left-margin">36.
+</span><span class="csl-right-inline">Pebesma, E. & Bivand, R.
+*<span class="nocase">Spatial Data Science: With applications in
+R</span>*. (Chapman and Hall/CRC, 2023).
+doi:[10.1201/9780429459016](https://doi.org/10.1201/9780429459016).</span>
+
+</div>
+
+<div id="ref-tidygeocoder" class="csl-entry">
+
+<span class="csl-left-margin">37.
+</span><span class="csl-right-inline">Cambon, J., Hernangómez, D.,
+Belanger, C. & Possenriede, D.
+[<span class="nocase">tidygeocoder</span>: An r package for
+geocoding](https://doi.org/10.21105/joss.03544). *Journal of Open Source
+Software* **6**, 3544 (2021).</span>
+
+</div>
+
+<div id="ref-tidyplots" class="csl-entry">
+
+<span class="csl-left-margin">38.
+</span><span class="csl-right-inline">Engler, J. B. Tidyplots empowers
+life scientists with easy code-based data visualization. *iMeta* e70018
+(2025)
+doi:[10.1002/imt2.70018](https://doi.org/10.1002/imt2.70018).</span>
+
+</div>
+
+<div id="ref-tidyverse" class="csl-entry">
+
+<span class="csl-left-margin">39.
+</span><span class="csl-right-inline">Wickham, H. *et al.* [Welcome to
+the
+<span class="nocase">tidyverse</span>](https://doi.org/10.21105/joss.01686).
+*Journal of Open Source Software* **4**, 1686 (2019).</span>
 
 </div>
 
