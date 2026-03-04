@@ -206,7 +206,7 @@ join_transit_osm <- function(
 form_new_countries_sentence <- function(
   buildings_wide_df,
   buildings_wide_df_short,
-  extra_country
+  extra_country = NULL
 ) {
   old_countries <-
     buildings_wide_df |>
