@@ -40,7 +40,7 @@ execute:
 # map showing observations over time animation
 # lollipop summer vs winter shops - maybe summarize by category
 # highest velocity based off of different time periods
-start_date <- lubridate::ymd("2026-01-31")
+start_date <- lubridate::ymd("2026-02-28")
 ```
 
 # Monthly indoorCO2map.com summary `r start_date |> lubridate::month(label = TRUE, abbr = FALSE)` `r start_date |> lubridate::year()`
@@ -157,7 +157,7 @@ common_building_types <- buildings_wide_df |>
 #| message: false
 #| include: false 
 # list new countries
-new_countries_sentence <- form_new_countries_sentence(buildings_wide_df, buildings_wide_df_short, extra_country = "Taiwan")
+new_countries_sentence <- form_new_countries_sentence(buildings_wide_df, buildings_wide_df_short)
 
 ```
 
@@ -244,7 +244,8 @@ transit_long_df_short <- sf::st_join(
 #| message: false
 #| include: false 
 transit_long_df_short <- transit_long_df_short |> 
-  dplyr::mutate(osm_id_line = as.integer(osm_id_line))
+  dplyr::mutate(osm_id_line = as.integer(osm_id_line)) |> 
+  dplyr::filter(co2Array > 410)
 ```
 
 
@@ -417,7 +418,7 @@ This month there were `r nrow(buildings_wide_df_short)` measurements of `r lengt
 
 `r describe_most_measured(most_measured)` 
 
-There were measurements in `r nrow(countries_count)` separate countries. `r new_countries_sentence`  
+There were measurements in `r length(unique(countries_count$best_country_name))` separate countries. `r new_countries_sentence`  
 
  @cr-histco2plot 
 
@@ -905,7 +906,7 @@ summarise_most_measured_transit()
 
 :::{.cr-section}
 
-This month there were `r length(unique(transit_long_df_short$uid))` measurements of `r length(unique(transit_long_df_short$line))` unique transit lines. `r describe_most_measured_transit(most_measured_transit)` This graph shows the number of transit recordings in each transit network during the last month. Keep in mind that this graph only shows networks with more than 2 transit recordings this month (there were quite a few with one or two). Transit recordings seem very popular in Vienna at the moment. @cr-transitcount
+This month there were `r length(unique(transit_long_df_short$uid))` measurements of `r length(unique(transit_long_df_short$line))` unique transit lines. `r describe_most_measured_transit(most_measured_transit)` 
 
 :::{#cr-transitcount}
 

@@ -1,6 +1,6 @@
 
 
-# Monthly indoorCO2map.com summary January 2026
+# Monthly indoorCO2map.com summary February 2026
 
 There is a well documented relationship between indoor levels of
 CO<sub>2</sub> and the amount of ventilation in indoor environments.
@@ -53,23 +53,21 @@ style="width:100.0%" />
 
 <div class="cr-section">
 
-This month there were 963 measurements of 739 unique buildings.
+This month there were 957 measurements of 729 unique buildings.
 
 <sup>**cr-ccplot?**</sup>
 
 The most measured building was Rewe, a supermarket in Kassel, Germany
-(min: 682, mean: 773, max: 844), which was measured 13 times.
+(min: 579, mean: 802, max: 954), which was measured 13 times.
 
-There were measurements in 24 separate countries. Additionally, the
-first measurement was added in Taiwan this month. Welcome to the
-glorious world of CO<sub>2</sub> monitoring Taiwan!
+There were measurements in 14 separate countries.
 
 <sup>**cr-histco2plot?**</sup>
 
 Here is a graph that shows the distribution of all the CO<sub>2</sub>
 measurements this month. The dashed red line shows the median which was
-846 ppm. There are many measurements that we would consider good
-CO<sub>2</sub> levels, however, you’ll notice that about 32 percent are
+789 ppm. There are many measurements that we would consider good
+CO<sub>2</sub> levels, however, you’ll notice that about 26 percent are
 over 1000 ppm, which really should be addressed.
 
 <div id="cr-histco2plot">
@@ -87,11 +85,12 @@ over 1000 ppm, which really should be addressed.
 <sup>**cr-buildingtypes?**</sup>
 
 This graph shows the distribution of the most common building types in
-the month of January. The dark bar in the middle of each box and whisker
-plot shows the median value for each category. The rest of the lines
-show the range of the distribution. Most of the values fall within each
-box. If you want more information about how to interpret this graph,
-watch [this video](https://youtu.be/b2C9I8HuCe4?si=73FKu7wSJr1rWwWt).
+the month of February. The dark bar in the middle of each box and
+whisker plot shows the median value for each category. The rest of the
+lines show the range of the distribution. Most of the values fall within
+each box. If you want more information about how to interpret this
+graph, watch [this
+video](https://youtu.be/b2C9I8HuCe4?si=73FKu7wSJr1rWwWt).
 
 As is common, supermarkets tend to have higher CO<sub>2</sub> values
 than other types of buildings. I’ve converted those CO<sub>2</sub>
@@ -108,21 +107,21 @@ Here is a graph of all the recordings that happened this month shown by
 the grey curves. I’ve highlighted the highest
 one.<sup>**cr-allcurves?**</sup>
 
-The building with the highest measured CO<sub>2</sub> levels was
-CineStar in Saarbrücken, Germany with a median CO<sub>2</sub> value of
-6593 ppm. While this is incredibly high, it is important to realize that
-this is an outlier. The majority of measurements are much lower than
-this. There is a boxplot to the right of the graph which shows where the
-majority of measurements fall.
+The building with the highest measured CO<sub>2</sub> levels was b2 in
+Kassel, Germany with a median CO<sub>2</sub> value of 5844 ppm. While
+this is incredibly high, it is important to realize that this is an
+outlier. The majority of measurements are much lower than this. There is
+a boxplot to the right of the graph which shows where the majority of
+measurements fall.
 
-The building with the lowest measured CO<sub>2</sub> levels was Lidl in
-Wolfsberg, Austria with a median CO<sub>2</sub> value of 419.5 ppm.
-There were some measurements that were even lower than this, but we have
-removed them from this analysis. Generally outdoor CO<sub>2</sub> levels
-don’t go below 410 ppm, therefore we have removed any datapoints that
-are below 400 ppm. If your CO<sub>2</sub> monitor consistently shows
-levels below 410 ppm while you are inside or outside, it is likely that
-your monitor needs recalibrating.
+The building with the lowest measured CO<sub>2</sub> levels was Palmetum
+in Santa Cruz de Tenerife, with a median CO<sub>2</sub> value of 429
+ppm. There were some measurements that were even lower than this, but we
+have removed them from this analysis. Generally outdoor CO<sub>2</sub>
+levels don’t go below 410 ppm, therefore we have removed any datapoints
+that are below 400 ppm. If your CO<sub>2</sub> monitor consistently
+shows levels below 410 ppm while you are inside or outside, it is likely
+that your monitor needs recalibrating.
 
 <div id="cr-allcurves">
 
@@ -132,27 +131,456 @@ your monitor needs recalibrating.
 
 </div>
 
-Here is a chart showing the 7 measurements that had a median
+Here is a chart showing the 40 measurements that had a median
 CO<sub>2</sub> value under 500. Keep in mind that some of these are
 potentially miscalibrated sensors or erroneous recordings where the
 sensor was outside. However, it is important to celebrate the places
 that do in fact have well ventilated spaces.
 
+<div>
 
+<div id="nnpikrrqet" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nnpikrrqet table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+&#10;#nnpikrrqet thead, #nnpikrrqet tbody, #nnpikrrqet tfoot, #nnpikrrqet tr, #nnpikrrqet td, #nnpikrrqet th {
+  border-style: none;
+}
+&#10;#nnpikrrqet p {
+  margin: 0;
+  padding: 0;
+}
+&#10;#nnpikrrqet .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+&#10;#nnpikrrqet .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+&#10;#nnpikrrqet .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+&#10;#nnpikrrqet .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+&#10;#nnpikrrqet .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+&#10;#nnpikrrqet .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+&#10;#nnpikrrqet .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+&#10;#nnpikrrqet .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+&#10;#nnpikrrqet .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+&#10;#nnpikrrqet .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+&#10;#nnpikrrqet .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+&#10;#nnpikrrqet .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+&#10;#nnpikrrqet .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+&#10;#nnpikrrqet .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+&#10;#nnpikrrqet .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+&#10;#nnpikrrqet .gt_from_md > :first-child {
+  margin-top: 0;
+}
+&#10;#nnpikrrqet .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+&#10;#nnpikrrqet .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+&#10;#nnpikrrqet .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+&#10;#nnpikrrqet .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+&#10;#nnpikrrqet .gt_row_group_first td {
+  border-top-width: 2px;
+}
+&#10;#nnpikrrqet .gt_row_group_first th {
+  border-top-width: 2px;
+}
+&#10;#nnpikrrqet .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+&#10;#nnpikrrqet .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+&#10;#nnpikrrqet .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+&#10;#nnpikrrqet .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+&#10;#nnpikrrqet .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+&#10;#nnpikrrqet .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+&#10;#nnpikrrqet .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+&#10;#nnpikrrqet .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+&#10;#nnpikrrqet .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+&#10;#nnpikrrqet .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+&#10;#nnpikrrqet .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+&#10;#nnpikrrqet .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+&#10;#nnpikrrqet .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+&#10;#nnpikrrqet .gt_left {
+  text-align: left;
+}
+&#10;#nnpikrrqet .gt_center {
+  text-align: center;
+}
+&#10;#nnpikrrqet .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+&#10;#nnpikrrqet .gt_font_normal {
+  font-weight: normal;
+}
+&#10;#nnpikrrqet .gt_font_bold {
+  font-weight: bold;
+}
+&#10;#nnpikrrqet .gt_font_italic {
+  font-style: italic;
+}
+&#10;#nnpikrrqet .gt_super {
+  font-size: 65%;
+}
+&#10;#nnpikrrqet .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+&#10;#nnpikrrqet .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+&#10;#nnpikrrqet .gt_indent_1 {
+  text-indent: 5px;
+}
+&#10;#nnpikrrqet .gt_indent_2 {
+  text-indent: 10px;
+}
+&#10;#nnpikrrqet .gt_indent_3 {
+  text-indent: 15px;
+}
+&#10;#nnpikrrqet .gt_indent_4 {
+  text-indent: 20px;
+}
+&#10;#nnpikrrqet .gt_indent_5 {
+  text-indent: 25px;
+}
+&#10;#nnpikrrqet .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+&#10;#nnpikrrqet div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
 
+| Measurements under 500 ppm                       |         |                     |                                   |
+|--------------------------------------------------|---------|---------------------|-----------------------------------|
+| Name                                             | CO2 ppm | Building type       | Location                          |
+| Tasca La Monteria                                | 488.0   | Restaurant          | Santa Cruz de Tenerife, Spain     |
+| DaBeKe                                           | 467.0   | Restaurant          | La Orotava, Spain                 |
+| Palmetum                                         | 429.0   | Ticket              | Santa Cruz de Tenerife,           |
+| minimarket San Fernando                          | 498.0   | Convenience         | Puerto de la Cruz, Spain          |
+| Koala Bay                                        | 437.0   | Clothes             | Puerto de la Cruz, Spain          |
+| La Embajada                                      | 455.5   | Restaurant          | Puerto de la Cruz, Spain          |
+| Quiddestraße                                     | 483.0   | Station             | München, Germany                  |
+| Hamburg Hauptbahnhof                             | 482.5   | Station             | Hamburg, Germany                  |
+| Anker                                            | 498.0   | Bakery              | Wien, Austria                     |
+| Springfield                                      | 488.0   | Clothes             | La Cuesta, Spain                  |
+| El Mirador                                       | 433.0   | Restaurant          | Santa Cruz de Tenerife,           |
+| Odeonsplatz                                      | 499.0   | Station             | München, Germany                  |
+| 樂雅樂便當攤                                     | 491.0   | Fast food           | 臺中市, Taiwan                    |
+| HalfPrice                                        | 481.0   | Clothes             | Wien, Austria                     |
+| Cañada de Garachico                              | 462.0   | Restaurant          | Santa Cruz de Tenerife,           |
+| Museo de la Naturaleza y el Hombre               | 469.0   | Museum              | Santa Cruz de Tenerife, Spain     |
+| Makika                                           | 476.5   | Cafe                | La Cuesta, Spain                  |
+| Theaterhaus Stuttgart                            | 468.0   | Theatre             | Stuttgart, Germany                |
+| Webb Brothers                                    | 479.0   | Hardware            | East Suffolk, United Kingdom      |
+| John Ives                                        | 490.0   | Shoes               | East Suffolk, United Kingdom      |
+| Eterio                                           | 496.0   | Restaurant          | Santa Cruz de Tenerife, Spain     |
+| Cafeteria Casa Museo Cayetano Gomez Felipe       | 494.0   | Cafe                | San Cristóbal de La Laguna, Spain |
+| Wehbe                                            | 438.0   | Clothes             | Santa Cruz de Tenerife, Spain     |
+| Utopia 8099                                      | 454.0   | Restaurant          | Santa Cruz de Tenerife, Spain     |
+| Bijou Brigitte                                   | 475.0   | Fashion accessories | Wien, Austria                     |
+| David Rodriguez                                  | 434.0   | Bar                 | Puerto de la Cruz,                |
+| Stadt- und Landesbibliothek                      | 477.0   | Library             | Dortmund, Germany                 |
+| Cafetería Geisha                                 | 460.0   | Cafe                | Santa Cruz de Tenerife,           |
+| Keplingerwirt                                    | 472.0   | Restaurant          | Bezirk Rohrbach, Austria          |
+| Salt City Market                                 | 495.0   | Mall                | City of Syracuse, United States   |
+| Rotterdam The Hague Terminal                     | 471.0   | Terminal            | Rotterdam, Netherlands            |
+| Soin Medical Center                              | 496.0   | Hospital            | Beavercreek, United States        |
+| Gran Hotel Taoro                                 | 497.0   | Hotel               | Puerto de la Cruz, Spain          |
+| SVN Fitness Studio                               | 497.0   | Fitness centre      | München, Germany                  |
+| SVN Fitness Studio                               | 498.0   | Fitness centre      | München, Germany                  |
+| Sports Basement                                  | 469.5   | Outdoor             | San Francisco, United States      |
+| Auditorio de Tenerife Adán Martín                | 465.5   | Arts centre         | Santa Cruz de Tenerife,           |
+| Dortmunder U – Zentrum für Kunst und Kreativität | 452.0   | Museum              | Dortmund, Germany                 |
+| Silken Atlántida                                 | 481.0   | Hotel               | Santa Cruz de Tenerife, Spain     |
+| Silken Atlántida                                 | 458.5   | Hotel               | Santa Cruz de Tenerife, Spain     |
 
-| Measurements under 500 ppm |         |               |                                |
-|----------------------------|---------|---------------|--------------------------------|
-| Name                       | CO2 ppm | Building type | Location                       |
-| ESO Supernova Planetarium  | 494.0   | Planetarium   | Garching bei München, Germany  |
-| CVS Pharmacy               | 493.0   | Pharmacy      | Iowa City, United States       |
-| Liverpool Street           | 489.0   |               | City of London, United Kingdom |
-| Rådhuspladsen              | 443.0   | Station       | København, NA                  |
-| 了凡油雞飯.麵              | 483.0   | Restaurant    | 桃園市, Taiwan                 |
-| Lidl                       | 419.5   | Supermarket   | Wolfsberg, Austria             |
-| Palí                       | 475.0   | Supermarket   | La Fortuna, Costa Rica         |
-
-
+</div>
 
 </div>
 
@@ -220,7 +648,7 @@ stable trends show up.
 
 Here’s a histogram showing how many measurements have been recorded each
 week since the start of the project. Over the last 12 months there have
-been 10707 building measurements which is 892 per month or 206 per
+been 11046 building measurements which is 920 per month or 212 per
 week.<sup>**cr-allhist?**</sup>
 
 <div id="cr-allhist">
@@ -238,14 +666,10 @@ style="width:100.0%" />
 
 <div class="cr-section">
 
-This month there were 341 measurements of 169 unique transit lines. The
+This month there were 292 measurements of 130 unique transit lines. The
 most measured transit line was subway U6 in the U-Bahn Wien transit
-network in Wien, Austria (min: 491, mean: 737, max: 1187), which was
-measured 20 times. This graph shows the number of transit recordings in
-each transit network during the last month. Keep in mind that this graph
-only shows networks with more than 2 transit recordings this month
-(there were quite a few with one or two). Transit recordings seem very
-popular in Vienna at the moment.<sup>**cr-transitcount?**</sup>
+network in Wien, Austria (min: 513, mean: 783, max: 1259), which was
+measured 24 times.
 
 <div id="cr-transitcount">
 
@@ -346,13 +770,14 @@ autocruller v. 0.0.0.9000<sup>14</sup>, dbscan v. 1.2.4<sup>15,16</sup>,
 duckplyr v. 1.1.3.9007<sup>17</sup>, gganimate v. 1.0.11<sup>18</sup>,
 ggrepel v. 0.9.6<sup>19</sup>, glue v. 1.8.0<sup>20</sup>, gt v.
 1.2.0<sup>21</sup>, h3 v. 3.7.2<sup>22</sup>, here v.
-1.0.2<sup>23</sup>, mapview v. 2.11.4<sup>24</sup>, osmdata v.
-0.3.0<sup>25</sup>, pak v. 0.9.2<sup>26</sup>, patchwork v.
-1.3.2<sup>27</sup>, rmarkdown v. 2.30<sup>28–30</sup>, rnaturalearth v.
-1.2.0<sup>31</sup>, rnaturalearthhires v. 1.0.0.9000<sup>32</sup>,
-scales v. 1.4.0<sup>33</sup>, scico v. 1.5.0<sup>34</sup>, sf v.
-1.0.24<sup>35,36</sup>, tidygeocoder v. 1.0.6<sup>37</sup>, tidyplots v.
-0.4.0<sup>38</sup>, tidyverse v. 2.0.0<sup>39</sup>.
+1.0.2<sup>23</sup>, magick v. 2.9.0<sup>24</sup>, mapview v.
+2.11.4<sup>25</sup>, osmdata v. 0.3.0<sup>26</sup>, pak v.
+0.9.2<sup>27</sup>, patchwork v. 1.3.2<sup>28</sup>, rmarkdown v.
+2.30<sup>29–31</sup>, rnaturalearth v. 1.2.0<sup>32</sup>,
+rnaturalearthhires v. 1.0.0.9000<sup>33</sup>, scales v.
+1.4.0<sup>34</sup>, scico v. 1.5.0<sup>35</sup>, sf v.
+1.0.24<sup>36,37</sup>, tidygeocoder v. 1.0.6<sup>38</sup>, tidyplots v.
+0.4.0<sup>39</sup>, tidyverse v. 2.0.0<sup>40</sup>.
 
 All figures in this report are licensed under
 <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA
@@ -593,9 +1018,19 @@ Files](https://CRAN.R-project.org/package=here)*. (2025).</span>
 
 </div>
 
-<div id="ref-mapview" class="csl-entry">
+<div id="ref-magick" class="csl-entry">
 
 <span class="csl-left-margin">24.
+</span><span class="csl-right-inline">Ooms, J.
+*[<span class="nocase">magick</span>: Advanced Graphics and
+Image-Processing in r](https://CRAN.R-project.org/package=magick)*.
+(2025).</span>
+
+</div>
+
+<div id="ref-mapview" class="csl-entry">
+
+<span class="csl-left-margin">25.
 </span><span class="csl-right-inline">Appelhans, T., Detsch, F.,
 Reudenbach, C. & Woellauer, S. *[<span class="nocase">mapview</span>:
 Interactive Viewing of Spatial Data in
@@ -605,7 +1040,7 @@ r](https://CRAN.R-project.org/package=mapview)*. (2025).</span>
 
 <div id="ref-osmdata" class="csl-entry">
 
-<span class="csl-left-margin">25.
+<span class="csl-left-margin">26.
 </span><span class="csl-right-inline">Mark Padgham, Bob Rudis, Robin
 Lovelace & Maëlle Salmon.
 [Osmdata](https://doi.org/10.21105/joss.00305). *Journal of Open Source
@@ -615,7 +1050,7 @@ Software* **2**, 305 (2017).</span>
 
 <div id="ref-pak" class="csl-entry">
 
-<span class="csl-left-margin">26.
+<span class="csl-left-margin">27.
 </span><span class="csl-right-inline">Csárdi, G. & Hester, J.
 *[<span class="nocase">pak</span>: Another Approach to Package
 Installation](https://CRAN.R-project.org/package=pak)*. (2025).</span>
@@ -624,7 +1059,7 @@ Installation](https://CRAN.R-project.org/package=pak)*. (2025).</span>
 
 <div id="ref-patchwork" class="csl-entry">
 
-<span class="csl-left-margin">27.
+<span class="csl-left-margin">28.
 </span><span class="csl-right-inline">Pedersen, T. L.
 *[<span class="nocase">patchwork</span>: The Composer of
 Plots](https://CRAN.R-project.org/package=patchwork)*. (2025).</span>
@@ -633,7 +1068,7 @@ Plots](https://CRAN.R-project.org/package=patchwork)*. (2025).</span>
 
 <div id="ref-rmarkdown2018" class="csl-entry">
 
-<span class="csl-left-margin">28.
+<span class="csl-left-margin">29.
 </span><span class="csl-right-inline">Xie, Y., Allaire, J. J. &
 Grolemund, G. *[R Markdown: The Definitive
 Guide](https://bookdown.org/yihui/rmarkdown)*. (Chapman; Hall/CRC, Boca
@@ -643,7 +1078,7 @@ Raton, Florida, 2018).</span>
 
 <div id="ref-rmarkdown2020" class="csl-entry">
 
-<span class="csl-left-margin">29.
+<span class="csl-left-margin">30.
 </span><span class="csl-right-inline">Xie, Y., Dervieux, C. & Riederer,
 E. *[R Markdown
 Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook)*. (Chapman;
@@ -653,7 +1088,7 @@ Hall/CRC, Boca Raton, Florida, 2020).</span>
 
 <div id="ref-rmarkdown2025" class="csl-entry">
 
-<span class="csl-left-margin">30.
+<span class="csl-left-margin">31.
 </span><span class="csl-right-inline">Allaire, J. *et al.*
 *[<span class="nocase">rmarkdown</span>: Dynamic Documents for
 r](https://github.com/rstudio/rmarkdown)*. (2025).</span>
@@ -662,7 +1097,7 @@ r](https://github.com/rstudio/rmarkdown)*. (2025).</span>
 
 <div id="ref-rnaturalearth" class="csl-entry">
 
-<span class="csl-left-margin">31.
+<span class="csl-left-margin">32.
 </span><span class="csl-right-inline">Massicotte, P. & South, A.
 *[<span class="nocase">rnaturalearth</span>: World Map Data from Natural
 Earth](https://CRAN.R-project.org/package=rnaturalearth)*.
@@ -672,7 +1107,7 @@ Earth](https://CRAN.R-project.org/package=rnaturalearth)*.
 
 <div id="ref-rnaturalearthhires" class="csl-entry">
 
-<span class="csl-left-margin">32.
+<span class="csl-left-margin">33.
 </span><span class="csl-right-inline">South, A., Michael, S. &
 Massicotte, P. *[<span class="nocase">rnaturalearthhires</span>: High
 Resolution World Vector Map Data from Natural Earth Used in
@@ -683,7 +1118,7 @@ Rnaturalearth](https://github.com/ropensci/rnaturalearthhires)*.
 
 <div id="ref-scales" class="csl-entry">
 
-<span class="csl-left-margin">33.
+<span class="csl-left-margin">34.
 </span><span class="csl-right-inline">Wickham, H., Pedersen, T. L. &
 Seidel, D. *[<span class="nocase">scales</span>: Scale Functions for
 Visualization](https://CRAN.R-project.org/package=scales)*.
@@ -693,7 +1128,7 @@ Visualization](https://CRAN.R-project.org/package=scales)*.
 
 <div id="ref-scico" class="csl-entry">
 
-<span class="csl-left-margin">34.
+<span class="csl-left-margin">35.
 </span><span class="csl-right-inline">Pedersen, T. L. & Crameri, F.
 *[<span class="nocase">scico</span>: Colour Palettes Based on the
 Scientific Colour-Maps](https://CRAN.R-project.org/package=scico)*.
@@ -703,7 +1138,7 @@ Scientific Colour-Maps](https://CRAN.R-project.org/package=scico)*.
 
 <div id="ref-sf2018" class="csl-entry">
 
-<span class="csl-left-margin">35.
+<span class="csl-left-margin">36.
 </span><span class="csl-right-inline">Pebesma, E.
 [<span class="nocase">Simple Features for R: Standardized Support for
 Spatial Vector Data</span>](https://doi.org/10.32614/RJ-2018-009). *The
@@ -713,7 +1148,7 @@ R Journal* **10**, 439–446 (2018).</span>
 
 <div id="ref-sf2023" class="csl-entry">
 
-<span class="csl-left-margin">36.
+<span class="csl-left-margin">37.
 </span><span class="csl-right-inline">Pebesma, E. & Bivand, R.
 *<span class="nocase">Spatial Data Science: With applications in
 R</span>*. (Chapman and Hall/CRC, 2023).
@@ -723,7 +1158,7 @@ doi:[10.1201/9780429459016](https://doi.org/10.1201/9780429459016).</span>
 
 <div id="ref-tidygeocoder" class="csl-entry">
 
-<span class="csl-left-margin">37.
+<span class="csl-left-margin">38.
 </span><span class="csl-right-inline">Cambon, J., Hernangómez, D.,
 Belanger, C. & Possenriede, D.
 [<span class="nocase">tidygeocoder</span>: An r package for
@@ -734,7 +1169,7 @@ Software* **6**, 3544 (2021).</span>
 
 <div id="ref-tidyplots" class="csl-entry">
 
-<span class="csl-left-margin">38.
+<span class="csl-left-margin">39.
 </span><span class="csl-right-inline">Engler, J. B. Tidyplots empowers
 life scientists with easy code-based data visualization. *iMeta* e70018
 (2025)
@@ -744,7 +1179,7 @@ doi:[10.1002/imt2.70018](https://doi.org/10.1002/imt2.70018).</span>
 
 <div id="ref-tidyverse" class="csl-entry">
 
-<span class="csl-left-margin">39.
+<span class="csl-left-margin">40.
 </span><span class="csl-right-inline">Wickham, H. *et al.* [Welcome to
 the
 <span class="nocase">tidyverse</span>](https://doi.org/10.21105/joss.01686).
