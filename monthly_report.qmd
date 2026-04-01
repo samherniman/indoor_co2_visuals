@@ -40,7 +40,7 @@ execute:
 # map showing observations over time animation
 # lollipop summer vs winter shops - maybe summarize by category
 # highest velocity based off of different time periods
-start_date <- lubridate::ymd("2026-02-28")
+start_date <- lubridate::ymd("2026-03-31")
 ```
 
 # Monthly indoorCO2map.com summary `r start_date |> lubridate::month(label = TRUE, abbr = FALSE)` `r start_date |> lubridate::year()`

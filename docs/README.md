@@ -1,6 +1,6 @@
 
 
-# Monthly indoorCO2map.com summary February 2026
+# Monthly indoorCO2map.com summary March 2026
 
 There is a well documented relationship between indoor levels of
 CO<sub>2</sub> and the amount of ventilation in indoor environments.
@@ -53,21 +53,21 @@ style="width:100.0%" />
 
 <div class="cr-section">
 
-This month there were 957 measurements of 729 unique buildings.
+This month there were 828 measurements of 639 unique buildings.
 
 <sup>**cr-ccplot?**</sup>
 
 The most measured building was Rewe, a supermarket in Kassel, Germany
-(min: 579, mean: 802, max: 954), which was measured 13 times.
+(min: 738, mean: 818, max: 877), which was measured 12 times.
 
-There were measurements in 14 separate countries.
+There were measurements in 17 separate countries.
 
 <sup>**cr-histco2plot?**</sup>
 
 Here is a graph that shows the distribution of all the CO<sub>2</sub>
 measurements this month. The dashed red line shows the median which was
-789 ppm. There are many measurements that we would consider good
-CO<sub>2</sub> levels, however, you’ll notice that about 26 percent are
+783 ppm. There are many measurements that we would consider good
+CO<sub>2</sub> levels, however, you’ll notice that about 25 percent are
 over 1000 ppm, which really should be addressed.
 
 <div id="cr-histco2plot">
@@ -85,12 +85,11 @@ over 1000 ppm, which really should be addressed.
 <sup>**cr-buildingtypes?**</sup>
 
 This graph shows the distribution of the most common building types in
-the month of February. The dark bar in the middle of each box and
-whisker plot shows the median value for each category. The rest of the
-lines show the range of the distribution. Most of the values fall within
-each box. If you want more information about how to interpret this
-graph, watch [this
-video](https://youtu.be/b2C9I8HuCe4?si=73FKu7wSJr1rWwWt).
+the month of March. The dark bar in the middle of each box and whisker
+plot shows the median value for each category. The rest of the lines
+show the range of the distribution. Most of the values fall within each
+box. If you want more information about how to interpret this graph,
+watch [this video](https://youtu.be/b2C9I8HuCe4?si=73FKu7wSJr1rWwWt).
 
 As is common, supermarkets tend to have higher CO<sub>2</sub> values
 than other types of buildings. I’ve converted those CO<sub>2</sub>
@@ -107,21 +106,21 @@ Here is a graph of all the recordings that happened this month shown by
 the grey curves. I’ve highlighted the highest
 one.<sup>**cr-allcurves?**</sup>
 
-The building with the highest measured CO<sub>2</sub> levels was b2 in
-Kassel, Germany with a median CO<sub>2</sub> value of 5844 ppm. While
-this is incredibly high, it is important to realize that this is an
-outlier. The majority of measurements are much lower than this. There is
-a boxplot to the right of the graph which shows where the majority of
-measurements fall.
+The building with the highest measured CO<sub>2</sub> levels was The
+Black Sheep in Wien, Austria with a median CO<sub>2</sub> value of
+7080.5 ppm. While this is incredibly high, it is important to realize
+that this is an outlier. The majority of measurements are much lower
+than this. There is a boxplot to the right of the graph which shows
+where the majority of measurements fall.
 
-The building with the lowest measured CO<sub>2</sub> levels was Palmetum
-in Santa Cruz de Tenerife, with a median CO<sub>2</sub> value of 429
-ppm. There were some measurements that were even lower than this, but we
-have removed them from this analysis. Generally outdoor CO<sub>2</sub>
-levels don’t go below 410 ppm, therefore we have removed any datapoints
-that are below 400 ppm. If your CO<sub>2</sub> monitor consistently
-shows levels below 410 ppm while you are inside or outside, it is likely
-that your monitor needs recalibrating.
+The building with the lowest measured CO<sub>2</sub> levels was Cineplex
+Germering in Germering, Germany with a median CO<sub>2</sub> value of
+425.5 ppm. There were some measurements that were even lower than this,
+but we have removed them from this analysis. Generally outdoor
+CO<sub>2</sub> levels don’t go below 410 ppm, therefore we have removed
+any datapoints that are below 400 ppm. If your CO<sub>2</sub> monitor
+consistently shows levels below 410 ppm while you are inside or outside,
+it is likely that your monitor needs recalibrating.
 
 <div id="cr-allcurves">
 
@@ -131,28 +130,26 @@ that your monitor needs recalibrating.
 
 </div>
 
-Here is a chart showing the 40 measurements that had a median
+Here is a chart showing the 27 measurements that had a median
 CO<sub>2</sub> value under 500. Keep in mind that some of these are
 potentially miscalibrated sensors or erroneous recordings where the
 sensor was outside. However, it is important to celebrate the places
 that do in fact have well ventilated spaces.
 
-<div>
-
-<div id="nnpikrrqet" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#nnpikrrqet table {
+<div id="itfdtqefsv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#itfdtqefsv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-&#10;#nnpikrrqet thead, #nnpikrrqet tbody, #nnpikrrqet tfoot, #nnpikrrqet tr, #nnpikrrqet td, #nnpikrrqet th {
+&#10;#itfdtqefsv thead, #itfdtqefsv tbody, #itfdtqefsv tfoot, #itfdtqefsv tr, #itfdtqefsv td, #itfdtqefsv th {
   border-style: none;
 }
-&#10;#nnpikrrqet p {
+&#10;#itfdtqefsv p {
   margin: 0;
   padding: 0;
 }
-&#10;#nnpikrrqet .gt_table {
+&#10;#itfdtqefsv .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -177,11 +174,11 @@ that do in fact have well ventilated spaces.
   border-left-width: 2px;
   border-left-color: #D3D3D3;
 }
-&#10;#nnpikrrqet .gt_caption {
+&#10;#itfdtqefsv .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
-&#10;#nnpikrrqet .gt_title {
+&#10;#itfdtqefsv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -192,7 +189,7 @@ that do in fact have well ventilated spaces.
   border-bottom-color: #FFFFFF;
   border-bottom-width: 0;
 }
-&#10;#nnpikrrqet .gt_subtitle {
+&#10;#itfdtqefsv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -203,7 +200,7 @@ that do in fact have well ventilated spaces.
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
-&#10;#nnpikrrqet .gt_heading {
+&#10;#itfdtqefsv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -214,12 +211,12 @@ that do in fact have well ventilated spaces.
   border-right-width: 1px;
   border-right-color: #D3D3D3;
 }
-&#10;#nnpikrrqet .gt_bottom_border {
+&#10;#itfdtqefsv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
-&#10;#nnpikrrqet .gt_col_headings {
+&#10;#itfdtqefsv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -233,7 +230,7 @@ that do in fact have well ventilated spaces.
   border-right-width: 1px;
   border-right-color: #D3D3D3;
 }
-&#10;#nnpikrrqet .gt_col_heading {
+&#10;#itfdtqefsv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -252,7 +249,7 @@ that do in fact have well ventilated spaces.
   padding-right: 5px;
   overflow-x: hidden;
 }
-&#10;#nnpikrrqet .gt_column_spanner_outer {
+&#10;#itfdtqefsv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -263,13 +260,13 @@ that do in fact have well ventilated spaces.
   padding-left: 4px;
   padding-right: 4px;
 }
-&#10;#nnpikrrqet .gt_column_spanner_outer:first-child {
+&#10;#itfdtqefsv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
-&#10;#nnpikrrqet .gt_column_spanner_outer:last-child {
+&#10;#itfdtqefsv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
-&#10;#nnpikrrqet .gt_column_spanner {
+&#10;#itfdtqefsv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -280,10 +277,10 @@ that do in fact have well ventilated spaces.
   display: inline-block;
   width: 100%;
 }
-&#10;#nnpikrrqet .gt_spanner_row {
+&#10;#itfdtqefsv .gt_spanner_row {
   border-bottom-style: hidden;
 }
-&#10;#nnpikrrqet .gt_group_heading {
+&#10;#itfdtqefsv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -308,7 +305,7 @@ that do in fact have well ventilated spaces.
   vertical-align: middle;
   text-align: left;
 }
-&#10;#nnpikrrqet .gt_empty_group_heading {
+&#10;#itfdtqefsv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -322,13 +319,13 @@ that do in fact have well ventilated spaces.
   border-bottom-color: #D3D3D3;
   vertical-align: middle;
 }
-&#10;#nnpikrrqet .gt_from_md > :first-child {
+&#10;#itfdtqefsv .gt_from_md > :first-child {
   margin-top: 0;
 }
-&#10;#nnpikrrqet .gt_from_md > :last-child {
+&#10;#itfdtqefsv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
-&#10;#nnpikrrqet .gt_row {
+&#10;#itfdtqefsv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -346,7 +343,7 @@ that do in fact have well ventilated spaces.
   vertical-align: middle;
   overflow-x: hidden;
 }
-&#10;#nnpikrrqet .gt_stub {
+&#10;#itfdtqefsv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -358,7 +355,7 @@ that do in fact have well ventilated spaces.
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#nnpikrrqet .gt_stub_row_group {
+&#10;#itfdtqefsv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -371,13 +368,13 @@ that do in fact have well ventilated spaces.
   padding-right: 5px;
   vertical-align: top;
 }
-&#10;#nnpikrrqet .gt_row_group_first td {
+&#10;#itfdtqefsv .gt_row_group_first td {
   border-top-width: 2px;
 }
-&#10;#nnpikrrqet .gt_row_group_first th {
+&#10;#itfdtqefsv .gt_row_group_first th {
   border-top-width: 2px;
 }
-&#10;#nnpikrrqet .gt_summary_row {
+&#10;#itfdtqefsv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -386,14 +383,14 @@ that do in fact have well ventilated spaces.
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#nnpikrrqet .gt_first_summary_row {
+&#10;#itfdtqefsv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
-&#10;#nnpikrrqet .gt_first_summary_row.thick {
+&#10;#itfdtqefsv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
-&#10;#nnpikrrqet .gt_last_summary_row {
+&#10;#itfdtqefsv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -402,7 +399,7 @@ that do in fact have well ventilated spaces.
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
-&#10;#nnpikrrqet .gt_grand_summary_row {
+&#10;#itfdtqefsv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -411,7 +408,7 @@ that do in fact have well ventilated spaces.
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#nnpikrrqet .gt_first_grand_summary_row {
+&#10;#itfdtqefsv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -420,7 +417,7 @@ that do in fact have well ventilated spaces.
   border-top-width: 6px;
   border-top-color: #D3D3D3;
 }
-&#10;#nnpikrrqet .gt_last_grand_summary_row_top {
+&#10;#itfdtqefsv .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -429,10 +426,10 @@ that do in fact have well ventilated spaces.
   border-bottom-width: 6px;
   border-bottom-color: #D3D3D3;
 }
-&#10;#nnpikrrqet .gt_striped {
+&#10;#itfdtqefsv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
-&#10;#nnpikrrqet .gt_table_body {
+&#10;#itfdtqefsv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -440,7 +437,7 @@ that do in fact have well ventilated spaces.
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
-&#10;#nnpikrrqet .gt_footnotes {
+&#10;#itfdtqefsv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -453,7 +450,7 @@ that do in fact have well ventilated spaces.
   border-right-width: 2px;
   border-right-color: #D3D3D3;
 }
-&#10;#nnpikrrqet .gt_footnote {
+&#10;#itfdtqefsv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -461,7 +458,7 @@ that do in fact have well ventilated spaces.
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#nnpikrrqet .gt_sourcenotes {
+&#10;#itfdtqefsv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -474,113 +471,280 @@ that do in fact have well ventilated spaces.
   border-right-width: 2px;
   border-right-color: #D3D3D3;
 }
-&#10;#nnpikrrqet .gt_sourcenote {
+&#10;#itfdtqefsv .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#nnpikrrqet .gt_left {
+&#10;#itfdtqefsv .gt_left {
   text-align: left;
 }
-&#10;#nnpikrrqet .gt_center {
+&#10;#itfdtqefsv .gt_center {
   text-align: center;
 }
-&#10;#nnpikrrqet .gt_right {
+&#10;#itfdtqefsv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
-&#10;#nnpikrrqet .gt_font_normal {
+&#10;#itfdtqefsv .gt_font_normal {
   font-weight: normal;
 }
-&#10;#nnpikrrqet .gt_font_bold {
+&#10;#itfdtqefsv .gt_font_bold {
   font-weight: bold;
 }
-&#10;#nnpikrrqet .gt_font_italic {
+&#10;#itfdtqefsv .gt_font_italic {
   font-style: italic;
 }
-&#10;#nnpikrrqet .gt_super {
+&#10;#itfdtqefsv .gt_super {
   font-size: 65%;
 }
-&#10;#nnpikrrqet .gt_footnote_marks {
+&#10;#itfdtqefsv .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
-&#10;#nnpikrrqet .gt_asterisk {
+&#10;#itfdtqefsv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
-&#10;#nnpikrrqet .gt_indent_1 {
+&#10;#itfdtqefsv .gt_indent_1 {
   text-indent: 5px;
 }
-&#10;#nnpikrrqet .gt_indent_2 {
+&#10;#itfdtqefsv .gt_indent_2 {
   text-indent: 10px;
 }
-&#10;#nnpikrrqet .gt_indent_3 {
+&#10;#itfdtqefsv .gt_indent_3 {
   text-indent: 15px;
 }
-&#10;#nnpikrrqet .gt_indent_4 {
+&#10;#itfdtqefsv .gt_indent_4 {
   text-indent: 20px;
 }
-&#10;#nnpikrrqet .gt_indent_5 {
+&#10;#itfdtqefsv .gt_indent_5 {
   text-indent: 25px;
 }
-&#10;#nnpikrrqet .katex-display {
+&#10;#itfdtqefsv .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
-&#10;#nnpikrrqet div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+&#10;#itfdtqefsv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-| Measurements under 500 ppm                       |         |                     |                                   |
-|--------------------------------------------------|---------|---------------------|-----------------------------------|
-| Name                                             | CO2 ppm | Building type       | Location                          |
-| Tasca La Monteria                                | 488.0   | Restaurant          | Santa Cruz de Tenerife, Spain     |
-| DaBeKe                                           | 467.0   | Restaurant          | La Orotava, Spain                 |
-| Palmetum                                         | 429.0   | Ticket              | Santa Cruz de Tenerife,           |
-| minimarket San Fernando                          | 498.0   | Convenience         | Puerto de la Cruz, Spain          |
-| Koala Bay                                        | 437.0   | Clothes             | Puerto de la Cruz, Spain          |
-| La Embajada                                      | 455.5   | Restaurant          | Puerto de la Cruz, Spain          |
-| Quiddestraße                                     | 483.0   | Station             | München, Germany                  |
-| Hamburg Hauptbahnhof                             | 482.5   | Station             | Hamburg, Germany                  |
-| Anker                                            | 498.0   | Bakery              | Wien, Austria                     |
-| Springfield                                      | 488.0   | Clothes             | La Cuesta, Spain                  |
-| El Mirador                                       | 433.0   | Restaurant          | Santa Cruz de Tenerife,           |
-| Odeonsplatz                                      | 499.0   | Station             | München, Germany                  |
-| 樂雅樂便當攤                                     | 491.0   | Fast food           | 臺中市, Taiwan                    |
-| HalfPrice                                        | 481.0   | Clothes             | Wien, Austria                     |
-| Cañada de Garachico                              | 462.0   | Restaurant          | Santa Cruz de Tenerife,           |
-| Museo de la Naturaleza y el Hombre               | 469.0   | Museum              | Santa Cruz de Tenerife, Spain     |
-| Makika                                           | 476.5   | Cafe                | La Cuesta, Spain                  |
-| Theaterhaus Stuttgart                            | 468.0   | Theatre             | Stuttgart, Germany                |
-| Webb Brothers                                    | 479.0   | Hardware            | East Suffolk, United Kingdom      |
-| John Ives                                        | 490.0   | Shoes               | East Suffolk, United Kingdom      |
-| Eterio                                           | 496.0   | Restaurant          | Santa Cruz de Tenerife, Spain     |
-| Cafeteria Casa Museo Cayetano Gomez Felipe       | 494.0   | Cafe                | San Cristóbal de La Laguna, Spain |
-| Wehbe                                            | 438.0   | Clothes             | Santa Cruz de Tenerife, Spain     |
-| Utopia 8099                                      | 454.0   | Restaurant          | Santa Cruz de Tenerife, Spain     |
-| Bijou Brigitte                                   | 475.0   | Fashion accessories | Wien, Austria                     |
-| David Rodriguez                                  | 434.0   | Bar                 | Puerto de la Cruz,                |
-| Stadt- und Landesbibliothek                      | 477.0   | Library             | Dortmund, Germany                 |
-| Cafetería Geisha                                 | 460.0   | Cafe                | Santa Cruz de Tenerife,           |
-| Keplingerwirt                                    | 472.0   | Restaurant          | Bezirk Rohrbach, Austria          |
-| Salt City Market                                 | 495.0   | Mall                | City of Syracuse, United States   |
-| Rotterdam The Hague Terminal                     | 471.0   | Terminal            | Rotterdam, Netherlands            |
-| Soin Medical Center                              | 496.0   | Hospital            | Beavercreek, United States        |
-| Gran Hotel Taoro                                 | 497.0   | Hotel               | Puerto de la Cruz, Spain          |
-| SVN Fitness Studio                               | 497.0   | Fitness centre      | München, Germany                  |
-| SVN Fitness Studio                               | 498.0   | Fitness centre      | München, Germany                  |
-| Sports Basement                                  | 469.5   | Outdoor             | San Francisco, United States      |
-| Auditorio de Tenerife Adán Martín                | 465.5   | Arts centre         | Santa Cruz de Tenerife,           |
-| Dortmunder U – Zentrum für Kunst und Kreativität | 452.0   | Museum              | Dortmund, Germany                 |
-| Silken Atlántida                                 | 481.0   | Hotel               | Santa Cruz de Tenerife, Spain     |
-| Silken Atlántida                                 | 458.5   | Hotel               | Santa Cruz de Tenerife, Spain     |
-
-</div>
+<table class="gt_table" data-quarto-postprocess="true"
+data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<th colspan="4"
+class="gt_heading gt_title gt_font_normal gt_bottom_border">Measurements
+under 500 ppm</th>
+</tr>
+<tr class="gt_col_headings">
+<th id="name" class="gt_col_heading gt_columns_bottom_border gt_left"
+data-quarto-table-cell-role="th" scope="col">Name</th>
+<th id="co2" class="gt_col_heading gt_columns_bottom_border gt_right"
+data-quarto-table-cell-role="th" scope="col">CO2 ppm</th>
+<th id="osmtag" class="gt_col_heading gt_columns_bottom_border gt_left"
+data-quarto-table-cell-role="th" scope="col">Building type</th>
+<th id="location_description"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+data-quarto-table-cell-role="th" scope="col">Location</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left" headers="name">El galeon</td>
+<td class="gt_row gt_right" headers="co2">447.0</td>
+<td class="gt_row gt_left" headers="osmtag">Mall</td>
+<td class="gt_row gt_center" headers="location_description">Adeje,
+Spain</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Bodegas Tajinaste</td>
+<td class="gt_row gt_right" headers="co2">479.0</td>
+<td class="gt_row gt_left" headers="osmtag">Wine</td>
+<td class="gt_row gt_center" headers="location_description">La Orotava,
+Spain</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Habit Coffee</td>
+<td class="gt_row gt_right" headers="co2">487.0</td>
+<td class="gt_row gt_left" headers="osmtag">Cafe</td>
+<td class="gt_row gt_center" headers="location_description">Victoria,
+Canada</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Supercor Exprés</td>
+<td class="gt_row gt_right" headers="co2">483.0</td>
+<td class="gt_row gt_left" headers="osmtag">Convenience</td>
+<td class="gt_row gt_center" headers="location_description">Puerto de la
+Cruz,</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">MC Döner</td>
+<td class="gt_row gt_right" headers="co2">497.0</td>
+<td class="gt_row gt_left" headers="osmtag">Fast food</td>
+<td class="gt_row gt_center" headers="location_description">Leipzig,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Wen's Nudeln</td>
+<td class="gt_row gt_right" headers="co2">455.0</td>
+<td class="gt_row gt_left" headers="osmtag">Fast food</td>
+<td class="gt_row gt_center" headers="location_description">Wien,
+Austria</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Noodle King</td>
+<td class="gt_row gt_right" headers="co2">475.0</td>
+<td class="gt_row gt_left" headers="osmtag">Fast food</td>
+<td class="gt_row gt_center" headers="location_description">Wien,
+Austria</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Noodle King</td>
+<td class="gt_row gt_right" headers="co2">492.0</td>
+<td class="gt_row gt_left" headers="osmtag">Fast food</td>
+<td class="gt_row gt_center" headers="location_description">Wien,
+Austria</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Praxis</td>
+<td class="gt_row gt_right" headers="co2">486.0</td>
+<td class="gt_row gt_left" headers="osmtag">Doityourself</td>
+<td class="gt_row gt_center" headers="location_description">Utrecht,
+Netherlands</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Puurr aan de Vliet</td>
+<td class="gt_row gt_right" headers="co2">474.0</td>
+<td class="gt_row gt_left" headers="osmtag">Restaurant</td>
+<td class="gt_row gt_center"
+headers="location_description">Leidschendam, Netherlands</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Praxis</td>
+<td class="gt_row gt_right" headers="co2">493.0</td>
+<td class="gt_row gt_left" headers="osmtag">Doityourself</td>
+<td class="gt_row gt_center" headers="location_description">Utrecht,
+Netherlands</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Edo Nudeln</td>
+<td class="gt_row gt_right" headers="co2">497.0</td>
+<td class="gt_row gt_left" headers="osmtag">Fast food</td>
+<td class="gt_row gt_center" headers="location_description">Wien,
+Austria</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">XXXLutz</td>
+<td class="gt_row gt_right" headers="co2">496.0</td>
+<td class="gt_row gt_left" headers="osmtag">Furniture</td>
+<td class="gt_row gt_center" headers="location_description">Wien,
+Austria</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Cineplex Germering</td>
+<td class="gt_row gt_right" headers="co2">478.0</td>
+<td class="gt_row gt_left" headers="osmtag">Cinema</td>
+<td class="gt_row gt_center" headers="location_description">Germering,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Cineplex Germering</td>
+<td class="gt_row gt_right" headers="co2">485.0</td>
+<td class="gt_row gt_left" headers="osmtag">Cinema</td>
+<td class="gt_row gt_center" headers="location_description">Germering,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Cineplex Germering</td>
+<td class="gt_row gt_right" headers="co2">454.0</td>
+<td class="gt_row gt_left" headers="osmtag">Cinema</td>
+<td class="gt_row gt_center" headers="location_description">Germering,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Cineplex Germering</td>
+<td class="gt_row gt_right" headers="co2">425.5</td>
+<td class="gt_row gt_left" headers="osmtag">Cinema</td>
+<td class="gt_row gt_center" headers="location_description">Germering,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Pastabilities</td>
+<td class="gt_row gt_right" headers="co2">477.0</td>
+<td class="gt_row gt_left" headers="osmtag">Restaurant</td>
+<td class="gt_row gt_center" headers="location_description">City of
+Syracuse, United States</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Binder Optik</td>
+<td class="gt_row gt_right" headers="co2">497.0</td>
+<td class="gt_row gt_left" headers="osmtag">Optician</td>
+<td class="gt_row gt_center" headers="location_description">Leonberg,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Ozan Market</td>
+<td class="gt_row gt_right" headers="co2">497.0</td>
+<td class="gt_row gt_left" headers="osmtag">Convenience</td>
+<td class="gt_row gt_center"
+headers="location_description">Leidschendam, Netherlands</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Kinepolis</td>
+<td class="gt_row gt_right" headers="co2">465.0</td>
+<td class="gt_row gt_left" headers="osmtag">Cinema</td>
+<td class="gt_row gt_center"
+headers="location_description">Leidschendam, Netherlands</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Zeughauskino</td>
+<td class="gt_row gt_right" headers="co2">497.0</td>
+<td class="gt_row gt_left" headers="osmtag">Cinema</td>
+<td class="gt_row gt_center" headers="location_description">Berlin,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">David Rodriguez</td>
+<td class="gt_row gt_right" headers="co2">461.0</td>
+<td class="gt_row gt_left" headers="osmtag">Bar</td>
+<td class="gt_row gt_center" headers="location_description">Puerto de la
+Cruz,</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Einstein Kaffee</td>
+<td class="gt_row gt_right" headers="co2">491.0</td>
+<td class="gt_row gt_left" headers="osmtag">Cafe</td>
+<td class="gt_row gt_center" headers="location_description">Berlin,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Morley's Chicken</td>
+<td class="gt_row gt_right" headers="co2">497.0</td>
+<td class="gt_row gt_left" headers="osmtag">Fast food</td>
+<td class="gt_row gt_center" headers="location_description">Greater
+London, United Kingdom</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">OBI</td>
+<td class="gt_row gt_right" headers="co2">478.0</td>
+<td class="gt_row gt_left" headers="osmtag">Doityourself</td>
+<td class="gt_row gt_center" headers="location_description">Wien,
+Austria</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">McDonald's</td>
+<td class="gt_row gt_right" headers="co2">498.0</td>
+<td class="gt_row gt_left" headers="osmtag">Fast food</td>
+<td class="gt_row gt_center" headers="location_description">Wien,
+Austria</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -648,7 +812,7 @@ stable trends show up.
 
 Here’s a histogram showing how many measurements have been recorded each
 week since the start of the project. Over the last 12 months there have
-been 11046 building measurements which is 920 per month or 212 per
+been 11020 building measurements which is 918 per month or 212 per
 week.<sup>**cr-allhist?**</sup>
 
 <div id="cr-allhist">
@@ -666,10 +830,10 @@ style="width:100.0%" />
 
 <div class="cr-section">
 
-This month there were 292 measurements of 130 unique transit lines. The
+This month there were 302 measurements of 129 unique transit lines. The
 most measured transit line was subway U6 in the U-Bahn Wien transit
-network in Wien, Austria (min: 513, mean: 783, max: 1259), which was
-measured 24 times.
+network in Wien, Austria (min: 457, mean: 660, max: 1298), which was
+measured 18 times.
 
 <div id="cr-transitcount">
 
@@ -708,7 +872,9 @@ me](https://liberapay.com/samherniman/) so I can make more things like
 this. I would be incredibly grateful.
 
 <script src="https://liberapay.com/samherniman/widgets/button.js"></script>
+
 <noscript>
+
 <a href="https://liberapay.com/samherniman/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
 </noscript>
 
@@ -721,12 +887,14 @@ the [companion website
 here](https://samherniman.github.io/Fluconf2026-indoorco2map/abstract.html).
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/60YwSH9g3Bg?si=WsgFugFTD8ozkfF6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
 </iframe>
 
 I was also interviewed for a podcast. You can listen to the [recording
 here](https://soundcloud.com/modulator-69529428/the-indoor-co2-map-community-science-in-the-pandemicene?si=c21857205e794f34998da835bf581d61&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing).
 
 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2258686259&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true">
+
 </iframe>
 
 <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">

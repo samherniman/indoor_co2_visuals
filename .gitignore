@@ -15,3 +15,5 @@ monthly_report_cache/
 _site/
 
 introduction_cache/html/
+
+**/*.quarto_ipynb
