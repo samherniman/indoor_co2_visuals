@@ -40,7 +40,7 @@ execute:
 # map showing observations over time animation
 # lollipop summer vs winter shops - maybe summarize by category
 # highest velocity based off of different time periods
-start_date <- lubridate::ymd("2026-03-31")
+start_date <- lubridate::ymd("2026-06-30")
 ```
 
 # Monthly indoorCO2map.com summary `r start_date |> lubridate::month(label = TRUE, abbr = FALSE)` `r start_date |> lubridate::year()`
@@ -106,6 +106,7 @@ transit_long_df <- autocruller::ac_get_co2("transit")
 #| include: false
 #| warning: false
 #| message: false
+#| eval: false
 transit_long_df <- join_transit_osm(transit_long_df)
 
 ```
@@ -124,8 +125,8 @@ transit_long_df <-
         brk_name %||%
         name_en %||%
         admin %||%
-        sovereignt %||%
-        name.y
+        sovereignt #%||%
+        # name.y
     ) 
 ```
 
@@ -244,7 +245,7 @@ transit_long_df_short <- sf::st_join(
 #| message: false
 #| include: false 
 transit_long_df_short <- transit_long_df_short |> 
-  dplyr::mutate(osm_id_line = as.integer(osm_id_line)) |> 
+  dplyr::mutate(osm_id_line = stringr::str_extract(line, "[:digit:]+") |> as.integer()) |> 
   dplyr::filter(co2Array > 410)
 ```
 
@@ -485,7 +486,7 @@ countries_count |>
   dplyr::rowwise() |> 
   dplyr::mutate(
     label_n = dplyr::if_else(
-      type == "transit" && n < 5, 
+      type == "transit" && n < 10, 
       label_n + 16,
       label_n
       )
@@ -620,6 +621,7 @@ buildings_under_threshold <-
     dplyr::summarise(
       name = dplyr::first(nwrname),
       co2 = dplyr::first(median_co2),
+      windows = dplyr::first(openwindows),
       osmtag = dplyr::first(osmtag) |> stringr::str_to_sentence(),
       location_description = dplyr::first(location_description)
     ) |>
@@ -830,9 +832,9 @@ plot_all_histogram(buildings_wide_df)
 :::
 :::
 
-## Transit
+<!-- ## Transit -->
 
-```{r animtransit}
+<!-- ```{r animtransit}
 #| warning: false
 #| message: false
 #| out.width: "100%"
@@ -898,6 +900,9 @@ animate(
 #| warning: false
 #| message: false
 #| include: false 
+#| eval: false
+
+# not evaluated because osmdata is not working
 most_measured_transit <- 
 transit_long_df_short |> 
 summarise_most_measured_transit()
@@ -906,7 +911,8 @@ summarise_most_measured_transit()
 
 :::{.cr-section}
 
-This month there were `r length(unique(transit_long_df_short$uid))` measurements of `r length(unique(transit_long_df_short$line))` unique transit lines. `r describe_most_measured_transit(most_measured_transit)` 
+This month there were `r length(unique(transit_long_df_short$uid))` measurements of `r length(unique(transit_long_df_short$line))` unique transit lines. 
+<!-- `#r describe_most_measured_transit(most_measured_transit)`  -->
 
 :::{#cr-transitcount}
 
@@ -929,30 +935,35 @@ transit_long_df_short |>
 
 :::
 
-When we look at the distribution of CO~2~ measurements by the transit type this month we can see some patterns. Trains often have higher CO~2~ values than buses, subways and trams because they usually travel for longer distances between stations. This causes trains to rely more heavily on mechanical ventilation than buses, subways, and trams which open their doors at stations more frequently. @cr-transitmonthbox
+<!-- When we look at the distribution of CO~2~ measurements by the transit type this month we can see some patterns. Trains often have higher CO~2~ values than buses, subways and trams because they usually travel for longer distances between stations. This causes trains to rely more heavily on mechanical ventilation than buses, subways, and trams which open their doors at stations more frequently. @cr-transitmonthbox -->
 
 :::{#cr-transitmonthbox}
 
 ```{r transitmonthbox}
 #| include: true
-#| eval: true
+#| eval: false
 #| warning: false
 #| message: false
+
+# not evaluated because osmdata is not working
+
 transit_long_df_short |> 
   plot_transit_month_box()
 ```
 
 :::
 
-This trend can also be seen when we look at the distribution of each transit type on all the data from `r lubridate::year(buildings_wide_df$date) |> unique() |> stringr::str_flatten_comma(last = ' and ')`. @cr-transitallbox
+<!-- This trend can also be seen when we look at the distribution of each transit type on all the data from `r lubridate::year(buildings_wide_df$date) |> unique() |> stringr::str_flatten_comma(last = ' and ')`. @cr-transitallbox -->
 
 :::{#cr-transitallbox}
 
 ```{r transitallbox}
 #| include: true
-#| eval: true
+#| eval: false
 #| warning: false
 #| message: false
+
+# not evaluated because osmdata is not working
 
 transit_long_df |> 
   plot_transit_all_box()
@@ -980,7 +991,7 @@ transit_long_df |>
   plot_transit_met_week()
 ```
 
-:::
+::: -->
 
 That's all for this month! Check back soon for more updates.
 
