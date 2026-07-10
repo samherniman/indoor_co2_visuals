@@ -655,13 +655,20 @@ plot_all_curves <- function(buildings_long_df_med, ylim_max) {
 gt_buildings_under_threshold <- function(buildings_under_threshold) {
   buildings_under_threshold |>
     dplyr::mutate(
-      osmtag = stringr::str_replace_all(osmtag, "_", " ")
+      osmtag = stringr::str_replace_all(osmtag, "_", " "),
+      windows = dplyr::case_match(
+        windows,
+        "noData" ~ "Unknown",
+        "true" ~ "Open",
+        "false" ~ "Closed"
+      )
     ) |>
     gt() |>
     tab_header(title = "Measurements under 500 ppm") |>
     cols_label(
       name = "Name",
       co2 = "CO2 ppm",
+      windows = "Windows",
       osmtag = "Building type",
       location_description = "Location"
     ) |>
@@ -849,7 +856,7 @@ plot_transit_count_bar <- function(x) {
 
 plot_transit_month_box <- function(x, co2_filter = 410) {
   x |>
-    tidyr::drop_na(route) |>
+    tidyr::drop_na(lineName) |>
     dplyr::filter(
       co2Array >= co2_filter
       # location_description %in% transit_count$location_description
