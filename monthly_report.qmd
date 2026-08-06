@@ -29,7 +29,7 @@ format:
 format-links: false
 execute:
   echo: false
-  cache: true
+  cache: refresh
 ---
 
 ```{r notes}
@@ -40,7 +40,7 @@ execute:
 # map showing observations over time animation
 # lollipop summer vs winter shops - maybe summarize by category
 # highest velocity based off of different time periods
-start_date <- lubridate::ymd("2026-06-30")
+start_date <- lubridate::ymd("2026-07-31")
 ```
 
 # Monthly indoorCO2map.com summary `r start_date |> lubridate::month(label = TRUE, abbr = FALSE)` `r start_date |> lubridate::year()`
