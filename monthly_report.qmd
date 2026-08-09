@@ -29,7 +29,7 @@ format:
 format-links: false
 execute:
   echo: false
-  cache: refresh
+  cache: true
 ---
 
 ```{r notes}
