@@ -55,7 +55,7 @@ Bad ventilation also contributes to a much higher risk of respiratory infections
 CO~2~ levels outside are typically around 420 parts per million (ppm), so if we measure the CO~2~ in a room and it is higher than that, you know its not ventilating much.
 Anywhere from 400 - 600 ppm are considered well ventilated. Every indoor environment is going to trap some CO~2~ and that's okay. Levels between 600 ppm and 1000 ppm may need some improvement. Anything above 1000 ppm is generally considered bad and should certainly be improved in some manner.
 
-[Indoor CO2-Map](https://indoorco2map.com) is a community science project to monitor indoor CO~2~ levels in non-residential buildings and transit systems around the world. Since April 2024 volunteers have brought CO~2~ monitors into cafes, shops, schools, trains, and all sorts of other places to monitor CO~2~ levels in them and upload them to a public database. 
+[Indoor CO2 Map](https://indoorco2map.com) is a community science project to monitor indoor CO~2~ levels in non-residential buildings and transit systems around the world. Since April 2024 volunteers have brought CO~2~ monitors into cafes, shops, schools, trains, and all sorts of other places to monitor CO~2~ levels in them and upload them to a public database. 
 
 The following is a monthly summary of how this project is going.
 
