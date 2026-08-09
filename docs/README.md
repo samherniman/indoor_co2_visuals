@@ -37,7 +37,7 @@ trap some CO<sub>2</sub> and that’s okay. Levels between 600 ppm and
 1000 ppm may need some improvement. Anything above 1000 ppm is generally
 considered bad and should certainly be improved in some manner.
 
-[Indoor CO2-Map](https://indoorco2map.com) is a community science
+[Indoor CO2 Map](https://indoorco2map.com) is a community science
 project to monitor indoor CO<sub>2</sub> levels in non-residential
 buildings and transit systems around the world. Since April 2024
 volunteers have brought CO<sub>2</sub> monitors into cafes, shops,
@@ -139,402 +139,7 @@ potentially miscalibrated sensors or erroneous recordings where the
 sensor was outside. However, it is important to celebrate the places
 that do in fact have well ventilated spaces.
 
-<div id="oibrpzbpbh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#oibrpzbpbh table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-&#10;#oibrpzbpbh thead, #oibrpzbpbh tbody, #oibrpzbpbh tfoot, #oibrpzbpbh tr, #oibrpzbpbh td, #oibrpzbpbh th {
-  border-style: none;
-}
-&#10;#oibrpzbpbh p {
-  margin: 0;
-  padding: 0;
-}
-&#10;#oibrpzbpbh .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-&#10;#oibrpzbpbh .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-&#10;#oibrpzbpbh .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-&#10;#oibrpzbpbh .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-&#10;#oibrpzbpbh .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-&#10;#oibrpzbpbh .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-&#10;#oibrpzbpbh .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-&#10;#oibrpzbpbh .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-&#10;#oibrpzbpbh .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-&#10;#oibrpzbpbh .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-&#10;#oibrpzbpbh .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-&#10;#oibrpzbpbh .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-&#10;#oibrpzbpbh .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-&#10;#oibrpzbpbh .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-&#10;#oibrpzbpbh .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-&#10;#oibrpzbpbh .gt_from_md > :first-child {
-  margin-top: 0;
-}
-&#10;#oibrpzbpbh .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-&#10;#oibrpzbpbh .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 0px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-&#10;#oibrpzbpbh .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-&#10;#oibrpzbpbh .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-&#10;#oibrpzbpbh .gt_row_group_first td {
-  border-top-width: 2px;
-}
-&#10;#oibrpzbpbh .gt_row_group_first th {
-  border-top-width: 2px;
-}
-&#10;#oibrpzbpbh .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-&#10;#oibrpzbpbh .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-&#10;#oibrpzbpbh .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-&#10;#oibrpzbpbh .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-&#10;#oibrpzbpbh .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-&#10;#oibrpzbpbh .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-&#10;#oibrpzbpbh .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-&#10;#oibrpzbpbh .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-&#10;#oibrpzbpbh .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-&#10;#oibrpzbpbh .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-&#10;#oibrpzbpbh .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-&#10;#oibrpzbpbh .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-&#10;#oibrpzbpbh .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-&#10;#oibrpzbpbh .gt_left {
-  text-align: left;
-}
-&#10;#oibrpzbpbh .gt_center {
-  text-align: center;
-}
-&#10;#oibrpzbpbh .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-&#10;#oibrpzbpbh .gt_font_normal {
-  font-weight: normal;
-}
-&#10;#oibrpzbpbh .gt_font_bold {
-  font-weight: bold;
-}
-&#10;#oibrpzbpbh .gt_font_italic {
-  font-style: italic;
-}
-&#10;#oibrpzbpbh .gt_super {
-  font-size: 65%;
-}
-&#10;#oibrpzbpbh .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-&#10;#oibrpzbpbh .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-&#10;#oibrpzbpbh .gt_indent_1 {
-  text-indent: 5px;
-}
-&#10;#oibrpzbpbh .gt_indent_2 {
-  text-indent: 10px;
-}
-&#10;#oibrpzbpbh .gt_indent_3 {
-  text-indent: 15px;
-}
-&#10;#oibrpzbpbh .gt_indent_4 {
-  text-indent: 20px;
-}
-&#10;#oibrpzbpbh .gt_indent_5 {
-  text-indent: 25px;
-}
-&#10;#oibrpzbpbh .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-&#10;#oibrpzbpbh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
+<div id="fxodlktuzj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 
 <table class="gt_table" data-quarto-postprocess="true"
 data-quarto-disable-processing="false" data-quarto-bootstrap="false">
@@ -611,7 +216,7 @@ Mexico</td>
 </tr>
 <tr>
 <td class="gt_row gt_left" headers="name">C&amp;A</td>
-<td class="gt_row gt_right" headers="co2">469.0</td>
+<td class="gt_row gt_right" headers="co2">461.5</td>
 <td class="gt_row gt_left" headers="windows">Unknown</td>
 <td class="gt_row gt_left" headers="osmtag">Clothes</td>
 <td class="gt_row gt_center" headers="location_description">Wien,
@@ -619,7 +224,7 @@ Austria</td>
 </tr>
 <tr>
 <td class="gt_row gt_left" headers="name">C&amp;A</td>
-<td class="gt_row gt_right" headers="co2">461.5</td>
+<td class="gt_row gt_right" headers="co2">469.0</td>
 <td class="gt_row gt_left" headers="windows">Unknown</td>
 <td class="gt_row gt_left" headers="osmtag">Clothes</td>
 <td class="gt_row gt_center" headers="location_description">Wien,
@@ -740,7 +345,7 @@ United States</td>
 </tr>
 <tr>
 <td class="gt_row gt_left" headers="name">Restaurant Suli</td>
-<td class="gt_row gt_right" headers="co2">464.0</td>
+<td class="gt_row gt_right" headers="co2">485.0</td>
 <td class="gt_row gt_left" headers="windows">Open</td>
 <td class="gt_row gt_left" headers="osmtag">Restaurant</td>
 <td class="gt_row gt_center" headers="location_description">Wien,
@@ -748,7 +353,7 @@ Austria</td>
 </tr>
 <tr>
 <td class="gt_row gt_left" headers="name">Restaurant Suli</td>
-<td class="gt_row gt_right" headers="co2">485.0</td>
+<td class="gt_row gt_right" headers="co2">464.0</td>
 <td class="gt_row gt_left" headers="windows">Open</td>
 <td class="gt_row gt_left" headers="osmtag">Restaurant</td>
 <td class="gt_row gt_center" headers="location_description">Wien,
@@ -820,16 +425,16 @@ headers="location_description">København,</td>
 </tr>
 <tr>
 <td class="gt_row gt_left" headers="name">C&amp;A</td>
-<td class="gt_row gt_right" headers="co2">477.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
+<td class="gt_row gt_right" headers="co2">463.0</td>
+<td class="gt_row gt_left" headers="windows">Open</td>
 <td class="gt_row gt_left" headers="osmtag">Clothes</td>
 <td class="gt_row gt_center" headers="location_description">Lübeck,
 Germany</td>
 </tr>
 <tr>
 <td class="gt_row gt_left" headers="name">C&amp;A</td>
-<td class="gt_row gt_right" headers="co2">463.0</td>
-<td class="gt_row gt_left" headers="windows">Open</td>
+<td class="gt_row gt_right" headers="co2">477.0</td>
+<td class="gt_row gt_left" headers="windows">Unknown</td>
 <td class="gt_row gt_left" headers="osmtag">Clothes</td>
 <td class="gt_row gt_center" headers="location_description">Lübeck,
 Germany</td>
@@ -975,7 +580,7 @@ United States</td>
 </tr>
 <tr>
 <td class="gt_row gt_left" headers="name">Friedrich-Wennmann-Bad</td>
-<td class="gt_row gt_right" headers="co2">480.0</td>
+<td class="gt_row gt_right" headers="co2">497.5</td>
 <td class="gt_row gt_left" headers="windows">Unknown</td>
 <td class="gt_row gt_left" headers="osmtag">Swimming pool</td>
 <td class="gt_row gt_center" headers="location_description">Mülheim an
@@ -983,7 +588,7 @@ der Ruhr, Germany</td>
 </tr>
 <tr>
 <td class="gt_row gt_left" headers="name">Friedrich-Wennmann-Bad</td>
-<td class="gt_row gt_right" headers="co2">497.5</td>
+<td class="gt_row gt_right" headers="co2">480.0</td>
 <td class="gt_row gt_left" headers="windows">Unknown</td>
 <td class="gt_row gt_left" headers="osmtag">Swimming pool</td>
 <td class="gt_row gt_center" headers="location_description">Mülheim an
@@ -1148,7 +753,7 @@ stable trends show up.
 
 Here’s a histogram showing how many measurements have been recorded each
 week since the start of the project. Over the last 12 months there have
-been 11115 building measurements which is 926 per month or 214 per
+been 11092 building measurements which is 924 per month or 213 per
 week.<sup>**cr-allhist?**</sup>
 
 <div id="cr-allhist">
@@ -1264,16 +869,9 @@ here](https://www.youtube.com/live/60YwSH9g3Bg?si=RAdTgYvftXXevaIa), and
 the [companion website
 here](https://samherniman.github.io/Fluconf2026-indoorco2map/abstract.html).
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/60YwSH9g3Bg?si=WsgFugFTD8ozkfF6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-
-</iframe>
 
 I was also interviewed for a podcast. You can listen to the [recording
 here](https://soundcloud.com/modulator-69529428/the-indoor-co2-map-community-science-in-the-pandemicene?si=c21857205e794f34998da835bf581d61&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing).
-
-<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2258686259&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true">
-
-</iframe>
 
 <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
 
