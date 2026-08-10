@@ -6,6 +6,9 @@ library(patchwork)
 world_sf <- rnaturalearth::ne_countries(scale = 10L) |> sf::st_make_valid()
 sf::sf_use_s2(FALSE)
 
+communities_sf <- sf::st_read(here::here("data/raw/communities.gpkg")) |>
+  dplyr::rename(community_name = name)
+
 `%||%` <- function(x, y) {
   if (is.na(x) || is.null(x)) y else x
 }
