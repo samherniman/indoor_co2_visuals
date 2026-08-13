@@ -90,6 +90,12 @@ buildings_wide_df <-
         countryname
     ) 
 
+buildings_wide_df <- sf::st_join(
+  buildings_wide_df,
+  communities_sf,
+  left = TRUE
+  )
+
 buildings_wide_df_short <-
   buildings_wide_df |>
     # sf::st_drop_geometry() |>
@@ -106,9 +112,10 @@ transit_long_df <- autocruller::ac_get_co2("transit")
 #| include: false
 #| warning: false
 #| message: false
-#| eval: false
-transit_long_df <- join_transit_osm(transit_long_df)
-
+#| eval: true
+# transit_long_df <- join_transit_osm(transit_long_df)
+# saveRDS(transit_long_df, here::here("transit_long_df.rds"))
+transit_long_df <- readRDS(here::here("transit_long_df.rds"))
 ```
 
 ```{r}
@@ -128,6 +135,12 @@ transit_long_df <-
         sovereignt #%||%
         # name.y
     ) 
+
+transit_long_df <- sf::st_join(
+  transit_long_df,
+  communities_sf,
+  left = TRUE
+  )
 ```
 
 ```{r}
@@ -342,7 +355,6 @@ buildings_wide_df_short |>
     dplyr::select(uid = obs_number, best_country_name, type) |> 
     sf::st_drop_geometry() 
 
-# not yet done. need to give transit data a country col
 countries_count_transit <- 
     transit_long_df_short |> 
     dplyr::group_by(uid, best_country_name, type) |> 
@@ -486,7 +498,7 @@ countries_count |>
   dplyr::rowwise() |> 
   dplyr::mutate(
     label_n = dplyr::if_else(
-      type == "transit" && n < 10, 
+      type == "transit" && n < 10 && label_n != n,
       label_n + 16,
       label_n
       )
@@ -832,9 +844,131 @@ plot_all_histogram(buildings_wide_df)
 :::
 :::
 
-<!-- ## Transit -->
+<!-- ## Communities -->
 
-<!-- ```{r animtransit}
+```{r}
+#| eval: false
+
+communities_count <- 
+buildings_wide_df_short |> 
+    # dplyr::mutate(type = "building") |> 
+    dplyr::select(uid = obs_number, community_name, type) |> 
+    sf::st_drop_geometry() |> 
+    tidyr::drop_na()
+
+communities_count_transit <-
+  transit_long_df_short |>
+  # dplyr::mutate(type = "transit") |>
+  dplyr::group_by(uid, community_name, type) |>
+  dplyr::count() |>
+  dplyr::select(-n) |>
+  sf::st_drop_geometry() |>
+  tidyr::drop_na()
+
+communities_count <-
+  dplyr::bind_rows(communities_count, communities_count_transit) 
+
+communities_count <-
+  communities_count |>
+  dplyr::group_by(community_name, type) |>
+  dplyr::count() 
+
+
+
+communities_labels <-
+  communities_count |>
+  tidyr::pivot_wider(names_from = type, values_from = n) |>
+  dplyr::mutate(
+    building = tidyr::replace_na(building, 0),
+    transit = sum(transit, building, na.rm = FALSE)
+  ) |>
+  dplyr::mutate(
+    building = dplyr::na_if(building, 0)
+  ) |>
+  tidyr::pivot_longer(
+    !community_name,
+    names_to = "type",
+    values_to = "label_n"
+  ) |>
+  tidyr::drop_na()
+
+communities_count <-
+  dplyr::left_join(
+    communities_count,
+    communities_labels,
+    by = dplyr::join_by(community_name, type)
+  ) |>
+  dplyr::arrange(dplyr::desc(label_n))
+
+communities_count$community_name <- factor(
+  communities_count$community_name, 
+  levels = unique(communities_count$community_name) |> rev()
+  )
+
+communities_count <- 
+  communities_count |> 
+  dplyr::ungroup() |> 
+  dplyr::filter(community_name != "") |> 
+    dplyr::mutate(
+        # community_name = forcats::fct_relevel(community_name, country_order)
+        # community_name = forcats::fct_infreq(community_name) |> forcats::fct_rev()
+
+        type = forcats::fct_relevel(
+          type, 
+          "transit", 
+          "building"
+          ) |> forcats::fct_rev()
+        )
+
+```
+
+```{r}
+#| eval: false
+communities_count |>
+  tidyr::drop_na() |>
+  dplyr::rowwise() |>
+  dplyr::mutate(
+    label_n = dplyr::if_else(
+      type == "transit" && n < 6 && label_n != n,
+      label_n + 6,
+      label_n
+    )
+  ) |>
+  # dplyr::filter(n > 1) |>
+  ggplot2::ggplot(aes(
+    x = community_name,
+    y = n,
+    fill = forcats::fct_rev(type)
+  )) +
+  geom_col() +
+  # ggrepel::geom_text_repel(
+  geom_text(
+    aes(y = label_n, label = n),
+    vjust = -0.5,
+    colour = "black",
+    # min.segment.length = 1000,
+    # direction = "y"
+    # box.padding = 0.1
+    # point.padding = 0.1
+  ) +
+  # scico::scale_fill_scico_d() +
+  scale_fill_manual(values = c("#FFBB34", "#295059")) +
+  labs(x = "Country", y = "Number of measurements") +
+  tidyplots_theme() +
+  theme(
+    legend.title = element_blank(),
+    axis.text.x = element_text(
+      angle = 45,
+      # vjust = 0.5,
+      hjust = 1
+    )
+  )
+
+```
+
+## Transit
+
+```{r animtransit}
 #| warning: false
 #| message: false
 #| out.width: "100%"
@@ -900,7 +1034,7 @@ animate(
 #| warning: false
 #| message: false
 #| include: false 
-#| eval: false
+#| eval: true
 
 # not evaluated because osmdata is not working
 most_measured_transit <- 
@@ -912,7 +1046,7 @@ summarise_most_measured_transit()
 :::{.cr-section}
 
 This month there were `r length(unique(transit_long_df_short$uid))` measurements of `r length(unique(transit_long_df_short$line))` unique transit lines. 
-<!-- `#r describe_most_measured_transit(most_measured_transit)`  -->
+`r describe_most_measured_transit(most_measured_transit)` 
 
 :::{#cr-transitcount}
 
@@ -935,31 +1069,32 @@ transit_long_df_short |>
 
 :::
 
-<!-- When we look at the distribution of CO~2~ measurements by the transit type this month we can see some patterns. Trains often have higher CO~2~ values than buses, subways and trams because they usually travel for longer distances between stations. This causes trains to rely more heavily on mechanical ventilation than buses, subways, and trams which open their doors at stations more frequently. @cr-transitmonthbox -->
+When we look at the distribution of CO~2~ measurements by the transit type this month we can see some patterns. Trains often have higher CO~2~ values than buses, subways and trams because they usually travel for longer distances between stations. This causes trains to rely more heavily on mechanical ventilation than buses, subways, and trams which open their doors at stations more frequently. @cr-transitmonthbox
 
 :::{#cr-transitmonthbox}
 
 ```{r transitmonthbox}
 #| include: true
-#| eval: false
+#| eval: true
 #| warning: false
 #| message: false
 
 # not evaluated because osmdata is not working
 
 transit_long_df_short |> 
+  tidyr::drop_na(route) |> 
   plot_transit_month_box()
 ```
 
 :::
 
-<!-- This trend can also be seen when we look at the distribution of each transit type on all the data from `r lubridate::year(buildings_wide_df$date) |> unique() |> stringr::str_flatten_comma(last = ' and ')`. @cr-transitallbox -->
+This trend can also be seen when we look at the distribution of each transit type on all the data from `r lubridate::year(buildings_wide_df$date) |> unique() |> stringr::str_flatten_comma(last = ' and ')`. @cr-transitallbox
 
 :::{#cr-transitallbox}
 
 ```{r transitallbox}
 #| include: true
-#| eval: false
+#| eval: true
 #| warning: false
 #| message: false
 
@@ -991,7 +1126,7 @@ transit_long_df |>
   plot_transit_met_week()
 ```
 
-::: -->
+:::
 
 That's all for this month! Check back soon for more updates.
 
