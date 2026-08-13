@@ -113,8 +113,9 @@ transit_long_df <- autocruller::ac_get_co2("transit")
 #| warning: false
 #| message: false
 #| eval: true
-transit_long_df <- join_transit_osm(transit_long_df)
-
+# transit_long_df <- join_transit_osm(transit_long_df)
+# saveRDS(transit_long_df, here::here("transit_long_df.rds"))
+transit_long_df <- readRDS(here::here("transit_long_df.rds"))
 ```
 
 ```{r}
@@ -843,9 +844,11 @@ plot_all_histogram(buildings_wide_df)
 :::
 :::
 
-## Communities
+<!-- ## Communities -->
 
 ```{r}
+#| eval: false
+
 communities_count <- 
 buildings_wide_df_short |> 
     # dplyr::mutate(type = "building") |> 
@@ -920,7 +923,7 @@ communities_count <-
 ```
 
 ```{r}
-
+#| eval: false
 communities_count |>
   tidyr::drop_na() |>
   dplyr::rowwise() |>

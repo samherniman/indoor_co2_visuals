@@ -17,3 +17,5 @@ _site/
 introduction_cache/html/
 
 **/*.quarto_ipynb
+
+transit_long_df.rds

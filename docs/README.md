@@ -139,7 +139,8 @@ potentially miscalibrated sensors or erroneous recordings where the
 sensor was outside. However, it is important to celebrate the places
 that do in fact have well ventilated spaces.
 
-<div id="fxodlktuzj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xlsyofilqa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+
 
 <table class="gt_table" data-quarto-postprocess="true"
 data-quarto-disable-processing="false" data-quarto-bootstrap="false">
@@ -232,7 +233,7 @@ Austria</td>
 </tr>
 <tr>
 <td class="gt_row gt_left" headers="name">Nudeln &amp; Sushi More</td>
-<td class="gt_row gt_right" headers="co2">443.0</td>
+<td class="gt_row gt_right" headers="co2">462.5</td>
 <td class="gt_row gt_left" headers="windows">Unknown</td>
 <td class="gt_row gt_left" headers="osmtag">Restaurant</td>
 <td class="gt_row gt_center" headers="location_description">Gloggnitz,
@@ -240,7 +241,7 @@ Austria</td>
 </tr>
 <tr>
 <td class="gt_row gt_left" headers="name">Nudeln &amp; Sushi More</td>
-<td class="gt_row gt_right" headers="co2">462.5</td>
+<td class="gt_row gt_right" headers="co2">443.0</td>
 <td class="gt_row gt_left" headers="windows">Unknown</td>
 <td class="gt_row gt_left" headers="osmtag">Restaurant</td>
 <td class="gt_row gt_center" headers="location_description">Gloggnitz,
@@ -345,7 +346,7 @@ United States</td>
 </tr>
 <tr>
 <td class="gt_row gt_left" headers="name">Restaurant Suli</td>
-<td class="gt_row gt_right" headers="co2">485.0</td>
+<td class="gt_row gt_right" headers="co2">464.0</td>
 <td class="gt_row gt_left" headers="windows">Open</td>
 <td class="gt_row gt_left" headers="osmtag">Restaurant</td>
 <td class="gt_row gt_center" headers="location_description">Wien,
@@ -353,7 +354,7 @@ Austria</td>
 </tr>
 <tr>
 <td class="gt_row gt_left" headers="name">Restaurant Suli</td>
-<td class="gt_row gt_right" headers="co2">464.0</td>
+<td class="gt_row gt_right" headers="co2">485.0</td>
 <td class="gt_row gt_left" headers="windows">Open</td>
 <td class="gt_row gt_left" headers="osmtag">Restaurant</td>
 <td class="gt_row gt_center" headers="location_description">Wien,
@@ -580,7 +581,7 @@ United States</td>
 </tr>
 <tr>
 <td class="gt_row gt_left" headers="name">Friedrich-Wennmann-Bad</td>
-<td class="gt_row gt_right" headers="co2">497.5</td>
+<td class="gt_row gt_right" headers="co2">480.0</td>
 <td class="gt_row gt_left" headers="windows">Unknown</td>
 <td class="gt_row gt_left" headers="osmtag">Swimming pool</td>
 <td class="gt_row gt_center" headers="location_description">Mülheim an
@@ -588,7 +589,7 @@ der Ruhr, Germany</td>
 </tr>
 <tr>
 <td class="gt_row gt_left" headers="name">Friedrich-Wennmann-Bad</td>
-<td class="gt_row gt_right" headers="co2">480.0</td>
+<td class="gt_row gt_right" headers="co2">497.5</td>
 <td class="gt_row gt_left" headers="windows">Unknown</td>
 <td class="gt_row gt_left" headers="osmtag">Swimming pool</td>
 <td class="gt_row gt_center" headers="location_description">Mülheim an
@@ -753,7 +754,7 @@ stable trends show up.
 
 Here’s a histogram showing how many measurements have been recorded each
 week since the start of the project. Over the last 12 months there have
-been 11092 building measurements which is 924 per month or 213 per
+been 11055 building measurements which is 921 per month or 213 per
 week.<sup>**cr-allhist?**</sup>
 
 <div id="cr-allhist">
@@ -764,89 +765,49 @@ week.<sup>**cr-allhist?**</sup>
 
 </div>
 
-<!-- ## Transit -->
+<!-- ## Communities -->
 
-<!-- ```{r animtransit}
-#| warning: false
-#| message: false
-#| out.width: "100%"
-bbox_transit <- sf::st_bbox(transit_long_df_short)
-anim <-
-  transit_long_df_short |>
-  dplyr::mutate(day = as.Date(date)) |>
-  ggplot2::ggplot() +
-  ggplot2::geom_sf(data = countries_sf, fill = "white") +
-  ggplot2::geom_sf(aes(colour = co2Array), size = 2) +
-  gganimate::transition_time(day) +
-  gganimate::enter_grow() +
-  # gganimate::exit_shrink() +
-  shadow_mark(past = TRUE, future = FALSE, alpha = 0.6 
-  # color = "grey"
-  ) +
-  # xlim(0, 17) +
-  # ylim(44.340868, 55.22535) +
-  xlim(bbox_transit[1] - 1, bbox_transit[3] + 1) +
-  ylim(bbox_transit[2] - 1, bbox_transit[4] + 1) +
-  scale_color_viridis_c(
-    name = "Mean CO2 ppm",
-    breaks = c(420, 600, 800, 1200, 2000, 4000),
-    transform = "log2",
-    option = "turbo"
-  ) +
-  theme(
-    plot.background = ggplot2::element_rect(fill = NA, colour = NA),
-    plot.title = ggplot2::element_text(size = ggplot2::rel(1.5)),
-    legend.background = ggplot2::element_rect(fill = NA, colour = NA),
-    legend.key = ggplot2::element_rect(fill = NA, colour = NA),
-    legend.key.width = unit(0.6, "lines"),
-    legend.key.height = unit(1, "lines"),
-    strip.background = ggplot2::element_rect(fill = "#cbd6dfff", colour = NA),
-    panel.background = ggplot2::element_rect(fill = "#cbd6dfff", colour = NA),
-    panel.border = ggplot2::element_rect(
-      fill = NA,
-      colour = "black",
-      linewidth = 0.5
-    ),
-    panel.grid.major = ggplot2::element_blank(),
-    panel.grid.minor = ggplot2::element_blank(),
-    axis.ticks = ggplot2::element_line(colour = "black", linewidth = 0.25),
-    axis.text = element_text(size = 12),
-    axis.title = element_text(size = 14)
-  ) +
-  ggtitle("{frame_time}")
-# frames_vec <- (length(unique(lubridate::date(transit_long_df_short$date)))/2) |> round(digits = 0)
-animate(
-  anim,
-  nframes = 31,
-  driver = 'png',
-  # quality = 40,
-  # nframes = 260,
-  fps = 5
-) |> magick::image_trim()
-# anim_save(here::here("data/derivative/animation.gif"), anim2)
-&#10;```
-&#10;
-&#10;:::{.cr-section}
-&#10;This month there were 252 measurements of 139 unique transit lines. 
-<!-- `#r describe_most_measured_transit(most_measured_transit)`  -->
+## Transit
+
+<img src="monthly_report_files/figure-commonmark/animtransit-1.gif"
+style="width:100.0%" />
+
+<div class="cr-section">
+
+This month there were 252 measurements of 139 unique transit lines. The
+most measured transit line was subway U6 in the U-Bahn Wien transit
+network in Wien, Austria (min: 454, mean: 714, max: 1190), which was
+measured 21 times.
 
 <div id="cr-transitcount">
 
 </div>
 
-<!-- When we look at the distribution of CO~2~ measurements by the transit type this month we can see some patterns. Trains often have higher CO~2~ values than buses, subways and trams because they usually travel for longer distances between stations. This causes trains to rely more heavily on mechanical ventilation than buses, subways, and trams which open their doors at stations more frequently. @cr-transitmonthbox -->
+When we look at the distribution of CO<sub>2</sub> measurements by the
+transit type this month we can see some patterns. Trains often have
+higher CO<sub>2</sub> values than buses, subways and trams because they
+usually travel for longer distances between stations. This causes trains
+to rely more heavily on mechanical ventilation than buses, subways, and
+trams which open their doors at stations more
+frequently.<sup>**cr-transitmonthbox?**</sup>
 
 <div id="cr-transitmonthbox">
 
+![](monthly_report_files/figure-commonmark/transitmonthbox-1.png)
+
 </div>
 
-<!-- This trend can also be seen when we look at the distribution of each transit type on all the data from 2024, 2025 and 2026. @cr-transitallbox -->
+This trend can also be seen when we look at the distribution of each
+transit type on all the data from 2024, 2025 and
+2026.<sup>**cr-transitallbox?**</sup>
 
 <div id="cr-transitallbox">
 
+![](monthly_report_files/figure-commonmark/transitallbox-1.png)
+
 </div>
 
-<div class="-->">
+</div>
 
 That’s all for this month! Check back soon for more updates.
 
@@ -869,9 +830,16 @@ here](https://www.youtube.com/live/60YwSH9g3Bg?si=RAdTgYvftXXevaIa), and
 the [companion website
 here](https://samherniman.github.io/Fluconf2026-indoorco2map/abstract.html).
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/60YwSH9g3Bg?si=WsgFugFTD8ozkfF6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
 
 I was also interviewed for a podcast. You can listen to the [recording
 here](https://soundcloud.com/modulator-69529428/the-indoor-co2-map-community-science-in-the-pandemicene?si=c21857205e794f34998da835bf581d61&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing).
+
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2258686259&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true">
+
+</iframe>
 
 <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
 
@@ -912,24 +880,23 @@ which I used heavily.
 We used R v. 4.4.3<sup>13</sup> and the following R packages:
 autocruller v. 0.0.0.9000<sup>14</sup>, dbscan v. 1.2.4<sup>15,16</sup>,
 duckplyr v. 1.2.1<sup>17</sup>, gganimate v. 1.0.11<sup>18</sup>,
-ggrepel v. 0.9.8<sup>19</sup>, glue v. 1.8.0<sup>20</sup>, gt v.
-1.3.0<sup>21</sup>, h3 v. 3.7.2<sup>22</sup>, here v.
-1.0.2<sup>23</sup>, leaflet v. 2.2.3.9000<sup>24</sup>, magick v.
-2.9.1<sup>25</sup>, mapview v. 2.11.4<sup>26</sup>, osmdata v.
-0.3.0<sup>27</sup>, pak v. 0.9.2<sup>28</sup>, patchwork v.
-1.3.2<sup>29</sup>, rmarkdown v. 2.30<sup>30–32</sup>, rnaturalearth v.
-1.2.0<sup>33</sup>, rnaturalearthhires v. 1.0.0.9000<sup>34</sup>,
-scales v. 1.4.0<sup>35</sup>, scico v. 1.5.0<sup>36</sup>, sf v.
-1.1.0<sup>37,38</sup>, tidygeocoder v. 1.0.6<sup>39</sup>, tidyplots v.
-0.4.0<sup>40</sup>, tidyverse v. 2.0.0<sup>41</sup>.
+ggiraph v. 0.9.6<sup>19</sup>, ggrepel v. 0.9.8<sup>20</sup>,
+ggspeciesaccumulation v. 0.0.0.9000<sup>21</sup>, glue v.
+1.8.0<sup>22</sup>, gt v. 1.3.0<sup>23</sup>, h3 v. 3.7.2<sup>24</sup>,
+here v. 1.0.2<sup>25</sup>, leaflet v. 2.2.3.9000<sup>26</sup>, magick
+v. 2.9.1<sup>27</sup>, mapview v. 2.11.4<sup>28</sup>, osmdata v.
+0.3.0<sup>29</sup>, pak v. 0.9.2<sup>30</sup>, patchwork v.
+1.3.2<sup>31</sup>, rmarkdown v. 2.30<sup>32–34</sup>, rnaturalearth v.
+1.2.0<sup>35</sup>, rnaturalearthhires v. 1.0.0.9000<sup>36</sup>,
+scales v. 1.4.0<sup>37</sup>, scico v. 1.5.0<sup>38</sup>, sf v.
+1.1.0<sup>39,40</sup>, tidygeocoder v. 1.0.6<sup>41</sup>, tidyplots v.
+0.4.0<sup>42</sup>, tidyverse v. 2.0.0<sup>43</sup>.
 
 All figures in this report are licensed under
 <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA
 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">.
 Please feel free to use and remix them and let me know if you do. I love
 to see my work being used elsewhere!
-
-</div>
 
 <div id="refs" class="references csl-bib-body" entry-spacing="0"
 line-spacing="2">
@@ -1119,9 +1086,20 @@ Graphics](https://CRAN.R-project.org/package=gganimate)*. (2025).</span>
 
 </div>
 
-<div id="ref-ggrepel" class="csl-entry">
+<div id="ref-ggiraph" class="csl-entry">
 
 <span class="csl-left-margin">19.
+</span><span class="csl-right-inline">Gohel, D. & Skintzos, P.
+*[<span class="nocase">ggiraph</span>: Make
+‘<span class="nocase">ggplot2</span>’ Graphics
+Interactive](https://CRAN.R-project.org/package=ggiraph)*.
+(2026).</span>
+
+</div>
+
+<div id="ref-ggrepel" class="csl-entry">
+
+<span class="csl-left-margin">20.
 </span><span class="csl-right-inline">Slowikowski, K.
 *[<span class="nocase">ggrepel</span>: Automatically Position
 Non-Overlapping Text Labels with
@@ -1130,9 +1108,20 @@ Non-Overlapping Text Labels with
 
 </div>
 
+<div id="ref-ggspeciesaccumulation" class="csl-entry">
+
+<span class="csl-left-margin">21.
+</span><span class="csl-right-inline">Herniman, S.
+*[<span class="nocase">ggspeciesaccumulation</span>: Species
+Accumulation Curves on Tidy
+Data](https://github.com/pandionlabs/ggspeciesaccumulation)*.
+(2026).</span>
+
+</div>
+
 <div id="ref-glue" class="csl-entry">
 
-<span class="csl-left-margin">20.
+<span class="csl-left-margin">22.
 </span><span class="csl-right-inline">Hester, J. & Bryan, J.
 *[<span class="nocase">glue</span>: Interpreted String
 Literals](https://CRAN.R-project.org/package=glue)*. (2024).</span>
@@ -1141,7 +1130,7 @@ Literals](https://CRAN.R-project.org/package=glue)*. (2024).</span>
 
 <div id="ref-gt" class="csl-entry">
 
-<span class="csl-left-margin">21.
+<span class="csl-left-margin">23.
 </span><span class="csl-right-inline">Iannone, R. *et al.*
 *[<span class="nocase">gt</span>: Easily Create Presentation-Ready
 Display Tables](https://CRAN.R-project.org/package=gt)*. (2026).</span>
@@ -1150,7 +1139,7 @@ Display Tables](https://CRAN.R-project.org/package=gt)*. (2026).</span>
 
 <div id="ref-h3" class="csl-entry">
 
-<span class="csl-left-margin">22.
+<span class="csl-left-margin">24.
 </span><span class="csl-right-inline">Kuethe, S. *[H3: R Bindings for
 H3](https://github.com/crazycapivara/h3-r)*. (2022).</span>
 
@@ -1158,7 +1147,7 @@ H3](https://github.com/crazycapivara/h3-r)*. (2022).</span>
 
 <div id="ref-here" class="csl-entry">
 
-<span class="csl-left-margin">23.
+<span class="csl-left-margin">25.
 </span><span class="csl-right-inline">Müller, K.
 *[<span class="nocase">here</span>: A Simpler Way to Find Your
 Files](https://CRAN.R-project.org/package=here)*. (2025).</span>
@@ -1167,7 +1156,7 @@ Files](https://CRAN.R-project.org/package=here)*. (2025).</span>
 
 <div id="ref-leaflet" class="csl-entry">
 
-<span class="csl-left-margin">24.
+<span class="csl-left-margin">26.
 </span><span class="csl-right-inline">Cheng, J., Schloerke, B.,
 Karambelkar, B., Xie, Y. & Aden-Buie, G.
 *[<span class="nocase">leaflet</span>: Create Interactive Web Maps with
@@ -1178,7 +1167,7 @@ the JavaScript ‘Leaflet’ Library](https://github.com/rstudio/leaflet)*.
 
 <div id="ref-magick" class="csl-entry">
 
-<span class="csl-left-margin">25.
+<span class="csl-left-margin">27.
 </span><span class="csl-right-inline">Ooms, J.
 *[<span class="nocase">magick</span>: Advanced Graphics and
 Image-Processing in r](https://CRAN.R-project.org/package=magick)*.
@@ -1188,7 +1177,7 @@ Image-Processing in r](https://CRAN.R-project.org/package=magick)*.
 
 <div id="ref-mapview" class="csl-entry">
 
-<span class="csl-left-margin">26.
+<span class="csl-left-margin">28.
 </span><span class="csl-right-inline">Appelhans, T., Detsch, F.,
 Reudenbach, C. & Woellauer, S. *[<span class="nocase">mapview</span>:
 Interactive Viewing of Spatial Data in
@@ -1198,7 +1187,7 @@ r](https://CRAN.R-project.org/package=mapview)*. (2025).</span>
 
 <div id="ref-osmdata" class="csl-entry">
 
-<span class="csl-left-margin">27.
+<span class="csl-left-margin">29.
 </span><span class="csl-right-inline">Mark Padgham, Bob Rudis, Robin
 Lovelace & Maëlle Salmon.
 [Osmdata](https://doi.org/10.21105/joss.00305). *Journal of Open Source
@@ -1208,7 +1197,7 @@ Software* **2**, 305 (2017).</span>
 
 <div id="ref-pak" class="csl-entry">
 
-<span class="csl-left-margin">28.
+<span class="csl-left-margin">30.
 </span><span class="csl-right-inline">Csárdi, G. & Hester, J.
 *[<span class="nocase">pak</span>: Another Approach to Package
 Installation](https://CRAN.R-project.org/package=pak)*. (2025).</span>
@@ -1217,7 +1206,7 @@ Installation](https://CRAN.R-project.org/package=pak)*. (2025).</span>
 
 <div id="ref-patchwork" class="csl-entry">
 
-<span class="csl-left-margin">29.
+<span class="csl-left-margin">31.
 </span><span class="csl-right-inline">Pedersen, T. L.
 *[<span class="nocase">patchwork</span>: The Composer of
 Plots](https://CRAN.R-project.org/package=patchwork)*. (2025).</span>
@@ -1226,7 +1215,7 @@ Plots](https://CRAN.R-project.org/package=patchwork)*. (2025).</span>
 
 <div id="ref-rmarkdown2018" class="csl-entry">
 
-<span class="csl-left-margin">30.
+<span class="csl-left-margin">32.
 </span><span class="csl-right-inline">Xie, Y., Allaire, J. J. &
 Grolemund, G. *[R Markdown: The Definitive
 Guide](https://bookdown.org/yihui/rmarkdown)*. (Chapman; Hall/CRC, Boca
@@ -1236,7 +1225,7 @@ Raton, Florida, 2018).</span>
 
 <div id="ref-rmarkdown2020" class="csl-entry">
 
-<span class="csl-left-margin">31.
+<span class="csl-left-margin">33.
 </span><span class="csl-right-inline">Xie, Y., Dervieux, C. & Riederer,
 E. *[R Markdown
 Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook)*. (Chapman;
@@ -1246,7 +1235,7 @@ Hall/CRC, Boca Raton, Florida, 2020).</span>
 
 <div id="ref-rmarkdown2025" class="csl-entry">
 
-<span class="csl-left-margin">32.
+<span class="csl-left-margin">34.
 </span><span class="csl-right-inline">Allaire, J. *et al.*
 *[<span class="nocase">rmarkdown</span>: Dynamic Documents for
 r](https://github.com/rstudio/rmarkdown)*. (2025).</span>
@@ -1255,7 +1244,7 @@ r](https://github.com/rstudio/rmarkdown)*. (2025).</span>
 
 <div id="ref-rnaturalearth" class="csl-entry">
 
-<span class="csl-left-margin">33.
+<span class="csl-left-margin">35.
 </span><span class="csl-right-inline">Massicotte, P. & South, A.
 *[<span class="nocase">rnaturalearth</span>: World Map Data from Natural
 Earth](https://CRAN.R-project.org/package=rnaturalearth)*.
@@ -1265,7 +1254,7 @@ Earth](https://CRAN.R-project.org/package=rnaturalearth)*.
 
 <div id="ref-rnaturalearthhires" class="csl-entry">
 
-<span class="csl-left-margin">34.
+<span class="csl-left-margin">36.
 </span><span class="csl-right-inline">South, A., Michael, S. &
 Massicotte, P. *[<span class="nocase">rnaturalearthhires</span>: High
 Resolution World Vector Map Data from Natural Earth Used in
@@ -1276,7 +1265,7 @@ Rnaturalearth](https://github.com/ropensci/rnaturalearthhires)*.
 
 <div id="ref-scales" class="csl-entry">
 
-<span class="csl-left-margin">35.
+<span class="csl-left-margin">37.
 </span><span class="csl-right-inline">Wickham, H., Pedersen, T. L. &
 Seidel, D. *[<span class="nocase">scales</span>: Scale Functions for
 Visualization](https://CRAN.R-project.org/package=scales)*.
@@ -1286,7 +1275,7 @@ Visualization](https://CRAN.R-project.org/package=scales)*.
 
 <div id="ref-scico" class="csl-entry">
 
-<span class="csl-left-margin">36.
+<span class="csl-left-margin">38.
 </span><span class="csl-right-inline">Pedersen, T. L. & Crameri, F.
 *[<span class="nocase">scico</span>: Colour Palettes Based on the
 Scientific Colour-Maps](https://CRAN.R-project.org/package=scico)*.
@@ -1296,7 +1285,7 @@ Scientific Colour-Maps](https://CRAN.R-project.org/package=scico)*.
 
 <div id="ref-sf2018" class="csl-entry">
 
-<span class="csl-left-margin">37.
+<span class="csl-left-margin">39.
 </span><span class="csl-right-inline">Pebesma, E.
 [<span class="nocase">Simple Features for R: Standardized Support for
 Spatial Vector Data</span>](https://doi.org/10.32614/RJ-2018-009). *The
@@ -1306,7 +1295,7 @@ R Journal* **10**, 439–446 (2018).</span>
 
 <div id="ref-sf2023" class="csl-entry">
 
-<span class="csl-left-margin">38.
+<span class="csl-left-margin">40.
 </span><span class="csl-right-inline">Pebesma, E. & Bivand, R.
 *<span class="nocase">Spatial Data Science: With applications in
 R</span>*. (Chapman and Hall/CRC, 2023).
@@ -1316,7 +1305,7 @@ doi:[10.1201/9780429459016](https://doi.org/10.1201/9780429459016).</span>
 
 <div id="ref-tidygeocoder" class="csl-entry">
 
-<span class="csl-left-margin">39.
+<span class="csl-left-margin">41.
 </span><span class="csl-right-inline">Cambon, J., Hernangómez, D.,
 Belanger, C. & Possenriede, D.
 [<span class="nocase">tidygeocoder</span>: An r package for
@@ -1327,7 +1316,7 @@ Software* **6**, 3544 (2021).</span>
 
 <div id="ref-tidyplots" class="csl-entry">
 
-<span class="csl-left-margin">40.
+<span class="csl-left-margin">42.
 </span><span class="csl-right-inline">Engler, J. B. Tidyplots empowers
 life scientists with easy code-based data visualization. *iMeta* e70018
 (2025)
@@ -1337,7 +1326,7 @@ doi:[10.1002/imt2.70018](https://doi.org/10.1002/imt2.70018).</span>
 
 <div id="ref-tidyverse" class="csl-entry">
 
-<span class="csl-left-margin">41.
+<span class="csl-left-margin">43.
 </span><span class="csl-right-inline">Wickham, H. *et al.* [Welcome to
 the
 <span class="nocase">tidyverse</span>](https://doi.org/10.21105/joss.01686).
