@@ -112,7 +112,7 @@ transit_long_df <- autocruller::ac_get_co2("transit")
 #| include: false
 #| warning: false
 #| message: false
-#| eval: false
+#| eval: true
 transit_long_df <- join_transit_osm(transit_long_df)
 
 ```
@@ -963,9 +963,9 @@ communities_count |>
 
 ```
 
-<!-- ## Transit -->
+## Transit
 
-<!-- ```{r animtransit}
+```{r animtransit}
 #| warning: false
 #| message: false
 #| out.width: "100%"
@@ -1031,7 +1031,7 @@ animate(
 #| warning: false
 #| message: false
 #| include: false 
-#| eval: false
+#| eval: true
 
 # not evaluated because osmdata is not working
 most_measured_transit <- 
@@ -1043,7 +1043,7 @@ summarise_most_measured_transit()
 :::{.cr-section}
 
 This month there were `r length(unique(transit_long_df_short$uid))` measurements of `r length(unique(transit_long_df_short$line))` unique transit lines. 
-<!-- `#r describe_most_measured_transit(most_measured_transit)`  -->
+`r describe_most_measured_transit(most_measured_transit)` 
 
 :::{#cr-transitcount}
 
@@ -1066,31 +1066,32 @@ transit_long_df_short |>
 
 :::
 
-<!-- When we look at the distribution of CO~2~ measurements by the transit type this month we can see some patterns. Trains often have higher CO~2~ values than buses, subways and trams because they usually travel for longer distances between stations. This causes trains to rely more heavily on mechanical ventilation than buses, subways, and trams which open their doors at stations more frequently. @cr-transitmonthbox -->
+When we look at the distribution of CO~2~ measurements by the transit type this month we can see some patterns. Trains often have higher CO~2~ values than buses, subways and trams because they usually travel for longer distances between stations. This causes trains to rely more heavily on mechanical ventilation than buses, subways, and trams which open their doors at stations more frequently. @cr-transitmonthbox
 
 :::{#cr-transitmonthbox}
 
 ```{r transitmonthbox}
 #| include: true
-#| eval: false
+#| eval: true
 #| warning: false
 #| message: false
 
 # not evaluated because osmdata is not working
 
 transit_long_df_short |> 
+  tidyr::drop_na(route) |> 
   plot_transit_month_box()
 ```
 
 :::
 
-<!-- This trend can also be seen when we look at the distribution of each transit type on all the data from `r lubridate::year(buildings_wide_df$date) |> unique() |> stringr::str_flatten_comma(last = ' and ')`. @cr-transitallbox -->
+This trend can also be seen when we look at the distribution of each transit type on all the data from `r lubridate::year(buildings_wide_df$date) |> unique() |> stringr::str_flatten_comma(last = ' and ')`. @cr-transitallbox
 
 :::{#cr-transitallbox}
 
 ```{r transitallbox}
 #| include: true
-#| eval: false
+#| eval: true
 #| warning: false
 #| message: false
 
@@ -1122,7 +1123,7 @@ transit_long_df |>
   plot_transit_met_week()
 ```
 
-::: -->
+:::
 
 That's all for this month! Check back soon for more updates.
 
