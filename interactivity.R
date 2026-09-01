@@ -162,3 +162,16 @@ buildings_wide_df |>
     axis.text.x = element_text(angle = 45),
     legend.position = "none"
   )
+
+x |>
+  tidyr::drop_na(route) |>
+  dplyr::mutate(
+    type = stringr::str_to_sentence(route) |>
+      stringr::str_replace_all("_", " ")
+  ) |>
+  dplyr::group_by(type) |>
+  dplyr::summarise(
+    count = dplyr::n_distinct(uid)
+  ) |>
+  sf::st_drop_geometry() |>
+  gt()

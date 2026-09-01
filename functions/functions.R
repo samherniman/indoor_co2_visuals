@@ -901,52 +901,49 @@ plot_transit_month_box <- function(x, co2_filter = 410) {
     adjust_caption("Data from indoorCO2map.com", fontsize = 10)
 }
 
-plot_transit_all_box <- function(x, co2_filter = 410) {
-  x |>
+plot_transit_all_box <- function(x, co2_filter = 410, med_labels = FALSE) {
+  x <-
+    x |>
     tidyr::drop_na(route) |>
     dplyr::filter(
       co2Array >= co2_filter
-      # location_description %in% transit_count$location_description
     ) |>
     dplyr::mutate(
       route = stringr::str_to_sentence(route) |>
         stringr::str_replace_all("_", " ")
     ) |>
-    # dplyr::group_by(route) |>
-    # dplyr::summarise(
-    #   ppmavg = median(co2Array, na.rm = TRUE),
-    #   location_description = dplyr::first(location_description)
-    #   ) |>
     tidyplot(
       x = route,
       y = co2Array,
       fill = co2Array
     ) |>
-    # add_data_points_beeswarm(size = 1, alpha = 0.1) |>
     add_boxplot(
       linewidth = 1.4,
       fill = "white",
       color = "grey30",
       show_outliers = FALSE
     ) |>
-    # add_curve_fit(linewidth = 2,  alpha = 0.5,  se = FALSE) |>
-    # add_data_points(size = 2, alpha = 0.4) |>
     adjust_x_axis(
       title = "Transit type",
       rotate_labels = TRUE
     ) |>
-    # sort_x_axis_labels() |>
-    # adjust_y_axis(
-    #   transform = "log2",
-    #   limits = c(420, NA)
-    #   ) |>
     adjust_size(width = NA, height = NA, unit = "cm") |>
     adjust_font(fontsize = 16) |>
     remove_legend() |>
-    # adjust_legend_title("Building type") |>
     adjust_y_axis_title("CO2 ppm") |>
     add_title("CO2 Distribution (all data)") |>
     adjust_caption("Data from indoorCO2map.com", fontsize = 10)
+
+  if (med_labels) {
+    x <-
+      x |>
+      add_median_value(
+        fontsize = 16,
+        vjust = -0.3
+      )
+  }
+
+  return(x)
 }
 
 plot_transit_met_week <- function(x) {
