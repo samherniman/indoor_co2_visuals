@@ -3,7 +3,9 @@ library(tidyplots)
 library(gt)
 library(patchwork)
 
-osmdata::set_overpass_url("https://overpass-api.de/api/interpreter")
+osmdata::set_overpass_url(
+  "https://overpass-api.de/api/interpreter"
+)
 world_sf <- rnaturalearth::ne_countries(scale = 10L) |> sf::st_make_valid()
 sf::sf_use_s2(FALSE)
 
@@ -239,7 +241,7 @@ form_new_countries_sentence <- function(
 
 describe_location <- function(x) {
   x |>
-    # dplyr::rowwise() |>
+    dplyr::rowwise() |>
     dplyr::mutate(
       location_description = glue::glue(
         "{city %||% town %||% county %||% province %||% state %||% town %||% municipality %||% region %||% borough %||% suburb %||% neighbourhood %||% city_district}, {best_country_name}"
@@ -321,7 +323,7 @@ summarise_most_measured_transit <- function(x) {
     dplyr::group_by(line) |>
     dplyr::summarise(
       n = length(unique(uid)),
-      lineName = dplyr::first(ref),
+      lineName = dplyr::first(lineName),
       route = dplyr::first(route),
       network = dplyr::first(network_best),
       operator = dplyr::first(operator_best),
