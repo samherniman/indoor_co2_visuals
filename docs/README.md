@@ -1,6 +1,6 @@
 
 
-# Monthly indoorCO2map.com summary July 2026
+# Monthly indoorCO2map.com summary August 2026
 
 There is a well documented relationship between indoor levels of
 CO<sub>2</sub> and the amount of ventilation in indoor environments.
@@ -53,24 +53,26 @@ style="width:100.0%" />
 
 <div class="cr-section">
 
-This month there were 876 measurements of 675 unique buildings.
+This month there were 617 measurements of 480 unique buildings.
 
 <sup>**cr-ccplot?**</sup>
 
-The most measured building was NYU Langone Health - Tisch Hospital, a
-hospital in New York, United States (min: 484, mean: 569, max: 650),
-which was measured 17 times.
+The most measured buildings were SPAR Gourmet (Spar), a supermarket in
+Wien, Austria (min: 628, mean: 783, max: 884) and REWE (Rewe), a
+supermarket in Leipzig, Germany (min: 1204, mean: 1314, max: 1474),
+which were measured 9 times each.
 
-There were measurements in 19 separate countries. Additionally, the
-first measurement was added in Chile this month. Welcome to the glorious
-world of CO<sub>2</sub> monitoring Chile!
+There were measurements in 20 separate countries. Additionally, the
+first measurements were added in Lithuania and Latvia this month.
+Welcome to the glorious world of CO<sub>2</sub> monitoring Lithuania and
+Latvia!
 
 <sup>**cr-histco2plot?**</sup>
 
 Here is a graph that shows the distribution of all the CO<sub>2</sub>
 measurements this month. The dashed red line shows the median which was
-733 ppm. There are many measurements that we would consider good
-CO<sub>2</sub> levels, however, you’ll notice that about 22 percent are
+720 ppm. There are many measurements that we would consider good
+CO<sub>2</sub> levels, however, you’ll notice that about 18 percent are
 over 1000 ppm, which really should be addressed.
 
 <div id="cr-histco2plot">
@@ -88,7 +90,7 @@ over 1000 ppm, which really should be addressed.
 <sup>**cr-buildingtypes?**</sup>
 
 This graph shows the distribution of the most common building types in
-the month of July. The dark bar in the middle of each box and whisker
+the month of August. The dark bar in the middle of each box and whisker
 plot shows the median value for each category. The rest of the lines
 show the range of the distribution. Most of the values fall within each
 box. If you want more information about how to interpret this graph,
@@ -109,21 +111,21 @@ Here is a graph of all the recordings that happened this month shown by
 the grey curves. I’ve highlighted the highest
 one.<sup>**cr-allcurves?**</sup>
 
-The building with the highest measured CO<sub>2</sub> levels was Dba256
-Bar & Gallery in Pomona, United States with a median CO<sub>2</sub>
-value of 6500 ppm. While this is incredibly high, it is important to
-realize that this is an outlier. The majority of measurements are much
-lower than this. There is a boxplot to the right of the graph which
-shows where the majority of measurements fall.
+The building with the highest measured CO<sub>2</sub> levels was Gold
+Sounds Bar in New York, United States with a median CO<sub>2</sub> value
+of 6232 ppm. While this is incredibly high, it is important to realize
+that this is an outlier. The majority of measurements are much lower
+than this. There is a boxplot to the right of the graph which shows
+where the majority of measurements fall.
 
-The building with the lowest measured CO<sub>2</sub> levels was Target
-in Albany, United States with a median CO<sub>2</sub> value of 429 ppm.
-There were some measurements that were even lower than this, but we have
-removed them from this analysis. Generally outdoor CO<sub>2</sub> levels
-don’t go below 410 ppm, therefore we have removed any datapoints that
-are below 400 ppm. If your CO<sub>2</sub> monitor consistently shows
-levels below 410 ppm while you are inside or outside, it is likely that
-your monitor needs recalibrating.
+The building with the lowest measured CO<sub>2</sub> levels was Tor B in
+Köln, Germany with a median CO<sub>2</sub> value of 431 ppm. There were
+some measurements that were even lower than this, but we have removed
+them from this analysis. Generally outdoor CO<sub>2</sub> levels don’t
+go below 410 ppm, therefore we have removed any datapoints that are
+below 400 ppm. If your CO<sub>2</sub> monitor consistently shows levels
+below 410 ppm while you are inside or outside, it is likely that your
+monitor needs recalibrating.
 
 <div id="cr-allcurves">
 
@@ -133,14 +135,13 @@ your monitor needs recalibrating.
 
 </div>
 
-Here is a chart showing the 64 measurements that had a median
+Here is a chart showing the 40 measurements that had a median
 CO<sub>2</sub> value under 500. Keep in mind that some of these are
 potentially miscalibrated sensors or erroneous recordings where the
 sensor was outside. However, it is important to celebrate the places
 that do in fact have well ventilated spaces.
 
-<div id="xlsyofilqa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-
+<div id="juaaehmtkq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 
 <table class="gt_table" data-quarto-postprocess="true"
 data-quarto-disable-processing="false" data-quarto-bootstrap="false">
@@ -166,523 +167,327 @@ data-quarto-table-cell-role="th" scope="col">Location</th>
 </thead>
 <tbody class="gt_table_body">
 <tr>
-<td class="gt_row gt_left" headers="name">House of Bird
-Kwintelooijen</td>
-<td class="gt_row gt_right" headers="co2">468.0</td>
+<td class="gt_row gt_left" headers="name">Interim Bergstraße / Open
+Science Lab</td>
+<td class="gt_row gt_right" headers="co2">455.0</td>
 <td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Restaurant</td>
-<td class="gt_row gt_center" headers="location_description">Rhenen,
-Netherlands</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Said2Cut</td>
-<td class="gt_row gt_right" headers="co2">462.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Hairdresser</td>
-<td class="gt_row gt_center" headers="location_description">Berlin,
+<td class="gt_row gt_left" headers="osmtag">Library</td>
+<td class="gt_row gt_center" headers="location_description">Dresden,
 Germany</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" headers="name">Stadtamt Gloggnitz</td>
-<td class="gt_row gt_right" headers="co2">493.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Townhall</td>
-<td class="gt_row gt_center" headers="location_description">Gloggnitz,
-Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">OBI</td>
-<td class="gt_row gt_right" headers="co2">445.5</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Doityourself</td>
-<td class="gt_row gt_center" headers="location_description">Bamberg,
-Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Rocket's</td>
-<td class="gt_row gt_right" headers="co2">490.5</td>
+<td class="gt_row gt_left" headers="name">Tabak Trafik Rahman</td>
+<td class="gt_row gt_right" headers="co2">454.0</td>
 <td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Restaurant</td>
-<td class="gt_row gt_center" headers="location_description">Leipzig,
-Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Gran Museo de Chichén
-Itzá</td>
-<td class="gt_row gt_right" headers="co2">447.5</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Museum</td>
-<td class="gt_row gt_center" headers="location_description">Tinum,
-Mexico</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">C&amp;A</td>
-<td class="gt_row gt_right" headers="co2">461.5</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Clothes</td>
+<td class="gt_row gt_left" headers="osmtag">Kiosk</td>
 <td class="gt_row gt_center" headers="location_description">Wien,
 Austria</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" headers="name">C&amp;A</td>
+<td class="gt_row gt_left" headers="name">Pizza Pazza</td>
 <td class="gt_row gt_right" headers="co2">469.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Clothes</td>
-<td class="gt_row gt_center" headers="location_description">Wien,
-Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Nudeln &amp; Sushi More</td>
-<td class="gt_row gt_right" headers="co2">462.5</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Restaurant</td>
-<td class="gt_row gt_center" headers="location_description">Gloggnitz,
-Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Nudeln &amp; Sushi More</td>
-<td class="gt_row gt_right" headers="co2">443.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Restaurant</td>
-<td class="gt_row gt_center" headers="location_description">Gloggnitz,
-Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Müller</td>
-<td class="gt_row gt_right" headers="co2">445.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Chemist</td>
-<td class="gt_row gt_center" headers="location_description">Nürnberg,
-Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Euro Kebap &amp;
-Pizzahaus</td>
-<td class="gt_row gt_right" headers="co2">474.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Fast food</td>
-<td class="gt_row gt_center" headers="location_description">Gloggnitz,
-Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Hugendubel</td>
-<td class="gt_row gt_right" headers="co2">482.0</td>
-<td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Books</td>
-<td class="gt_row gt_center" headers="location_description">Göttingen,
-Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Zentrum Im Werd</td>
-<td class="gt_row gt_right" headers="co2">486.5</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Clinic</td>
-<td class="gt_row gt_center" headers="location_description">Wien,
-Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Mr. Mai</td>
-<td class="gt_row gt_right" headers="co2">447.0</td>
-<td class="gt_row gt_left" headers="windows">Closed</td>
-<td class="gt_row gt_left" headers="osmtag">Restaurant</td>
-<td class="gt_row gt_center"
-headers="location_description">Königswinter, Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Frittenwerk</td>
-<td class="gt_row gt_right" headers="co2">499.0</td>
 <td class="gt_row gt_left" headers="windows">Open</td>
 <td class="gt_row gt_left" headers="osmtag">Fast food</td>
 <td class="gt_row gt_center" headers="location_description">Köln,
 Germany</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" headers="name">Sonnen-Apotheke</td>
-<td class="gt_row gt_right" headers="co2">463.5</td>
+<td class="gt_row gt_left" headers="name">Canaan Shop</td>
+<td class="gt_row gt_right" headers="co2">497.0</td>
 <td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Pharmacy</td>
+<td class="gt_row gt_left" headers="osmtag">Convenience</td>
+<td class="gt_row gt_center" headers="location_description">Berlin,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Hubsi Vintage Shop</td>
+<td class="gt_row gt_right" headers="co2">464.0</td>
+<td class="gt_row gt_left" headers="windows">Open</td>
+<td class="gt_row gt_left" headers="osmtag">Second hand</td>
 <td class="gt_row gt_center" headers="location_description">Wien,
 Austria</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" headers="name">Villach Hauptbahnhof</td>
-<td class="gt_row gt_right" headers="co2">468.0</td>
+<td class="gt_row gt_left" headers="name">Walden Pond Books</td>
+<td class="gt_row gt_right" headers="co2">486.0</td>
+<td class="gt_row gt_left" headers="windows">Open</td>
+<td class="gt_row gt_left" headers="osmtag">Books</td>
+<td class="gt_row gt_center" headers="location_description">Oakland,
+United States</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Trents &amp; Style</td>
+<td class="gt_row gt_right" headers="co2">473.0</td>
+<td class="gt_row gt_left" headers="windows">Open</td>
+<td class="gt_row gt_left" headers="osmtag">Hairdresser</td>
+<td class="gt_row gt_center" headers="location_description">Wien,
+Austria</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Lichtblick</td>
+<td class="gt_row gt_right" headers="co2">465.0</td>
+<td class="gt_row gt_left" headers="windows">Unknown</td>
+<td class="gt_row gt_left" headers="osmtag">Cinema</td>
+<td class="gt_row gt_center" headers="location_description">Kreis
+Nordfriesland, Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Bio-Pizzeria &amp; Ristorante
+"VERO #2"</td>
+<td class="gt_row gt_right" headers="co2">480.0</td>
+<td class="gt_row gt_left" headers="windows">Open</td>
+<td class="gt_row gt_left" headers="osmtag">Restaurant</td>
+<td class="gt_row gt_center" headers="location_description">Wien,
+Austria</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Hamburg Hauptbahnhof</td>
+<td class="gt_row gt_right" headers="co2">496.0</td>
 <td class="gt_row gt_left" headers="windows">Unknown</td>
 <td class="gt_row gt_left" headers="osmtag">Station</td>
-<td class="gt_row gt_center" headers="location_description">Villach,
-Austria</td>
+<td class="gt_row gt_center" headers="location_description">Hamburg,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">The Gardener</td>
+<td class="gt_row gt_right" headers="co2">461.0</td>
+<td class="gt_row gt_left" headers="windows">Open</td>
+<td class="gt_row gt_left" headers="osmtag">Furniture</td>
+<td class="gt_row gt_center" headers="location_description">Berkeley,
+United States</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Paris Gare de l'Est</td>
+<td class="gt_row gt_right" headers="co2">485.0</td>
+<td class="gt_row gt_left" headers="windows">Unknown</td>
+<td class="gt_row gt_left" headers="osmtag">Station</td>
+<td class="gt_row gt_center" headers="location_description">Paris,
+France</td>
 </tr>
 <tr>
 <td class="gt_row gt_left" headers="name">Wen's Nudeln</td>
-<td class="gt_row gt_right" headers="co2">485.0</td>
+<td class="gt_row gt_right" headers="co2">488.0</td>
+<td class="gt_row gt_left" headers="windows">Closed</td>
+<td class="gt_row gt_left" headers="osmtag">Fast food</td>
+<td class="gt_row gt_center" headers="location_description">Wien,
+Austria</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Noodle King</td>
+<td class="gt_row gt_right" headers="co2">480.0</td>
 <td class="gt_row gt_left" headers="windows">Open</td>
 <td class="gt_row gt_left" headers="osmtag">Fast food</td>
 <td class="gt_row gt_center" headers="location_description">Wien,
 Austria</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" headers="name">Wellcome Collection</td>
-<td class="gt_row gt_right" headers="co2">479.0</td>
+<td class="gt_row gt_left" headers="name">The Three Sisters Pub</td>
+<td class="gt_row gt_right" headers="co2">459.0</td>
 <td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Museum</td>
-<td class="gt_row gt_center" headers="location_description">Greater
-London, United Kingdom</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Loetje</td>
-<td class="gt_row gt_right" headers="co2">494.0</td>
-<td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Restaurant</td>
-<td class="gt_row gt_center" headers="location_description">Den Haag,
+<td class="gt_row gt_left" headers="osmtag">Pub</td>
+<td class="gt_row gt_center" headers="location_description">Delft,
 Netherlands</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" headers="name">Bread &amp; Butter</td>
-<td class="gt_row gt_right" headers="co2">486.5</td>
-<td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Convenience</td>
-<td class="gt_row gt_center" headers="location_description">New York,
-United States</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Restaurant Suli</td>
-<td class="gt_row gt_right" headers="co2">464.0</td>
-<td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Restaurant</td>
-<td class="gt_row gt_center" headers="location_description">Wien,
-Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Restaurant Suli</td>
-<td class="gt_row gt_right" headers="co2">485.0</td>
-<td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Restaurant</td>
-<td class="gt_row gt_center" headers="location_description">Wien,
-Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Breuninger</td>
-<td class="gt_row gt_right" headers="co2">486.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Clothes</td>
-<td class="gt_row gt_center" headers="location_description">Nürnberg,
-Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">SuperChina</td>
-<td class="gt_row gt_right" headers="co2">447.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Yes</td>
-<td class="gt_row gt_center" headers="location_description">Alcobendas,
-Spain</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Mit Ecken und Kanten</td>
-<td class="gt_row gt_right" headers="co2">453.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Second hand</td>
-<td class="gt_row gt_center" headers="location_description">Nürnberg,
-Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">JYSK</td>
-<td class="gt_row gt_right" headers="co2">454.0</td>
-<td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Furniture</td>
-<td class="gt_row gt_center"
-headers="location_description">Zwettl-Niederösterreich, Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Intersport</td>
-<td class="gt_row gt_right" headers="co2">474.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Sports</td>
-<td class="gt_row gt_center" headers="location_description">Neunkirchen,
-Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Hartliebs Bücher</td>
-<td class="gt_row gt_right" headers="co2">450.0</td>
-<td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Books</td>
-<td class="gt_row gt_center" headers="location_description">Wien,
-Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Imbiss M. Omran</td>
-<td class="gt_row gt_right" headers="co2">487.0</td>
-<td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Fast food</td>
-<td class="gt_row gt_center" headers="location_description">Leipzig,
-Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">H.W. Larsen</td>
-<td class="gt_row gt_right" headers="co2">452.0</td>
-<td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Kitchen</td>
-<td class="gt_row gt_center"
-headers="location_description">København,</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">C&amp;A</td>
-<td class="gt_row gt_right" headers="co2">463.0</td>
-<td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Clothes</td>
-<td class="gt_row gt_center" headers="location_description">Lübeck,
-Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">C&amp;A</td>
-<td class="gt_row gt_right" headers="co2">477.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Clothes</td>
-<td class="gt_row gt_center" headers="location_description">Lübeck,
-Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Imaging Praterstern</td>
-<td class="gt_row gt_right" headers="co2">456.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Doctors</td>
-<td class="gt_row gt_center" headers="location_description">Wien,
-Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">McDonald's</td>
-<td class="gt_row gt_right" headers="co2">495.0</td>
-<td class="gt_row gt_left" headers="windows">Closed</td>
-<td class="gt_row gt_left" headers="osmtag">Fast food</td>
-<td class="gt_row gt_center" headers="location_description">Wien,
-Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Mr. Miao</td>
-<td class="gt_row gt_right" headers="co2">491.0</td>
-<td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Fast food</td>
-<td class="gt_row gt_center" headers="location_description">Wien,
-Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Desi Dhaba</td>
-<td class="gt_row gt_right" headers="co2">497.0</td>
-<td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Restaurant</td>
-<td class="gt_row gt_center" headers="location_description">Wien,
-Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">MediaMarkt</td>
-<td class="gt_row gt_right" headers="co2">496.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Electronics</td>
-<td class="gt_row gt_center" headers="location_description">Leipzig,
-Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">H&amp;M</td>
-<td class="gt_row gt_right" headers="co2">478.5</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Clothes</td>
-<td class="gt_row gt_center" headers="location_description">Wien,
-Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Prince Street</td>
-<td class="gt_row gt_right" headers="co2">492.0</td>
-<td class="gt_row gt_left" headers="windows">Closed</td>
-<td class="gt_row gt_left" headers="osmtag">Station</td>
-<td class="gt_row gt_center" headers="location_description">New York,
-United States</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Wok it</td>
-<td class="gt_row gt_right" headers="co2">454.0</td>
-<td class="gt_row gt_left" headers="windows">Closed</td>
-<td class="gt_row gt_left" headers="osmtag">Restaurant</td>
-<td class="gt_row gt_center" headers="location_description">East
-Suffolk, United Kingdom</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Subway</td>
-<td class="gt_row gt_right" headers="co2">458.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Fast food</td>
-<td class="gt_row gt_center" headers="location_description">Leipzig,
-Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Karstadt (Galeria)</td>
-<td class="gt_row gt_right" headers="co2">454.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Department store</td>
-<td class="gt_row gt_center" headers="location_description">Nürnberg,
-Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Dr. med. Eva Hacker;Doris
-Krause</td>
-<td class="gt_row gt_right" headers="co2">497.0</td>
-<td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Doctors</td>
-<td class="gt_row gt_center" headers="location_description">Berlin,
-Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Apollo-Optik</td>
+<td class="gt_row gt_left" headers="name">Keramikscheune Ratingen</td>
 <td class="gt_row gt_right" headers="co2">499.0</td>
 <td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Optician</td>
-<td class="gt_row gt_center" headers="location_description">Nürnberg,
+<td class="gt_row gt_left" headers="osmtag">Interior decoration</td>
+<td class="gt_row gt_center" headers="location_description">Ratingen,
 Germany</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" headers="name">Rossmann</td>
-<td class="gt_row gt_right" headers="co2">489.0</td>
+<td class="gt_row gt_left" headers="name">Schopenhauer</td>
+<td class="gt_row gt_right" headers="co2">496.0</td>
 <td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Chemist</td>
-<td class="gt_row gt_center" headers="location_description">Berlin,
-Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Interspar</td>
-<td class="gt_row gt_right" headers="co2">476.0</td>
-<td class="gt_row gt_left" headers="windows">Closed</td>
-<td class="gt_row gt_left" headers="osmtag">Supermarket</td>
+<td class="gt_row gt_left" headers="osmtag">Cafe</td>
 <td class="gt_row gt_center" headers="location_description">Wien,
 Austria</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" headers="name">Bezirkshauptmannschaft
-Neunkirchen</td>
-<td class="gt_row gt_right" headers="co2">463.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Government</td>
-<td class="gt_row gt_center" headers="location_description">Neunkirchen,
-Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Hauptbücherei</td>
-<td class="gt_row gt_right" headers="co2">464.0</td>
+<td class="gt_row gt_left" headers="name">B.O.C.</td>
+<td class="gt_row gt_right" headers="co2">469.0</td>
 <td class="gt_row gt_left" headers="windows">Closed</td>
-<td class="gt_row gt_left" headers="osmtag">Library</td>
-<td class="gt_row gt_center" headers="location_description">Wien,
-Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">NYU Langone Health - Tisch
-Hospital</td>
-<td class="gt_row gt_right" headers="co2">481.5</td>
-<td class="gt_row gt_left" headers="windows">Closed</td>
-<td class="gt_row gt_left" headers="osmtag">Hospital</td>
-<td class="gt_row gt_center" headers="location_description">New York,
-United States</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Friedrich-Wennmann-Bad</td>
-<td class="gt_row gt_right" headers="co2">480.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Swimming pool</td>
-<td class="gt_row gt_center" headers="location_description">Mülheim an
-der Ruhr, Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Friedrich-Wennmann-Bad</td>
-<td class="gt_row gt_right" headers="co2">497.5</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Swimming pool</td>
-<td class="gt_row gt_center" headers="location_description">Mülheim an
-der Ruhr, Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Stadtbibliothek Göttingen</td>
-<td class="gt_row gt_right" headers="co2">498.0</td>
-<td class="gt_row gt_left" headers="windows">Closed</td>
-<td class="gt_row gt_left" headers="osmtag">Library</td>
+<td class="gt_row gt_left" headers="osmtag">Bicycle</td>
 <td class="gt_row gt_center" headers="location_description">Göttingen,
 Germany</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" headers="name">Bezirkszentralbibliothek
-Friedrichshain-Kreuzberg Pablo Neruda</td>
-<td class="gt_row gt_right" headers="co2">452.0</td>
+<td class="gt_row gt_left" headers="name">conne chicken &amp;
+burger</td>
+<td class="gt_row gt_right" headers="co2">495.0</td>
 <td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Library</td>
-<td class="gt_row gt_center" headers="location_description">Berlin,
+<td class="gt_row gt_left" headers="osmtag">Fast food</td>
+<td class="gt_row gt_center" headers="location_description">Leipzig,
 Germany</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" headers="name">Target</td>
-<td class="gt_row gt_right" headers="co2">429.0</td>
-<td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Department store</td>
-<td class="gt_row gt_center" headers="location_description">Albany,
-United States</td>
+<td class="gt_row gt_left" headers="name">Glasfabrik Antiquitäten</td>
+<td class="gt_row gt_right" headers="co2">457.0</td>
+<td class="gt_row gt_left" headers="windows">Open</td>
+<td class="gt_row gt_left" headers="osmtag">Antiques</td>
+<td class="gt_row gt_center" headers="location_description">Wien,
+Austria</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" headers="name">SVN Fitness Studio</td>
-<td class="gt_row gt_right" headers="co2">492.0</td>
+<td class="gt_row gt_left" headers="name">Tor B</td>
+<td class="gt_row gt_right" headers="co2">431.0</td>
+<td class="gt_row gt_left" headers="windows">Closed</td>
+<td class="gt_row gt_left" headers="osmtag"></td>
+<td class="gt_row gt_center" headers="location_description">Köln,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Fratelli</td>
+<td class="gt_row gt_right" headers="co2">459.5</td>
+<td class="gt_row gt_left" headers="windows">Unknown</td>
+<td class="gt_row gt_left" headers="osmtag">Restaurant</td>
+<td class="gt_row gt_center" headers="location_description">Delft,
+Netherlands</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Subway</td>
+<td class="gt_row gt_right" headers="co2">473.0</td>
 <td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Fitness centre</td>
+<td class="gt_row gt_left" headers="osmtag">Fast food</td>
+<td class="gt_row gt_center" headers="location_description">Leipzig,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Bipa</td>
+<td class="gt_row gt_right" headers="co2">435.0</td>
+<td class="gt_row gt_left" headers="windows">Unknown</td>
+<td class="gt_row gt_left" headers="osmtag">Chemist</td>
+<td class="gt_row gt_center" headers="location_description">Wien,
+Austria</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Blue Orange</td>
+<td class="gt_row gt_right" headers="co2">478.0</td>
+<td class="gt_row gt_left" headers="windows">Open</td>
+<td class="gt_row gt_left" headers="osmtag">Cafe</td>
+<td class="gt_row gt_center" headers="location_description">Wien,
+Austria</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Pommes Bub</td>
+<td class="gt_row gt_right" headers="co2">450.0</td>
+<td class="gt_row gt_left" headers="windows">Unknown</td>
+<td class="gt_row gt_left" headers="osmtag">Restaurant</td>
+<td class="gt_row gt_center" headers="location_description">Sömmerda,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Stern Döner</td>
+<td class="gt_row gt_right" headers="co2">494.0</td>
+<td class="gt_row gt_left" headers="windows">Open</td>
+<td class="gt_row gt_left" headers="osmtag">Fast food</td>
+<td class="gt_row gt_center" headers="location_description">Leipzig,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Radiologie Dortmund</td>
+<td class="gt_row gt_right" headers="co2">444.0</td>
+<td class="gt_row gt_left" headers="windows">Open</td>
+<td class="gt_row gt_left" headers="osmtag">Clinic</td>
+<td class="gt_row gt_center" headers="location_description">Dortmund,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Wiedigsburghalle</td>
+<td class="gt_row gt_right" headers="co2">496.5</td>
+<td class="gt_row gt_left" headers="windows">Unknown</td>
+<td class="gt_row gt_left" headers="osmtag">Sports hall</td>
+<td class="gt_row gt_center" headers="location_description">Nordhausen,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Wiedigsburghalle</td>
+<td class="gt_row gt_right" headers="co2">473.0</td>
+<td class="gt_row gt_left" headers="windows">Unknown</td>
+<td class="gt_row gt_left" headers="osmtag">Sports hall</td>
+<td class="gt_row gt_center" headers="location_description">Nordhausen,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Charles Kershaw Garden Centre
+&amp; Shopping Village</td>
+<td class="gt_row gt_right" headers="co2">472.0</td>
+<td class="gt_row gt_left" headers="windows">Unknown</td>
+<td class="gt_row gt_left" headers="osmtag">Garden centre</td>
+<td class="gt_row gt_center" headers="location_description">Calderdale,
+United Kingdom</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Minto</td>
+<td class="gt_row gt_right" headers="co2">495.0</td>
+<td class="gt_row gt_left" headers="windows">Unknown</td>
+<td class="gt_row gt_left" headers="osmtag">Mall</td>
+<td class="gt_row gt_center"
+headers="location_description">Mönchengladbach, Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">The Crate Escape</td>
+<td class="gt_row gt_right" headers="co2">469.5</td>
+<td class="gt_row gt_left" headers="windows">Unknown</td>
+<td class="gt_row gt_left" headers="osmtag">Alcohol</td>
+<td class="gt_row gt_center" headers="location_description">Kirklees,
+United Kingdom</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Carrefour Express</td>
+<td class="gt_row gt_right" headers="co2">481.0</td>
+<td class="gt_row gt_left" headers="windows">Unknown</td>
+<td class="gt_row gt_left" headers="osmtag">Convenience</td>
+<td class="gt_row gt_center"
+headers="location_description">Castelldefels, Spain</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">Friedrich-Wennmann-Bad</td>
+<td class="gt_row gt_right" headers="co2">493.0</td>
+<td class="gt_row gt_left" headers="windows">Unknown</td>
+<td class="gt_row gt_left" headers="osmtag">Swimming pool</td>
+<td class="gt_row gt_center" headers="location_description">Mülheim an
+der Ruhr, Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">C&amp;A</td>
+<td class="gt_row gt_right" headers="co2">490.0</td>
+<td class="gt_row gt_left" headers="windows">Open</td>
+<td class="gt_row gt_left" headers="osmtag">Clothes</td>
+<td class="gt_row gt_center" headers="location_description">Göttingen,
+Germany</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" headers="name">dm</td>
+<td class="gt_row gt_right" headers="co2">496.0</td>
+<td class="gt_row gt_left" headers="windows">Unknown</td>
+<td class="gt_row gt_left" headers="osmtag">Chemist</td>
 <td class="gt_row gt_center" headers="location_description">München,
 Germany</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" headers="name">Lowe's</td>
-<td class="gt_row gt_right" headers="co2">489.0</td>
-<td class="gt_row gt_left" headers="windows">Closed</td>
-<td class="gt_row gt_left" headers="osmtag">Doityourself</td>
-<td class="gt_row gt_center" headers="location_description">San Jose,
-United States</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Wöhrl</td>
-<td class="gt_row gt_right" headers="co2">497.0</td>
+<td class="gt_row gt_left" headers="name">Prik &amp; Tik Arendonk</td>
+<td class="gt_row gt_right" headers="co2">496.0</td>
 <td class="gt_row gt_left" headers="windows">Unknown</td>
-<td class="gt_row gt_left" headers="osmtag">Clothes</td>
-<td class="gt_row gt_center" headers="location_description">Nürnberg,
-Germany</td>
+<td class="gt_row gt_left" headers="osmtag">Beverages</td>
+<td class="gt_row gt_center" headers="location_description">Arendonk,
+Belgium</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" headers="name">Las Palmas Taco Bar</td>
+<td class="gt_row gt_left" headers="name">Deutsches Marinemuseum</td>
 <td class="gt_row gt_right" headers="co2">475.0</td>
-<td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Restaurant</td>
-<td class="gt_row gt_center" headers="location_description">Santa Cruz,
-United States</td>
+<td class="gt_row gt_left" headers="windows">Unknown</td>
+<td class="gt_row gt_left" headers="osmtag">Museum</td>
+<td class="gt_row gt_center"
+headers="location_description">Wilhelmshaven,</td>
 </tr>
 <tr>
-<td class="gt_row gt_left" headers="name">VKJ-Kinderhaus
-Wunschbrunnen</td>
-<td class="gt_row gt_right" headers="co2">461.0</td>
+<td class="gt_row gt_left" headers="name">KiTa Purzelbaum</td>
+<td class="gt_row gt_right" headers="co2">453.0</td>
 <td class="gt_row gt_left" headers="windows">Unknown</td>
 <td class="gt_row gt_left" headers="osmtag">Kindergarten</td>
-<td class="gt_row gt_center" headers="location_description">Essen,
-Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">OBI</td>
-<td class="gt_row gt_right" headers="co2">435.5</td>
-<td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Doityourself</td>
-<td class="gt_row gt_center"
-headers="location_description">Zwettl-Niederösterreich, Austria</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Modepark Röther</td>
-<td class="gt_row gt_right" headers="co2">480.0</td>
-<td class="gt_row gt_left" headers="windows">Closed</td>
-<td class="gt_row gt_left" headers="osmtag">Clothes</td>
-<td class="gt_row gt_center" headers="location_description">Tuttlingen,
-Germany</td>
-</tr>
-<tr>
-<td class="gt_row gt_left" headers="name">Conne-Pizza</td>
-<td class="gt_row gt_right" headers="co2">457.5</td>
-<td class="gt_row gt_left" headers="windows">Open</td>
-<td class="gt_row gt_left" headers="osmtag">Restaurant</td>
-<td class="gt_row gt_center" headers="location_description">Leipzig,
+<td class="gt_row gt_center" headers="location_description">Berlin,
 Germany</td>
 </tr>
 </tbody>
@@ -754,7 +559,7 @@ stable trends show up.
 
 Here’s a histogram showing how many measurements have been recorded each
 week since the start of the project. Over the last 12 months there have
-been 11055 building measurements which is 921 per month or 213 per
+been 10791 building measurements which is 899 per month or 208 per
 week.<sup>**cr-allhist?**</sup>
 
 <div id="cr-allhist">
@@ -774,10 +579,10 @@ style="width:100.0%" />
 
 <div class="cr-section">
 
-This month there were 252 measurements of 139 unique transit lines. The
-most measured transit line was subway U6 in the U-Bahn Wien transit
-network in Wien, Austria (min: 454, mean: 714, max: 1190), which was
-measured 21 times.
+This month there were 205 measurements of 120 unique transit lines. The
+most measured transit line was subway U6: Floridsdorf =\> Siebenhirten
+in the U-Bahn Wien transit network in Wien, Austria (min: 465, mean:
+712, max: 1462), which was measured 18 times.
 
 <div id="cr-transitcount">
 
