@@ -436,3 +436,150 @@ transition_time(day) +
     axis.text = element_text(size = 12),
     axis.title = element_text(size = 14)
   )
+
+
+# london opticians -------------------------------------------------------
+geocode_and_join <- function(x) {
+  x_geo <-
+    geocode_buildings_or_transit(x) |>
+    dplyr::rowwise() |>
+    sf::st_as_sf(
+      coords = c("X", "Y"),
+      crs = sf::st_crs(x)
+    )
+
+  x <- sf::st_join(
+    x,
+    x_geo,
+    left = TRUE,
+    largest = TRUE
+  ) |>
+    dplyr::ungroup()
+
+  return(x)
+}
+
+london_sf <- sf::st_read(
+  # here::here("data/raw/london.geojson")
+  "/Users/samherniman/projects/indoor_co2_map/data/raw/london.geojson"
+)
+
+lon_sf <- sf::st_intersection(buildings_wide_df, london_sf)
+lon_sf <-
+  lon_sf |>
+  dplyr::filter(
+    # co2readings > 410,
+    osmtag %in% c("pharmacy", "chemist")
+  ) |>
+  geocode_and_join()
+
+buildings_long_df <- autocruller::ac_unnest_longer(lon_sf)
+
+test <-
+  buildings_long_df |>
+  dplyr::filter(
+    co2readings > 410
+  ) |>
+  # dplyr::rowwise() |>
+  dplyr::mutate(
+    address = paste(
+      house_number,
+      road,
+      quarter,
+      suburb,
+      postcode,
+      sep = ", "
+    ) |>
+      stringr::str_remove_all("NA, ")
+  ) |>
+  dplyr::group_by(combined_id, nwrname) |>
+  dplyr::summarise(
+    # borough = dplyr::first(borough),
+    med_co2 = median(co2readings, na.rm = TRUE),
+    max_co2 = max(co2readings, na.rm = TRUE),
+    n_measurements = dplyr::n_distinct(obs_number),
+    address = dplyr::first(address)
+  )
+
+test |>
+  dplyr::ungroup() |>
+  dplyr::select(-combined_id) |>
+  gt() |>
+  row_order(med_co2) |>
+  # tab_header(title = "Measurements under 500 ppm") |>
+  cols_label(
+    nwrname = "Shop",
+    med_co2 = "Median CO2 ppm",
+    max_co2 = "Maximum CO2 ppm",
+    n_measurements = "Number of times measured",
+    address = "Address"
+    # windows = "Windows",
+    # osmtag = "Building type",
+    # location_description = "Location"
+  ) |>
+  tab_options(
+    table_body.hlines.width = 0
+  )
+
+
+# how many sub 410s are there --------------------------------------------
+
+source(here::here("functions/functions.R"))
+
+library(duckplyr)
+buildings_wide_df <- autocruller::ac_get_co2("web")
+
+buildings_long_df <- autocruller::ac_unnest_longer(buildings_wide_df)
+
+test <-
+  buildings_long_df |>
+  dplyr::group_by(obs_number) |>
+  dplyr::summarise(
+    n_below = sum(co2readings < 410),
+    n_all = dplyr::n(),
+    percent_below = n_below / n_all
+  ) |>
+  dplyr::filter(
+    # n_below > 0
+    percent_below > 0.3
+  )
+hist(test$percent_below)
+
+test2 <- buildings_long_df |>
+  dplyr::filter(
+    obs_number %in%
+      c(
+        19480,
+        20817,
+        14851,
+        6709,
+        16124,
+        8731,
+        8167,
+        9405,
+        225,
+        1100,
+        7969,
+        12976,
+        14898,
+        12477,
+        15617,
+        13533,
+        18503,
+        22450,
+        2524,
+        23374,
+        23829,
+        21197,
+        7608,
+        11022,
+        20307,
+        15015,
+        22023,
+        572,
+        9569,
+        15175,
+        17068,
+        24037
+      )
+  )

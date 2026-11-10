@@ -101,10 +101,11 @@ simplify_layer <- function(
 }
 library(osmdata)
 set_overpass_url("https://overpass-api.de/api/interpreter")
-communities_sf <- sf::st_read(here::here("data/raw/communities.gpkg")) |>
-  dplyr::rename(community_name = name) |>
-  dplyr::filter(community_name == "Woodbridge") |>
-  sf::st_make_valid()
+communities_sf <- sf::st_read(here::here("data/raw/belgium.gpkg"))
+# communities_sf <- sf::st_read(here::here("data/raw/communities.gpkg")) |>
+#   dplyr::rename(community_name = name) |>
+#   dplyr::filter(community_name == "Woodbridge") |>
+#   sf::st_make_valid()
 transit <- get_osm_transit(communities_sf)
 ## st_write(transit, "transit_combined.gpkg", delete_dsn = TRUE)
 stops <- transit |>

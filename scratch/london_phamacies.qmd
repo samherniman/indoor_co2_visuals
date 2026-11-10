@@ -1,0 +1,118 @@
+---
+title: "Untitled"
+format: gfm
+---
+
+```{r}
+source(here::here("functions/functions.R"))
+library(duckplyr)
+buildings_wide_df <- autocruller::ac_get_co2("web") 
+# saveRDS(buildings_wide_df, here::here("buildings_wide_df.rds"))
+# buildings_wide_df <- readRDS(here::here("buildings_wide_df.rds"))
+
+buildings_wide_df <- sf::st_join(buildings_wide_df, world_sf)
+
+buildings_wide_df <- 
+  buildings_wide_df |> 
+  dplyr::rowwise() |>
+    dplyr::mutate(
+      best_country_name = name_ciawf %||% 
+        brk_name %||%
+        name_en %||%
+        admin %||%
+        name %||%
+        countryname
+    ) 
+
+buildings_wide_df <- sf::st_join(
+  buildings_wide_df,
+  communities_sf,
+  left = TRUE
+  )
+geocode_and_join <- function(x) {
+  x_geo <-
+    geocode_buildings_or_transit(x) |>
+    dplyr::rowwise() |>
+    sf::st_as_sf(
+      coords = c("X", "Y"),
+      crs = sf::st_crs(x)
+    )
+
+  x <- sf::st_join(
+    x,
+    x_geo,
+    left = TRUE,
+    largest = TRUE
+  ) |>
+    dplyr::ungroup()
+
+  return(x)
+}
+
+london_sf <- sf::st_read(
+  # here::here("data/raw/london.geojson")
+  "/Users/samherniman/projects/indoor_co2_map/data/raw/london.geojson"
+)
+
+lon_sf <- sf::st_intersection(buildings_wide_df, london_sf)
+lon_sf <-
+  lon_sf |>
+  dplyr::filter(
+    # co2readings > 410,
+    osmtag %in% c("pharmacy", "chemist")
+  ) |>
+  geocode_and_join()
+
+buildings_long_df <- autocruller::ac_unnest_longer(lon_sf)
+
+test <-
+  buildings_long_df |>
+  dplyr::filter(
+    co2readings > 410
+  ) |>
+  # dplyr::rowwise() |>
+  dplyr::mutate(
+    address = paste(
+      house_number,
+      road,
+      quarter,
+      suburb,
+      postcode,
+      sep = ", "
+    ) |>
+      stringr::str_remove_all("NA, ")
+  ) |>
+  dplyr::group_by(combined_id, nwrname) |>
+  dplyr::summarise(
+    # borough = dplyr::first(borough),
+    med_co2 = median(co2readings, na.rm = TRUE),
+    max_co2 = max(co2readings, na.rm = TRUE),
+    n_measurements = dplyr::n_distinct(obs_number),
+    address = dplyr::first(address)
+  ) 
+
+```
+
+
+```{r}
+
+test |>
+  dplyr::ungroup() |>
+  dplyr::select(-combined_id) |>
+  gt() |>
+  row_order(med_co2) |> 
+  # tab_header(title = "Measurements under 500 ppm") |>
+  cols_label(
+    nwrname = "Shop",
+    med_co2 = "Median CO2 ppm",
+    max_co2 = "Maximum CO2 ppm",
+    n_measurements = "Number of times measured",
+    address = "Address"
+    # windows = "Windows",
+    # osmtag = "Building type",
+    # location_description = "Location"
+  ) |>
+  tab_options(
+    table_body.hlines.width = 0
+  )
+```
